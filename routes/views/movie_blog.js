@@ -1,7 +1,7 @@
 var keystone = require('keystone');
 var async = require('async');
-var Post = keystone.list('Post');
-var PostCategory = keystone.list('PostCategory');
+var Movie = keystone.list('Movie');
+var MovieCategory = keystone.list('MovieCategory');
 
 exports = module.exports = function (req, res) {
 
@@ -9,7 +9,7 @@ exports = module.exports = function (req, res) {
 	var locals = res.locals;
 
 	// Init locals
-	locals.section = 'blog';
+	locals.section = 'movie_blog';
 	locals.filters = {
 		category: req.params.category,
 	};
@@ -19,7 +19,7 @@ exports = module.exports = function (req, res) {
 	// Load all categories
 	view.on('init', function (next) {
 
-		PostCategory.model.find().sort('name').exec(function (err, results) {
+		MovieCategory.model.find().sort('name').exec(function (err, results) {
 
 			if (err || !results.length) {
 				return next(err);
@@ -30,7 +30,7 @@ exports = module.exports = function (req, res) {
 			// Load the counts for each category
 			async.each(locals.categories, function (category, next) {
 
-				keystone.list('Post').model.count().where('state', 'published').where('categories').in([category.id]).exec(function (err, count) {
+				keystone.list('Movie').model.count().where('state', 'published').where('categories').in([category.id]).exec(function (err, count) {
 					category.postCount = count;
 					next(err);
 				});
@@ -46,7 +46,7 @@ exports = module.exports = function (req, res) {
 	// Load the current category filter
 	view.on('init', function (next) {
 		if (req.params.category) {
-			PostCategory.model.findOne({ key: locals.filters.category }).exec(function (err, result) {
+			MovieCategory.model.findOne({ key: locals.filters.category }).exec(function (err, result) {
 				locals.category = result;
 				next(err);
 			});
@@ -55,10 +55,10 @@ exports = module.exports = function (req, res) {
 		}
 	});
 
-	// Load the posts
+	// Load the movies
 	view.on('init', function (next) {
 
-		var q = Post.paginate({
+		var q = Movie.paginate({
 				page: req.query.page || 1,
  				perPage: 10,
  				maxPages: 10,
@@ -72,12 +72,12 @@ exports = module.exports = function (req, res) {
 		}
 
 		q.exec(function (err, results) {
-			locals.posts = results;
+			locals.movies = results;
 			next(err);
 		});
 
 	});
 
 	// Render the view
-	view.render('blog');
+	view.render('movie_blog');
 }

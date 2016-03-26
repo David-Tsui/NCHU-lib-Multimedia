@@ -1,0 +1,19 @@
+mixin movie(movie)
+	article(data-ks-editable=editable(user, { list: 'Movie', id: movie.id })).media
+		.media-left
+			a(href='/movie_blog/movie/' + movie.key)
+				if movie.image.exists
+					img(src=movie._.image.fit(80,80)).media-object
+				else
+					img(src="http://placehold.it/80x80").media-object
+		.media-body
+			h3.media-heading
+				a(href='/movie_blog/movie/' + movie.key)= movie.name
+			if movie.publishedDate || movie.author
+				p.text-muted.text-small
+					if movie.publishedDate
+						time= movie._.publishedDate.format('MMMM Do, YYYY')
+						|  
+					if movie.author
+						span by #{movie.author.name.full}
+			!= movie.content.brief
