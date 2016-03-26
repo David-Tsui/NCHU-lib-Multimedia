@@ -1,0 +1,150 @@
+include ../mixins/flash-messages
+
+doctype html
+html
+	head
+		if env === 'production'
+			script.
+				var _sf_startpt=(new Date()).getTime()
+		
+		meta(charset="utf-8")
+		meta(name="viewport", content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width")
+		
+		title= title || 'Keystone Demo'
+		link(rel="shortcut icon", href="/favicon.ico", type="image/x-icon")
+		link(href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,600,700', rel='stylesheet')
+		link(href="/styles/themes/" + currentTheme + ".min.css", rel="stylesheet")
+		
+		if user && user.canAccessKeystone
+			link(href="/keystone/styles/content/editor.min.css", rel="stylesheet")
+		
+		block css
+		block head
+	body
+		nav.navbar.navbar-default.navbar-fixed-top
+			.container
+				.navbar-header
+					button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#navbar-collapse', aria-expanded='false')
+						span.sr-only Toggle navigation
+						span.icon-bar
+						span.icon-bar
+						span.icon-bar
+					a.navbar-brand(href='/') 多媒體中心
+				.collapse.navbar-collapse#navbar-collapse
+					ul.nav.navbar-nav.navbar-left
+						li.dropdown
+							a.dropdown-toggle(href="#", data-toggle="dropdown", role="button", aria-haspopup="true", aria-expanded="false")
+								| 多媒體中心介紹 
+								span.caret
+							ul.dropdown-menu
+								li: a(href="/news") 最新消息
+								li: a(href="/intro") 中心介紹
+								li: a(href="/rules") 相關規則
+						li.dropdown
+							a.dropdown-toggle(href="#", data-toggle="dropdown", role="button", aria-haspopup="true", aria-expanded="false")
+								| 愛創聯盟 
+								span.caret
+							ul.dropdown-menu
+								li: a(href="/makers/intro") 愛創者聯盟簡介
+								li: a(href="/makers/organization") 愛創者聯盟人員
+								li: a(href="/makers/curriculums") 愛創者課程
+								li: a(href="/makers/activities") 愛創者活動
+						li.dropdown
+							a.dropdown-toggle(href="#", data-toggle="dropdown", role="button", aria-haspopup="true", aria-expanded="false")
+								| 網路資源 
+								span.caret
+							ul.dropdown-menu
+								li: a(href="/web-resources/mac-app") Mac應用資源
+								li: a(href="/web-resources/free-pics") 免費圖片資源
+								li: a(href="/web-resources/free-broad") 免費廣播資源
+								li: a(href="/web-resources/software-class") 電腦軟體課程
+								li: a(href="/web-resources/TED") TED(倒了)
+						li.dropdown
+							a.dropdown-toggle(href="#", data-toggle="dropdown", role="button", aria-haspopup="true", aria-expanded="false")
+								| 看電影 
+								span.caret
+							ul.dropdown-menu
+								li: a(href="/movies/new") 新進影音
+								li: a(href="/movies/topic") 主題影展
+								li: a(href="/movies/assignment") 教師指定教材
+								li: a(href='/movies/hito') 熱門影音排行榜
+								li: a(href='/movies/category') 影片分類
+								li: a(href='/movies/old-collection') 舊視聽館藏搶先報
+						li.dropdown
+							a.dropdown-toggle(href="#", data-toggle="dropdown", role="button", aria-haspopup="true", aria-expanded="false")
+								| 玩創意 
+								span.caret
+							ul.dropdown-menu
+								li: a(href="/idea/board-games") 玩桌遊
+								li: a(href="/idea/line-sticker") Line貼圖徵選活動
+						each link in navLinks
+							li(class=(section === link.key ? 'active' : null)): a(href=link.href)= link.label
+					ul.nav.navbar-nav.navbar-right
+						//- if themes && themes.length
+						//- 	li.dropdown
+						//- 		a.dropdown-toggle(href="#", data-toggle="dropdown", role="button", aria-haspopup="true", aria-expanded="false")
+						//- 			| Themes 
+						//- 			span.caret
+						//- 		ul.dropdown-menu
+						//- 			each theme in themes
+						//- 				li(class=currentTheme === theme ? 'active' : '')
+						//- 					a(href='?theme=' + theme)= theme
+						if user
+							li: a(href='/keystone') 管理者介面
+							li: a(href='/keystone/signout') 登出
+							//- li: a(href='/keystone') Admin UI
+							//- li: a(href='/keystone/signout') Sign out
+						else
+							li: a(href='/keystone/signin') 管理
+							//- li: a(href='/keystone/signin') Sign in
+		.container
+			//- intro
+			block intro
+			//- messages
+			+flash-messages(messages)
+			//- content
+			block content
+			//- footer
+			.site-footer: .container.text-center
+				p Copyright &copy; 2015 Jed Watson. All rights reserved.
+				p: a(href="https://twitter.com/keystonejs", class="twitter-follow-button", data-show-count="false", data-size="large") Follow @keystonejs
+		
+		script.
+			!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+
+		//- scripts
+		script(src='/js/lib/jquery/jquery-1.10.2.min.js')
+		script(src='/js/lib/bootstrap/collapse.js')
+		script(src='/js/lib/bootstrap/dropdown.js')
+		script.
+			$('body')[0].style.paddingTop = $('.navbar').height() + 30 + 'px';
+	
+		if user && user.canAccessKeystone
+			script(src='/keystone/js/content/editor.js')
+			
+		block page-js
+		
+		if env === 'production'
+			script.
+				(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+				(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+				m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+				})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+				ga('create', '#{ga_property}', '#{ga_domain}');
+				ga('send', 'pageview');
+			script.
+				var _sf_async_config = { uid: #{chartbeat_property}, domain: '#{chartbeat_domain}', useCanonical: true };
+				(function() {
+					function loadChartbeat() {
+						window._sf_endpt = (new Date()).getTime();
+						var e = document.createElement('script');
+						e.setAttribute('language', 'javascript');
+						e.setAttribute('type', 'text/javascript');
+						e.setAttribute('src','//static.chartbeat.com/js/chartbeat.js');
+						document.body.appendChild(e);
+					};
+					var oldonload = window.onload;
+					window.onload = (typeof window.onload != 'function') ?
+					loadChartbeat : function() { oldonload(); loadChartbeat(); };
+				})();
