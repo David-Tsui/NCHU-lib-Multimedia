@@ -2,8 +2,8 @@ var keystone = require('keystone');
 
 keystone.init({
 
-	'name': 'Keystone Demo',
-	'brand': 'Demo',
+	'name': '管理者介面',
+	'brand': 'Admin',
 
 	'favicon': 'public/favicon.ico',
 	'less': 'public',
@@ -45,12 +45,12 @@ keystone.set('locals', {
 keystone.set('routes', require('./routes'));
 
 keystone.set('nav', {
-	'posts': ['posts', 'post-comments', 'post-categories'],
-	'movies': ['movies', 'movie-categories'],
-	'galleries': 'galleries',
-	'enquiries': 'enquiries',
-	'users': 'users',
-	'field-tests': 'things'
+	'文章': ['posts', 'post-comments', 'post-categories'],
+	'電影': ['movies', 'movie-categories'],
+	'管理員': 'users',
+	// 'galleries': 'galleries',
+	// 'enquiries': 'enquiries',
+	// 'field-tests': 'things'
 });
 
 keystone.start();
