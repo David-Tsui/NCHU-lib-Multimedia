@@ -23,11 +23,11 @@ block content
 							strong #{movies.total}
 							|  movies
 					else
-						//- .lead.text-muted Showing #{utils.plural(movies.results.length, '* post')}
+						//- .lead.text-muted Showing #{utils.plural(movies.results.length, '* movie')}
 						.lead.text-muted 共有 #{movies.results.length} 部電影
 					.blog
-						each post in movies.results
-							+post(post)
+						each movie in movies.results
+							+movie(movie)
 					if movies.totalPages > 1
 						ul.pagination
 							if movies.previous
@@ -60,5 +60,5 @@ block content
 						li(role="presentation" class=category && category.id === cat.id ? 'active' : null)
 							a(href='/blog/' + cat.key)
 								=cat.name
-								if cat.postCount
-									span.badge.pull-right= cat.postCount
+								if cat.movieCount
+									span.badge.pull-right= cat.movieCount
