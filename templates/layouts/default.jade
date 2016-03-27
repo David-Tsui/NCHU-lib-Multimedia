@@ -13,7 +13,8 @@ html
 		title= title || 'Keystone Demo'
 		link(rel="shortcut icon", href="/favicon.ico", type="image/x-icon")
 		link(href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,600,700', rel='stylesheet')
-		link(href="/styles/themes/" + currentTheme + ".min.css", rel="stylesheet")
+		link(href="/styles/themes/bootstrap.min.css", rel="stylesheet")
+		link(href="/styles/css/style.css", rel="stylesheet")
 		
 		if user && user.canAccessKeystone
 			link(href="/keystone/styles/content/editor.min.css", rel="stylesheet")
@@ -23,62 +24,26 @@ html
 	body
 		nav.navbar.navbar-default.navbar-fixed-top
 			.container
-				.navbar-header
-					button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#navbar-collapse', aria-expanded='false')
-						span.sr-only Toggle navigation
-						span.icon-bar
-						span.icon-bar
-						span.icon-bar
-					a.navbar-brand(href='/') 多媒體中心
+				//- .navbar-header
+				//- 	button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#navbar-collapse', aria-expanded='false')
+				//- 		span.sr-only Toggle navigation
+				//- 		span.icon-bar
+				//- 		span.icon-bar
+				//- 		span.icon-bar
+				//- 	a.navbar-brand(href='/') 多媒體中心
 				.collapse.navbar-collapse#navbar-collapse
 					ul.nav.navbar-nav.navbar-left
-						li.dropdown
-							a.dropdown-toggle(href="#", data-toggle="dropdown", role="button", aria-haspopup="true", aria-expanded="false")
-								| 多媒體中心介紹 
-								span.caret
-							ul.dropdown-menu
-								li: a(href="/news") 最新消息
-								li: a(href="/intro") 中心介紹
-								li: a(href="/rules") 相關規則
-						li.dropdown
-							a.dropdown-toggle(href="#", data-toggle="dropdown", role="button", aria-haspopup="true", aria-expanded="false")
-								| 愛創聯盟 
-								span.caret
-							ul.dropdown-menu
-								li: a(href="/makers/intro") 愛創者聯盟簡介
-								li: a(href="/makers/organization") 愛創者聯盟人員
-								li: a(href="/makers/curriculums") 愛創者課程
-								li: a(href="/makers/activities") 愛創者活動
-						li.dropdown
-							a.dropdown-toggle(href="#", data-toggle="dropdown", role="button", aria-haspopup="true", aria-expanded="false")
-								| 網路資源 
-								span.caret
-							ul.dropdown-menu
-								li: a(href="/web-resources/mac-app") Mac應用資源
-								li: a(href="/web-resources/free-pics") 免費圖片資源
-								li: a(href="/web-resources/free-broad") 免費廣播資源
-								li: a(href="/web-resources/software-class") 電腦軟體課程
-								li: a(href="/web-resources/TED") TED(倒了)
-						li.dropdown
-							a.dropdown-toggle(href="#", data-toggle="dropdown", role="button", aria-haspopup="true", aria-expanded="false")
-								| 看電影 
-								span.caret
-							ul.dropdown-menu
-								li: a(href="/movies/new") 新進影音
-								li: a(href="/movies/topic") 主題影展
-								li: a(href="/movies/assignment") 教師指定教材
-								li: a(href='/movies/hito') 熱門影音排行榜
-								li: a(href='/movies/category') 影片分類
-								li: a(href='/movies/old-collection') 舊視聽館藏搶先報
-						li.dropdown
-							a.dropdown-toggle(href="#", data-toggle="dropdown", role="button", aria-haspopup="true", aria-expanded="false")
-								| 玩創意 
-								span.caret
-							ul.dropdown-menu
-								li: a(href="/idea/board-games") 玩桌遊
-								li: a(href="/idea/line-sticker") Line貼圖徵選活動
 						each link in navLinks
-							li(class=(section === link.key ? 'active' : null)): a(href=link.href)= link.label
+							if link.nested 
+								li.dropdown
+									a.dropdown-toggle(href="#", data-toggle="dropdown", role="button", aria-haspopup="true", aria-expanded="false")= link.label
+										span.caret
+									ul.dropdown-menu
+										each subLink in link.subnav
+											li(class=(section === subLink.key ? 'active' : null)): a(href=subLink.href)= subLink.label	
+							else 
+								li(class=(section === link.key ? 'active' : null)): a(href=link.href)= link.label	
+												
 					ul.nav.navbar-nav.navbar-right
 						//- if themes && themes.length
 						//- 	li.dropdown
