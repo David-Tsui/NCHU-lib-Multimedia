@@ -19,8 +19,8 @@ Movie.add({
 	videoTime: { type: String },
 	inDate: { type: Types.Date },
 	content: {
-		brief: { type: Types.Html, wysiwyg: true, height: 300 },
-		// extended: { type: Types.Html, wysiwyg: true, height: 400 },
+		brief: { type: Types.Html, wysiwyg: true, height: 200 },
+		extended: { type: Types.Html, wysiwyg: true, height: 600 },
 	},
 	categories: { type: Types.Relationship, ref: 'MovieCategory', many: true },
 });

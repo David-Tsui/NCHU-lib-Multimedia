@@ -1,3 +1,59 @@
-.dropdown:hover .dropdown-menu {
-  display: block;
-  margin-top: 0; }
+body {
+  background: url(/images/5_elegant_BW_spotlight_background.png) center center/cover no-repeat;
+  background-attachment: fixed;
+  position: static; }
+
+.main-container {
+  padding: 2rem 4rem 100px 4rem !important;
+  min-height: calc(100vh - 90px - 1rem); }
+
+.main-footer {
+  position: relative;
+  width: 100%;
+  height: 100px;
+  margin-top: -100px;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.5);
+  text-align: center; }
+
+button.mdl-color--primary {
+  color: white; }
+
+.button-back {
+  position: absolute;
+  left: 1rem;
+  top: 4rem; }
+
+#navbar {
+  width: 75%;
+  height: 90px;
+  background: transparent;
+  font-size: 1.2rem; }
+  #navbar .item.visible, #navbar .item:hover, #navbar .item:active {
+    background: transparent; }
+
+.mdl-card {
+  width: 100%; }
+  .mdl-card .mdl-card__title {
+    color: #fff; }
+  .mdl-card .mdl-card__title.mdl-card--expand {
+    padding: 0;
+    margin: auto; }
+    .mdl-card .mdl-card__title.mdl-card--expand img {
+      width: 100%; }
+
+table.mdl-data-table {
+  width: 100%; }
+  table.mdl-data-table caption {
+    margin-bottom: 1rem; }
+
+.ui.segment.movie-intro {
+  border-radius: 0;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }
+
+@media only screen and (max-width: 768px) {
+  .image-box {
+    margin: auto;
+    text-align: center; }
+    .image-box img {
+      width: 50%; } }

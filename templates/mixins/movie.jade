@@ -1,19 +1,31 @@
 mixin movie(movie)
-	article(data-ks-editable=editable(user, { list: 'Movie', id: movie.id })).media
-		.media-left
-			a(href='/movie_blog/movie/' + movie.key)
-				if movie.image.exists
-					img(src=movie._.image.fit(80,80)).media-object
-				else
-					img(src="http://placehold.it/80x80").media-object
-		.media-body
-			h3.media-heading
-				a(href='/movie_blog/movie/' + movie.key)= movie.name
-			if movie.publishedDate || movie.author
-				p.text-muted.text-small
-					if movie.publishedDate
-						time= movie._.publishedDate.format('MMMM Do, YYYY')
-						|  
-					if movie.author
-						span by #{movie.author.name.full}
+	article(data-ks-editable=editable(user, { list: 'Movie', id: movie.id }))
+	.mdl-card.mdl-shadow--4dp
+		.mdl-card__title.mdl-card--expand
+			img(src=movie._.image.fit(320,320)).media-object
+		.mdl-card__supporting-text
+			h4= movie.name	
 			!= movie.content.brief
+		.mdl-card__actions.mdl-card--border
+			a.mdl-button.mdl-button--colored.mdl-js-button.mdl-js-ripple-effect(href='/movie_blog/movie/' + movie.key)
+				| 瀏覽內容
+			if movie.publishedDate
+				time= movie._.publishedDate.format('MMMM Do, YYYY')
+	//- .media
+	//- 	.media-left
+	//- 		a(href='/movie_blog/movie/' + movie.key)
+	//- 			if movie.image.exists
+	//- 				img(src=movie._.image.fit(160,160)).media-object
+	//- 			else
+	//- 				img(src="http://placehold.it/80x80").media-object
+	//- 	.media-body
+	//- 		h3.media-heading
+	//- 			a(href='/movie_blog/movie/' + movie.key)= movie.name
+	//- 		if movie.publishedDate || movie.author
+	//- 			p.text-muted.text-small
+	//- 				if movie.publishedDate
+	//- 					time= movie._.publishedDate.format('MMMM Do, YYYY')
+	//- 					|  
+	//- 				if movie.author
+	//- 					span by #{movie.author.name.full}
+	//- 		!= movie.content.brief

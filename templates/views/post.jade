@@ -8,10 +8,11 @@ block content
 			h2 文章不存在!
 			p.lead 請檢查網址並再次嘗試...
 	else
-		.row
-			.col-md-8.col-md-offset-2
-				p: a(href='/blog').text-muted &larr; back to the blog
-				hr
+		.ui.container
+			.ui.centered.grid(style="position: relative")
+				aside
+					a(href="/blog") 
+						button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-color--primary.button-back 回文章總覽
 				article
 					header
 						h1= post.name
@@ -32,7 +33,7 @@ block content
 										else
 											|  
 								if post.author
-									| by #{post.author.name.full}
+									|  by #{post.author.name.full}
 						hr
 						!= post.content.full
 					//-comments

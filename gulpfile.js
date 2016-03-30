@@ -8,7 +8,7 @@ var gulp = require('gulp'),
 gulp.task('watch', function () {
 	gulpLivereload.listen();
   gulp.watch('public/styles/scss/**/*.scss', ['styles']);
-  // gulp.watch('./templates/**/*.jade', ['jade']);
+  gulp.watch('./templates/**/*.jade', ['jade']);
   // gulp.watch('assets/app.js', ['es6']);
   // gulp.watch('javascript/original/*.js', ['scripts']);
 });

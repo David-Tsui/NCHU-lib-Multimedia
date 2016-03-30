@@ -1,8 +1,91 @@
+$navbar-height: 90px;
+$prepare-height: 100px;
+
 body {
-	// background: pink;
+	background: url(/images/5_elegant_BW_spotlight_background.png) center center / cover no-repeat;
+	background-attachment: fixed;
+	position: static;
+	// padding-bottom: $prepare-height;
 }
 
-.dropdown:hover .dropdown-menu {
-  display: block;
-  margin-top: 0; // remove the gap so it doesn't close
+// grid layout
+.main-container {
+	padding: 2rem 4rem $prepare-height 4rem !important;
+	min-height: calc(100vh - #{$navbar-height} - 1rem);
+}
+
+.main-footer {
+	position: relative;
+	width: 100%;
+	height: $prepare-height;
+	margin-top: -$prepare-height;
+	padding: 1.5rem;
+	background: rgba(255,255,255,.5);
+	text-align: center;
+}
+
+button.mdl-color--primary {
+	color: white;
+}
+
+// 回上頁的按鈕
+.button-back {
+	position: absolute;
+  left: 1rem;
+  top: 4rem;
+}
+
+// 導覽列
+#navbar {
+	width: 75%;
+	height: $navbar-height;
+	background: transparent;
+	font-size: 1.2rem;
+	// box-shadow: none;
+	& .item {
+		&.visible, &:hover, &:active {
+			background: transparent;
+		}
+	}
+}
+
+// 影音blog
+
+// 影音card
+.mdl-card {
+	width: 100%;
+  // height: 600px;
+  & .mdl-card__title {
+  	color: #fff;
+  }
+  & .mdl-card__title.mdl-card--expand {
+  	padding: 0;
+  	margin: auto;
+  	& img {
+  		width: 100%;
+  	}
+  }
+}
+
+// 單一影音
+table.mdl-data-table {
+	width: 100%;
+	& caption {
+		margin-bottom: 1rem;
+	}
+}
+
+.ui.segment.movie-intro {
+	border-radius: 0;
+	box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
+}
+
+@media only screen and (max-width: 768px) {
+	.image-box {
+		margin: auto;
+		text-align: center;
+		& img  {
+			width: 50%;
+		}
+	}
 }

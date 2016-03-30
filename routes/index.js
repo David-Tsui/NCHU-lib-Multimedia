@@ -182,8 +182,6 @@ exports = module.exports = function (app) {
 	app.all('/blog/post/:post', routes.views.post);
 	app.get('/movie_blog/:category?', routes.views.movie_blog);
 	app.get('/movie_blog/movie/:movie', routes.views.movie);
-	// app.get('/gallery', routes.views.gallery);
-	// app.all('/contact', routes.views.contact);
 
 	// Downloads
 	app.get('/download/users', routes.download.users);

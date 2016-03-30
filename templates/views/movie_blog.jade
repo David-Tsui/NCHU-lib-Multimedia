@@ -2,13 +2,17 @@ extends ../layouts/default
 
 include ../mixins/movie
 block content
-	.page-header
-		if user
-			a(href='/keystone/movies?new').btn.btn-default.pull-right= '新電影'
-		//- a(href='/keystone/movies?new').btn.btn-default.pull-right= user ? 'Write Post' : 'Sign in to Write Post'
-		h1=category ? category.name : 'Movie_blog'
-	.row
-		.col-sm-8
+	.ui.grid.main-container
+		.ui.fourteen.wide.column
+			aside
+				a(href="/") 
+					button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-color--primary= '回首頁'
+				if user
+					a(href='/keystone/movies?new') 
+						button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-color--primary= '新電影'
+			h2=category ? category.name : '影片總覽'
+				//- a(href='/keystone/movies?new').btn.btn-default.pull-right= user ? 'Write Post' : 'Sign in to Write Post'
+				//- h1=category ? category.name : 'Movie_blog'
 			if filters.category && !category
 				//- h3 No such category!
 				h3 分類不存在!
@@ -24,10 +28,12 @@ block content
 							|  movies
 					else
 						//- .lead.text-muted Showing #{utils.plural(movies.results.length, '* movie')}
-						.lead.text-muted 共有 #{movies.results.length} 部電影
-					.blog
-						each movie in movies.results
-							+movie(movie)
+						h4 共有 #{movies.results.length} 部電影
+					.ui.grid
+						.ui.four.column.row
+							each movie in movies.results
+								.column
+									+movie(movie)
 					if movies.totalPages > 1
 						ul.pagination
 							if movies.previous
@@ -48,17 +54,17 @@ block content
 					else
 						.jumbotron.text-center
 							h3(style="margin-bottom:0;margin-top:0;") There are no movies yet.
-		.col-sm-4
+		.ui.two.wide.column
 			if categories.length
 				//- .lead.text-muted Category
 				.lead.text-muted 電影分類
 				ul.nav.nav-pills.nav-stacked
 					li(class=!category ? 'active' : null)
 						//- a(href='/blog') All
-						a(href='/blog') 全部
+						a(href='/movie_blog') 全部
 					each cat in categories
 						li(role="presentation" class=category && category.id === cat.id ? 'active' : null)
-							a(href='/blog/' + cat.key)
+							a(href='/movie_blog/' + cat.key)
 								=cat.name
 								if cat.movieCount
 									span.badge.pull-right= cat.movieCount

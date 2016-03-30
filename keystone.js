@@ -13,7 +13,7 @@ keystone.init({
 	'view engine': 'jade',
 
 	'auto update': true,
-	'mongo': process.env.MONGO_URI || process.env.MONGOLAB_URI || 'mongodb://localhost/keystone-demo',
+	'mongo': process.env.MONGO_URI || process.env.MONGOLAB_URI || 'mongodb://localhost/nchu-lib',
 	'cloudinary config': 'cloudinary://723239137287229:-_LsiFvvJIExNQv6FWakiPiLSAA@nchu-lib',
 
 	'session': true,
@@ -45,12 +45,13 @@ keystone.set('locals', {
 keystone.set('routes', require('./routes'));
 
 keystone.set('nav', {
-	'文章': ['posts', 'post-comments', 'post-categories'],
-	'電影': ['movies', 'movie-categories'],
-	'管理員': 'users',
-	// 'galleries': 'galleries',
-	// 'enquiries': 'enquiries',
-	// 'field-tests': 'things'
+	'多媒體中心': ['media', 'media-categories'],
+	'愛創聯盟': ['makers', 'maker-categories'],
+	'網路資源': ['resources', 'resource-categories'],
+	'看電影': ['movies', 'movie-categories'],
+	'玩創意': ['ideas', 'idea-categories'],
+	'所有文章': ['posts', 'post-comments', 'post-categories'],
+	'管理員': 'users'
 });
 
 keystone.start();

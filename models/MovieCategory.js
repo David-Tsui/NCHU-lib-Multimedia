@@ -10,7 +10,7 @@ MovieCategory.add({
 	name: { type: String, required: true },
 });
 
-MovieCategory.relationship({ ref: 'Video', refPath: 'categories' });
+MovieCategory.relationship({ ref: 'Movie', refPath: 'categories' });
 
 MovieCategory.track = true;
 MovieCategory.register();
