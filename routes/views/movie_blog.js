@@ -13,7 +13,7 @@ exports = module.exports = function (req, res) {
 	locals.filters = {
 		category: req.params.category,
 	};
-	locals.posts = [];
+	locals.movies = [];
 	locals.categories = [];
 
 	// Load all categories
@@ -31,7 +31,7 @@ exports = module.exports = function (req, res) {
 			async.each(locals.categories, function (category, next) {
 
 				keystone.list('Movie').model.count().where('state', 'published').where('categories').in([category.id]).exec(function (err, count) {
-					category.postCount = count;
+					category.movieCount = count;
 					next(err);
 				});
 

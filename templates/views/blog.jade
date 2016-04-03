@@ -3,15 +3,15 @@ extends ../layouts/default
 include ../mixins/post
 block content
 	.ui.grid.main-container
-		.ui.twelve.wide.column
-			header
-				h2=category ? category.name : '文章總覽'
+		.ui.thirteen.wide.column
 			aside
 				a(href="/") 
 					button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-color--primary= '回首頁'
 				if user
 					a(href='/keystone/posts?new')
 						button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-color--primary= '新文章'
+			header
+				h2=category ? category.name : '文章總覽'
 			main
 				if filters.category && !category
 					//- h3 No such category!
@@ -53,17 +53,13 @@ block content
 						else
 							.jumbotron.text-center
 								h3(style="margin-bottom:0;margin-top:0;") There are no posts yet.
-		.ui.four.wide.column
+		.ui.three.wide.column
 			if categories.length
-				//- .lead.text-muted Category
-				.lead.text-muted 文章分類
-				ul.nav.nav-pills.nav-stacked
-					li(class=!category ? 'active' : null)
-						//- a(href='/blog') All
+				h4 電影分類
+				ul.mdl-list
+					li.mdl-list__item
 						a(href='/blog') 全部
 					each cat in categories
-						li(role="presentation" class=category && category.id === cat.id ? 'active' : null)
+						li.mdl-list__item
 							a(href='/blog/' + cat.key)
-								=cat.name
-								if cat.postCount
-									span.badge.pull-right= cat.postCount
+								span.mdl-badge(data-badge=cat.postCount)= cat.name

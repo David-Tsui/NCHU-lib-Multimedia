@@ -8,14 +8,16 @@ html
 				var _sf_startpt=(new Date()).getTime()
 		
 		meta(charset="utf-8")
-		meta(name="viewport", content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width")
+		//- meta(name="viewport", content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width")
 		
-		title= title || 'Keystone Demo'
+		title= title || '多媒體中心'
 		link(rel="shortcut icon", href="/favicon.ico", type="image/x-icon")
 		link(href='https://fonts.googleapis.com/icon?family=Material+Icons', rel='stylesheet')
 		link(href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,600,700', rel='stylesheet')
 		link(href='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/semantic.min.css', rel='stylesheet')
 		link(href='https://code.getmdl.io/1.1.3/material.teal-indigo.min.css', rel='stylesheet')
+		link(href='/owl.carousel/owl.carousel.css', rel="stylesheet")
+		link(href='/owl.carousel/owl.theme.default.min.css', rel="stylesheet")
 		link(href="/styles/css/style.css", rel="stylesheet")
 		
 		if user && user.canAccessKeystone
@@ -24,6 +26,19 @@ html
 		block css
 		block head
 	body
+		button.btn-nav
+			.bar.arrow-top-r
+			.bar.arrow-middle-r
+			.bar.arrow-bottom-r
+		nav.nav-container.hidden.hideNav
+			ul.nav-list
+				li.list-item
+					a(href='http://www.jqueryscript.net/menu/') Menu
+					|  Item 1
+				li.list-item Menu Item 2
+				li.list-item Menu Item 3
+				li.list-item Menu Item 4
+				li.list-item Menu Item 5
 		.ui.grid.nav-grid.nav-wrap
 			.computer.tablet.only.centered.row
 				.ui.secondary.menu#navbar
@@ -56,6 +71,7 @@ html
 		block content
 		//- footer
 		footer.main-footer
+			-footer
 			p Copyright &copy; 2016 中興大學圖書館
 			p: a(href="http://www.lib.nchu.edu.tw/", class="twitter-follow-button", data-show-count="false", data-size="large") 圖書館網站
 		
@@ -66,9 +82,9 @@ html
 		script(src='/js/lib/jquery/jquery-2.1.4.min.js')
 		script(src='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/semantic.min.js')
 		script(src='https://code.getmdl.io/1.1.3/material.min.js' defer)  
-		script(src='/js/main.js')
-		//- script(src='/js/lib/bootstrap/collapse.js')
-		//- script(src='/js/lib/bootstrap/dropdown.js')
+		//- script(src='/owl.carousel/owl.carousel.min.js')
+		script(src='/cool.carousel/jquery.carouFredSel-6.0.4.js')
+		script(src='/js/min/main.js')
 	
 		if user && user.canAccessKeystone
 			script(src='/keystone/js/content/editor.js')

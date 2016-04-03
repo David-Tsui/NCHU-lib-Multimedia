@@ -1,3 +1,3 @@
 ##中興大學多媒體中心平台
 以KeystoneJs作為後台
-前端以Jade為engine，搭配多component的semantic UI及material design的Material Design Lite來架設前端介面
+前端以Jade為engine，搭配多component的semantic UI及material design的Material Design Lite來架設前端介面。

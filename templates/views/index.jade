@@ -1,14 +1,18 @@
 extends ../layouts/default
+include ../mixins/carousel
 
 block content
-	.ui.centered.grid.main-container
-		.ui.ten.wide.column
-			button.mdl-button.mdl-js-button.mdl-button--fab.mdl-js-ripple-effect.mdl-button--primary
-				i.material-icons add
-		.ui.six.wide.column
-			.ui.segment
-				h3 最新消息
-				p 測試中測試中測試中測試中測試中測試中測試中測試中
-			
+	.ui.grid.main-container
+		.row
+			.ui.thirteen.wide.column
+				aside
 
-	
+				header
+					h2= '最新消息'
+						
+			.ui.three.wide.column
+		.row
+			.ui.sixteen.wide.column.carousel-container
+				main
+					+carousel(movies)
+			

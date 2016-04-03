@@ -7,7 +7,7 @@ block content
 			h2 電影不存在!
 			p.lead 請檢查網址並再次嘗試...
 	else
-		.ui.container
+		.ui.container.main-container
 			.ui.centered.grid(style="position: relative")
 				aside
 					a(href="/movie_blog") 
@@ -44,7 +44,7 @@ block content
 									td= movie._.inDate.format('MMMM D, YYYY')
 								tr
 									th 影片分類
-									td!= movie._.categories.name
+									td!= movie.categories._name
 					.column
 						section.ui.segment.movie-intro.mdl-shadow--2dp
 							h3 影片簡介

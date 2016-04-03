@@ -8,9 +8,9 @@ var gulp = require('gulp'),
 gulp.task('watch', function () {
 	gulpLivereload.listen();
   gulp.watch('public/styles/scss/**/*.scss', ['styles']);
+  gulp.watch('public/js/main.js', ['scripts']);
   gulp.watch('./templates/**/*.jade', ['jade']);
   // gulp.watch('assets/app.js', ['es6']);
-  // gulp.watch('javascript/original/*.js', ['scripts']);
 });
 
 gulp.task('jade', function() { /* 一直在compile error */
@@ -34,19 +34,19 @@ gulp.task('styles', function () {
 		.pipe(gulpLivereload());
 });
 
-/*gulp.task('es6', () =>
-  gulp.src('src/app.js')
-  	.pipe(gulpPlumber())
-    .pipe(babel({
-        presets: ['es2015']
-    }))
-    .pipe(gulp.dest('dist'))
-);
+// gulp.task('es6', () =>
+//   gulp.src('src/app.js')
+//   	.pipe(gulpPlumber())
+//     .pipe(babel({
+//       presets: ['es2015']
+//     }))
+//     .pipe(gulp.dest('dist'))
+// );
 
-gulp.task('scripts', () =>
-  gulp.src('javascript/original/*.js')
+gulp.task('scripts', function() {
+  gulp.src('public/js/main.js')
   	.pipe(gulpPlumber())      
     .pipe(gulpUglify())                     
-    .pipe(gulp.dest('javascript/minify')); 
+    .pipe(gulp.dest('public/js/min'))
     .pipe(gulpLivereload());
-);*/
+});
