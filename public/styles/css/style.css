@@ -1,5 +1,5 @@
 body {
-  background: url(/images/5_elegant_BW_spotlight_background.png) center center/cover no-repeat;
+  background: url(/images/black-background-11.jpg) center center/cover no-repeat;
   background-attachment: fixed;
   position: static; }
 
@@ -21,6 +21,9 @@ body {
 button.mdl-color--primary {
   color: white; }
 
+.scrollbar-inner > .scroll-element .scroll-bar {
+  background-color: #222; }
+
 .button-back {
   position: absolute;
   left: 1rem;
@@ -31,11 +34,41 @@ button.mdl-color--primary {
   height: 90px;
   background: transparent;
   font-size: 1.2rem; }
-  #navbar .item.visible, #navbar .item:hover, #navbar .item:active {
-    background: transparent; }
+  #navbar .item {
+    color: #fff; }
+    #navbar .item.visible, #navbar .item:hover, #navbar .item:active {
+      background: transparent; }
 
 .carousel-container {
+  display: flex;
+  align-items: center;
   overflow: hidden; }
+  .carousel-container #carousel {
+    width: 100%;
+    height: 360px; }
+  .carousel-container #inner {
+    position: absolute;
+    display: flex;
+    flex-wrap: nowrap; }
+    .carousel-container #inner .content {
+      width: 220px;
+      margin: 0 30px;
+      background: transparent;
+      line-height: auto;
+      float: left; }
+      .carousel-container #inner .content img {
+        width: 220px;
+        height: auto; }
+      .carousel-container #inner .content:hover {
+        box-shadow: #fff 0 0 10px 0; }
+  .carousel-container .top {
+    top: 0px; }
+  .carousel-container .bottom {
+    bottom: 0px; }
+  .carousel-container .left {
+    left: 0px; }
+  .carousel-container .right {
+    right: 0px; }
 
 .mdl-card {
   width: 100%;
@@ -51,14 +84,38 @@ button.mdl-color--primary {
   .mdl-card .mdl-card__supporting-text {
     width: 100%;
     min-height: 250px;
-    max-height: 250px;
-    overflow-y: auto; }
+    max-height: 250px; }
+    .mdl-card .mdl-card__supporting-text .scrollable-text.scrollbar-inner {
+      min-height: 170px;
+      max-height: 170px;
+      overflow-y: auto;
+      padding-right: 1rem; }
   .mdl-card .mdl-card__actions.mdl-card--border {
     display: flex;
     align-items: center;
     justify-content: space-between; }
     .mdl-card .mdl-card__actions.mdl-card--border time {
       padding: 0 16px; }
+
+.pagination {
+  list-style-type: none;
+  width: 100%; }
+  .pagination li {
+    display: inline-block;
+    font-size: 1.2rem;
+    padding: 0 10px;
+    line-height: 30px;
+    border-radius: 2px;
+    text-align: center; }
+    .pagination li i {
+      font-size: 2.2rem;
+      vertical-align: middle; }
+    .pagination li a {
+      color: #444; }
+    .pagination li.active {
+      background-color: #ee6e73; }
+      .pagination li.active a {
+        color: #fff; }
 
 table.mdl-data-table {
   width: 100%; }
@@ -68,111 +125,6 @@ table.mdl-data-table {
 .ui.segment.movie-intro {
   border-radius: 0;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }
-
-.nav-container {
-  position: absolute;
-  right: 0;
-  top: 0;
-  background: #CD5334;
-  height: 100%;
-  width: 150px; }
-
-.nav-list {
-  cursor: pointer;
-  list-style-type: none;
-  top: 50%;
-  text-align: center;
-  position: relative;
-  margin: 0;
-  padding: 0;
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  -o-transform: translateY(-50%);
-  transform: translateY(-50%); }
-
-.list-item {
-  margin: 20px auto;
-  border: 2px solid #fff;
-  width: 50px;
-  padding: 15px;
-  -webkit-transition: all 1s ease;
-  -moz-transition: all 1s ease;
-  -ms-transition: all 1s ease;
-  -o-transition: all 1s ease;
-  transition: all 1s ease; }
-
-.list-item:hover {
-  border: 2px solid #17BEBB;
-  -webkit-transition: all 1s ease;
-  -moz-transition: all 1s ease;
-  -ms-transition: all 1s ease;
-  -o-transition: all 1s ease;
-  transition: all 1s ease; }
-
-@keyframes
-showNav {
-  from {
-    right: -100%; }
-  to {
-    right: 0; } }
-
-@-webkit-keyframes
-showNav {
-  from {
-    right: -100%; }
-  to {
-    right: 0; } }
-
-@-moz-keyframes
-showNav {
-  from {
-    right: -100%; }
-  to {
-    right: 0; } }
-
-@-o-keyframes
-showNav {
-  from {
-    right: -100%; }
-  to {
-    right: 0; } }
-
-.showNav {
-  -webkit-animation: showNav .5s ease forwards;
-  -moz-animation: showNav 1s ease forwards;
-  -o-animation: showNav 1s ease forwards;
-  animation: showNav .5s ease forwards; }
-
-@keyframes hideNav {
-  from {
-    right: 0; }
-  to {
-    right: -100%; } }
-
-@-webkit-keyframes hideNav {
-  from {
-    right: 0; }
-  to {
-    right: -100%; } }
-
-@-moz-keyframes hideNav {
-  from {
-    right: 0; }
-  to {
-    right: -100%; } }
-
-@-o-keyframes hideNav {
-  from {
-    right: 0; }
-  to {
-    right: -100%; } }
-
-.hideNav {
-  -webkit-animation: hideNav 1s ease forwards;
-  -moz-animation: hideNav 1s ease forwards;
-  -o-animation: hideNav 1s ease forwards;
-  animation: hideNav 1s ease forwards; }
 
 button {
   background: none;

@@ -25,8 +25,18 @@ keystone.init({
 	'ga domain': process.env.GA_DOMAIN,
 
 	'chartbeat property': process.env.CHARTBEAT_PROPERTY,
-	'chartbeat domain': process.env.CHARTBEAT_DOMAIN
-
+	'chartbeat domain': process.env.CHARTBEAT_DOMAIN,
+	'wysiwyg override toolbar': false,
+	'wysiwyg menubar': true,
+	'wysiwyg skin': 'lightgray',
+	'wysiwyg additional buttons': 'searchreplace visualchars,'
+	 + ' charmap ltr rtl pagebreak paste, forecolor backcolor,'
+	 +' emoticons media, preview print ',
+	'wysiwyg additional plugins': 'table, anchor,'
+	 + ' autolink, autosave, charmap, contextmenu, '
+	 + ' directionality, emoticons, fullpage, hr, media, pagebreak,'
+	 + ' paste, preview, print, searchreplace, textcolor,'
+	 + ' visualblocks, visualchars'
 });
 
 keystone.import('models');

@@ -13,14 +13,14 @@ Movie.add({
 	publishedDate: { type: Types.Date, index: true },
 	image: { type: Types.CloudinaryImage },
 	director: { type: String },
-	actor: { type: String },
+	actor: { type: Types.Html, wysiwyg: true, height: 150 },
 	link: { type: String },
-	classfication: { type: String },
+	classfication: { type: Types.Select, options: '普遍級, 保護級, 輔導級, 限制級' },
 	videoTime: { type: String },
 	inDate: { type: Types.Date },
 	content: {
-		brief: { type: Types.Html, wysiwyg: true, height: 200 },
-		extended: { type: Types.Html, wysiwyg: true, height: 600 },
+		brief: { type: Types.Html, wysiwyg: true, height: 150 },
+		extended: { type: Types.Html, wysiwyg: true, height: 500 },
 	},
 	categories: { type: Types.Relationship, ref: 'MovieCategory', many: true },
 });

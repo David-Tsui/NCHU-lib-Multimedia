@@ -1,8 +1,9 @@
 mixin carousel(movies)
 	//- article(data-ks-editable=editable(user, { list: 'Movie', id: movie.id }))
 	#carousel
-		each movie in movies
-			.item
-				a(href="movie_blog/movie/" + movie.key class="ui medium image")
-					img(src=movie._.image.fit(320,320))
+		#inner
+			each movie in movies
+				.content
+					a(href="movie_blog/movie/" + movie.key class="ui medium image")
+						img(src=movie._.image.fit(320,320))
 

@@ -9,6 +9,7 @@ Post.add({
 	name: { type: String, required: true },
 	state: { type: Types.Select, options: 'draft, published, archived', default: 'draft', index: true },
 	author: { type: Types.Relationship, ref: 'User', index: true },
+	createdAt: { type: Date, default: Date.now },
 	publishedDate: { type: Types.Date, index: true },
 	image: { type: Types.CloudinaryImage },
 	content: {

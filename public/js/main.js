@@ -1,8 +1,6 @@
 $(document).ready(function() {
-	
+	$('.scrollbar-inner').scrollbar();
 	$(".btn-nav").on("click tap", function() {
-		console.log("click");
-	  $(".nav-container").toggleClass("showNav hideNav").removeClass("hidden");
     $(this).toggleClass("animated");
   });
 
@@ -11,48 +9,35 @@ $(document).ready(function() {
 		duration: 150
 	});
 
-	var $c = $('#carousel'), $w = $(window);
-
-	$c.carouFredSel({
-		align: false,
-		items: 8,
-		scroll: {
-			items: 1,
-			duration: 5000,
-			timeoutDuration: 0,
-			easing: 'linear',
-			// pauseOnHover: '10'
-		}
+	$('#carousel > #inner').loopmovement({
+		'direction':'left', 	
+		'speed': 15
 	});
-
-	
-	// $w.bind('resize.example', function() {
-	// 	var nw = $w.width();
-	// 	if (nw < 990) {
-	// 		nw = 990;
-	// 	}
-
-	// 	$c.width(nw * 3);
-	// 	$c.parent().width(nw);
-
-	// }).trigger('resize.example');
-
-	// $('.owl-carousel').owlCarousel({
- //    loop:true,
- //    margin:5,
- //    responsive:{
- //        0:{
- //            items:1
- //        },
- //        600:{
- //            items:2
- //        },
- //        1000:{
- //            items:4
- //        }
- //    },
- //    autoplay: true,
-	// 	autoplayTimeout: 2500,
-	// 	autoplayHoverPause: true
-	// })
+	// carousel
+	// var $carousel = $('#carousel-list');
+ //  var items = $carousel.children().length;
+ //  var itemsWidth = (items * 220); // width for each item 
+ //  $carousel.css('width', itemsWidth);
+  
+ //  var rotating = true;
+ //  var speed = 0;
+ //  var playCarousel = setInterval(rotateCarousel, speed);
+  
+ //  $("#carousel li a").mouseenter(function() {
+ //  	rotating = false; // turn off rotation when hovering
+ //  }).mouseleave(function(event) {
+ //  	rotating = true;
+ //  });
+  
+ //  function rotateCarousel() {
+ //  	var $first = $('#carousel-list li:first');
+ //    if (rotating) {
+ //      $first.animate({ 'margin-left': '-260px'}, 5000, "linear",function() {
+ //        $first.remove().css({ 'margin-left': '0px' });
+ //        $('#carousel-list li:last').after($first);
+ //      });
+ //    } else {
+ //    	$first.stop();
+ //    }
+ //  }
 });

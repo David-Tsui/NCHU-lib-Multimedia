@@ -17,34 +17,34 @@ block content
 			else
 				if movies.results.length
 					if movies.totalPages > 1
-						.lead.text-muted Showing 
-							strong #{movies.first}
-							|  to 
-							strong #{movies.last}
-							|  of 
+						h5
+							| 顯示共
 							strong #{movies.total}
-							|  movies
+							| 項結果中的
+							strong #{movies.first}
+							| 至
+							strong #{movies.last}
+							| 項
 					else
 						//- .lead.text-muted Showing #{utils.plural(movies.results.length, '* movie')}
 						h4 共有 #{movies.results.length} 部電影
 					.ui.grid
-						.ui.four.column.row
-							each movie in movies.results
-								.column
-									+movie(movie)
+						each movie in movies.results
+							.four.wide.column
+								+movie(movie)
 					if movies.totalPages > 1
 						ul.pagination
 							if movies.previous
-								li: a(href='?page=' + movies.previous): span.glyphicon.glyphicon-chevron-left
+								li: a(href='?page=' + movies.previous): i.material-icons chevron_left
 							else
-								li.disabled: a(href='?page=' + 1): span.glyphicon.glyphicon-chevron-left
+								li.disabled: i.material-icons chevron_left
 							each p, i in movies.pages
 								li(class=movies.currentPage === p ? 'active' : null)
 									a(href='?page=' + (p === '...' ? (i ? movies.totalPages : 1) : p ))= p
 							if movies.next
-								li: a(href='?page=' + movies.next): span.glyphicon.glyphicon-chevron-right
+								li: a(href='?page=' + movies.next): i.material-icons chevron_right
 							else
-								li.disabled: a(href='?page=' + movies.totalPages): span.glyphicon.glyphicon-chevron-right
+								li.disabled: i.material-icons chevron_right
 				else
 					if category
 						.jumbotron.text-center

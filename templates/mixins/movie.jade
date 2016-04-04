@@ -4,8 +4,9 @@ mixin movie(movie)
 		.mdl-card__title.mdl-card--expand
 			img(src=movie._.image.fit(320,320))
 		.mdl-card__supporting-text
-			h4= movie.name	
-			!= movie.content.brief
+			h4= movie.name
+			.scrollable-text.scrollbar-inner
+				!= movie.content.brief
 		.mdl-card__actions.mdl-card--border
 			a.mdl-button.mdl-button--colored.mdl-js-button.mdl-js-ripple-effect(href='/movie_blog/movie/' + movie.key)
 				| 瀏覽內容

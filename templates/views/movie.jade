@@ -24,27 +24,29 @@ block content
 									img(src=movie.image.url)
 							tbody
 								tr
-									th 導演
+									td.mdl-data-table__cell--non-numeric 導演
 									td= movie.director
 								tr
-									th 演員
-									td= movie.actor
+									td.mdl-data-table__cell--non-numeric 演員
+									td!= movie.actor
 								tr
-									th 館藏連結
+									td.mdl-data-table__cell--non-numeric 館藏連結
 									td
 										a(href=movie.link) 連結
 								tr
-									th 分級
+									td.mdl-data-table__cell--non-numeric 分級
 									td= movie.classfication
 								tr
-									th 片長
+									td.mdl-data-table__cell--non-numeric 片長
 									td= movie.videoTime
 								tr
-									th 進館日
-									td= movie._.inDate.format('MMMM D, YYYY')
+									td.mdl-data-table__cell--non-numeric 進館日
+									td= movie._.inDate.format('M月 D日, YYYY')
 								tr
-									th 影片分類
-									td!= movie.categories._name
+									td.mdl-data-table__cell--non-numeric 影片分類
+									td
+										each category in movie.categories
+											.ui.label= category.name
 					.column
 						section.ui.segment.movie-intro.mdl-shadow--2dp
 							h3 影片簡介
