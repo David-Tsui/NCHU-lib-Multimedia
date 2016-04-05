@@ -1,5 +1,5 @@
 mixin post(post)
-	//- article(data-ks-editable=editable(user, { list: 'Post', id: post.id })).media
+	article(data-ks-editable=editable(user, { list: 'Post', id: post.id }))
 	.item.mdl-shadow--2dp
 		.image
 			img(src=post._.image.fit(120,120))
@@ -12,20 +12,3 @@ mixin post(post)
 			.meta
 				a(href='/blog/post/' + post.key)
 					button.mdl-button.mdl-js-button.mdl-js-ripple-effect.mdl-color--primary= '查看'
-		//- .media-left
-		//- 	a(href='/blog/post/' + post.key)
-		//- 		if post.image.exists
-		//- 			img(src=post._.image.fit(80,80)).media-object
-		//- 		else
-		//- 			img(src="http://placehold.it/80x80").media-object
-		//- .media-body
-		//- 	h3.media-heading
-		//- 		a(href='/blog/post/' + post.key)= post.name
-		//- 	if post.publishedDate || post.author
-		//- 		p.text-muted.text-small
-		//- 			if post.publishedDate
-		//- 				time= post._.publishedDate.format('MMMM Do, YYYY')
-		//- 				|  
-		//- 			if post.author
-		//- 				span by #{post.author.name.full}
-		//- 	!= post.content.brief

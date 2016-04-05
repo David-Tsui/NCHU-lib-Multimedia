@@ -10,7 +10,7 @@ body {
 
 // grid layout
 .main-container {
-	padding: 2rem 4rem $prepare-height 4rem !important;
+	padding: 2rem 4rem calc(10px + #{$prepare-height}) 4rem !important;
 	min-height: calc(100vh - #{$navbar-height} - 1rem);
 	& aside {
 		margin-bottom: 2rem;
@@ -74,18 +74,16 @@ button.mdl-color--primary {
     & .content {
       width: 220px;
       margin: 0 30px;
+      padding-top: 15px;
       & img {
         width: 220px;
         height: auto;
-      }
-      
+        &:hover {
+          box-shadow: #fff 0 0 25px 1px;
+        }
+      }  
       background: transparent;
-      line-height: auto;
-      // padding: 0 20px;
-      float: left;
-      &:hover {
-        box-shadow: #fff 0 0 10px 0;
-      }
+      float: left; 
     }
   }
 
@@ -98,7 +96,48 @@ button.mdl-color--primary {
   & .right { right: 0px; }
 }
 
+// news 
+.main-container.news-box {
+  padding: 0 4rem calc(10px + #{$prepare-height}) 4rem !important;
+}
 
+.news-item {
+  text-align: initial;
+  & .content {
+    padding: 1rem 1.5rem;
+    & .title {
+      text-align: center;
+    }
+  }
+
+  &.horizontal {
+    & .ui.image {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      & img {
+        width: 100%;
+      }
+    }
+  }
+  &.vertical {
+    display: flex;
+    & .ui.image {
+      flex: 1;
+      // display: flex;
+      // align-items: center;
+      // justify-content: center;
+
+      & img {
+        width: 100%;
+        height: 540px;
+      }
+    }
+    & .content {
+      flex: 1;
+    }
+  }
+}
 
 // 影音blog
 

@@ -31,12 +31,12 @@ keystone.init({
 	'wysiwyg skin': 'lightgray',
 	'wysiwyg additional buttons': 'searchreplace visualchars,'
 	 + ' charmap ltr rtl pagebreak paste, forecolor backcolor,'
-	 +' emoticons media, preview print ',
+	 +' emoticons media, preview print, image imagetools',
 	'wysiwyg additional plugins': 'table, anchor,'
 	 + ' autolink, autosave, charmap, contextmenu, '
 	 + ' directionality, emoticons, fullpage, hr, media, pagebreak,'
 	 + ' paste, preview, print, searchreplace, textcolor,'
-	 + ' visualblocks, visualchars'
+	 + ' visualblocks, visualchars, image imagetools'
 });
 
 keystone.import('models');
@@ -55,10 +55,11 @@ keystone.set('locals', {
 keystone.set('routes', require('./routes'));
 
 keystone.set('nav', {
-	'多媒體中心': ['media', 'media-categories'],
-	'愛創聯盟': ['makers', 'maker-categories'],
-	'網路資源': ['resources', 'resource-categories'],
-	'看電影': ['movies', 'movie-categories'],
+	'多媒體中心': ['news-posts', 'news-post-categories'],
+	'愛創聯盟': ['maker-posts', 'maker-post-categories'],
+	'網路資源': ['resources-posts', 'resources-post-categories'],
+	// '看電影': ['movie-posts', 'movie-posts-categories'],
+	'影片': ['movies', 'movie-categories'],
 	'玩創意': ['ideas', 'idea-categories'],
 	'所有文章': ['posts', 'post-comments', 'post-categories'],
 	'管理員': 'users'

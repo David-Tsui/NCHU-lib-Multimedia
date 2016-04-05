@@ -1,5 +1,5 @@
 var keystone = require('keystone');
-var Maker = keystone.list('Maker');
+var Maker = keystone.list('MakerPost');
 // var MakerComment = keystone.list('MakerComment');
 
 exports = module.exports = function (req, res) {

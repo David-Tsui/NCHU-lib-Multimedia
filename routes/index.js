@@ -178,11 +178,21 @@ exports = module.exports = function (app) {
 
 	// Views
 	app.get('/', routes.views.index);
-	// app.get()
+	app.get('/media_post/news', routes.views.news);
+	app.get('/media_post/intro', routes.views.news);
+	app.get('/media_post/rules', routes.views.news);
+	app.get('/media_post', routes.views.news);
+
 	app.get('/blog/:category?', routes.views.blog);
 	app.all('/blog/post/:post', routes.views.post);
 	app.get('/movie_blog/:category?', routes.views.movie_blog);
 	app.get('/movie_blog/movie/:movie', routes.views.movie);
+
+	app.get('/news/:category?', routes.views.news);
+	app.get('/news/:news', routes.views.news);
+
+	// app.get('/movie_blog/:category?', routes.views.movie_blog);
+	// app.get('/movie_blog/movie/:movie', routes.views.movie);
 
 	// Downloads
 	app.get('/download/users', routes.download.users);

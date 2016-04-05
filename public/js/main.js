@@ -1,5 +1,48 @@
 $(document).ready(function() {
 	$('.scrollbar-inner').scrollbar();
+	
+	var $flipster = $(".coverflow")
+	$flipster.flipster({
+		itemContainer: 'ul',
+    itemSelector: 'li',
+    start: '0',
+    loop: false,
+
+    autoplay: false,
+    pauseOnHover: true,
+
+    style: 'coverflow',
+    spacing: -0.6,
+    // [number]
+    // Space between items relative to each item's width. 0 for no spacing, negative values to overlap
+
+    click: true,
+    keyboard: true,
+    scrollwheel: false,
+    touch: true,
+
+    nav: false,
+    buttons: true,
+    // [true|false|'custom']
+    // If true, Flipster will insert Previous / Next buttons with SVG arrows
+    // If 'custom', Flipster will not insert the arrows and will instead use the values of `buttonPrev` and `buttonNext`
+
+    buttonPrev: 'Previous',
+    // [text|html]
+    // Changes the text for the Previous button
+
+    buttonNext: 'Next',
+    // [text|html]
+    // Changes the text for the Next button
+
+    onItemSwitch: false
+    // [function]
+    // Callback function when items are switched
+    // Arguments received: [currentItem, previousItem]
+	});
+	// $flipster.flipster('index');
+	$flipster.flipster('jump', 0);
+
 	$(".btn-nav").on("click tap", function() {
     $(this).toggleClass("animated");
   });
@@ -13,31 +56,4 @@ $(document).ready(function() {
 		'direction':'left', 	
 		'speed': 15
 	});
-	// carousel
-	// var $carousel = $('#carousel-list');
- //  var items = $carousel.children().length;
- //  var itemsWidth = (items * 220); // width for each item 
- //  $carousel.css('width', itemsWidth);
-  
- //  var rotating = true;
- //  var speed = 0;
- //  var playCarousel = setInterval(rotateCarousel, speed);
-  
- //  $("#carousel li a").mouseenter(function() {
- //  	rotating = false; // turn off rotation when hovering
- //  }).mouseleave(function(event) {
- //  	rotating = true;
- //  });
-  
- //  function rotateCarousel() {
- //  	var $first = $('#carousel-list li:first');
- //    if (rotating) {
- //      $first.animate({ 'margin-left': '-260px'}, 5000, "linear",function() {
- //        $first.remove().css({ 'margin-left': '0px' });
- //        $('#carousel-list li:last').after($first);
- //      });
- //    } else {
- //    	$first.stop();
- //    }
- //  }
 });

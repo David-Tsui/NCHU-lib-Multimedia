@@ -1,11 +1,11 @@
 var keystone = require('keystone');
 var Types = keystone.Field.Types;
 
-var Resource = new keystone.List('Resource', {
+var ResourcesPost = new keystone.List('ResourcesPost', {
 	autokey: { from: 'name', path: 'key', unique: true },
 });
 
-Resource.add({
+ResourcesPost.add({
 	name: { type: String, required: true },
 	state: { type: Types.Select, options: 'draft, published, archived', default: 'draft', index: true },
 	author: { type: Types.Relationship, ref: 'User', index: true },
@@ -15,13 +15,13 @@ Resource.add({
 		brief: { type: Types.Html, wysiwyg: true, height: 150 },
 		extended: { type: Types.Html, wysiwyg: true, height: 400 },
 	},
-	categories: { type: Types.Relationship, ref: 'ResourceCategory', many: true },
+	categories: { type: Types.Relationship, ref: 'ResourcesPostCategory', many: true },
 });
 
-Resource.schema.virtual('content.full').get(function () {
+ResourcesPost.schema.virtual('content.full').get(function () {
 	return this.content.extended || this.content.brief;
 });
 
-Resource.track = true;
-Resource.defaultColumns = 'name, state|20%, author|20%, publishedDate|20%';
-Resource.register();
+ResourcesPost.track = true;
+ResourcesPost.defaultColumns = 'name, state|20%, author|20%, publishedDate|20%';
+ResourcesPost.register();

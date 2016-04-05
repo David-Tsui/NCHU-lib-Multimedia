@@ -4,7 +4,7 @@ body {
   position: static; }
 
 .main-container {
-  padding: 2rem 4rem 100px 4rem !important;
+  padding: 2rem 4rem calc(10px + 100px) 4rem !important;
   min-height: calc(100vh - 90px - 1rem); }
   .main-container aside {
     margin-bottom: 2rem; }
@@ -53,14 +53,14 @@ button.mdl-color--primary {
     .carousel-container #inner .content {
       width: 220px;
       margin: 0 30px;
+      padding-top: 15px;
       background: transparent;
-      line-height: auto;
       float: left; }
       .carousel-container #inner .content img {
         width: 220px;
         height: auto; }
-      .carousel-container #inner .content:hover {
-        box-shadow: #fff 0 0 10px 0; }
+        .carousel-container #inner .content img:hover {
+          box-shadow: #fff 0 0 25px 1px; }
   .carousel-container .top {
     top: 0px; }
   .carousel-container .bottom {
@@ -69,6 +69,31 @@ button.mdl-color--primary {
     left: 0px; }
   .carousel-container .right {
     right: 0px; }
+
+.main-container.news-box {
+  padding: 0 4rem calc(10px + 100px) 4rem !important; }
+
+.news-item {
+  text-align: initial; }
+  .news-item .content {
+    padding: 1rem 1.5rem; }
+    .news-item .content .title {
+      text-align: center; }
+  .news-item.horizontal .ui.image {
+    display: flex;
+    align-items: center;
+    justify-content: center; }
+    .news-item.horizontal .ui.image img {
+      width: 100%; }
+  .news-item.vertical {
+    display: flex; }
+    .news-item.vertical .ui.image {
+      flex: 1; }
+      .news-item.vertical .ui.image img {
+        width: 100%;
+        height: 540px; }
+    .news-item.vertical .content {
+      flex: 1; }
 
 .mdl-card {
   width: 100%;

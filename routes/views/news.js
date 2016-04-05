@@ -1,6 +1,6 @@
 var keystone = require('keystone');
 var async = require('async');
-var Movie = keystone.list('Movie');
+var NewsPost = keystone.list('NewsPost');
 
 exports = module.exports = function (req, res) {
 
@@ -9,17 +9,24 @@ exports = module.exports = function (req, res) {
 
 	// Init locals
 	locals.section = 'news';
-	locals.movies = [];
+	locals.news = [];
 
-	// Load the movies
+	// Load the news
 	view.on('init', function (next) {
-		var q = Movie.model.find()
-			.where('state', 'published')
+		var q = NewsPost.model.find()
+			.where({'state':'published'})
 			.sort('-publishedDate')
 			.populate('author categories');
 
 		q.exec(function (err, results) {
-			locals.movies = results;
+			var ret = [];
+			results.forEach(function(out) {
+				var arr = out.categories;
+				if (arr[0].name == '最新消息') {	// 只取新聞
+					ret.push(out);
+				}
+			});
+			locals.news = ret;
 			next(err);
 		});
 
