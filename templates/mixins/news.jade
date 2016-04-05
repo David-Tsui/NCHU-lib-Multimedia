@@ -1,30 +1,48 @@
 mixin news(post)
 	//- article(data-ks-editable=editable(user, { list: 'Post', id: post.id }))
 	if post.image.height > post.image.width
-		.news-item.vertical
+		.news-item.vertical.special-segment
 			.ui.image
 				img(src=post._.image.fit(768,1024))
 			.content
 				.title
-					a: h3!= post.name
+					p.header!= post.name
+					time= post._.publishedDate.format('YYYY年 M月 D日')
+				hr
 				.description
 					p!= post.content.brief
-				.meta
-					time= post._.publishedDate.format('M月 D日, YYYY')
 				.action
 					a(href='/news/post/' + post.key)
-						button.mdl-button.mdl-js-button.mdl-js-ripple-effect.mdl-color--primary= '查看全部'
+						button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-color--primary= '查看全部' 
+			span.bg-large
+				span.line-bottom-left
+				span.line-top-right
+			span.bg-tall
+				span.line-bottom-left
+				span.line-top-right
+			span.bg-medium
+				span.line-bottom-left
+				span.line-top-right
 	else
-		.news-item.horizontal
+		.news-item.horizontal.special-segment
 			.ui.image
 				img(src=post._.image.fit(1024,768))
 			.content
 				.title
-					a: h3!= post.name
+					p.header!= post.name
+					time= post._.publishedDate.format('YYYY年 M月 D日')
+				hr
 				.description
 					p!= post.content.brief
-				.meta
-					time= post._.publishedDate.format('M月 D日, YYYY')
 				.action
 					a(href='/news/post/' + post.key)
-						button.mdl-button.mdl-js-button.mdl-js-ripple-effect.mdl-color--primary= '查看全部'
+						button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-color--primary= '查看全部' 
+			span.bg-large
+				span.line-bottom-left
+				span.line-top-right
+			span.bg-tall
+				span.line-bottom-left
+				span.line-top-right
+			span.bg-medium
+				span.line-bottom-left
+				span.line-top-right
