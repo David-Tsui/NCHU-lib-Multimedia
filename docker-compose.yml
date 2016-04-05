@@ -1,0 +1,32 @@
+version: '2'
+services:
+    main: &main
+        build: .
+        depends_on:
+         - mongo
+        ports:
+         - "3000:3000"
+        environment:
+            MONGO_URI: 'mongodb://mongo/nchu-lib'
+    dev:
+        <<: *main
+        entrypoint: []
+        command: 'bash'
+        working_dir: /workspace
+        volumes:
+         - .:/workspace
+    mongo:
+        image: mongo
+    backup: &backup_restore
+        image: mongo
+        depends_on:
+         - mongo
+        volumes:
+         - .:/workspace
+        working_dir: /workspace
+        command: bash -c "mongodump -h mongo --out backup/$$(date +%Y%m%d%H%M%S)"
+    restore: 
+        <<: *backup_restore
+        entrypoint: ["mongorestore", "-h", "mongo"]
+        command: []
+
