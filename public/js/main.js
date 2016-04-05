@@ -51,8 +51,8 @@ $(document).ready(function() {
 		duration: 150
 	});
 
-	// $('#carousel > #inner').loopmovement({
-	// 	'direction':'left', 	
-	// 	'speed': 15
-	// });
+	$('#carousel > #inner').loopmovement({
+		'direction':'left', 	
+		'speed': 30
+	});
 });

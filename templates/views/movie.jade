@@ -10,12 +10,8 @@ block content
 		.ui.container.main-container
 			.ui.centered.grid(style="position: relative")
 				aside
-					a(href="/movie_blog") 
+					a(href="/movies/movie_blog") 
 						button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-color--primary.button-back 回影片總覽
-				.ui.basic.segment
-					h2= movie.name
-					h3= movie.english_name
-				hr
 				.two.column.row
 					.column
 						table.mdl-data-table.mdl-js-data-table.mdl-shadow--2dp
@@ -49,5 +45,7 @@ block content
 											.ui.label= category.name
 					.column
 						section.ui.segment.movie-intro.mdl-shadow--2dp
-							h3 影片簡介
+							h3!= movie.name
+							h4!= movie.english_name
+							h5!= '影片簡介'
 							p!= movie.content.extended

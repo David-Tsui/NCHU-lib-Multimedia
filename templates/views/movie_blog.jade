@@ -2,7 +2,7 @@ extends ../layouts/default
 
 include ../mixins/movie
 block content
-	.ui.grid.main-container
+	.ui.grid.main-container#movie-blog
 		.ui.thirteen.wide.column
 			aside
 				a(href="/") 
@@ -18,7 +18,7 @@ block content
 				if movies.results.length
 					if movies.totalPages > 1
 						h5
-							| 顯示共
+							| 顯示
 							strong #{movies.total}
 							| 項結果中的
 							strong #{movies.first}

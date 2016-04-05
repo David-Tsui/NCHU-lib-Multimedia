@@ -4,6 +4,6 @@ mixin carousel(movies)
 		#inner
 			each movie in movies
 				.content
-					a(href="movie_blog/movie/" + movie.key class="ui medium image")
+					a.ui.medium.image(href="/movies/movie_blog/movie/" + movie.key)
 						img(src=movie._.image.fit(320,320))
 

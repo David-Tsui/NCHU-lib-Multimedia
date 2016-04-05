@@ -11,4 +11,4 @@ mixin movie(movie)
 			a.mdl-button.mdl-button--colored.mdl-js-button.mdl-js-ripple-effect(href='/movie_blog/movie/' + movie.key)
 				| 瀏覽內容
 			if movie.publishedDate
-				time( datetime=movie._.publishedDate.format('MM D, YYYY'))= movie._.publishedDate.format('MM月D日, YYYY')
+				time( datetime=movie._.publishedDate.format('MM D, YYYY'))= movie._.publishedDate.format('YYYY年 M月D日')
