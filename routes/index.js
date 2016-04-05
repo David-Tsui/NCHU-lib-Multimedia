@@ -5,8 +5,14 @@ const importRoutes = keystone.importer(__dirname);
 keystone.pre('routes', function (req, res, next) {
 	res.locals.navLinks = [
 		{ 
+			label: "首頁",
+			key: "root", 
+			href: "/",
+			nested: false
+		},
+		{ 
 			label: "多媒體中心",
-			key: "home", 
+			key: "media_center", 
 			href: "/",
 			nested: true,
 			subnav: [
@@ -117,7 +123,7 @@ keystone.pre('routes', function (req, res, next) {
 				{
 					label: "影片分類",
 					key: "mv_category",
-					href: "/movies/category"
+					href: "/movies/movie_blog/"
 				},
 				{
 					label: "舊視聽館藏搶先報",
@@ -129,7 +135,7 @@ keystone.pre('routes', function (req, res, next) {
 		{ 
 			label: "玩創意",
 			key: "test0",
-			href: "#",
+			href: "/idea",
 			nested: true,
 			subnav: [
 				{
@@ -143,18 +149,6 @@ keystone.pre('routes', function (req, res, next) {
 					href: "/idea/board-games"
 				}
 			]
-		},
-		{
-			label: "Blog",
-			key: "blog",
-			href: "/blog",
-			nested: false
-		},
-		{ 
-			label: "Movie",
-			key: "movie_blog",
-			href: "/movie_blog",
-			nested: false
 		}
 	];
 	res.locals.user = req.user;
@@ -178,18 +172,15 @@ exports = module.exports = function (app) {
 
 	// Views
 	app.get('/', routes.views.index);
-	app.get('/media_post/news', routes.views.news);
-	app.get('/media_post/intro', routes.views.news);
-	app.get('/media_post/rules', routes.views.news);
-	app.get('/media_post', routes.views.news);
+	app.get('/:category', routes.views.news);
+	app.get('/news/post/:post', routes.views.news_detail);
+	// app.get('/intro', routes.views.news);
+	// app.get('/rules', routes.views.news);
 
 	app.get('/blog/:category?', routes.views.blog);
 	app.all('/blog/post/:post', routes.views.post);
-	app.get('/movie_blog/:category?', routes.views.movie_blog);
-	app.get('/movie_blog/movie/:movie', routes.views.movie);
-
-	app.get('/news/:category?', routes.views.news);
-	app.get('/news/:news', routes.views.news);
+	app.get('/movies/movie_blog/:category?', routes.views.movie_blog);
+	app.get('/movies/movie_blog/movie/:movie', routes.views.movie);
 
 	// app.get('/movie_blog/:category?', routes.views.movie_blog);
 	// app.get('/movie_blog/movie/:movie', routes.views.movie);

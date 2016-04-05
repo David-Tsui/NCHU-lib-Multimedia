@@ -1,0 +1,34 @@
+extends ../layouts/default
+
+block content
+	if !post
+		section.ui.segment
+			h2 文章不存在!
+			p.lead 請檢查網址並再次嘗試...
+	else
+		.ui.grid.main-container
+			.row
+				aside
+					a(href="/") 
+						button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-color--primary.button-back 回首頁
+					a(href="/news") 
+						button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-color--primary.button-back 回最新消息
+			.row
+				.four.wide.column
+				.eight.wide.column
+					article.ui.segment
+						header
+							h2= post.name
+						if post.author
+							|  作者:  #{post.author.name.full}
+						p 發佈於 
+							if post.publishedDate 
+								time(datetime=post.publishedDate)=post._.publishedDate.format('MM月 DD日, YYYY')
+						hr
+						if post.image.exists
+							figure.ui.fluid.image
+								img(src=post._.image.fit(750,500))
+						hr
+						.main-content
+							!= post.content.full
+				.four.wide.column

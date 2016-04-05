@@ -1,0 +1,30 @@
+mixin news(post)
+	//- article(data-ks-editable=editable(user, { list: 'Post', id: post.id }))
+	if post.image.height > post.image.width
+		.news-item.vertical
+			.ui.image
+				img(src=post._.image.fit(768,1024))
+			.content
+				.title
+					a: h3!= post.name
+				.description
+					p!= post.content.brief
+				.meta
+					time= post._.publishedDate.format('M月 D日, YYYY')
+				.action
+					a(href='/news/post/' + post.key)
+						button.mdl-button.mdl-js-button.mdl-js-ripple-effect.mdl-color--primary= '查看全部'
+	else
+		.news-item.horizontal
+			.ui.image
+				img(src=post._.image.fit(1024,768))
+			.content
+				.title
+					a: h3!= post.name
+				.description
+					p!= post.content.brief
+				.meta
+					time= post._.publishedDate.format('M月 D日, YYYY')
+				.action
+					a(href='/news/post/' + post.key)
+						button.mdl-button.mdl-js-button.mdl-js-ripple-effect.mdl-color--primary= '查看全部'

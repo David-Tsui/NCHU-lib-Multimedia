@@ -1,51 +1,50 @@
 $(document).ready(function() {
 	$('.scrollbar-inner').scrollbar();
-	
+
 	var $flipster = $(".coverflow")
 	$flipster.flipster({
 		itemContainer: 'ul',
-    itemSelector: 'li',
-    start: '0',
-    loop: false,
+		itemSelector: 'li',
+		start: '0',
+		loop: false,
 
-    autoplay: false,
-    pauseOnHover: true,
+		autoplay: false,
+		pauseOnHover: true,
 
-    style: 'coverflow',
-    spacing: -0.6,
-    // [number]
-    // Space between items relative to each item's width. 0 for no spacing, negative values to overlap
+		style: 'coverflow',
+		spacing: -0.6,
+		// [number]
+		// Space between items relative to each item's width. 0 for no spacing, negative values to overlap
 
-    click: true,
-    keyboard: true,
-    scrollwheel: false,
-    touch: true,
+		click: true,
+		keyboard: true,
+		scrollwheel: false,
+		touch: true,
 
-    nav: false,
-    buttons: true,
-    // [true|false|'custom']
-    // If true, Flipster will insert Previous / Next buttons with SVG arrows
-    // If 'custom', Flipster will not insert the arrows and will instead use the values of `buttonPrev` and `buttonNext`
+		nav: false,
+		buttons: false,
+		// [true|false|'custom']
+		// If true, Flipster will insert Previous / Next buttons with SVG arrows
+		// If 'custom', Flipster will not insert the arrows and will instead use the values of `buttonPrev` and `buttonNext`
 
-    buttonPrev: 'Previous',
-    // [text|html]
-    // Changes the text for the Previous button
+		buttonPrev: 'Previous',
+		// [text|html]
+		// Changes the text for the Previous button
 
-    buttonNext: 'Next',
-    // [text|html]
-    // Changes the text for the Next button
+		buttonNext: 'Next',
+		// [text|html]
+		// Changes the text for the Next button
 
-    onItemSwitch: false
-    // [function]
-    // Callback function when items are switched
-    // Arguments received: [currentItem, previousItem]
+		onItemSwitch: false
+		// [function]
+		// Callback function when items are switched
+		// Arguments received: [currentItem, previousItem]
 	});
-	// $flipster.flipster('index');
 	$flipster.flipster('jump', 0);
 
 	$(".btn-nav").on("click tap", function() {
-    $(this).toggleClass("animated");
-  });
+		$(this).toggleClass("animated");
+	});
 
 	$(".ui.dropdown").dropdown({
 		on: 'hover',

@@ -1,18 +1,23 @@
 extends ../layouts/default
 include ../mixins/carousel
+include ../mixins/news
 
 block content
 	.ui.grid.main-container
 		.row
-			.ui.thirteen.wide.column
-				aside
-
-				header
-					h2= '最新消息'
-						
-			.ui.three.wide.column
-		.row
+			header: h2= '新進影音'
 			.ui.sixteen.wide.column.carousel-container
 				main
 					+carousel(movies)
+		.row
+			header: h2= '最新消息'
+			.two.wide.column
+			.twelve.wide.column
+				.coverflow
+					ul
+						each a_news in news
+							li
+								article.ui.segment
+									+news(a_news)
+			.two.wide.column
 			

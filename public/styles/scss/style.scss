@@ -1,6 +1,10 @@
 $navbar-height: 90px;
 $prepare-height: 100px;
 
+// semantic 調校
+figure {
+  margin: 0;
+}
 body {
 	background: url(/images/black-background-11.jpg) center center / cover no-repeat;
 	background-attachment: fixed;
@@ -15,6 +19,20 @@ body {
 	& aside {
 		margin-bottom: 2rem;
 	}
+  & .row > header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #ddd;
+  }
+  & article {
+    & .main-content {
+      padding: 1rem 2rem;
+      & p {
+        font-size: 1.25rem;
+      }
+    }
+  }
 }
 
 .main-footer {
@@ -37,11 +55,11 @@ button.mdl-color--primary {
 }
 
 // 回上頁的按鈕
-.button-back {
-	position: absolute;
-  left: 1rem;
-  top: 4rem;
-}
+// .button-back {
+// 	position: absolute;
+//   left: 1rem;
+//   top: 4rem;
+// }
 
 // 導覽列
 #navbar {
@@ -63,6 +81,7 @@ button.mdl-color--primary {
   display: flex;
   align-items: center;
   overflow: hidden;
+  padding-top: 3rem;
   & #carousel {
     width: 100%;
     height: 360px;
@@ -78,8 +97,10 @@ button.mdl-color--primary {
       & img {
         width: 220px;
         height: auto;
+        opacity: .85;
         &:hover {
-          box-shadow: #fff 0 0 25px 1px;
+          // box-shadow: #fff 0 0 25px 1px;
+          opacity: 1;
         }
       }  
       background: transparent;

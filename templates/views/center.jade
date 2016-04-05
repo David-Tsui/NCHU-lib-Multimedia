@@ -1,0 +1,13 @@
+extends ../layouts/default
+
+block content
+	.ui.container.main-container
+		each a_news in news
+			article.ui.segment
+				h3.header!= a_news.name
+					time= a_news._.publishedDate.format('MMMM Do, YYYY')
+				figure.ui.image
+					img(src=a_news._.image.fit(1024,768))
+				section.content
+					p!= a_news.content.extended
+						

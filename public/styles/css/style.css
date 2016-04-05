@@ -1,3 +1,6 @@
+figure {
+  margin: 0; }
+
 body {
   background: url(/images/black-background-11.jpg) center center/cover no-repeat;
   background-attachment: fixed;
@@ -8,6 +11,15 @@ body {
   min-height: calc(100vh - 90px - 1rem); }
   .main-container aside {
     margin-bottom: 2rem; }
+  .main-container .row > header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #ddd; }
+  .main-container article .main-content {
+    padding: 1rem 2rem; }
+    .main-container article .main-content p {
+      font-size: 1.25rem; }
 
 .main-footer {
   position: relative;
@@ -24,11 +36,6 @@ button.mdl-color--primary {
 .scrollbar-inner > .scroll-element .scroll-bar {
   background-color: #222; }
 
-.button-back {
-  position: absolute;
-  left: 1rem;
-  top: 4rem; }
-
 #navbar {
   width: 75%;
   height: 90px;
@@ -42,7 +49,8 @@ button.mdl-color--primary {
 .carousel-container {
   display: flex;
   align-items: center;
-  overflow: hidden; }
+  overflow: hidden;
+  padding-top: 3rem; }
   .carousel-container #carousel {
     width: 100%;
     height: 360px; }
@@ -58,9 +66,10 @@ button.mdl-color--primary {
       float: left; }
       .carousel-container #inner .content img {
         width: 220px;
-        height: auto; }
+        height: auto;
+        opacity: .85; }
         .carousel-container #inner .content img:hover {
-          box-shadow: #fff 0 0 25px 1px; }
+          opacity: 1; }
   .carousel-container .top {
     top: 0px; }
   .carousel-container .bottom {
