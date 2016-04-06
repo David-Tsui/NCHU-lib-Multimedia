@@ -51,8 +51,18 @@ $(document).ready(function() {
 		duration: 150
 	});
 
-	$('#carousel > #inner').loopmovement({
-		'direction':'left', 	
-		'speed': 30
+	// $('#carousel > #inner').loopmovement({
+	// 	'direction':'left', 	
+	// 	'speed': 30
+	// });
+	var carousel_item_width = $("#carousel .item").width();
+	var switch_items_num = 5;
+	var adjust = 100;
+	$('#carousel').scrollbox({
+		direction: 'h',
+	  switchItems: switch_items_num,
+	  distance: carousel_item_width * switch_items_num + adjust,
+	  delay: 3,
+	  speed: 42,
 	});
 });
