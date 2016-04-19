@@ -13,7 +13,6 @@ exports = module.exports = function (req, res) {
 		rules: '相關規則'
 	}
 
-	console.log("req.params.category: ", req.params.category);
 	// Init locals
 	locals.section = 'news';
 	locals.filters = {

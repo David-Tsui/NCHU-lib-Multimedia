@@ -55,6 +55,7 @@ keystone.set('locals', {
 keystone.set('routes', require('./routes'));
 
 keystone.set('nav', {
+	'歷史訊息': ['histories', 'history-categories'],
 	'多媒體中心': ['news-posts', 'news-post-categories'],
 	'愛創聯盟': ['maker-posts', 'maker-post-categories'],
 	'網路資源': ['resources-posts', 'resources-post-categories'],

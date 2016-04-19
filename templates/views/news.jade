@@ -3,20 +3,17 @@ include ../mixins/news
 
 block content
 	.ui.grid.main-container.news-box
-		.two.wide.column
-		.twelve.wide.column
-			.coverflow
-				ul
-					each a_news in news
-						li
-							article.news-segment
-								+news(a_news)
-		.two.wide.column
-		
-		//- .ui.segments.news-box
-		//- 	each a_news in news
-		//- 		article.ui.segment
-		//- 			+news(a_news)
+		.row
+			header: h2= '最新消息'
+			.two.wide.column
+			.twelve.wide.column
+				.coverflow
+					ul
+						each a_news in news
+							li
+								article.news-segment
+									+news(a_news)
+			.two.wide.column
 		
 		
 

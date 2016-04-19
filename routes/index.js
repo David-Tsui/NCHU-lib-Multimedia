@@ -40,22 +40,22 @@ keystone.pre('routes', function (req, res, next) {
 			nested: true,
 			subnav: [
 				{
-					label: "愛創者聯盟簡介",
+					label: "聯盟簡介",
 					key: "news",
 					href: "/makers/intro"
 				},
 				{
-					label: "愛創者聯盟人員",
+					label: "聯盟成員",
 					key: "intro",
 					href: "/makers/organization"
 				},
 				{
-					label: "愛創者課程",
+					label: "課程一覽",
 					key: "rules",
 					href: "/makers/curriculums"
 				},
 				{
-					label: "愛創者活動",
+					label: "活動一覽",
 					key: "rules",
 					href: "/makers/activities"
 				}
@@ -171,17 +171,17 @@ var routes = {
 exports = module.exports = function (app) {
 
 	// Views
-	app.get('/', routes.views.index);
-	app.get('/:category', routes.views.news);
 	app.get('/news/post/:post', routes.views.news_detail);
-	// app.get('/intro', routes.views.news);
-	// app.get('/rules', routes.views.news);
+	app.get('/makers/:type', routes.views.maker);
+	app.get('/makers', routes.views.maker);
 
 	app.get('/blog/:category?', routes.views.blog);
 	app.all('/blog/post/:post', routes.views.post);
 	app.get('/movies/movie_blog/:category?', routes.views.movie_blog);
 	app.get('/movies/movie_blog/movie/:movie', routes.views.movie);
 
+	app.get('/', routes.views.index);
+	app.get('/:category', routes.views.news);
 	// app.get('/movie_blog/:category?', routes.views.movie_blog);
 	// app.get('/movie_blog/movie/:movie', routes.views.movie);
 

@@ -57,8 +57,8 @@ block content
 				h4 電影分類
 				ul.mdl-list
 					li.mdl-list__item
-						a(href='/movie_blog') 全部
+						a(href='/movies/movie_blog') 全部
 					each cat in categories
 						li.mdl-list__item
-							a(href='/movie_blog/' + cat.key)
+							a(href='/movies/movie_blog/' + cat.key)
 								span.mdl-badge(data-badge=cat.movieCount)= cat.name

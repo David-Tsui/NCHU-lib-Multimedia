@@ -63,7 +63,7 @@ exports = module.exports = function (req, res) {
  				perPage: 8,
  				maxPages: 10,
 			})
-			.where('state', 'published')
+			.where({'state': 'published'})
 			.sort('-publishedDate')
 			.populate('author categories');
 

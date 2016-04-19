@@ -62,7 +62,7 @@ $(document).ready(function() {
 		direction: 'h',
 	  switchItems: switch_items_num,
 	  distance: carousel_item_width * switch_items_num + adjust,
-	  delay: 3,
+	  delay: 4,
 	  speed: 42,
 	});
 });

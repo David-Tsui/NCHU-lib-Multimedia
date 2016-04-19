@@ -1,6 +1,6 @@
 var keystone = require('keystone');
 var Maker = keystone.list('MakerPost');
-// var MakerComment = keystone.list('MakerComment');
+var MakerPostCategory = keystone.list('MakerPostCategory');
 
 exports = module.exports = function (req, res) {
 
@@ -8,38 +8,46 @@ exports = module.exports = function (req, res) {
 	var locals = res.locals;
 
 	// Init locals
-	locals.section = 'movie';
+	locals.section = 'maker';
 	locals.filters = {
-		movie: req.params.movie,
+		post: req.params.type,
 	};
 
-	// Load the current movie
+	// Load all categories
 	view.on('init', function (next) {
+		MakerPostCategory.model.find().sort('name').exec(function (err, results) {
+			if (err || !results.length) {
+				return next(err);
+			}
+			locals.categories = results;	
+		});
+	});
 
+	// Load the current post
+	view.on('init', function (next) {
 		var q = Maker.model.findOne({
 			state: 'published',
-			key: locals.filters.movie,
+			key: locals.filters.post,
 		}).populate('author categories');
 
 		q.exec(function (err, result) {
-			locals.movie = result;
+			locals.post = result;
 			next(err);
 		});
 
 	});
 
-	// Load other movies
+	// Load other posts
 	view.on('init', function (next) {
-
-		var q = Maker.model.find().where('state', 'published').sort('-publishedDate').populate('author').limit('4');
-
+		// var q = Maker.model.find().where('state', 'published').sort('-publishedDate').populate('author').limit('4');
+		var q = Maker.model.find().where('state', 'published').sort('-publishedDate').populate('author');
 		q.exec(function (err, results) {
-			locals.movies = results;
+			locals.posts = results;
 			next(err);
 		});
 
 	});
 
 	// Render the view
-	view.render('movie');
+	view.render('maker');
 }

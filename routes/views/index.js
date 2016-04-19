@@ -16,7 +16,6 @@ exports = module.exports = function (req, res) {
 	// Load the news by category filter
 	view.on('init', function (next) {
 		NewsPostCategory.model.findOne({ name: "最新消息" }).exec(function (err, result) {
-			console.log("result: ", result);
 			locals.category = result;
 			next(err);
 		});
@@ -32,7 +31,6 @@ exports = module.exports = function (req, res) {
 		
 		q1.exec(function (err, results) {
 			locals.news = results;
-			console.log("results: ", results);
 			// next(err);
 		});
 

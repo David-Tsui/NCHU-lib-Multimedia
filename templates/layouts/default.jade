@@ -34,12 +34,13 @@ html
 		//- 	.bar.arrow-bottom-r
 		.ui.grid.nav-grid.nav-wrap
 			.computer.tablet.only.centered.row
-				.ui.secondary.menu#navbar
+				.ui.secondary.menu.main-navbar
 					.left.menu
 						each link in navLinks
 							if link.nested 
 								.ui.dropdown.item
-									span=link.label
+									//- span=link.label
+									a.root-a(href=link.href)= link.label
 									i.dropdown.icon
 									.menu
 										each subLink in link.subnav
@@ -66,7 +67,8 @@ html
 		footer.main-footer
 			-footer
 			p Copyright &copy; 2016 中興大學圖書館
-			p: a(href="http://www.lib.nchu.edu.tw/", class="twitter-follow-button", data-show-count="false", data-size="large") 圖書館網站
+			p.link
+				a(href="http://www.lib.nchu.edu.tw/", class="twitter-follow-button", data-show-count="false", data-size="large") 圖書館網站
 		
 		script.
 			!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');

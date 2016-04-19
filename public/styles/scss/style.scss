@@ -1,9 +1,11 @@
+@import "bourbon/bourbon";
+
 $navbar-height: 90px;
 $prepare-height: 100px;
 
 // semantic 調校
 figure {
-  margin: 0;
+	margin: 0;
 }
 
 body {
@@ -16,26 +18,56 @@ body {
 .main-container {
 	padding: 2rem 4rem calc(10px + #{$prepare-height}) 4rem !important;
 	min-height: calc(100vh - #{$navbar-height} - 1rem);
-  & h1, & h2, & h3, & h4, & h5, & h6 {
-    color: #fff;
-  } 
+	& h1, & h2, & h3, & h4, & h5, & h6 {
+		color: #fff;
+	} 
 	& aside {
 		margin-bottom: 2rem;
 	}
-  & .row > header {
-    position: absolute;
-    top: 0;
-    left: 0;
-    color: #ddd;
-  }
-  & article {
-    & .main-content {
-      padding: 1rem 2rem;
-      & p {
-        font-size: 1.25rem;
-      }
-    }
-  }
+	& .row {
+		padding-top: 4rem !important;
+		&:not(:first-child) {
+			border-top: #aaa solid 1px;
+			margin: 3rem 0 0;
+		}
+		& header {
+			position: absolute;
+			top: 2rem;
+			left: 2rem;
+			color: #ddd;
+		}
+	}
+	& article {
+		& .main-content {
+			padding: 1rem 2rem;
+			& p {
+				font-size: 1.25rem;
+			}
+		}
+	}
+}
+
+// 導覽列
+.ui.secondary.menu.main-navbar {
+	width: 85%;
+	height: $navbar-height;
+	background: transparent;
+	font-size: 1.35rem;
+	// box-shadow: none;
+	& .item {
+		color: #fff;
+		&.visible, &:hover, &:active {
+			background: transparent;
+			color: #fff;
+		}
+		& .root-a {
+			color: #fff;
+			text-decoration: none;
+		}
+		& > i.dropdown.icon {
+			margin: 0 0 0 5px;
+		}
+	}
 }
 
 .main-footer {
@@ -46,6 +78,14 @@ body {
 	padding: 1.5rem;
 	background: rgba(255,255,255,.5);
 	text-align: center;
+	& p {
+		font-size: 1.25rem;
+		&.link {
+			& a {
+				color: rgb(35, 55, 169);
+			}
+		}
+	}
 }
 
 button.mdl-color--primary {
@@ -54,179 +94,129 @@ button.mdl-color--primary {
 
 // specific scrollbar 
 .scrollbar-inner > .scroll-element .scroll-bar {
-  background-color: #222;
+	background-color: #222;
 }
 
-// 回上頁的按鈕
-// .button-back {
-// 	position: absolute;
-//   left: 1rem;
-//   top: 4rem;
-// }
-
-// 導覽列
-#navbar {
-	width: 75%;
-	height: $navbar-height;
-	background: transparent;
-	font-size: 1.2rem;
-	// box-shadow: none;
-	& .item {
-    color: #fff;
-		&.visible, &:hover, &:active {
-			background: transparent;
+// 首頁
+// carousel
+.carousel-container {
+	display: flex;
+	align-items: center;
+	overflow: hidden;
+	padding-top: 3rem;
+	& #carousel {
+		width: 100%;
+		height: 340px;
+		overflow: hidden;
+		& ul {
+			display: flex;
+			& .item {
+				width: calc(20% - 10px * 2);
+				height: 320px;
+				margin: 10px;
+				text-align: center;
+				float: left;
+				position: relative;
+				& img {
+					width: 220px;
+					opacity: .75;
+					&:hover {
+						opacity: 1;
+					}
+				}  
+				background: transparent;
+			}
 		}
 	}
 }
 
-// index 
-// carousel
-.carousel-container {
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-  padding-top: 3rem;
-  & #carousel {
-    width: 100%;
-    height: 340px;
-    overflow: hidden;
-    & ul {
-      display: flex;
-      & .item {
-        width: calc(20% - 10px * 2);
-        height: 320px;
-        margin: 10px;
-        text-align: center;
-        float: left;
-        position: relative;
-        & img {
-          width: 220px;
-          opacity: .75;
-          &:hover {
-            opacity: 1;
-          }
-        }  
-        background: transparent;
-      }
-    }
-  }
-  // & #inner {
-  //   position: absolute;
-  //   display: flex;
-  //   flex-wrap: nowrap;
-
-  //   & .content {
-  //     width: 220px;
-  //     margin: 0 30px;
-  //     padding-top: 15px;
-      // & img {
-      //   width: 220px;
-      //   height: auto;
-      //   opacity: .75;
-      //   &:hover {
-      //     opacity: 1;
-      //   }
-      // }  
-      // background: transparent;
-  //     // float: left; 
-  //   }
-  // }
-
-  // & .top { top: 0px; }
-
-  // & .bottom { bottom: 0px; }
-
-  // & .left { left: 0px; }
-
-  // & .right { right: 0px; }
-}
-
 // news 
 .main-container.news-box {
-  padding: 0 4rem calc(10px + #{$prepare-height}) 4rem !important;
+	// padding: 0 4rem calc(10px + #{$prepare-height}) 4rem !important;
 }
 
 .news-segment {
-  background: rgba(0, 0, 0, .6);
-  color: #eee;
-  & .news-item {
-    text-align: initial;
-    & .content {
-      padding: 1rem 1.5rem;
-      z-index: 999;
-      & .title {
-        padding-top: 1rem;
-        & p.header {
-          font-size: 2.5rem;
-        }
-      }
-      & .title, & .action {
-        text-align: center;
-      }
-      & p {
-        font-size: 1.25rem;
-      }
-    }
+	background: rgba(0, 0, 0, .6);
+	color: #eee;
+	& .news-item {
+		text-align: initial;
+		& .content {
+			padding: 1rem 1.5rem;
+			z-index: 999;
+			& .title {
+				padding-top: 1rem;
+				& p.header {
+					font-size: 2.5rem;
+				}
+			}
+			& .title, & .action {
+				text-align: center;
+			}
+			& p {
+				font-size: 1.25rem;
+			}
+		}
 
-    &.horizontal {
-      & .ui.image {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        & img {
-          width: 100%;
-        }
-      }
-    }
-    &.vertical {
-      display: flex;
-      & .ui.image {
-        flex: 1;
-        & img {
-          width: 100%;
-          height: 550px;
-        }
-      }
-      & .content {
-        flex: 1;
-      }
-    }
-  }
+		&.horizontal {
+			& .ui.image {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				& img {
+					width: 100%;
+				}
+			}
+		}
+		&.vertical {
+			display: flex;
+			& .ui.image {
+				flex: 1;
+				& img {
+					width: 100%;
+					height: 550px;
+				}
+			}
+			& .content {
+				flex: 1;
+			}
+		}
+	}
 }
 
 
 // 影音blog
 #movie-blog {
-  & .ui.segment {
-    & h1, & h2, & h3, & h4, & h5, & h6  {
-      color: #444;
-    }
-  }
-  // pagination
-  & .pagination {
-    list-style-type: none;
-    width: 100%;
-    text-align: center;
-    & li {
-      display: inline-block;
-      font-size: 1.2rem;
-      padding: 0 10px;
-      line-height: 30px;
-      border-radius: 2px;
-      text-align: center;
-      color: #fff;
-      & i {
-        font-size: 2.2rem;
-        vertical-align: middle;
-      }
-      & a {
-        color: #fff;
-      }
-      &.active {
-        background-color: #009688;
-      }
-    }
-  }
+	& .ui.segment {
+		& h1, & h2, & h3, & h4, & h5, & h6  {
+			color: #444;
+		}
+	}
+	// pagination
+	& .pagination {
+		list-style-type: none;
+		width: 100%;
+		text-align: center;
+		padding: 1.5rem;
+		& li {
+			display: inline-block;
+			font-size: 1.5rem;
+			padding: 0 10px;
+			line-height: 30px;
+			border-radius: 2px;
+			text-align: center;
+			color: #fff;
+			& i {
+				font-size: 2.2rem;
+				vertical-align: middle;
+			}
+			& a {
+				color: #fff;
+			}
+			&.active {
+				background-color: #009688;
+			}
+		}
+	}
 }
 
 
@@ -234,41 +224,41 @@ button.mdl-color--primary {
 // 影音card
 .mdl-card {
 	width: 100%;
-  height: 660px;
-  & .mdl-card__title {
-  	color: #fff;
-  }
-  & .mdl-card__title.mdl-card--expand {
-  	padding: 0;
-  	margin: 0;
-  	& img {
-  		width: 100%;
-  		height: 360px;
-  	}
-  }
-  & .mdl-card__supporting-text {
-  	width: 100%;
-  	min-height: 250px;
-  	max-height: 250px;
-    & h4 {
-      color: #555;
-    }
-  	// overflow-y: auto;
-    & .scrollable-text.scrollbar-inner {
-      min-height: 170px;
-      max-height: 170px;
-      overflow-y: auto;
-      padding-right: 1rem;
-    } 
-  }
-  & .mdl-card__actions.mdl-card--border {
-  	display: flex;
-  	align-items: center;
-  	justify-content: space-between;
-  	& time {
-  		padding: 0 16px;
-  	}
-  }
+	height: 660px;
+	& .mdl-card__title {
+		color: #fff;
+	}
+	& .mdl-card__title.mdl-card--expand {
+		padding: 0;
+		margin: 0;
+		& img {
+			width: 100%;
+			height: 360px;
+		}
+	}
+	& .mdl-card__supporting-text {
+		width: 100%;
+		min-height: 250px;
+		max-height: 250px;
+		& h4 {
+			color: #555;
+		}
+		// overflow-y: auto;
+		& .scrollable-text.scrollbar-inner {
+			min-height: 170px;
+			max-height: 170px;
+			overflow-y: auto;
+			padding-right: 1rem;
+		} 
+	}
+	& .mdl-card__actions.mdl-card--border {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		& time {
+			padding: 0 16px;
+		}
+	}
 }
 
 // 單一影音
@@ -277,22 +267,25 @@ table.mdl-data-table {
 	& caption {
 		margin-bottom: 1rem;
 	}
+	& td {
+		// white-space: pre-line;
+	}
 }
 
 .ui.segment {
-  &.movie-intro {
-  	border-radius: 0;
-  	box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
-  }
-  & h1, & h2, & h3, & h4, & h5, & h6 {
-    color: #444;
-  }
+	&.movie-intro {
+		border-radius: 0;
+		box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
+	}
+	& h1, & h2, & h3, & h4, & h5, & h6 {
+		color: #444;
+	}
 }
 
 // hamburger
 button {
-  background: none;
-  border: none;
+	background: none;
+	border: none;
 }
 
 .btn-nav:hover { cursor: pointer; }
@@ -300,26 +293,22 @@ button {
 .btn-nav:hover .bar { background: #17BEBB; }
 
 .bar {
-  display: block;
-  height: 5px;
-  width: 50px;
-  background: #fff;
-  margin: 10px auto;
+	display: block;
+	height: 5px;
+	width: 50px;
+	background: #fff;
+	margin: 10px auto;
 }
 
 .btn-nav {
-  display: block;
-  padding: 15px 0;
-  width: 50px;
-  position: fixed;
-  z-index: 99;
-  right: 20px;
-  margin: 0 auto;
-  -webkit-transition: all 1s ease;
-  -moz-transition: all 1s ease;
-  -ms-transition: all 1s ease;
-  -o-transition: all 1s ease;
-  transition: all 1s ease;
+	display: block;
+	padding: 15px 0;
+	width: 50px;
+	position: fixed;
+	z-index: 99;
+	right: 20px;
+	margin: 0 auto;
+	@include transition(all 1s ease-in-out);
 }
 
 .btn-nav:focus { outline: none; }
@@ -327,39 +316,35 @@ button {
 .middle { margin: 0 auto; }
 
 .bar {
-  -webkit-transition: all .7s ease;
-  -moz-transition: all .7s ease;
-  -ms-transition: all .7s ease;
-  -o-transition: all .7s ease;
-  transition: all .7s ease;
+	@include transition(all .7s ease);
 }
 
 .animated { z-index: 999; }
 
 .animated .arrow-top-r {
-  -webkit-transform: rotateZ(45deg) translateY(11px);
-  -moz-transform: rotateZ(45deg) translateY(11px);
-  -ms-transform: rotateZ(45deg) translateY(11px);
-  -o-transform: rotateZ(45deg) translateY(11px);
-  transform: rotateZ(45deg) translateY(11px);
-  width: 25px;
+	-webkit-transform: rotateZ(45deg) translateY(11px);
+	-moz-transform: rotateZ(45deg) translateY(11px);
+	-ms-transform: rotateZ(45deg) translateY(11px);
+	-o-transform: rotateZ(45deg) translateY(11px);
+	transform: rotateZ(45deg) translateY(11px);
+	width: 25px;
 }
 
 .animated .arrow-middle-r {
-  -webkit-transform: translateX(-25px);
-  -moz-transform: translateX(-25px);
-  -ms-transform: translateX(-25px);
-  -o-transform: translateX(-25px);
-  transform: translateX(-25px);
+	-webkit-transform: translateX(-25px);
+	-moz-transform: translateX(-25px);
+	-ms-transform: translateX(-25px);
+	-o-transform: translateX(-25px);
+	transform: translateX(-25px);
 }
 
 .animated .arrow-bottom-r {
-  -webkit-transform: rotateZ(-45deg) translateY(-11px);
-  -moz-transform: rotateZ(-45deg) translateY(-11px);
-  -ms-transform: rotateZ(-45deg) translateY(-11px);
-  -o-transform: rotateZ(-45deg) translateY(-11px);
-  transform: rotateZ(-45deg) translateY(-11px);
-  width: 25px;
+	-webkit-transform: rotateZ(-45deg) translateY(-11px);
+	-moz-transform: rotateZ(-45deg) translateY(-11px);
+	-ms-transform: rotateZ(-45deg) translateY(-11px);
+	-o-transform: rotateZ(-45deg) translateY(-11px);
+	transform: rotateZ(-45deg) translateY(-11px);
+	width: 25px;
 }
 
 $offset: 12px;
@@ -369,188 +354,188 @@ $fade-in-color: #FFFCA8;
 $fade-out-color: rgba(255, 255, 255, .5);
 
 .special-segment {
-  &:hover {
-    %x-transition {
-      background: $fade-in-color;
-      transform: scaleX(1) translateZ(0);
-      transition: transform 0.6s cubic-bezier(.3,.1,.05,1), background 0.6s cubic-bezier(.3,.1,.05,1);
-    }
-    %y-transition {
-      background: $fade-in-color;
-      transform: scaleY(1) translateZ(0);
-      transition: transform 0.6s cubic-bezier(.3,.1,.05,1), background 0.6s cubic-bezier(.3,.1,.05,1);
-    }
-    & .bg-large, & .bg-tall, & .bg-mediumn {
-      & .line-bottom-left {
-        &:before { @extend %x-transition; }
-        &:after { @extend %y-transition; }
-      }
-      & .line-top-right {
-        &:before { @extend %x-transition; }
-        &:after { @extend %y-transition; }
-      }
-    }
-  }
+	&:hover {
+		%x-transition {
+			background: $fade-in-color;
+			transform: scaleX(1) translateZ(0);
+			transition: transform 0.6s cubic-bezier(.3,.1,.05,1), background 0.6s cubic-bezier(.3,.1,.05,1);
+		}
+		%y-transition {
+			background: $fade-in-color;
+			transform: scaleY(1) translateZ(0);
+			transition: transform 0.6s cubic-bezier(.3,.1,.05,1), background 0.6s cubic-bezier(.3,.1,.05,1);
+		}
+		& .bg-large, & .bg-tall, & .bg-mediumn {
+			& .line-bottom-left {
+				&:before { @extend %x-transition; }
+				&:after { @extend %y-transition; }
+			}
+			& .line-top-right {
+				&:before { @extend %x-transition; }
+				&:after { @extend %y-transition; }
+			}
+		}
+	}
 
-  & .bg-large {
-    box-sizing: content-box;
-    position: absolute;
-    top: 0;
-    left: (-2 * $offset);
-    padding: 0 $offset;
-    width: calc(100% + 2 * #{$offset});
-    height: 100%;
-    border: 1px solid rgba(255, 255, 255, .15);
-    transform: translateZ(0);
-    & .line-bottom-left {
-      &:before {
-        bottom: 0;
-        left: -1px;
-        width: 100%;
-        height: $bwidth;    
-        transform-origin: left center;
-        transform: scaleX(0) translateZ(0);
-      }
-      &:after {
-        top: 0;
-        left: -1px;
-        width: $bwidth;
-        height: 100%;
-        transform-origin: center bottom;
-        transform: scaleY(0) translateZ(0);
-      }
-    }
-    & .line-top-right {
-      &:before {
-        top: (-$bwidth);
-        left: 0;
-        width: 100%;
-        height: $bwidth;
-        transform-origin: right center;
-        transform: scaleX(0) translateZ(0);
-      }
-      &:after {
-        top: 0;
-        right: -1px;
-        width: $bwidth;
-        height: 100%;
-        transform-origin: center top;
-        transform: scaleY(0) translateZ(0);
-      }
-    }
-    & .line-bottom-left, & .line-top-right {  
-      &:before, &:after {
-        content: "";
-        position: absolute;
-        background: $fade-out-color;
-        transition-property: background, transform;
-        transition: all .6s cubic-bezier(.4,0,.1,1);
-      }
-    }
-  }
-  & .bg-tall {
-    @extend .bg-large;
-    top: (-$offset);
-    left: (-$offset);
-    padding: $offset 0;
-    & .line-bottom-left {
-      &:before {
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: $bwidth;
-        transform-origin: right center;
-        transform: scaleX(0) translateZ(0);
-      }
-      &:after {
-        top: 0;
-        left: -1px;
-        width: $bwidth;
-        height: 100%;
-        transform-origin: center top;
-        transform: scaleY(0) translateZ(0);
-      }     
-    }
-    & .line-top-right {   
-      &:before {
-        top: -2px;
-        left: 0;
-        width: 100%;
-        height: $bwidth;
-        transform-origin: left center;
-        transform: scaleX(0) translateZ(0);
-      }
-      &:after {
-        top: 0;
-        right: -1px;
-        width: $bwidth;
-        height: 100%;
-        transform-origin: center bottom;
-        transform: scaleY(0) translateZ(0);
-      }
-    }
-    & .line-bottom-left, & .line-top-right {
-      &:before, &:after {
-        content: "";
-        position: absolute;
-        background: $fade-out-color;
-        transition-property: background, transform;
-        transition: all .6s cubic-bezier(.4,0,.1,1);
-      }
-    }
-  }
+	& .bg-large {
+		box-sizing: content-box;
+		position: absolute;
+		top: 0;
+		left: (-2 * $offset);
+		padding: 0 $offset;
+		width: calc(100% + 2 * #{$offset});
+		height: 100%;
+		border: 1px solid rgba(255, 255, 255, .15);
+		transform: translateZ(0);
+		& .line-bottom-left {
+			&:before {
+				bottom: 0;
+				left: -1px;
+				width: 100%;
+				height: $bwidth;    
+				transform-origin: left center;
+				transform: scaleX(0) translateZ(0);
+			}
+			&:after {
+				top: 0;
+				left: -1px;
+				width: $bwidth;
+				height: 100%;
+				transform-origin: center bottom;
+				transform: scaleY(0) translateZ(0);
+			}
+		}
+		& .line-top-right {
+			&:before {
+				top: (-$bwidth);
+				left: 0;
+				width: 100%;
+				height: $bwidth;
+				transform-origin: right center;
+				transform: scaleX(0) translateZ(0);
+			}
+			&:after {
+				top: 0;
+				right: -1px;
+				width: $bwidth;
+				height: 100%;
+				transform-origin: center top;
+				transform: scaleY(0) translateZ(0);
+			}
+		}
+		& .line-bottom-left, & .line-top-right {  
+			&:before, &:after {
+				content: "";
+				position: absolute;
+				background: $fade-out-color;
+				transition-property: background, transform;
+				transition: all .6s cubic-bezier(.4,0,.1,1);
+			}
+		}
+	}
+	& .bg-tall {
+		@extend .bg-large;
+		top: (-$offset);
+		left: (-$offset);
+		padding: $offset 0;
+		& .line-bottom-left {
+			&:before {
+				bottom: 0;
+				left: 0;
+				width: 100%;
+				height: $bwidth;
+				transform-origin: right center;
+				transform: scaleX(0) translateZ(0);
+			}
+			&:after {
+				top: 0;
+				left: -1px;
+				width: $bwidth;
+				height: 100%;
+				transform-origin: center top;
+				transform: scaleY(0) translateZ(0);
+			}     
+		}
+		& .line-top-right {   
+			&:before {
+				top: -2px;
+				left: 0;
+				width: 100%;
+				height: $bwidth;
+				transform-origin: left center;
+				transform: scaleX(0) translateZ(0);
+			}
+			&:after {
+				top: 0;
+				right: -1px;
+				width: $bwidth;
+				height: 100%;
+				transform-origin: center bottom;
+				transform: scaleY(0) translateZ(0);
+			}
+		}
+		& .line-bottom-left, & .line-top-right {
+			&:before, &:after {
+				content: "";
+				position: absolute;
+				background: $fade-out-color;
+				transition-property: background, transform;
+				transition: all .6s cubic-bezier(.4,0,.1,1);
+			}
+		}
+	}
 
-  & .bg-medium {
-    @extend .bg-large;
-    top: 2 * (-$offset);
-    left: 0;
-    padding: (2 * $offset) 0;
-    width: 100%;
-    & .line-bottom-left {
-      &:before {
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: $bwidth;
-        transform-origin: right center;
-        transform: scaleX(0) translateZ(0);
-      }
-      &:after {
-        top: 0;
-        left: -1px;
-        width: $bwidth;
-        height: 100%;
-        transform-origin: center top;
-        transform: scaleY(0) translateZ(0);
-      }
-    }
-    & .line-top-right {   
-      &:before {
-        top: (-$bwidth);
-        left: 0;
-        width: 100%;
-        height: $bwidth;
-        transform-origin: left center;
-        transform: scaleX(0) translateZ(0);
-      }
-      &:after {
-        top: 0;
-        right: -1px;
-        width: $bwidth;
-        height: 100%;
-        transform-origin: center bottom;
-        transform: scaleY(0) translateZ(0);
-      }
-    }
-    & .line-bottom-left, & .line-top-right {  
-      &:before, &:after {
-        content: "";
-        position: absolute;
-        background: $fade-out-color;
-        transition: transform .6s cubic-bezier(.4,0,.1,1), background .6s cubic-bezier(.4,0,.1,1);
-      }
-    }
-  }
+	& .bg-medium {
+		@extend .bg-large;
+		top: 2 * (-$offset);
+		left: 0;
+		padding: (2 * $offset) 0;
+		width: 100%;
+		& .line-bottom-left {
+			&:before {
+				bottom: 0;
+				left: 0;
+				width: 100%;
+				height: $bwidth;
+				transform-origin: right center;
+				transform: scaleX(0) translateZ(0);
+			}
+			&:after {
+				top: 0;
+				left: -1px;
+				width: $bwidth;
+				height: 100%;
+				transform-origin: center top;
+				transform: scaleY(0) translateZ(0);
+			}
+		}
+		& .line-top-right {   
+			&:before {
+				top: (-$bwidth);
+				left: 0;
+				width: 100%;
+				height: $bwidth;
+				transform-origin: left center;
+				transform: scaleX(0) translateZ(0);
+			}
+			&:after {
+				top: 0;
+				right: -1px;
+				width: $bwidth;
+				height: 100%;
+				transform-origin: center bottom;
+				transform: scaleY(0) translateZ(0);
+			}
+		}
+		& .line-bottom-left, & .line-top-right {  
+			&:before, &:after {
+				content: "";
+				position: absolute;
+				background: $fade-out-color;
+				transition: transform .6s cubic-bezier(.4,0,.1,1), background .6s cubic-bezier(.4,0,.1,1);
+			}
+		}
+	}
 }
 
 

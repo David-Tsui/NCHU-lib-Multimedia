@@ -13,15 +13,36 @@ body {
     color: #fff; }
   .main-container aside {
     margin-bottom: 2rem; }
-  .main-container .row > header {
-    position: absolute;
-    top: 0;
-    left: 0;
-    color: #ddd; }
+  .main-container .row {
+    padding-top: 4rem !important; }
+    .main-container .row:not(:first-child) {
+      border-top: #aaa solid 1px;
+      margin: 3rem 0 0; }
+    .main-container .row header {
+      position: absolute;
+      top: 2rem;
+      left: 2rem;
+      color: #ddd; }
   .main-container article .main-content {
     padding: 1rem 2rem; }
     .main-container article .main-content p {
       font-size: 1.25rem; }
+
+.ui.secondary.menu.main-navbar {
+  width: 85%;
+  height: 90px;
+  background: transparent;
+  font-size: 1.35rem; }
+  .ui.secondary.menu.main-navbar .item {
+    color: #fff; }
+    .ui.secondary.menu.main-navbar .item.visible, .ui.secondary.menu.main-navbar .item:hover, .ui.secondary.menu.main-navbar .item:active {
+      background: transparent;
+      color: #fff; }
+    .ui.secondary.menu.main-navbar .item .root-a {
+      color: #fff;
+      text-decoration: none; }
+    .ui.secondary.menu.main-navbar .item > i.dropdown.icon {
+      margin: 0 0 0 5px; }
 
 .main-footer {
   position: relative;
@@ -31,22 +52,16 @@ body {
   padding: 1.5rem;
   background: rgba(255, 255, 255, 0.5);
   text-align: center; }
+  .main-footer p {
+    font-size: 1.25rem; }
+    .main-footer p.link a {
+      color: #2337a9; }
 
 button.mdl-color--primary {
   color: white; }
 
 .scrollbar-inner > .scroll-element .scroll-bar {
   background-color: #222; }
-
-#navbar {
-  width: 75%;
-  height: 90px;
-  background: transparent;
-  font-size: 1.2rem; }
-  #navbar .item {
-    color: #fff; }
-    #navbar .item.visible, #navbar .item:hover, #navbar .item:active {
-      background: transparent; }
 
 .carousel-container {
   display: flex;
@@ -72,9 +87,6 @@ button.mdl-color--primary {
           opacity: .75; }
           .carousel-container #carousel ul .item img:hover {
             opacity: 1; }
-
-.main-container.news-box {
-  padding: 0 4rem calc(10px + 100px) 4rem !important; }
 
 .news-segment {
   background: rgba(0, 0, 0, 0.6);
@@ -114,10 +126,11 @@ button.mdl-color--primary {
 #movie-blog .pagination {
   list-style-type: none;
   width: 100%;
-  text-align: center; }
+  text-align: center;
+  padding: 1.5rem; }
   #movie-blog .pagination li {
     display: inline-block;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     padding: 0 10px;
     line-height: 30px;
     border-radius: 2px;
@@ -197,11 +210,9 @@ button {
   z-index: 99;
   right: 20px;
   margin: 0 auto;
-  -webkit-transition: all 1s ease;
-  -moz-transition: all 1s ease;
-  -ms-transition: all 1s ease;
-  -o-transition: all 1s ease;
-  transition: all 1s ease; }
+  -webkit-transition: all 1s ease-in-out;
+  -moz-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out; }
 
 .btn-nav:focus {
   outline: none; }
@@ -210,11 +221,9 @@ button {
   margin: 0 auto; }
 
 .bar {
-  -webkit-transition: all .7s ease;
-  -moz-transition: all .7s ease;
-  -ms-transition: all .7s ease;
-  -o-transition: all .7s ease;
-  transition: all .7s ease; }
+  -webkit-transition: all 0.7s ease;
+  -moz-transition: all 0.7s ease;
+  transition: all 0.7s ease; }
 
 .animated {
   z-index: 999; }
