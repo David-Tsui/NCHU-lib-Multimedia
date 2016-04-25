@@ -3,7 +3,7 @@ extends ../layouts/default
 include ../mixins/movie
 block content
 	.ui.grid.main-container#movie-blog
-		.ui.thirteen.wide.column
+		.ui.fourteen.wide.column
 			aside
 				a(href="/") 
 					button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-color--primary= '回首頁'
@@ -52,13 +52,18 @@ block content
 					else
 						.jumbotron.text-center
 							h3(style="margin-bottom:0;margin-top:0;") There are no movies yet.
-		.ui.three.wide.column
+		.ui.two.wide.column
 			if categories.length
-				h4 電影分類
-				ul.mdl-list
-					li.mdl-list__item
-						a(href='/movies/movie_blog') 全部
-					each cat in categories
-						li.mdl-list__item
-							a(href='/movies/movie_blog/' + cat.key)
-								span.mdl-badge(data-badge=cat.movieCount)= cat.name
+				table.mdl-data-table.mdl-js-data-table
+					caption 電影分類
+					tr
+						th.mdl-data-table__cell--non-numeric 分類
+					each category in categories
+						tr
+							td.category-header(colspan="2")!= category.root_cat.name
+						each sub_cat in category.sub_cats
+							tr
+								td
+									a.td-a(href='/movies/movie_blog/' + category.root_cat.key + '/' + sub_cat.key)
+										span!= sub_cat.name
+										span.ui.circular.label!= sub_cat.movieCount

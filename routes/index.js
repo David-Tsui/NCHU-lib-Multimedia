@@ -10,17 +10,18 @@ keystone.pre('routes', function (req, res, next) {
 			href: "/",
 			nested: false
 		},
+		{
+			label: "最新消息",
+			key: "news",
+			href: "/news",
+			nested: false
+		},
 		{ 
-			label: "多媒體中心",
+			label: "關於本中心",
 			key: "media_center", 
 			href: "/",
 			nested: true,
 			subnav: [
-				{
-					label: "最新消息",
-					key: "news",
-					href: "/news"
-				},
 				{
 					label: "中心介紹",
 					key: "intro",
@@ -177,7 +178,10 @@ exports = module.exports = function (app) {
 
 	app.get('/blog/:category?', routes.views.blog);
 	app.all('/blog/post/:post', routes.views.post);
-	app.get('/movies/movie_blog/:category?', routes.views.movie_blog);
+	app.get('/movies/movie_blog/:root_category?/:category?', routes.views.movie_blog);
+	// app.get('/movies/movie_blog/region/:category?', routes.views.movie_blog);
+	// app.get('/movies/movie_blog/theme/:category?', routes.views.movie_blog);
+	// app.get('/movies/movie_blog/classification/:category?', routes.views.movie_blog);
 	app.get('/movies/movie_blog/movie/:movie', routes.views.movie);
 
 	app.get('/', routes.views.index);

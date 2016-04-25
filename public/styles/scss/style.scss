@@ -9,15 +9,16 @@ figure {
 }
 
 body {
+	// display: flex;
+	// flex-direction: column;
 	background: url(/images/black-background-11.jpg) center center / cover no-repeat;
 	background-attachment: fixed;
-	position: static;
 }
 
 // grid layout
 .main-container {
-	padding: 2rem 4rem calc(10px + #{$prepare-height}) 4rem !important;
-	min-height: calc(100vh - #{$navbar-height} - 1rem);
+	min-height: 100vh;
+	padding: 2rem 4rem !important;
 	& h1, & h2, & h3, & h4, & h5, & h6 {
 		color: #fff;
 	} 
@@ -48,33 +49,37 @@ body {
 }
 
 // 導覽列
-.ui.secondary.menu.main-navbar {
-	width: 85%;
-	height: $navbar-height;
-	background: transparent;
-	font-size: 1.35rem;
-	// box-shadow: none;
-	& .item {
-		color: #fff;
-		&.visible, &:hover, &:active {
-			background: transparent;
+.nav-grid {
+	// min-height: $prepare-height;
+	& .ui.secondary.menu.main-navbar {
+		width: 100%;
+		padding: 1rem 4rem;
+		box-sizing: content-box;
+		background: transparent;
+		font-size: 1.35rem;
+		// box-shadow: none;
+		& .item {
 			color: #fff;
-		}
-		& .root-a {
-			color: #fff;
-			text-decoration: none;
-		}
-		& > i.dropdown.icon {
-			margin: 0 0 0 5px;
+			&.visible, &:hover, &:active {
+				background: transparent;
+				color: #fff;
+			}
+			& .root-a {
+				color: #fff;
+				text-decoration: none;
+			}
+			& > i.dropdown.icon {
+				margin: 0 0 0 5px;
+			}
 		}
 	}
 }
 
+
 .main-footer {
 	position: relative;
 	width: 100%;
-	height: $prepare-height;
-	margin-top: -$prepare-height;
+	box-sizing: content-box;
 	padding: 1.5rem;
 	background: rgba(255,255,255,.5);
 	text-align: center;
@@ -268,7 +273,15 @@ table.mdl-data-table {
 		margin-bottom: 1rem;
 	}
 	& td {
-		// white-space: pre-line;
+		position: relative;
+		& a.td-a {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+		}
+		&.category-header {
+			text-align: left;
+		}
 	}
 }
 

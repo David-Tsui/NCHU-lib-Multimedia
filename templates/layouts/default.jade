@@ -32,15 +32,15 @@ html
 		//- 	.bar.arrow-top-r
 		//- 	.bar.arrow-middle-r
 		//- 	.bar.arrow-bottom-r
-		.ui.grid.nav-grid.nav-wrap
-			.computer.tablet.only.centered.row
+		.ui.grid.nav-grid
+			.computer.tablet.only.row
 				.ui.secondary.menu.main-navbar
 					.left.menu
 						each link in navLinks
 							if link.nested 
 								.ui.dropdown.item
 									//- span=link.label
-									a.root-a(href=link.href)= link.label
+									span.root!= link.label
 									i.dropdown.icon
 									.menu
 										each subLink in link.subnav

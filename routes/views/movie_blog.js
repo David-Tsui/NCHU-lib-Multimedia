@@ -1,7 +1,24 @@
 var keystone = require('keystone');
 var async = require('async');
 var Movie = keystone.list('Movie');
-var MovieCategory = keystone.list('MovieCategory');
+var MovieRootCategory = keystone.list('MovieRootCategory');
+var MovieRegionCategory = keystone.list('MovieRegionCategory');
+var MovieThemeCategory = keystone.list('MovieThemeCategory');
+var MovieClassificationCategory = keystone.list('MovieClassificationCategory');
+var MovieSubCategories = {
+	以地區分類: MovieRegionCategory, 
+	以主題分類: MovieThemeCategory,
+	以級別分類: MovieClassificationCategory
+}, ModelColumnMapping = {
+	以地區分類: 'region_categories',
+	以主題分類: 'theme_categories',
+	以級別分類: 'classification_categories'
+};
+
+function createObj(root_cat, sub_cats) {
+	this.root_cat = root_cat;
+	this.sub_cats = sub_cats;
+}
 
 exports = module.exports = function (req, res) {
 
@@ -11,52 +28,76 @@ exports = module.exports = function (req, res) {
 	// Init locals
 	locals.section = 'movie_blog';
 	locals.filters = {
-		category: req.params.category,
+		root_category: req.params.root_category,
+		category: req.params.category
 	};
 	locals.movies = [];
+	locals.root_categories = [];
 	locals.categories = [];
 
-	// Load all categories
-	view.on('init', function (next) {
-
-		MovieCategory.model.find().sort('name').exec(function (err, results) {
-
+	// Load root categories
+	view.on('init', function (callback) {
+		MovieRootCategory.model.find().sort('name').exec(function (err, results) {
 			if (err || !results.length) {
-				return next(err);
+				return callback(err);
 			}
 
-			locals.categories = results;
-
-			// Load the counts for each category
-			async.each(locals.categories, function (category, next) {
-
-				keystone.list('Movie').model.count().where('state', 'published').where('categories').in([category.id]).exec(function (err, count) {
-					category.movieCount = count;
-					next(err);
+			locals.root_categories = results; 
+			async.each(locals.root_categories, function(root_cat, callback) {
+				var obj_key = root_cat.name;
+				MovieSubCategories[obj_key].model.find().sort('name').exec(function (err, results) {
+					locals.categories.push(new createObj(root_cat, results));
+					callback(err);
 				});
-
+				// callback();
 			}, function (err) {
-				next(err);
+				callback(err);
 			});
-
 		});
-
 	});
 
-	// Load the current category filter
-	view.on('init', function (next) {
-		if (req.params.category) {
-			MovieCategory.model.findOne({ key: locals.filters.category }).exec(function (err, result) {
-				locals.category = result;
-				next(err);
+	// Load the counts for each category
+	view.on('init', function (callback) {
+		locals.categories.forEach(function(category) {
+			var root_cat_name = category.root_cat.name;
+			var sub_cats = category.sub_cats;
+			sub_cats.forEach(function(sub_cat, index) {
+				keystone.list('Movie').model.count().where('state', 'published').where(ModelColumnMapping[root_cat_name]).in([sub_cat.id]).exec(function (err, count) {
+					sub_cat.movieCount = count;
+					
+				});
+			})
+		});
+		callback();
+	});
+	
+	// Load the current root_category filter
+	view.on('init', function (callback) {
+		if (req.params.root_category) {
+			MovieRootCategory.model.findOne({ key: locals.filters.root_category }).exec(function (err, result) {
+				locals.root_category = result;
+				console.log("root_category: ", locals.root_category);
+				callback(err);
 			});
 		} else {
-			next();
+			callback();
+		}
+	});
+
+	// Load the current sub_category filter
+	view.on('init', function (callback) {
+		if (req.params.category) {
+			MovieSubCategories[locals.root_category.name].model.findOne({ key: locals.filters.category }).exec(function (err, result) {
+				locals.category = result;
+				callback(err);
+			});
+		} else {
+			callback();
 		}
 	});
 
 	// Load the movies
-	view.on('init', function (next) {
+	view.on('init', function (callback) {
 
 		var q = Movie.paginate({
 				page: req.query.page || 1,
@@ -68,12 +109,12 @@ exports = module.exports = function (req, res) {
 			.populate('author categories');
 
 		if (locals.category) {
-			q.where('categories').in([locals.category]);
+			q.where(ModelColumnMapping[locals.root_category.name]).in([locals.category]);
 		}
 
 		q.exec(function (err, results) {
 			locals.movies = results;
-			next(err);
+			callback(err);
 		});
 
 	});

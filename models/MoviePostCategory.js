@@ -3,7 +3,6 @@ var Types = keystone.Field.Types;
 
 var MoviePostCategory = new keystone.List('MoviePostCategory', {
 	autokey: { from: 'name', path: 'key', unique: true },
-	label: 'Categories',
 });
 
 MoviePostCategory.add({

@@ -1,0 +1,14 @@
+extends ../layouts/default
+include ../mixins/post
+
+block content
+	.ui.grid.main-container
+		.ui.two.wide.column
+		.ui.twelve.wide.column
+			.ui.two.column.grid
+				each post in posts
+					.column
+						a(href='/makers/' + post.key)
+							section.ui.segment
+								h4!= post.name
+		.ui.two.wide.column
