@@ -76,7 +76,6 @@ exports = module.exports = function (req, res) {
 		if (req.params.root_category) {
 			MovieRootCategory.model.findOne({ key: locals.filters.root_category }).exec(function (err, result) {
 				locals.root_category = result;
-				console.log("root_category: ", locals.root_category);
 				callback(err);
 			});
 		} else {
@@ -98,15 +97,14 @@ exports = module.exports = function (req, res) {
 
 	// Load the movies
 	view.on('init', function (callback) {
-
 		var q = Movie.paginate({
-				page: req.query.page || 1,
- 				perPage: 8,
- 				maxPages: 10,
-			})
-			.where({'state': 'published'})
-			.sort('-publishedDate')
-			.populate('author categories');
+			page: req.query.page || 1,
+			perPage: 8,
+			maxPages: 10,
+		})
+		.where('state', 'published')
+		.sort('-publishedDate')
+		.populate('author region_categories theme_categories classification_categories');
 
 		if (locals.category) {
 			q.where(ModelColumnMapping[locals.root_category.name]).in([locals.category]);

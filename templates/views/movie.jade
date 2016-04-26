@@ -1,5 +1,4 @@
 extends ../layouts/default
-include ../mixins/movie
 
 block content
 	if !movie
@@ -14,40 +13,41 @@ block content
 						button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-color--primary.button-back 回影片總覽
 				.two.column.row
 					.column
-						table.mdl-data-table.mdl-js-data-table.mdl-shadow--2dp
-							caption
-								.ui.fluid.image
-									img(src=movie.image.url)
-							tbody
-								tr
-									td.mdl-data-table__cell--non-numeric 導演
-									td= movie.director
-								tr
-									td.mdl-data-table__cell--non-numeric 演員
-									td!= movie.actor
-								tr
-									td.mdl-data-table__cell--non-numeric 館藏連結
-									td
-										a(href=movie.link) 連結
-								tr
-									td.mdl-data-table__cell--non-numeric 分級
-									td
-										if movie.classfication_categories
-											| movie.classfication_categories.name
-								tr
-									td.mdl-data-table__cell--non-numeric 片長
-									td= movie.videoTime
-								tr
-									td.mdl-data-table__cell--non-numeric 進館日
-									td= movie._.inDate.format('M月 D日, YYYY')
-								tr
-									td.mdl-data-table__cell--non-numeric 影片分類
-									td
-										if movie.region_categories
-											.ui.label= movie.region_categories.name
-										if movie.theme_categories
-											each category in movie.theme_categories
-												.ui.label= category.name
+						article(data-ks-editable=editable(user, { list: 'Movie', id: movie.id }))
+							table.mdl-data-table.mdl-js-data-table.mdl-shadow--2dp
+								caption
+									.ui.fluid.image
+										img(src=movie.image.url)
+								tbody
+									tr
+										td.mdl-data-table__cell--non-numeric 導演
+										td= movie.director
+									tr
+										td.mdl-data-table__cell--non-numeric 演員
+										td!= movie.actor
+									tr
+										td.mdl-data-table__cell--non-numeric 館藏連結
+										td
+											a(href=movie.link) 連結
+									tr
+										td.mdl-data-table__cell--non-numeric 分級
+										td
+											if movie.classfication_categories
+												| movie.classfication_categories.name
+									tr
+										td.mdl-data-table__cell--non-numeric 片長
+										td= movie.videoTime
+									tr
+										td.mdl-data-table__cell--non-numeric 進館日
+										td= movie._.inDate.format('M月 D日, YYYY')
+									tr
+										td.mdl-data-table__cell--non-numeric 影片分類
+										td
+											if movie.region_categories
+												.ui.label= movie.region_categories.name
+											if movie.theme_categories
+												each category in movie.theme_categories
+													.ui.label= category.name
 					.column
 						section.ui.segment.movie-intro.mdl-shadow--2dp
 							h3!= movie.name

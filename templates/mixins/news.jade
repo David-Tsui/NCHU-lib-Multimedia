@@ -1,7 +1,6 @@
 mixin news(post)
-	//- article(data-ks-editable=editable(user, { list: 'Post', id: post.id }))
 	if post.image.height > post.image.width
-		.news-item.vertical.special-segment
+		.news-item.vertical.special-segment(data-ks-editable=editable(user, { list: 'NewsPost', id: post.id }))
 			.ui.image
 				img(src=post._.image.fit(768,1024))
 			.content
@@ -24,7 +23,7 @@ mixin news(post)
 				span.line-bottom-left
 				span.line-top-right
 	else
-		.news-item.horizontal.special-segment
+		.news-item.horizontal.special-segment(data-ks-editable=editable(user, { list: 'NewsPost', id: post.id }))
 			.ui.image
 				img(src=post._.image.fit(1024,768))
 			.content
