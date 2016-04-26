@@ -55,9 +55,6 @@ block content
 		.ui.two.wide.column
 			if categories.length
 				table.mdl-data-table.mdl-js-data-table
-					caption 電影分類
-					tr
-						th.mdl-data-table__cell--non-numeric 分類
 					each category in categories
 						tr
 							td.category-header(colspan="2")!= category.root_cat.name

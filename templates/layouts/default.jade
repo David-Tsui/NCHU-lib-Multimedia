@@ -32,21 +32,39 @@ html
 		//- 	.bar.arrow-top-r
 		//- 	.bar.arrow-middle-r
 		//- 	.bar.arrow-bottom-r
+		-
+			var icons = [
+				'http://i.imgur.com/VXKLehv.png',
+				'http://i.imgur.com/TYDwe20.png',
+				'http://i.imgur.com/VXKLehv.png',
+				'http://i.imgur.com/TYDwe20.png',
+				'http://i.imgur.com/DgUA8Xq.png',
+				'http://i.imgur.com/Oafmfds.png',
+				'http://i.imgur.com/4ILKHKy.png'
+			]
 		.ui.grid.nav-grid
+			.ui.image
+				img(src="http://i.imgur.com/7Z9gKiZ.png")
 			.computer.tablet.only.row
 				.ui.secondary.menu.main-navbar
 					.left.menu
-						each link in navLinks
+						each link, index in navLinks
 							if link.nested 
 								.ui.dropdown.item
-									//- span=link.label
+									.icon-container
+										img(src=icons[index]).ui.tiny.image
+										.icon-border
 									span.root!= link.label
-									i.dropdown.icon
+										i.dropdown.icon
 									.menu
 										each subLink in link.subnav
 											a.item(href=subLink.href)= subLink.label
 							else 
-								a.item(href=link.href)= link.label
+								a.item(href=link.href)
+									.icon-container
+										img(src=icons[index]).ui.tiny.image
+										.icon-border
+									span!= link.label
 								//- li(class=(section === link.key ? 'active' : null)): a(href=link.href)= link.label	
 					.right.menu
 						if user

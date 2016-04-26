@@ -31,9 +31,11 @@ exports = module.exports = function (req, res) {
 		
 		q1.exec(function (err, results) {
 			locals.news = results;
-			// next(err);
+			next(err);
 		});
+	});
 
+	view.on('init', function (next) {
 		var q2 = Movie.model.find()
 			.where('state', 'published')
 			.sort('-publishedDate')
@@ -45,8 +47,5 @@ exports = module.exports = function (req, res) {
 		});
 	});
 
-	// view.render('index', {
-	// 	section: 'home',
-	// });
 	view.render('index');
 }
