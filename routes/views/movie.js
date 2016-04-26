@@ -23,6 +23,7 @@ exports = module.exports = function (req, res) {
 
 		q.exec(function (err, result) {
 			locals.movie = result;
+			console.log(locals.movie);
 			next(err);
 		});
 

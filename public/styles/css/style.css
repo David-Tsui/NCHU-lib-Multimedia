@@ -60,7 +60,7 @@ body {
     .nav-grid .ui.secondary.menu.main-navbar .item > i.dropdown.icon {
       margin: 0 0 0 5px; }
     .nav-grid .ui.secondary.menu.main-navbar .item span {
-      padding: 5px 8px 5px 20px;
+      padding: 5px 12px 5px 20px;
       border: 4px solid #009688;
       border-left: none;
       border-radius: 0 25px 25px 0;
@@ -91,23 +91,31 @@ button.mdl-color--primary {
   padding-top: 3rem; }
   .carousel-container #carousel {
     width: 100%;
-    height: 340px;
     overflow: hidden; }
     .carousel-container #carousel ul {
-      display: flex; }
+      display: flex;
+      list-style: none; }
       .carousel-container #carousel ul .item {
-        width: calc(20% - 10px * 2);
-        height: 320px;
-        margin: 10px;
+        width: calc(20% - 25px * 2);
+        margin: 0 25px;
+        background: transparent;
         text-align: center;
         float: left;
-        position: relative;
-        background: transparent; }
+        position: relative; }
+        .carousel-container #carousel ul .item .meta {
+          margin-bottom: 5px; }
         .carousel-container #carousel ul .item img {
-          width: 220px;
-          opacity: .75; }
+          width: 100%;
+          height: 300px;
+          opacity: .75;
+          -webkit-transition: all 0.25s ease-in;
+          -moz-transition: all 0.25s ease-in;
+          transition: all 0.25s ease-in; }
           .carousel-container #carousel ul .item img:hover {
-            opacity: 1; }
+            opacity: 1;
+            box-shadow: 0px 0px 15px 1px aliceblue; }
+        .carousel-container #carousel ul .item time {
+          color: #fff; }
 
 .news-segment {
   background: rgba(0, 0, 0, 0.6);

@@ -57,7 +57,8 @@ block content
 				table.mdl-data-table.mdl-js-data-table
 					each category in categories
 						tr
-							td.category-header(colspan="2")!= category.root_cat.name
+							if category.root_cat
+								td.category-header(colspan="2")!= category.root_cat.name
 						each sub_cat in category.sub_cats
 							tr
 								td

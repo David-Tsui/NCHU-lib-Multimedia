@@ -31,7 +31,9 @@ block content
 										a(href=movie.link) 連結
 								tr
 									td.mdl-data-table__cell--non-numeric 分級
-									td= movie.classification
+									td
+										if movie.classfication_categories
+											| movie.classfication_categories.name
 								tr
 									td.mdl-data-table__cell--non-numeric 片長
 									td= movie.videoTime
@@ -41,8 +43,11 @@ block content
 								tr
 									td.mdl-data-table__cell--non-numeric 影片分類
 									td
-										each category in movie.categories
-											.ui.label= category.name
+										if movie.region_categories
+											.ui.label= movie.region_categories.name
+										if movie.theme_categories
+											each category in movie.theme_categories
+												.ui.label= category.name
 					.column
 						section.ui.segment.movie-intro.mdl-shadow--2dp
 							h3!= movie.name

@@ -8,7 +8,7 @@ mixin movie(movie)
 			.scrollable-text.scrollbar-inner
 				!= movie.content.brief
 		.mdl-card__actions.mdl-card--border
-			a.mdl-button.mdl-button--colored.mdl-js-button.mdl-js-ripple-effect(href='/movies/movie_blog/movie/' + movie.key)
+			a.mdl-button.mdl-button--colored.mdl-js-button.mdl-js-ripple-effect(href='/movies/movie_blog/movie' + movie.key)
 				| 瀏覽內容
 			if movie.publishedDate
-				time( datetime=movie._.publishedDate.format('MM D, YYYY'))= movie._.publishedDate.format('YYYY年 M月D日')
+				time(datetime=movie._.publishedDate.format('MM D, YYYY'))= movie._.publishedDate.format('YYYY年 M月D日')
