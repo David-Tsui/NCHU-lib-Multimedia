@@ -5,6 +5,16 @@ figure {
 .ks-editable-btn {
   z-index: 999; }
 
+.flipster__button {
+  opacity: 1;
+  outline: 0; }
+  .flipster__button .mdl-button {
+    background-color: rgba(83, 109, 254, 0.5) !important; }
+    .flipster__button .mdl-button:hover {
+      background-color: #536dfe !important; }
+  .flipster__button svg {
+    stroke: #fff; }
+
 body {
   background: url(http://i.imgur.com/1c4EaO9.png) center center/cover no-repeat;
   background-attachment: fixed;
@@ -174,16 +184,17 @@ button.mdl-color--primary {
       align-items: center;
       justify-content: center; }
       .news-segment .news-item.horizontal .ui.image img {
+        max-height: 350px;
         width: 100%; }
     .news-segment .news-item.vertical {
       display: flex; }
       .news-segment .news-item.vertical .ui.image {
-        flex: 1; }
+        flex: 3; }
         .news-segment .news-item.vertical .ui.image img {
           width: 100%;
           height: 550px; }
       .news-segment .news-item.vertical .content {
-        flex: 1; }
+        flex: 2; }
 
 #movie-blog .ui.segment h1, #movie-blog .ui.segment h2, #movie-blog .ui.segment h3, #movie-blog .ui.segment h4, #movie-blog .ui.segment h5, #movie-blog .ui.segment h6 {
   color: #444; }

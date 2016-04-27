@@ -225,7 +225,7 @@
 }
 .flipster--coverflow .flipster__item {
   perspective: 800px;
-  width: 70%;
+  width: 60%;
 }
 .flipster--coverflow .flipster__container {
   padding-bottom: 5%;

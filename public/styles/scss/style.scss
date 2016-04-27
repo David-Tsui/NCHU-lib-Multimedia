@@ -13,6 +13,21 @@ figure {
 	z-index: 999;
 }
 
+// flipster 
+.flipster__button {
+	opacity: 1;
+	outline: 0;
+	& .mdl-button {
+		background-color: rgba(83,109,254, .5) !important;
+		&:hover {
+			background-color: rgb(83,109,254) !important;
+		}
+	}
+	& svg {
+		stroke: #fff;
+	}
+}
+
 body {
 	// display: flex;
 	// flex-direction: column;
@@ -145,7 +160,7 @@ body {
 						line-height: 2rem !important;
 						border: none;
 						padding: 0;
-					}
+					} 
 					&.gsc-search-button-v2 {
 						background: rgb(0,150,136);
 						color: #fff;
@@ -254,6 +269,7 @@ button.mdl-color--primary {
 				align-items: center;
 				justify-content: center;
 				& img {
+					max-height: 350px;
 					width: 100%;
 				}
 			}
@@ -261,14 +277,14 @@ button.mdl-color--primary {
 		&.vertical {
 			display: flex;
 			& .ui.image {
-				flex: 1;
+				flex: 3;
 				& img {
 					width: 100%;
 					height: 550px;
 				}
 			}
 			& .content {
-				flex: 1;
+				flex: 2;
 			}
 		}
 	}

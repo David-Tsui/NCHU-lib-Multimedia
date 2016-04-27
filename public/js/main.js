@@ -22,16 +22,16 @@ $(document).ready(function() {
 		touch: true,
 
 		nav: false,
-		buttons: false,
+		buttons: 'custom',
 		// [true|false|'custom']
 		// If true, Flipster will insert Previous / Next buttons with SVG arrows
 		// If 'custom', Flipster will not insert the arrows and will instead use the values of `buttonPrev` and `buttonNext`
 
-		buttonPrev: 'Previous',
+		buttonPrev: '<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--accent"><i class="material-icons">navigate_before</i></button>',
 		// [text|html]
 		// Changes the text for the Previous button
 
-		buttonNext: 'Next',
+		buttonNext: '<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--accent"><i class="material-icons">navigate_next</i></button>',
 		// [text|html]
 		// Changes the text for the Next button
 
