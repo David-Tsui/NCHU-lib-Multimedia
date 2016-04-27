@@ -41,7 +41,7 @@ keystone.pre('routes', function (req, res, next) {
 			nested: true,
 			subnav: [
 				{
-					label: "聯盟簡介",
+					label: "聯盟介紹",
 					key: "news",
 					href: "/makers/intro"
 				},
@@ -71,22 +71,22 @@ keystone.pre('routes', function (req, res, next) {
 				{
 					label: "Mac應用資源",
 					key: "news",
-					href: "/resources/mac-app"
+					href: "/resources/Mac_app"
 				},
 				{
 					label: "免費圖片資源",
 					key: "intro",
-					href: "/resources/free-pics"
+					href: "/resources/free_figures"
 				},
 				{
 					label: "免費廣播資源",
 					key: "rules",
-					href: "/resources/free-broad"
+					href: "/resources/free_broadcast"
 				},
 				{
 					label: "電腦軟體課程",
 					key: "rules",
-					href: "/resources/software-class"
+					href: "/resources/software_curriculums"
 				},
 				{
 					label: "TED(倒了)",
@@ -142,12 +142,12 @@ keystone.pre('routes', function (req, res, next) {
 				{
 					label: "玩桌遊",
 					key: "test1",
-					href: "/idea/board-games"
+					href: "/idea/table_game"
 				},
 				{
 					label: "Line貼圖徵選活動",
 					key: "test2",
-					href: "/idea/board-games"
+					href: "/idea/Line_stickers"
 				}
 			]
 		}
@@ -174,7 +174,8 @@ exports = module.exports = function (app) {
 	// Views
 	app.get('/news/post/:post', routes.views.news_detail);
 	app.get('/makers/:type', routes.views.maker);
-	app.get('/makers', routes.views.maker);
+	app.get('/resources/:type', routes.views.resources);
+	app.get('/idea/:type', routes.views.idea);
 
 	app.get('/blog/:category?', routes.views.blog);
 	app.all('/blog/post/:post', routes.views.post);

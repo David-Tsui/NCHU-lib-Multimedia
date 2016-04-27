@@ -3,7 +3,7 @@ var Types = keystone.Field.Types;
 
 var NewsPostCategory = new keystone.List('NewsPostCategory', {
 	autokey: { from: 'name', path: 'key', unique: true },
-	label: 'Categories',
+	label: '分類',
 });
 
 NewsPostCategory.add({

@@ -8,14 +8,9 @@ block content
 				article.ui.segment
 					h3.header!= post.name
 						time= post._.publishedDate.format('MMMM Do, YYYY')
+					if post.image
 					figure.ui.image
 						img(src=post._.image.fit(1024,768))
 					section.content
 						p!= post.content.extended
-			//- .ui.two.column.grid
-			//- 	each post in posts
-			//- 		.column
-			//- 			a(href='/makers/' + post.key)
-			//- 				section.ui.segment
-			//- 					h4!= post.name
 		.ui.two.wide.column

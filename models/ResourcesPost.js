@@ -3,6 +3,7 @@ var Types = keystone.Field.Types;
 
 var ResourcesPost = new keystone.List('ResourcesPost', {
 	autokey: { from: 'name', path: 'key', unique: true },
+	label: '文章'
 });
 
 ResourcesPost.add({

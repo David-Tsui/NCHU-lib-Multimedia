@@ -11,7 +11,7 @@ exports = module.exports = function (req, res) {
 		news: '最新消息',
 		intro: '中心介紹',
 		rules: '相關規則'
-	}
+	};
 
 	// Init locals
 	locals.section = 'news';
@@ -73,7 +73,6 @@ exports = module.exports = function (req, res) {
 	// });
 
 	// Render the view
-	console.log("routes_name: ", routes_name);
 	if (routes_name == '最新消息')
 		view.render('news');
 	else {

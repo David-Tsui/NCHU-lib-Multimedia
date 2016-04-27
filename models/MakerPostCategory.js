@@ -3,7 +3,7 @@ var Types = keystone.Field.Types;
 
 var MakerPostCategory = new keystone.List('MakerPostCategory', {
 	autokey: { from: 'name', path: 'key', unique: true },
-	label: 'Categories',
+	label: '分類',
 });
 
 MakerPostCategory.add({

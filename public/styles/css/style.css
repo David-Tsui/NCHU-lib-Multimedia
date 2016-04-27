@@ -71,13 +71,44 @@ body {
 
 .main-footer {
   position: relative;
-  width: 100%;
   box-sizing: content-box;
-  padding: 1.5rem;
+  padding: .5rem 1rem;
   background: rgba(255, 255, 255, 0.5);
   text-align: center; }
   .main-footer p {
     font-size: 1.25rem; }
+    .main-footer p.search {
+      display: flex;
+      align-items: center;
+      width: 30%;
+      margin: 0 auto 1rem;
+      flex: 1;
+      font-weight: 400; }
+      .main-footer p.search .gsc-control-cse.gsc-control-cse-zh_TW {
+        background: transparent;
+        border: none; }
+      .main-footer p.search .gsc-input {
+        padding: 0; }
+      .main-footer p.search .gsc-search-box {
+        display: flex;
+        height: 35px; }
+        .main-footer p.search .gsc-search-box .gsc-input-box, .main-footer p.search .gsc-search-box .gsc-input-box-hover, .main-footer p.search .gsc-search-box .gsc-input-box-focus {
+          height: 2.5rem;
+          border: none;
+          box-shadow: none; }
+        .main-footer p.search .gsc-search-box input#gsc-i-id1 {
+          height: 2rem !important;
+          line-height: 2rem !important;
+          border: none;
+          padding: 0; }
+        .main-footer p.search .gsc-search-box input.gsc-search-button-v2 {
+          background: #009688;
+          color: #fff;
+          border: none;
+          margin: 0;
+          padding: 12px 23px; }
+      .main-footer p.search #___gcse_0 {
+        flex: 5; }
     .main-footer p.link a {
       color: #2337a9; }
 

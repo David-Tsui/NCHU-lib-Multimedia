@@ -3,6 +3,7 @@ var Types = keystone.Field.Types;
 
 var MakerPost = new keystone.List('MakerPost', {
 	autokey: { from: 'name', path: 'key', unique: true },
+	label: '文章',
 });
 
 MakerPost.add({

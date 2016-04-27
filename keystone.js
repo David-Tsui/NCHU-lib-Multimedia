@@ -60,7 +60,7 @@ keystone.set('nav', {
 	'愛創聯盟': ['maker-posts', 'maker-post-categories'],
 	'網路資源': ['resources-posts', 'resources-post-categories'],
 	'看電影': ['movie-posts', 'movie-post-categories'],
-	'玩創意': ['ideas', 'idea-categories'],
+	'玩創意': ['idea-posts', 'idea-post-categories'],
 	'影音物件': ['movies', 'movie-root-categories', 'movie-region-categories', 'movie-theme-categories', 'movie-classification-categories'],
 	// '所有文章': ['posts', 'post-comments', 'post-categories'],
 	'管理員': 'users'
