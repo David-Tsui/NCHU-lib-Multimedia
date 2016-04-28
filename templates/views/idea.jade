@@ -2,15 +2,22 @@ extends ../layouts/default
 
 block content
 	.ui.grid.main-container
-		.ui.two.wide.column
-		.ui.twelve.wide.column
-			each post in posts
-				article.ui.segment
-					h3.header!= post.name
-						time= post._.publishedDate.format('MMMM Do, YYYY')
-					if post.image
-					figure.ui.image
-						img(src=post._.image.fit(1024,768))
-					section.content
-						p!= post.content.extended
-		.ui.two.wide.column
+		.row
+			.four.wide.column
+			.eight.wide.column
+				each post in posts
+					article.ui.segment
+						h2= post.name
+						if post.author
+							|  作者:  #{post.author.name.full}
+						p 發佈於 
+							if post.publishedDate 
+								time(datetime=post.publishedDate)=post._.publishedDate.format('MM月 DD日, YYYY')
+						hr
+						if post.image.exists
+							figure.ui.fluid.image
+								img(src=post._.image.fit(750,500))
+							hr
+						.main-content
+							!= post.content.full
+			.four.wide.column

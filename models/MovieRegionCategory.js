@@ -8,7 +8,7 @@ var MovieRegionCategory = new keystone.List('MovieRegionCategory', {
 
 MovieRegionCategory.add({
 	name: { type: String, required: true },
-	categories: { type: Types.Relationship, ref: 'MovieRootCategory', many: false },
+	categories: { type: Types.Relationship, ref: 'MovieRootCategory'},
 });
 
 MovieRegionCategory.relationship({ ref: 'Movie', refPath: 'region_categories' });

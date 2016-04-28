@@ -19,7 +19,7 @@ exports = module.exports = function (req, res) {
 		var q = Movie.model.findOne({
 			state: 'published',
 			key: locals.filters.movie,
-		}).populate('author categories');
+		}).populate('author region_categories theme_categories classification_categories');
 
 		q.exec(function (err, result) {
 			locals.movie = result;

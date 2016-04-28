@@ -31,9 +31,10 @@ block content
 											a(href=movie.link) 連結
 									tr
 										td.mdl-data-table__cell--non-numeric 分級
-										td
-											if movie.classfication_categories
-												| movie.classfication_categories.name
+										if movie.classification_categories
+											td= movie.classification_categories.name
+										else 
+											td
 									tr
 										td.mdl-data-table__cell--non-numeric 片長
 										td= movie.videoTime
@@ -41,13 +42,16 @@ block content
 										td.mdl-data-table__cell--non-numeric 進館日
 										td= movie._.inDate.format('M月 D日, YYYY')
 									tr
-										td.mdl-data-table__cell--non-numeric 影片分類
+										td.mdl-data-table__cell--non-numeric 主題分類
 										td
-											if movie.region_categories
-												.ui.label= movie.region_categories.name
 											if movie.theme_categories
 												each category in movie.theme_categories
 													.ui.label= category.name
+									tr
+										td.mdl-data-table__cell--non-numeric 國別分類
+										td
+											if movie.region_categories
+												.ui.label= movie.region_categories.name
 					.column
 						section.ui.segment.movie-intro.mdl-shadow--2dp
 							h3!= movie.name
