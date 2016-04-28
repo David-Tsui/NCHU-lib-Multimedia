@@ -9,7 +9,7 @@ block content
 			.ui.sixteen.wide.column.carousel-container
 				main
 					+carousel(movies)
-		.row
+		.row.news-box
 			header: h2= '最新消息'
 			.two.wide.column
 			.twelve.wide.column
@@ -19,5 +19,6 @@ block content
 							li
 								article.news-segment
 									+news(a_news)
+				.ui.button#show-list-news 列表式查看
 			.two.wide.column
 			

@@ -1,0 +1,335 @@
+$offset: 12px;
+$bwidth: 1px;
+// $fade-in-color: #FFFD00;
+$fade-in-color: rgb(43, 255, 191);
+$fade-out-color: rgba(255, 255, 255, .5);
+
+.special-segment {
+	&:hover {
+		%x-transition {
+			background: $fade-in-color;
+			transform: scaleX(1) translateZ(0);
+			transition: transform 0.6s cubic-bezier(.3,.1,.05,1), background 0.6s cubic-bezier(.3,.1,.05,1);
+		}
+		%y-transition {
+			background: $fade-in-color;
+			transform: scaleY(1) translateZ(0);
+			transition: transform 0.6s cubic-bezier(.3,.1,.05,1), background 0.6s cubic-bezier(.3,.1,.05,1);
+		}
+		& .bg-large, & .bg-tall, & .bg-mediumn {
+			& .line-bottom-left {
+				&:before { @extend %x-transition; }
+				&:after { @extend %y-transition; }
+			}
+			& .line-top-right {
+				&:before { @extend %x-transition; }
+				&:after { @extend %y-transition; }
+			}
+		}
+	}
+
+	& .bg-large {
+		box-sizing: content-box;
+		position: absolute;
+		top: 0;
+		left: (-2 * $offset);
+		padding: 0 $offset;
+		width: calc(100% + 2 * #{$offset});
+		height: 100%;
+		border: 1px solid rgba(255, 255, 255, .15);
+		transform: translateZ(0);
+		& .line-bottom-left {
+			&:before {
+				bottom: 0;
+				left: -1px;
+				width: 100%;
+				height: $bwidth;    
+				transform-origin: left center;
+				transform: scaleX(0) translateZ(0);
+			}
+			&:after {
+				top: 0;
+				left: -1px;
+				width: $bwidth;
+				height: 100%;
+				transform-origin: center bottom;
+				transform: scaleY(0) translateZ(0);
+			}
+		}
+		& .line-top-right {
+			&:before {
+				// top: (-$bwidth);
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: $bwidth;
+				transform-origin: right center;
+				transform: scaleX(0) translateZ(0);
+			}
+			&:after {
+				top: 0;
+				right: -1px;
+				width: $bwidth;
+				height: 100%;
+				transform-origin: center top;
+				transform: scaleY(0) translateZ(0);
+			}
+		}
+		& .line-bottom-left, & .line-top-right {  
+			&:before, &:after {
+				content: "";
+				position: absolute;
+				background: $fade-out-color;
+				transition-property: background, transform;
+				transition: all .6s cubic-bezier(.4,0,.1,1);
+			}
+		}
+	}
+	& .bg-tall {
+		@extend .bg-large;
+		top: (-$offset);
+		left: (-$offset);
+		padding: $offset 0;
+		& .line-bottom-left {
+			&:before {
+				bottom: 0;
+				left: 0;
+				width: 100%;
+				height: $bwidth;
+				transform-origin: right center;
+				transform: scaleX(0) translateZ(0);
+			}
+			&:after {
+				top: 0;
+				left: -1px;
+				width: $bwidth;
+				height: 100%;
+				transform-origin: center top;
+				transform: scaleY(0) translateZ(0);
+			}     
+		}
+		& .line-top-right {   
+			&:before {
+				top: -2px;
+				left: 0;
+				width: 100%;
+				height: $bwidth;
+				transform-origin: left center;
+				transform: scaleX(0) translateZ(0);
+			}
+			&:after {
+				top: 0;
+				right: -1px;
+				width: $bwidth;
+				height: 100%;
+				transform-origin: center bottom;
+				transform: scaleY(0) translateZ(0);
+			}
+		}
+		& .line-bottom-left, & .line-top-right {
+			&:before, &:after {
+				content: "";
+				position: absolute;
+				background: $fade-out-color;
+				transition-property: background, transform;
+				transition: all .6s cubic-bezier(.4,0,.1,1);
+			}
+		}
+	}
+
+	& .bg-medium {
+		@extend .bg-large;
+		top: 2 * (-$offset);
+		left: 0;
+		padding: (2 * $offset) 0;
+		width: 100%;
+		& .line-bottom-left {
+			&:before {
+				bottom: 0;
+				left: 0;
+				width: 100%;
+				height: $bwidth;
+				transform-origin: right center;
+				transform: scaleX(0) translateZ(0);
+			}
+			&:after {
+				top: 0;
+				left: -1px;
+				width: $bwidth;
+				height: 100%;
+				transform-origin: center top;
+				transform: scaleY(0) translateZ(0);
+			}
+		}
+		& .line-top-right {   
+			&:before {
+				// top: (-$bwidth);
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: $bwidth;
+				transform-origin: left center;
+				transform: scaleX(0) translateZ(0);
+			}
+			&:after {
+				top: 0;
+				right: -1px;
+				width: $bwidth;
+				height: 100%;
+				transform-origin: center bottom;
+				transform: scaleY(0) translateZ(0);
+			}
+		}
+		& .line-bottom-left, & .line-top-right {  
+			&:before, &:after {
+				content: "";
+				position: absolute;
+				background: $fade-out-color;
+				transition: transform .6s cubic-bezier(.4,0,.1,1), background .6s cubic-bezier(.4,0,.1,1);
+			}
+		}
+	}
+}
+
+.horizontal.special-segment {
+	@extend .special-transiton;
+	& .bg-large {
+		& .line-bottom-left {
+			&:before {
+				bottom: 0;
+				left: -1px;
+			}
+			&:after {
+				top: 0;
+				left: -1px;
+			}
+		}
+		& .line-top-right {
+			&:before {
+				top: -($bwidth);
+				left: 0;
+			}
+			&:after {
+				top: 0;
+				right: -1px;
+			}
+		}
+	}
+	& .bg-tall {
+		& .line-bottom-left {
+			&:before {
+				bottom: 0;
+				left: 0;
+			}
+			&:after {
+				top: 0;
+				left: -1px;
+			}     
+		}
+		& .line-top-right {   
+			&:before {
+				top: -2px;
+				left: 0;
+			}
+			&:after {
+				top: 0;
+				right: -1px;
+			}
+		}
+	}
+
+	& .bg-medium {
+		& .line-bottom-left {
+			&:before {
+				bottom: 0;
+				left: 0;
+			}
+			&:after {
+				top: 0;
+				left: -1px;
+			}
+		}
+		& .line-top-right {   
+			&:before {
+				top: (-$bwidth);
+				left: 0;
+			}
+			&:after {
+				top: 0;
+				right: -1px;
+			}
+		}
+	}
+}
+
+.vertical.special-segment {
+	@extend .special-transiton;
+	& .bg-large {
+		& .line-bottom-left {
+			&:before {
+				bottom: 0;
+				left: -1px;
+			}
+			&:after {
+				top: 0;
+				left: -1px;
+			}
+		}
+		& .line-top-right {
+			&:before {
+				top: 0;
+				left: 0;
+			}
+			&:after {
+				top: 0;
+				right: -1px;
+			}
+		}
+	}
+	& .bg-tall {
+		& .line-bottom-left {
+			&:before {
+				bottom: 0;
+				left: 0;
+			}
+			&:after {
+				top: 0;
+				left: -1px;
+			}     
+		}
+		& .line-top-right {   
+			&:before {
+				top: -2px;
+				left: 0;
+			}
+			&:after {
+				top: 0;
+				right: -1px;
+			}
+		}
+	}
+
+	& .bg-medium {
+		& .line-bottom-left {
+			&:before {
+				bottom: 0;
+				left: 0;
+			}
+			&:after {
+				top: 0;
+				left: -1px;
+			}
+		}
+		& .line-top-right {   
+			&:before {
+				// top: (-$bwidth);
+				top: 0;
+				left: 0;
+			}
+			&:after {
+				top: 0;
+				right: -1px;
+			}
+		}
+	}
+}

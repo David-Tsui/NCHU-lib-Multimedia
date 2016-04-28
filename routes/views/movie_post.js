@@ -5,6 +5,14 @@ exports = module.exports = function (req, res) {
 
 	var view = new keystone.View(req, res);
 	var locals = res.locals;
+	var routes_map = {
+		Mac_app: 'Mac應用資源',
+		free_figures: '免費圖片資源',
+		free_broadcast: '免費廣播資源',
+		software_curriculums: '電腦軟體課程',
+		TED: 'TED'
+	};
+
 
 	// Init locals
 	locals.section = 'media';

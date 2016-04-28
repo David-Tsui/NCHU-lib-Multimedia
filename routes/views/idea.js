@@ -8,7 +8,7 @@ exports = module.exports = function (req, res) {
 	var locals = res.locals;
 	var routes_map = {
 		table_game: '玩桌遊',
-		Line_stickes: 'Line貼圖徵選活動',
+		Line_stickers: 'Line貼圖徵選活動',
 	};
 
 	// Init locals

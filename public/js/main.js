@@ -42,6 +42,12 @@ $(document).ready(function() {
 	});
 	$flipster.flipster('jump', 0);
 
+	$(".movie-item").hover3d({
+		selector: "img",
+		// shine: true,
+		sensitivity: 15,
+	});
+
 	$(".btn-nav").on("click tap", function() {
 		$(this).toggleClass("animated");
 	});

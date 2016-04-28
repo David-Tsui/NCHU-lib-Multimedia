@@ -5,7 +5,7 @@ mixin news(post)
 				img(src=post._.image.fit(768,1024))
 			.content
 				.title
-					p.header!= post.name
+					h3!= post.name
 					time= post._.publishedDate.format('YYYY年 M月 D日')
 				hr
 				.description
@@ -28,7 +28,7 @@ mixin news(post)
 				img(src=post._.image.fit(1024,768))
 			.content
 				.title
-					p.header!= post.name
+					h3!= post.name
 					time= post._.publishedDate.format('YYYY年 M月 D日')
 				hr
 				.description
