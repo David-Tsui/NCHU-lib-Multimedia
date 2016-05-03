@@ -5,12 +5,12 @@ RUN \
 mkdir -p /service; \
 mkdir -p /workspace;
 
-ADD . /service
 WORKDIR /service
+COPY package.json /service/
 
-RUN \
-rm -rf node_modules; \
-npm install;
+RUN npm install
+
+ADD . /service
 
 ENTRYPOINT ["npm", "run"]
 CMD ["start"]

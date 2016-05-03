@@ -61,7 +61,7 @@ keystone.set('nav', {
 	'網路資源': ['resources-posts', 'resources-post-categories'],
 	'看電影': ['movie-posts', 'movie-post-categories'],
 	'玩創意': ['idea-posts', 'idea-post-categories'],
-	'影音物件': ['movies', 'movie-root-categories', 'movie-region-categories', 'movie-theme-categories', 'movie-classification-categories'],
+	'影音物件': ['movies', 'movie-root-categories', 'movie-region-categories', 'movie-theme-categories', 'movie-classification-categories', 'movie-new-categories', 'movie-topic-categories', 'movie-assignment-categories', 'movie-hot-categories'],
 	// '所有文章': ['posts', 'post-comments', 'post-categories'],
 	'管理員': 'users'
 });

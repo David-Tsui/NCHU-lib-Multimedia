@@ -129,7 +129,7 @@ keystone.pre('routes', function (req, res, next) {
 				{
 					label: "舊視聽館藏搶先報",
 					key: "mv_old",
-					href: "/movies/old-collection"
+					href: "http://www.lib.nchu.edu.tw/News/blog.lib.nchu.edu.tw/media_old/"
 				}
 			]
 		},
@@ -181,6 +181,10 @@ exports = module.exports = function (app) {
 	app.all('/blog/post/:post', routes.views.post);
 	app.get('/movies/movie_blog/movie/:movie', routes.views.movie);
 	app.get('/movies/movie_blog/:root_category?/:category?', routes.views.movie_blog);
+	app.get('/movies/topic/:topic_category?', routes.views.movie_topic);
+	app.get('/movies/assignment/:assignment_category?', routes.views.movie_blog);
+	app.get('/movies/hot/:hot_category?', routes.views.movie_blog);
+	app.get('/movies/new/:new_category?', routes.views.movie_blog);
 	// app.get('/movies/movie_blog/region/:category?', routes.views.movie_blog);
 	// app.get('/movies/movie_blog/theme/:category?', routes.views.movie_blog);
 	// app.get('/movies/movie_blog/classification/:category?', routes.views.movie_blog);

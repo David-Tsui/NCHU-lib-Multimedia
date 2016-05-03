@@ -26,6 +26,10 @@ Movie.add({
 	region_categories: { type: Types.Relationship, ref: 'MovieRegionCategory'},
 	theme_categories: { type: Types.Relationship, ref: 'MovieThemeCategory', many: true },
 	classification_categories: { type: Types.Relationship, ref: 'MovieClassificationCategory'},
+	topic_category: { type: Types.Relationship, ref: 'MovieTopicCategory'},
+	assignment_category: { type: Types.Relationship, ref: 'MovieAssignmentCategory'},
+	hot_category: { type: Types.Relationship, ref: 'MovieHotCategory'},
+	new_category: { type: Types.Relationship, ref: 'MovieNewCategory'},
 });
 
 Movie.schema.virtual('content.full').get(function () {
