@@ -46,10 +46,15 @@ block content
 					else
 						h5 There are no movies yet.
 		.ui.two.wide.column
-			if categories.length
-				table.mdl-data-table.mdl-js-data-table
+			table.mdl-data-table.mdl-js-data-table
+				if categories.length
 					each category in categories
 						tr
 							td
 								a.td-a(href='/movies/' + section + '/' + category._id)
 									span!= category.name
+				else
+					tr
+						td
+							p 沒有任何分類
+
