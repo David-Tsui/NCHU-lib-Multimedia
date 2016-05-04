@@ -11,7 +11,7 @@ exports = module.exports = function(Category, cate_key_name, section) { return f
 	locals.section = section;
 	locals.movies = [];
 	locals.filters = {category: req.params[cate_key_name]};
-	locals.category = {};
+	locals.category = undefined;
 	locals.categories = [];
 
 	// Load categories
@@ -41,26 +41,27 @@ exports = module.exports = function(Category, cate_key_name, section) { return f
 
 	// Load the movies
 	view.on('init', function (callback) {
-		var q = Movie.paginate({
-			page: req.query.page || 1,
-			perPage: 8,
-			maxPages: 10,
-		})
-		.where('state', 'published')
-		.sort('-publishedDate')
-		.populate('author region_categories theme_categories classification_categories');
-
 		if (locals.filters.category) {
+			var q = Movie.paginate({
+				page: req.query.page || 1,
+				perPage: 8,
+				maxPages: 10,
+			})
+			.where('state', 'published')
+			.sort('-publishedDate')
+			.populate('author region_categories theme_categories classification_categories');
+
 			var cate_query = {};
 			cate_query[cate_key_name] = locals.filters.category;
 			q.where(cate_query);
+
+			q.exec(function (err, results) {
+				locals.movies = results;
+				callback(err);
+			});
 		}
-
-		q.exec(function (err, results) {
-			locals.movies = results;
-			callback(err);
-		});
-
+		else
+			callback();
 	});
 
 	// Render the view

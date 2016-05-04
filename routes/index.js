@@ -188,7 +188,7 @@ exports = module.exports = function (app) {
 
 	app.get('/movies/new/:new_category?', routes.views.movie_cate_generator(keystone.list('MovieNewCategory'), 'new_category', 'new'));
 	app.get('/movies/topic/:topic_category?', routes.views.movie_cate_generator(keystone.list('MovieTopicCategory'), 'topic_category', 'topic'));
-	app.get('/movies/assignment/:assignment_category?', routes.views.movie_cate_generator(keystone.list('MovieAssignmentCategory'), 'assignment'));
+	app.get('/movies/assignment/:assignment_category?', routes.views.movie_cate_generator(keystone.list('MovieAssignmentCategory'), 'assignment_category', 'assignment'));
 	app.get('/movies/hot/:hot_category?', routes.views.movie_cate_generator(keystone.list('MovieHotCategory'), 'hot_category', 'hot'));
 	
 	app.get('/:category', routes.views.news);
