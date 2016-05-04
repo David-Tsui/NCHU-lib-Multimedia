@@ -1,16 +1,14 @@
 var keystone = require('keystone');
 var async = require('async');
 var Movie = keystone.list('Movie');
-var Category = keystone.list('MovieTopicCategory');
-const cate_key_name = 'topic_category';
 
-exports = module.exports = function (req, res) {
+exports = module.exports = function(Category, cate_key_name, section) { return function (req, res) {
 
 	var view = new keystone.View(req, res);
 	var locals = res.locals;
 
 	// Init locals
-	locals.section = 'movie_topic';
+	locals.section = section;
 	locals.movies = [];
 	locals.filters = {category: req.params[cate_key_name]};
 	locals.category = {};
@@ -18,23 +16,21 @@ exports = module.exports = function (req, res) {
 
 	// Load categories
 	view.on('init', function (callback) {
-		console.log("Load categories");
 		Category.model.find().sort('name').exec(function (err, results) {
 			if (err || !results.length) {
 				console.log(err);
 				return callback(err);
 			}
-			console.log("Load categories done");
 
 			locals.categories = results; 
+			callback();
 		});
 	});
 
 	// Load the current root_category filter
 	view.on('init', function (callback) {
-		console.log("Load the current root_category filter");
-		if (req.params[cate_key_name]) {
-			Category.model.findOne({ key: req.params[cate_key_name] }).exec(function (err, result) {
+		if (locals.filters.category) {
+			Category.model.findOne(locals.filters.category).exec(function (err, result) {
 				locals.category = result;
 				callback(err);
 			});
@@ -45,7 +41,6 @@ exports = module.exports = function (req, res) {
 
 	// Load the movies
 	view.on('init', function (callback) {
-		console.log("Load the movies");
 		var q = Movie.paginate({
 			page: req.query.page || 1,
 			perPage: 8,
@@ -55,8 +50,10 @@ exports = module.exports = function (req, res) {
 		.sort('-publishedDate')
 		.populate('author region_categories theme_categories classification_categories');
 
-		if (req.params[cate_key_name]) {
-			q.where({topic_category: req.params[cate_key_name]});
+		if (locals.filters.category) {
+			var cate_query = {};
+			cate_query[cate_key_name] = locals.filters.category;
+			q.where(cate_query);
 		}
 
 		q.exec(function (err, results) {
@@ -67,5 +64,5 @@ exports = module.exports = function (req, res) {
 	});
 
 	// Render the view
-	view.render('movie_blog');
-}
+	view.render('movie_cate');
+}}

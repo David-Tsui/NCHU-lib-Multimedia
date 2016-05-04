@@ -4,10 +4,6 @@ include ../mixins/movie
 block content
 	.ui.grid.main-container#movie-blog
 		.ui.fourteen.wide.column
-			aside
-				if user
-					a(href='/keystone/movies?new') 
-						button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.md.admin-ui-color= '新電影'
 			header
 				h2=category ? category.name : '影片總覽'
 			if filters.category && !category
@@ -61,9 +57,9 @@ block content
 						tr
 							if category.root_cat
 								td.category-header(colspan="2")!= category.root_cat.name
-						each sub_cat in category.sub_cats
+						each sub_cat in categories
 							tr
 								td
-									a.td-a(href='/movies/movie_blog/' + category.root_cat.key + '/' + sub_cat.key)
+									a.td-a(href='/movies/' + section + '/' + sub_cat._id)
 										span!= sub_cat.name
 										span.ui.circular.label!= sub_cat.movieCount

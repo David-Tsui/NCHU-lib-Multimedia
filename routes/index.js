@@ -181,14 +181,16 @@ exports = module.exports = function (app) {
 	app.all('/blog/post/:post', routes.views.post);
 	app.get('/movies/movie_blog/movie/:movie', routes.views.movie);
 	app.get('/movies/movie_blog/:root_category?/:category?', routes.views.movie_blog);
-	app.get('/movies/topic/:topic_category?', routes.views.movie_topic);
-	app.get('/movies/assignment/:assignment_category?', routes.views.movie_blog);
-	app.get('/movies/hot/:hot_category?', routes.views.movie_blog);
-	app.get('/movies/new/:new_category?', routes.views.movie_blog);
+
 	// app.get('/movies/movie_blog/region/:category?', routes.views.movie_blog);
 	// app.get('/movies/movie_blog/theme/:category?', routes.views.movie_blog);
 	// app.get('/movies/movie_blog/classification/:category?', routes.views.movie_blog);
 
+	app.get('/movies/new/:new_category?', routes.views.movie_cate_generator(keystone.list('MovieNewCategory'), 'new_category', 'new'));
+	app.get('/movies/topic/:topic_category?', routes.views.movie_cate_generator(keystone.list('MovieTopicCategory'), 'topic_category', 'topic'));
+	app.get('/movies/assignment/:assignment_category?', routes.views.movie_cate_generator(keystone.list('MovieAssignmentCategory'), 'assignment'));
+	app.get('/movies/hot/:hot_category?', routes.views.movie_cate_generator(keystone.list('MovieHotCategory'), 'hot_category', 'hot'));
+	
 	app.get('/:category', routes.views.news);
 	app.get('/', routes.views.index);
 	// app.get('/movie_blog/:category?', routes.views.movie_blog);
