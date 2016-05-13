@@ -1,6 +1,7 @@
 extends ../layouts/default
 include ../mixins/carousel
-include ../mixins/news
+include ../mixins/news-slide
+include ../mixins/news-list
 
 block content
 	.ui.grid.main-container
@@ -13,12 +14,12 @@ block content
 			header: h2= '最新消息'
 			.two.wide.column
 			.twelve.wide.column
-				.coverflow
-					ul
-						each a_news in news
-							li
-								article.news-segment
-									+news(a_news)
-				.ui.button#show-list-news 列表式查看
+				.carousel-items
+					.coverflow
+						+news_slide(news)
+				.list-items
+					+news_list(news)
 			.two.wide.column
+			.ui.button#show-list-news 列表式查看
+			
 			

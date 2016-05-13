@@ -118,8 +118,10 @@ body {
 	position: relative;
 	// width: 100%;
 	box-sizing: content-box;
-	padding: .5rem 1rem;
-	background: rgba(255,255,255,.5);
+	padding: 2rem 1rem;
+	// background: rgba(255,255,255,.5);
+	background: rgba(4, 15, 79, 0.8);
+	color: #eee;
 	text-align: center;
 	& p {
 		font-size: 1.25rem;
@@ -151,6 +153,7 @@ body {
 						line-height: 2rem !important;
 						border: none;
 						padding: 0;
+						color: #222;
 					} 
 					&.gsc-search-button-v2 {
 						background: rgb(0,150,136);
@@ -163,11 +166,6 @@ body {
 			}
 			& #___gcse_0 {
 				flex: 5;
-			}
-		}
-		&.link {
-			& a {
-				color: rgb(35, 55, 169);
 			}
 		}
 	}
@@ -243,6 +241,15 @@ button.mdl-color--primary {
 // news 
 .news-box {
 	padding: 0 4rem calc(10px + #{$prepare-height}) 4rem !important;
+	& .list-items {
+		padding: 3rem 0;
+		display: none;
+	}
+}
+
+#show-list-news {
+	position: static;
+	margin: auto;
 }
 
 // flipster 
@@ -266,7 +273,8 @@ button.mdl-color--primary {
 		stroke: #fff;
 	}
 }
-.flipster__item__content {
+
+.flipster--coverflow .flipster__item__content {
 	box-reflect: none !important;
 	-webkit-box-reflect: none !important;
 }
@@ -318,6 +326,16 @@ button.mdl-color--primary {
 			& .content {
 				flex: 2;
 			}
+		}
+	}
+}
+
+#list-news {
+	& .item {
+		background: #fff;
+		& .content {
+			padding-top: 1.25rem;
+			padding-bottom: 1.25rem;
 		}
 	}
 }

@@ -1,4 +1,5 @@
 $(document).ready(function() {
+	var list_flag = false;
 	$('.scrollbar-inner').scrollbar();
 
 	var $flipster = $(".coverflow")
@@ -72,4 +73,11 @@ $(document).ready(function() {
 	  delay: 6,
 	  speed: 42,
 	});
+
+
+	$("#show-list-news").click(function() {
+		list_flag = !list_flag;
+		$(".carousel-items, .list-items").toggle();
+		(list_tag) ? $(this).text("列表式查看") : $(this).text("幻燈片查看");
+	})
 });

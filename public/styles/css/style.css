@@ -302,8 +302,9 @@ body {
 .main-footer {
   position: relative;
   box-sizing: content-box;
-  padding: .5rem 1rem;
-  background: rgba(255, 255, 255, 0.5);
+  padding: 2rem 1rem;
+  background: rgba(4, 15, 79, 0.8);
+  color: #eee;
   text-align: center; }
   .main-footer p {
     font-size: 1.25rem; }
@@ -330,7 +331,8 @@ body {
           height: 2rem !important;
           line-height: 2rem !important;
           border: none;
-          padding: 0; }
+          padding: 0;
+          color: #222; }
         .main-footer p.search .gsc-search-box input.gsc-search-button-v2 {
           background: #009688;
           color: #fff;
@@ -339,8 +341,6 @@ body {
           padding: 12px 23px; }
       .main-footer p.search #___gcse_0 {
         flex: 5; }
-    .main-footer p.link a {
-      color: #2337a9; }
 
 button.mdl-color--primary {
   color: white; }
@@ -391,6 +391,13 @@ button.mdl-color--primary {
 
 .news-box {
   padding: 0 4rem calc(10px + 100px) 4rem !important; }
+  .news-box .list-items {
+    padding: 3rem 0;
+    display: none; }
+
+#show-list-news {
+  position: static;
+  margin: auto; }
 
 .flipster__button {
   opacity: 1;
@@ -407,7 +414,7 @@ button.mdl-color--primary {
   .flipster__button svg {
     stroke: #fff; }
 
-.flipster__item__content {
+.flipster--coverflow .flipster__item__content {
   box-reflect: none !important;
   -webkit-box-reflect: none !important; }
 
@@ -445,6 +452,12 @@ button.mdl-color--primary {
           height: 550px; }
       .news-segment .news-item.vertical .content {
         flex: 2; }
+
+#list-news .item {
+  background: #fff; }
+  #list-news .item .content {
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem; }
 
 #movie-blog .ui.segment h1, #movie-blog .ui.segment h2, #movie-blog .ui.segment h3, #movie-blog .ui.segment h4, #movie-blog .ui.segment h5, #movie-blog .ui.segment h6 {
   color: #444; }
