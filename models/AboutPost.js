@@ -1,12 +1,12 @@
 var keystone = require('keystone');
 var Types = keystone.Field.Types;
 
-var NewsPost = new keystone.List('NewsPost', {
+var AboutPost = new keystone.List('AboutPost', {
 	autokey: { from: 'name', path: 'key', unique: true },
-	label: '中心新聞',
+	label: '關於我們',
 });
 
-NewsPost.add({
+AboutPost.add({
 	name: { type: String, required: true },
 	state: { type: Types.Select, options: 'draft, published, archived', default: 'draft', index: true },
 	author: { type: Types.Relationship, ref: 'User', index: true },
@@ -16,13 +16,13 @@ NewsPost.add({
 		brief: { type: Types.Html, wysiwyg: true, height: 150 },
 		extended: { type: Types.Html, wysiwyg: true, height: 400 },
 	},
-	// categories: { type: Types.Relationship, ref: 'NewsPostCategory', many: true },
+	categories: { type: Types.Relationship, ref: 'AboutPostCategory', many: true },
 });
 
-NewsPost.schema.virtual('content.full').get(function () {
+AboutPost.schema.virtual('content.full').get(function () {
 	return this.content.extended || this.content.brief;
 });
 
-NewsPost.track = true;
-NewsPost.defaultColumns = 'name, state|20%, author|20%, publishedDate|20%';
-NewsPost.register();
+AboutPost.track = true;
+AboutPost.defaultColumns = 'name, state|20%, author|20%, publishedDate|20%';
+AboutPost.register();

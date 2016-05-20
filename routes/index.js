@@ -4,33 +4,27 @@ const importRoutes = keystone.importer(__dirname);
 
 keystone.pre('routes', function (req, res, next) {
 	res.locals.navLinks = [
-		{ 
-			label: "首頁",
-			key: "root", 
-			href: "/",
-			nested: false
-		},
 		{
 			label: "最新消息",
-			key: "news",
-			href: "/news",
+			key: "home",
+			href: "/",
 			nested: false
 		},
 		{ 
-			label: "關於本中心",
+			label: "關於我們",
 			key: "media_center", 
-			href: "/",
+			href: "/about",
 			nested: true,
 			subnav: [
 				{
 					label: "中心介紹",
 					key: "intro",
-					href: "/intro"
+					href: "/about/intro"
 				},
 				{
 					label: "相關規則",
 					key: "rules",
-					href: "/rules"
+					href: "/about/rules"
 				}
 			]
 		},
@@ -87,11 +81,6 @@ keystone.pre('routes', function (req, res, next) {
 					label: "電腦軟體課程",
 					key: "rules",
 					href: "/resources/software_curriculums"
-				},
-				{
-					label: "TED(倒了)",
-					key: "ted",
-					href: "/resources/TED"
 				}
 			]
 		},
@@ -172,7 +161,8 @@ var routes = {
 exports = module.exports = function (app) {
 
 	// Views
-	app.get('/news/post/:post', routes.views.news_detail);
+	app.get('/news/:post', routes.views.news);
+	app.get('/about/:category', routes.views.about);
 	app.get('/makers/:type', routes.views.maker);
 	app.get('/resources/:type', routes.views.resources);
 	app.get('/idea/:type', routes.views.idea);
@@ -182,21 +172,10 @@ exports = module.exports = function (app) {
 	app.get('/movies/movie_blog/movie/:movie', routes.views.movie);
 	app.get('/movies/movie_blog/:root_category?/:category?', routes.views.movie_blog);
 
-	// app.get('/movies/movie_blog/region/:category?', routes.views.movie_blog);
-	// app.get('/movies/movie_blog/theme/:category?', routes.views.movie_blog);
-	// app.get('/movies/movie_blog/classification/:category?', routes.views.movie_blog);
-
 	app.get('/movies/new/:new_category?', routes.views.movie_cate_generator(keystone.list('MovieNewCategory'), 'new_category', 'new'));
 	app.get('/movies/topic/:topic_category?', routes.views.movie_cate_generator(keystone.list('MovieTopicCategory'), 'topic_category', 'topic'));
 	app.get('/movies/assignment/:assignment_category?', routes.views.movie_cate_generator(keystone.list('MovieAssignmentCategory'), 'assignment_category', 'assignment'));
 	app.get('/movies/hot/:hot_category?', routes.views.movie_cate_generator(keystone.list('MovieHotCategory'), 'hot_category', 'hot'));
 	
-	app.get('/:category', routes.views.news);
 	app.get('/', routes.views.index);
-	// app.get('/movie_blog/:category?', routes.views.movie_blog);
-	// app.get('/movie_blog/movie/:movie', routes.views.movie);
-
-	// Downloads
-	app.get('/download/users', routes.download.users);
-
 }

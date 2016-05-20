@@ -4,9 +4,8 @@ mixin carousel(movies)
 		ul
 			each movie in movies
 				li.item(data-ks-editable=editable(user, { list: 'Movie', id: movie.id }))
-					if movie.publishedDate
-						h6.meta
-							time(datetime=movie._.publishedDate.format('MM D, YYYY'))= movie._.publishedDate.format('YYYY年 M月D日')
+					h6.meta
+						time(datetime=movie._.inDate.format('MM D, YYYY'))= movie._.inDate.format('進館日: YYYY年M月D日')
 					a.ui.medium.image.movie-item(href="/movies/movie_blog/movie/" + movie.key)
 						img(src=movie._.image.fit(320,320))
 
