@@ -30,38 +30,34 @@ exports = module.exports = function(Category, cate_key_name, section) {
 		// Load the current root_category filter
 		view.on('init', function (callback) {
 			if (locals.filters.category) {
-				Category.model.findOne(locals.filters.category).exec(function (err, result) {
-					locals.category = result;
-					callback(err);
+				Category.model.where({name: locals.filters.category}).findOne(function (err, category) {
+					if(err) callback(err);
+					else if(category) {
+						locals.category = category;
+						var q = Movie.paginate({
+							page: req.query.page || 1,
+							perPage: 8,
+							maxPages: 10,
+						})
+						.where('state', 'published')
+						.sort('-publishedDate')
+						.populate('author region_categories theme_categories classification_categories');
+
+						var cate_query = {};
+						cate_query[cate_key_name] = category._id;
+						q.where(cate_query);
+
+						q.exec(function (err, movies) {
+							locals.movies = movies;
+							callback(err);
+						});
+					}
+					else
+						callback();
 				});
 			} else {
 				callback();
 			}
-		});
-
-		// Load the movies
-		view.on('init', function (callback) {
-			if (locals.filters.category) {
-				var q = Movie.paginate({
-					page: req.query.page || 1,
-					perPage: 8,
-					maxPages: 10,
-				})
-				.where('state', 'published')
-				.sort('-publishedDate')
-				.populate('author region_categories theme_categories classification_categories');
-
-				var cate_query = {};
-				cate_query[cate_key_name] = locals.filters.category;
-				q.where(cate_query);
-
-				q.exec(function (err, results) {
-					locals.movies = results;
-					callback(err);
-				});
-			}
-			else
-				callback();
 		});
 
 		// Render the view
