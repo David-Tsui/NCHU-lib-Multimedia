@@ -51,7 +51,7 @@ block content
 					each category in categories
 						tr
 							td
-								a.td-a(href='/movies/' + section + '/' + category.key)
+								a.td-a(href='/movies/' + section + '/' + category.name)
 									span!= category.name
 				else
 					tr
