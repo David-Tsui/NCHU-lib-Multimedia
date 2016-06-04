@@ -1,0 +1,43 @@
+mixin SvgBgBtn(which)
+	if (which == 1)
+		svg(id="index" viewbox='0 0 160 56')
+			title test1
+			polygon.inner(points='21.6 0 0 19.7 22.58 56 128.59 44.59 160 12.44 21.6 0')
+			polygon.outer(points='0 19.7 21.6 0 160 12.44 128.59 44.59 23.11 55.94 22.58 56 24.97 50.69 126.19 40.38 147.36 15.3 24.97 3.63 6.38 20.93 0 19.7')
+			polygon.outer(points='6.38 20.93 0 19.7 22.58 56 24.97 50.69 6.38 20.93')
+	else if (which == 2)
+		svg(id="about" viewbox='0 0 160 56')
+			title test2
+			polygon.inner(points='0 25.85 31.48 0 150.16 11.49 160 33.03 59.02 56 0 25.85')
+			polygon.outer(points='7.87 25.13 33.44 5.03 148.85 16.51 155.41 30.87 57.7 48.82 59.02 56 160 33.03 150.16 11.49 31.48 0 0 25.85 7.87 25.13')
+			polygon.outer(points='0 25.85 7.87 25.13 57.7 48.82 59.02 56 0 25.85')
+	else if (which == 3)
+		svg(id="makers" viewbox='0 0 160 56')
+			title test3
+			polygon.outer(points='108.66 53.2 160 30.8 90.75 0 4.78 23.8 13.73 39.9 108.66 53.2')
+			polygon.outer(points='5.97 46.2 0 56 24.48 56 5.97 46.2')
+			polygon.inner(points='10.15 24.42 16.58 35.26 108.38 49.7 152.24 30.92 92.6 4.2 10.15 24.42')
+			polygon.inner(points='5.97 47.6 4.78 53.9 16.72 54.6 5.97 47.6')
+	else if (which == 4)
+		svg(id="resources" viewbox='0 0 160 56')
+			title test4
+			polygon.outer(points='1.98 21.09 50.37 0 158.03 19.64 160 43.64 39.51 56 0 45.82 1.98 21.09')
+			polygon.inner(points='8.97 20.84 4.94 44.13 38.18 51.64 156.05 40.37 154.03 22.34 52.29 5.82 8.97 20.84')
+	else if (which == 5)
+		svg(id='movies' viewbox='0 0 160 56')
+			title test5
+			line(x1='19.51', y1='11.97', x2='35.9', y2='4.27', style='fill:none')
+			polygon.outer(points='0 6.41 15.61 0 36.68 1.28 36.29 14.11 16.78 20.95 0 6.41')
+			polygon.outer(points='31.61 31.21 75.71 3.85 160 22.66 152.98 46.59 67.51 56 31.61 31.21')
+			polygon.inner(points='2.73 6.84 16.39 1.71 32.78 2.99 33.95 12.82 16.78 17.95 2.73 6.84')
+			polygon.inner(points='36.68 30.78 77.64 7.27 155.32 25.65 151.07 45.31 68.76 52.15 36.68 30.78')
+
+	else if (which == 6)
+		svg(id="ideas" viewbox='0 0 160 56')
+			title test6
+			polygon.outer(points='4.27 10.45 0 32.6 33.23 45.13 99.23 50.98 141.48 28.42 69.32 0 4.27 10.45')
+			polygon.outer(points='137.69 56 147.18 46.39 160 53.91 137.69 56')
+			polygon.inner(points='8.5 13.36 4.27 30.44 36.21 42.64 98.67 48.74 134.84 28 70.49 3.19 8.5 13.36')
+			polygon.inner(points='148.11 48.18 141.01 54.63 155.73 53.64 148.11 48.18')
+
+	

@@ -46,9 +46,7 @@ $.fn.scrollbox = function(config) {
       container.bind('mouseover', function() { paused = true; });
       container.bind('mouseout', function() { paused = false; });
     }
-    console.log(container);
     containerUL = container.children('ul:first-child');
-    console.log("containerUL: ", containerUL);
 
     scrollForward = function() {
       if (paused) {

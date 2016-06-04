@@ -6,13 +6,13 @@ keystone.pre('routes', function (req, res, next) {
 	res.locals.navLinks = [
 		{
 			label: "最新消息",
-			key: "home",
+			key: "index",
 			href: "/",
 			nested: false
 		},
 		{ 
 			label: "關於我們",
-			key: "media_center", 
+			key: "about", 
 			href: "/about",
 			nested: true,
 			subnav: [
@@ -124,8 +124,8 @@ keystone.pre('routes', function (req, res, next) {
 		},
 		{ 
 			label: "玩創意",
-			key: "test0",
-			href: "/idea",
+			key: "ideas",
+			href: "/ideas",
 			nested: true,
 			subnav: [
 				{
@@ -178,4 +178,5 @@ exports = module.exports = function (app) {
 	app.get('/movies/hot/:hot_category?', routes.views.movie_cate_generator(keystone.list('MovieHotCategory'), 'hot_category', 'hot'));
 	
 	app.get('/', routes.views.index);
+	app.get('/:haha?', routes.views.index);
 }

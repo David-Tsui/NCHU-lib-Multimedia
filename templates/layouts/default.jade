@@ -1,4 +1,5 @@
-include ../mixins/flash-messages
+//- include ../mixins/flash-messages
+include ../mixins/SvgBgBtns
 
 doctype html
 html
@@ -28,57 +29,37 @@ html
 		block css
 		block head
 	body
-		//- button.btn-nav
-		//- 	.bar.arrow-top-r
-		//- 	.bar.arrow-middle-r
-		//- 	.bar.arrow-bottom-r
-		-
-			var icons = [
-				'http://i.imgur.com/VXKLehv.png',
-				'http://i.imgur.com/TYDwe20.png',
-				'http://i.imgur.com/VXKLehv.png',
-				'http://i.imgur.com/TYDwe20.png',
-				'http://i.imgur.com/DgUA8Xq.png',
-				'http://i.imgur.com/Oafmfds.png',
-				'http://i.imgur.com/4ILKHKy.png'
-			]
 		.ui.grid.nav-grid
-			.ui.image
-				img(src="http://i.imgur.com/7Z9gKiZ.png")
+			.ui.image#nav-banner
+				img(src="/images/navbar.png")
+				if user
+					a.item(href='/keystone') 管理者介面
+					a.item(href='/keystone/signout') 登出
+				else
+					a.item(href='/keystone/signin') 管理
 			.computer.tablet.only.row
 				.ui.secondary.menu.main-navbar
-					.left.menu
-						each link, index in navLinks
-							if link.nested 
-								.ui.dropdown.item
-									.icon-container
-										img(src=icons[index]).ui.tiny.image
-										.icon-border
-									span.root!= link.label
-										i.dropdown.icon
+					each link, index in navLinks
+						if link.nested 
+							.svg-btn-container
+								.svg-bg
+									+SvgBgBtn(index + 1)
+								.ui.dropdown.item.svg-item
+									span(id='root-span-#{index + 1}')!= link.label
+									i.dropdown.icon
 									.menu
 										each subLink in link.subnav
 											a.item(href=subLink.href)= subLink.label
-							else 
-								a.item(href=link.href)
-									.icon-container
-										img(src=icons[index]).ui.tiny.image
-										.icon-border
-									span!= link.label
-								//- li(class=(section === link.key ? 'active' : null)): a(href=link.href)= link.label	
-					.right.menu
-						if user
-							a.item(href='/keystone') 管理者介面
-							a.item(href='/keystone/signout') 登出
-							//- a.item(href='/keystone') Admin UI
-							//- a.item(href='/keystone/signout') Sign out
-						else
-							a.item(href='/keystone/signin') 管理
-							//- a.item(href='/keystone/signin') Sign in							
+						else 
+							.svg-btn-container
+								.svg-bg
+									+SvgBgBtn(index + 1)
+								a.item.svg-item(href=link.href)
+									span(id='root-span-#{index + 1}')!= link.label
 		//- intro
 		block intro
 		//- messages
-		+flash-messages(messages)
+		//- +flash-messages(messages)
 		//- content
 		block content
 		//- footer
@@ -95,7 +76,8 @@ html
 			!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
 
 		//- scripts
-		script(src='/js/lib/jquery/jquery-2.1.4.min.js')
+		//- script(src='/js/lib/jquery/jquery-2.1.4.min.js')
+		script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-rc1/jquery.min.js')
 		script(src='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/semantic.min.js')
 		script(src='https://code.getmdl.io/1.1.3/material.min.js')  
 		script(src='/js/lib/jquery.hover3d.min.js')

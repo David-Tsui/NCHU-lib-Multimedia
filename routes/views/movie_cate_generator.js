@@ -44,8 +44,8 @@ exports = module.exports = function(Category, cate_key_name, section) {
 			if (locals.filters.category) {
 				var q = Movie.paginate({
 					page: req.query.page || 1,
-					perPage: 8,
-					maxPages: 10,
+					perPage: 16,
+					maxPages: 10
 				})
 				.where('state', 'published')
 				.sort('-publishedDate')

@@ -1,4 +1,8 @@
 $(document).ready(function() {
+
+	var currentLocation = window.location;
+	setSectionHighlight(currentLocation.pathname);
+
 	var list_flag = false;
 	$('.scrollbar-inner').scrollbar();
 
@@ -63,7 +67,7 @@ $(document).ready(function() {
 	// 	'speed': 30
 	// });
 	var carousel_item_width = $("#carousel .item").width() + 20;
-	console.log(carousel_item_width);
+	// console.log(carousel_item_width);
 	var switch_items_num = 5;
 	var adjust = 150;
 	$('#carousel').scrollbox({
@@ -79,5 +83,49 @@ $(document).ready(function() {
 		list_flag = !list_flag;
 		$(".carousel-items, .list-items").toggle();
 		(list_tag) ? $(this).text("列表式查看") : $(this).text("幻燈片查看");
-	})
+	});
+
+	$(".svg-item").mouseenter(function(e) {
+		// console.log("e.target: ", $(e.target));
+		var prev_siblings = $(e.target).prev();
+		if (prev_siblings.hasClass('svg-bg')) {
+			var svg = prev_siblings.find("svg");
+			var id = svg.attr('id');
+			changeSvgFill(id, "mouseenter");
+		}
+	}).mouseleave(function(e) {
+		var prev_siblings = $(e.target).prev();
+		if (prev_siblings.hasClass('svg-bg')) {
+			var svg = prev_siblings.find("svg");
+			var id = svg.attr('id');
+			changeSvgFill(id, "mouseleave");
+		}
+	});
+	console.log("ENTER");
 });
+
+function changeSvgFill(id, cond) {
+	if (cond == "mouseenter") {
+		var polygon = $("#" + id).find("polygon");
+		polygon.addClass("active");
+	}	else if (cond == "mouseleave") {
+		$("#" + id).find("polygon").removeClass("active");
+	} 
+}
+
+function setSectionHighlight(path) {
+	console.log("path: ", path);
+	if (path == "/") {
+		$("svg#index polygon").addClass('selected');
+	} else if (!(path.search("/about/") < 0)) {
+		$("svg#about polygon").addClass('selected');
+	} else if (!(path.search("/makers/") < 0)) {
+		$("svg#makers polygon").addClass('selected');
+	} else if (!(path.search("/resources/") < 0)) {
+		$("svg#resources polygon").addClass('selected');
+	} else if (!(path.search("/movies/") < 0)) {
+		$("svg#movies polygon").addClass('selected');
+	} else if (!(path.search("/ideas/") < 0)) {
+		$("svg#ideas polygon").addClass('selected');
+	}
+}
