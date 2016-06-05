@@ -32,11 +32,12 @@ html
 		.ui.grid.nav-grid
 			.ui.image#nav-banner
 				img(src="/images/navbar.png")
-				if user
-					a.item(href='/keystone') 管理者介面
-					a.item(href='/keystone/signout') 登出
-				else
-					a.item(href='/keystone/signin') 管理
+				.extra-menu
+					if user
+						a.item(href='/keystone') 管理者介面
+						a.item(href='/keystone/signout') 登出
+					else
+						a.item(href='/keystone/signin') 管理
 			.computer.tablet.only.row
 				.ui.secondary.menu.main-navbar
 					each link, index in navLinks
