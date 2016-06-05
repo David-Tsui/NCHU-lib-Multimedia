@@ -5,11 +5,9 @@ include ../mixins/news-list
 
 block content
 	.ui.grid.main-container
-		.row
-			header: h2= '新進影音'
-			.ui.sixteen.wide.column.carousel-container
-				main
-					+carousel(movies)
+		.ui.sixteen.wide.column.carousel-container
+			main
+				+carousel(movies)
 		.row.news-box
 			header: h2= '最新消息'
 			.two.wide.column

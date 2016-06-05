@@ -77,12 +77,12 @@ body {
 		padding: 1rem 4rem;
 		box-sizing: content-box;
 		background: transparent;
-		font-size: 1.35rem;
+		font-size: 1.5rem;
 		
 		& .item {
 			color: #444;
 			&.svg-item {
-				padding: 2rem 4.25rem;
+				padding: 2rem 3.75rem;
 			}
 			&.visible, &:hover, &:active {
 				background: transparent;
@@ -220,7 +220,7 @@ button.mdl-color--primary {
 	display: flex;
 	align-items: center;
 	overflow: hidden;
-	padding-top: 3rem;
+	padding-top: 0;
 	& #carousel {
 		width: 100%;
 		// height: 360px;
@@ -228,16 +228,18 @@ button.mdl-color--primary {
 		& ul {
 			display: flex;
 			list-style: none;
+			-webkit-padding-start: 5px;
 			& .item {
-				width: calc(20% - 25px * 2);
-				// height: 340px;
-				margin: 0 25px;
+				width: calc(100% / 7 - 18px * 2);
+				height: auto;
+				margin: 0 20px;
 				background: transparent;
 				text-align: center;
 				float: left;
 				position: relative;
 				& .meta {
 					margin-bottom: 5px;
+					font-size: 14px;
 				}
 				& .ui.image {
 					position: relative;
@@ -252,17 +254,25 @@ button.mdl-color--primary {
 						top: 0;
 						left: 0;
 						@include transition(all .15s ease-in);
-
 					}
 					& img {
 						width: 100%;
-						height: 300px;
+						min-height: 230px;
+						max-height: 300px;
 						z-index: 1000;
 					}
 				}  
 				& time {
 					color: #fff;
 				}
+
+				&:first-child {
+					margin-left: 0;
+				}
+
+				// &:nth-child(7) {
+				// 	margin-right: 0;
+				// }
 			}
 		}
 	}

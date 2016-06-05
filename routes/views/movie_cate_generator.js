@@ -38,11 +38,12 @@ exports = module.exports = function(Category, cate_key_name, section) {
 							page: req.query.page || 1,
 							perPage: 8,
 							maxPages: 10,
+						})
+						.where('state', 'published')
+						.sort('-publishedDate')
+						.populate('author region_categories theme_categories classification_categories');
 					}
-				)
-				.where('state', 'published')
-				.sort('-publishedDate')
-				.populate('author region_categories theme_categories classification_categories');
+				})
 			}
 		});
 

@@ -275,11 +275,11 @@ body {
   padding: 1rem 4rem;
   box-sizing: content-box;
   background: transparent;
-  font-size: 1.35rem; }
+  font-size: 1.5rem; }
   .nav-grid .ui.secondary.menu.main-navbar .item {
     color: #444; }
     .nav-grid .ui.secondary.menu.main-navbar .item.svg-item {
-      padding: 2rem 4.25rem; }
+      padding: 2rem 3.75rem; }
     .nav-grid .ui.secondary.menu.main-navbar .item.visible, .nav-grid .ui.secondary.menu.main-navbar .item:hover, .nav-grid .ui.secondary.menu.main-navbar .item:active {
       background: transparent;
       color: #fff; }
@@ -379,22 +379,25 @@ button.mdl-color--primary {
   display: flex;
   align-items: center;
   overflow: hidden;
-  padding-top: 3rem; }
+  padding-top: 0; }
   .carousel-container #carousel {
     width: 100%;
     overflow: hidden; }
     .carousel-container #carousel ul {
       display: flex;
-      list-style: none; }
+      list-style: none;
+      -webkit-padding-start: 5px; }
       .carousel-container #carousel ul .item {
-        width: calc(20% - 25px * 2);
-        margin: 0 25px;
+        width: calc(100% / 7 - 18px * 2);
+        height: auto;
+        margin: 0 20px;
         background: transparent;
         text-align: center;
         float: left;
         position: relative; }
         .carousel-container #carousel ul .item .meta {
-          margin-bottom: 5px; }
+          margin-bottom: 5px;
+          font-size: 14px; }
         .carousel-container #carousel ul .item .ui.image {
           position: relative; }
           .carousel-container #carousel ul .item .ui.image:hover:before {
@@ -411,10 +414,13 @@ button.mdl-color--primary {
             transition: all 0.15s ease-in; }
           .carousel-container #carousel ul .item .ui.image img {
             width: 100%;
-            height: 300px;
+            min-height: 230px;
+            max-height: 300px;
             z-index: 1000; }
         .carousel-container #carousel ul .item time {
           color: #fff; }
+        .carousel-container #carousel ul .item:first-child {
+          margin-left: 0; }
 
 .news-box {
   padding: 0 4rem calc(10px + 100px) 4rem !important; }

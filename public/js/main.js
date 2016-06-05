@@ -62,20 +62,17 @@ $(document).ready(function() {
 		duration: 150
 	});
 
-	// $('#carousel > #inner').loopmovement({
-	// 	'direction':'left', 	
-	// 	'speed': 30
-	// });
-	var carousel_item_width = $("#carousel .item").width() + 20;
-	// console.log(carousel_item_width);
-	var switch_items_num = 5;
-	var adjust = 150;
+	var carousel_item_width = $("#carousel .item").width() + 20 * 2;
+	console.log("carousel_item_width: ", carousel_item_width);
+	var switch_items_num = 3;
+	var adjust = 0;
 	$('#carousel').scrollbox({
 		direction: 'h',
 	  switchItems: switch_items_num,
 	  distance: carousel_item_width * switch_items_num + adjust,
-	  delay: 6,
-	  speed: 42,
+	  // delay: 0.5,
+	  delay: 3,
+	  speed: 65,
 	});
 
 
