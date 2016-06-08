@@ -6,17 +6,30 @@ include ../mixins/news-list
 block content
 	.ui.grid#carousel-container
 		+carousel(movies)
-	.ui.grid.main-container				
-		.row.news-box
-			header: h2= '最新消息'
-			.two.wide.column
-			.twelve.wide.column
-				.carousel-items
-					.coverflow
-						+news_slide(news)
-				.list-items
-					+news_list(news)
-			.two.wide.column
-			.ui.button#show-list-news 列表式查看
-			
+	.ui.grid.main-container#index-news-container
+		.row.news-row
+			//- header: h2= '最新消息'
+			.four.wide.column.list-items-container
+				+news_list(news.results)
+				if news.totalPages > 1
+					ul.pagination.vertical
+						if news.previous
+							li: a(href='?page=' + news.previous): i.material-icons arrow_drop_up
+						else
+							li.disabled: i.material-icons arrow_drop_up
+						each p, i in news.pages
+							li(class=news.currentPage === p ? 'active' : null)
+								a(href='?page=' + (p === '...' ? (i ? news.totalPages : 1) : p ))= p
+						if news.next
+							li: a(href='?page=' + news.next): i.material-icons arrow_drop_down
+						else
+							li.disabled: i.material-icons arrow_drop_down
+			.twelve.wide.column.flipster-news-container
+				.flat-flipster
+					+news_slide(news.results)
+				//- .control-panel
+				//- 	button.mdl-button.mdl-js-button.mdl-button--fab.mdl-js-ripple-effect.mdl-button--accent#ctrl-slide-prev
+				//- 		i.material-icons navigate_before
+				//- 	button.mdl-button.mdl-js-button.mdl-button--fab.mdl-js-ripple-effect.mdl-button--accent#ctrl-slide-next
+				//- 		i.material-icons navigate_next
 			

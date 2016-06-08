@@ -99,7 +99,7 @@ exports = module.exports = function (req, res) {
 	view.on('init', function (callback) {
 		var q = Movie.paginate({
 			page: req.query.page || 1,
-			perPage: 12,
+			perPage: 8,
 			maxPages: 10,
 		})
 		.where('state', 'published')

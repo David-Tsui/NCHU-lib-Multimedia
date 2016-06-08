@@ -5,6 +5,8 @@ var gulp = require('gulp'),
 		gulpJade = require('gulp-jade'),
     gulpLivereload = require('gulp-livereload');
 
+gulp.task('default', ['watch', 'jade', 'styles', 'scripts']);
+
 gulp.task('watch', function () {
 	gulpLivereload.listen();
   gulp.watch('public/styles/scss/**/*.scss', ['styles']);

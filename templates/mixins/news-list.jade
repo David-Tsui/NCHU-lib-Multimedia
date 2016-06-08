@@ -1,12 +1,8 @@
 mixin news_list(posts)
-	.ui.items#list-news
+	.ui.link.items#list-news
 		each post in posts
-			.item(data-ks-editable=editable(user, { list: 'NewsPost', id: post.id }))
-				.image
-					img(src=post._.image.fit(500,324))
+			.item.slide-link(data-slide="#{post.name}" data-ks-editable=editable(user, { list: 'NewsPost', id: post.id }))
 				.content
-					a.header= post.name
+					p.header= post.name
 					.meta
-						span= post._.publishedDate.format('YYYY年 M月 D日')
-					.description
-						p!= post.content.brief
+						span= post._.publishedDate.format('YYYY.M/D')

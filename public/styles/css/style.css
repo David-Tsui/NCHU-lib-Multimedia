@@ -251,7 +251,7 @@ body {
   .main-container aside {
     margin-bottom: 2rem; }
   .main-container .row {
-    padding-top: 4rem !important; }
+    padding: 4rem auto; }
     .main-container .row header {
       position: absolute;
       top: 2rem;
@@ -298,9 +298,34 @@ body {
       margin: 0 0 0 5px; }
 
 .nav-grid .extra-menu {
+  display: flex;
+  justify-content: flex-end;
   position: absolute;
-  top: 3rem;
+  top: 4rem;
+  right: 0;
+  width: 14%; }
+  .nav-grid .extra-menu a {
+    flex: 1;
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.2rem; }
+
+.nav-grid .hit-counter {
+  position: relative;
+  position: absolute;
+  top: 7rem;
   right: 3rem; }
+  .nav-grid .hit-counter:before {
+    content: "訪客人數：";
+    position: absolute;
+    width: 85%;
+    top: 1px;
+    right: 100%;
+    color: #eee;
+    font-weight: 700;
+    font-size: 1rem; }
+  .nav-grid .hit-counter small {
+    display: none; }
 
 .svg-btn-container {
   display: flex;
@@ -381,11 +406,45 @@ button.mdl-color--primary {
 .scrollbar-inner > .scroll-element .scroll-bar {
   background-color: #222; }
 
+.pagination {
+  list-style-type: none;
+  width: 100%;
+  text-align: center;
+  padding: 1.5rem; }
+  .pagination li {
+    display: inline-block;
+    font-size: 1.5rem;
+    padding: 0 10px;
+    line-height: 30px;
+    border-radius: 0;
+    text-align: center;
+    color: #fff; }
+    .pagination li i {
+      font-size: 2.2rem;
+      vertical-align: middle; }
+    .pagination li a {
+      color: #fff; }
+    .pagination li.active {
+      background-color: #009688; }
+  .pagination.vertical {
+    position: absolute;
+    top: 4rem;
+    left: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: auto;
+    padding: 0;
+    margin: 0; }
+    .pagination.vertical li {
+      padding: 0 10px;
+      line-height: 30px; }
+
 #carousel-container {
   background-image: url(/images/carousel_bg.png);
   background-size: 100% 420px;
   padding: 1rem 3rem;
-  margin-top: -2rem; }
+  margin-top: -1rem; }
   #carousel-container #carousel {
     width: 100%;
     overflow: hidden; }
@@ -398,7 +457,7 @@ button.mdl-color--primary {
       #carousel-container #carousel ul .item {
         width: calc(100% / 7 - 18px * 2);
         height: auto;
-        margin: 0 20px;
+        margin: 0 20px 4px 20px;
         background: transparent;
         text-align: center;
         float: left;
@@ -422,107 +481,87 @@ button.mdl-color--primary {
             transition: all 0.15s ease-in; }
           #carousel-container #carousel ul .item .ui.image img {
             width: 100%;
-            min-height: 230px;
-            max-height: 300px;
+            height: 240px;
             z-index: 1000; }
         #carousel-container #carousel ul .item time {
           color: #fff; }
         #carousel-container #carousel ul .item:first-child {
           margin-left: 0; }
 
-.news-box {
-  padding: 0 4rem calc(10px + 100px) 4rem !important; }
-  .news-box .list-items {
-    padding: 3rem 0;
-    display: none; }
-
-#show-list-news {
-  position: static;
-  margin: auto; }
-
-.flipster__button {
-  opacity: 1;
-  outline: 0;
-  top: 100%; }
-  .flipster__button.flipster__button--prev {
-    left: 20%; }
-  .flipster__button.flipster__button--next {
-    right: 20%; }
-  .flipster__button .mdl-button {
-    background-color: rgba(83, 109, 254, 0.5) !important; }
-    .flipster__button .mdl-button:hover {
-      background-color: #536dfe !important; }
-  .flipster__button svg {
-    stroke: #fff; }
-
-.flipster--coverflow .flipster__item__content {
-  box-reflect: none !important;
-  -webkit-box-reflect: none !important; }
-
-.news-segment {
-  background: rgba(0, 0, 0, 0.6);
-  color: #eee; }
-  .news-segment .news-item {
-    text-align: initial; }
-    .news-segment .news-item .content {
-      padding: 1rem 1.5rem;
-      z-index: 999; }
-      .news-segment .news-item .content .title {
-        padding-top: 1rem; }
-        .news-segment .news-item .content .title p.header {
-          font-size: 2.5rem; }
-      .news-segment .news-item .content .title, .news-segment .news-item .content .action {
-        text-align: center; }
-      .news-segment .news-item .content p {
-        font-size: 1.25rem; }
-    .news-segment .news-item button {
-      z-index: 1; }
-    .news-segment .news-item.horizontal .ui.image {
+#index-news-container {
+  position: relative;
+  padding: 0 0 2rem 0 !important; }
+  #index-news-container .news-row {
+    padding: 0 0 2rem 0 !important; }
+    #index-news-container .news-row .list-items-container {
       display: flex;
       align-items: center;
-      justify-content: center; }
-      .news-segment .news-item.horizontal .ui.image img {
-        max-height: 350px;
-        width: 100%; }
-    .news-segment .news-item.vertical {
-      display: flex; }
-      .news-segment .news-item.vertical .ui.image {
-        flex: 3; }
-        .news-segment .news-item.vertical .ui.image img {
-          width: 100%;
-          height: 550px; }
-      .news-segment .news-item.vertical .content {
-        flex: 2; }
-
-#list-news .item {
-  background: #fff; }
-  #list-news .item .content {
-    padding-top: 1.25rem;
-    padding-bottom: 1.25rem; }
+      justify-content: center;
+      position: relative;
+      padding: 0;
+      z-index: 999; }
+      #index-news-container .news-row .list-items-container #list-news {
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+        padding: 2rem 0;
+        width: 80%; }
+        #index-news-container .news-row .list-items-container #list-news .item {
+          background: rgba(255, 255, 255, 0.5);
+          color: #fff !important; }
+          #index-news-container .news-row .list-items-container #list-news .item .content {
+            padding: 1rem; }
+            #index-news-container .news-row .list-items-container #list-news .item .content * {
+              color: #fff !important; }
+          #index-news-container .news-row .list-items-container #list-news .item.active {
+            background: green; }
+    #index-news-container .news-row .flipster-news-container {
+      display: flex;
+      align-items: center;
+      margin: 0 0 2rem 0;
+      padding: 3rem 1rem;
+      background: #09095F;
+      overflow: hidden; }
+  #index-news-container .flipster--flat .flipster__item__content {
+    box-reflect: none !important;
+    -webkit-box-reflect: none !important; }
+  #index-news-container .news-segment {
+    background: rgba(0, 0, 0, 0.6);
+    color: #eee; }
+    #index-news-container .news-segment .news-item {
+      text-align: initial; }
+      #index-news-container .news-segment .news-item .content {
+        padding: 1rem 1.5rem;
+        z-index: 999; }
+        #index-news-container .news-segment .news-item .content .title {
+          padding-top: 1rem; }
+          #index-news-container .news-segment .news-item .content .title p.header {
+            font-size: 2.5rem; }
+        #index-news-container .news-segment .news-item .content .title, #index-news-container .news-segment .news-item .content .action {
+          text-align: center; }
+        #index-news-container .news-segment .news-item .content p {
+          font-size: 1.25rem; }
+      #index-news-container .news-segment .news-item button {
+        z-index: 1; }
+      #index-news-container .news-segment .news-item.horizontal .ui.image {
+        display: flex;
+        align-items: center;
+        justify-content: center; }
+        #index-news-container .news-segment .news-item.horizontal .ui.image img {
+          max-height: 350px;
+          width: 100%; }
+      #index-news-container .news-segment .news-item.vertical {
+        display: flex; }
+        #index-news-container .news-segment .news-item.vertical .ui.image {
+          flex: 3; }
+          #index-news-container .news-segment .news-item.vertical .ui.image img {
+            width: 100%;
+            height: 550px; }
+        #index-news-container .news-segment .news-item.vertical .content {
+          flex: 2; }
 
 #movie-blog .ui.segment h1, #movie-blog .ui.segment h2, #movie-blog .ui.segment h3, #movie-blog .ui.segment h4, #movie-blog .ui.segment h5, #movie-blog .ui.segment h6 {
   color: #444; }
-
-#movie-blog .pagination {
-  list-style-type: none;
-  width: 100%;
-  text-align: center;
-  padding: 1.5rem; }
-  #movie-blog .pagination li {
-    display: inline-block;
-    font-size: 1.5rem;
-    padding: 0 10px;
-    line-height: 30px;
-    border-radius: 2px;
-    text-align: center;
-    color: #fff; }
-    #movie-blog .pagination li i {
-      font-size: 2.2rem;
-      vertical-align: middle; }
-    #movie-blog .pagination li a {
-      color: #fff; }
-    #movie-blog .pagination li.active {
-      background-color: #009688; }
 
 .mdl-card {
   width: 100%;

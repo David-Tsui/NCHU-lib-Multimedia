@@ -38,11 +38,7 @@ body {
 		margin-bottom: 2rem;
 	}
 	& .row {
-		padding-top: 4rem !important;
-		// &:not(:first-child) {
-		// 	border-top: #aaa solid 1px;
-		// 	margin: 3rem 0 0;
-		// }
+		padding: 4rem auto;
 		& header {
 			position: absolute;
 			top: 2rem;
@@ -112,9 +108,38 @@ body {
 		}
 	}
 	& .extra-menu {
+		display: flex;
+		justify-content: flex-end;
+
 		position: absolute;
-		top: 3rem;
+		top: 4rem;
+		right: 0;
+		width: 14%;
+		& a {
+			flex: 1;
+			color: #fff;
+			font-weight: 700;
+			font-size: 1.2rem;
+		}
+	}
+	& .hit-counter {
+		position: relative;
+		&:before {
+			content: "訪客人數：";
+			position: absolute;
+			width: 85%;
+			top: 1px;
+			right: 100%;
+			color: #eee;
+			font-weight: 700;
+			font-size: 1rem;
+		}
+		position: absolute;
+		top: 7rem;
 		right: 3rem;
+		& small {
+			display: none;
+		}
 	}
 }
 
@@ -220,13 +245,56 @@ button.mdl-color--primary {
 	background-color: #222;
 }
 
+// pagination
+.pagination {
+	list-style-type: none;
+	width: 100%;
+	text-align: center;
+	padding: 1.5rem;
+	& li {
+		display: inline-block;
+		font-size: 1.5rem;
+		padding: 0 10px;
+		line-height: 30px;
+		border-radius: 0;
+		text-align: center;
+		color: #fff;
+		& i {
+			font-size: 2.2rem;
+			vertical-align: middle;
+		}
+		& a {
+			color: #fff;
+		}
+		&.active {
+			background-color: #009688;
+		}
+	}
+
+	&.vertical {
+		position: absolute;
+		top: 4rem;
+		left: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		width: auto;
+		padding: 0;
+		margin: 0;
+		& li {
+			padding: 0 10px;
+			line-height: 30px;
+		}
+	}
+}
+
 // 首頁
 // carousel
 #carousel-container {
 	background-image: url(/images/carousel_bg.png);
 	background-size: 100% 420px;
 	padding: 1rem 3rem;
-	margin-top: -2rem;
+	margin-top: -1rem;
 	& #carousel {
 		width: 100%;
 		overflow: hidden;
@@ -239,7 +307,7 @@ button.mdl-color--primary {
 			& .item {
 				width: calc(100% / 7 - 18px * 2);
 				height: auto;
-				margin: 0 20px;
+				margin: 0 20px 4px 20px;
 				background: transparent;
 				text-align: center;
 				float: left;
@@ -264,8 +332,7 @@ button.mdl-color--primary {
 					}
 					& img {
 						width: 100%;
-						min-height: 230px;
-						max-height: 300px;
+						height: 240px;
 						z-index: 1000;
 					}
 				}  
@@ -285,140 +352,113 @@ button.mdl-color--primary {
 	}
 }
 
-// news 
-.news-box {
-	padding: 0 4rem calc(10px + #{$prepare-height}) 4rem !important;
-	& .list-items {
-		padding: 3rem 0;
-		display: none;
-	}
-}
-
-#show-list-news {
-	position: static;
-	margin: auto;
-}
-
-// flipster 
-.flipster__button {
-	opacity: 1;
-	outline: 0;
-	top: 100%;
-	&.flipster__button--prev {
-		left: 20%;
-	}
-	&.flipster__button--next {
-		right: 20%;
-	}
-	& .mdl-button {
-		background-color: rgba(83,109,254, .5) !important;
-		&:hover {
-			background-color: rgb(83,109,254) !important;
-		}
-	}
-	& svg {
-		stroke: #fff;
-	}
-}
-
-.flipster--coverflow .flipster__item__content {
-	box-reflect: none !important;
-	-webkit-box-reflect: none !important;
-}
-
-.news-segment {
-	background: rgba(0, 0, 0, .6);
-	color: #eee;
-	& .news-item {
-		text-align: initial;
-		& .content {
-			padding: 1rem 1.5rem;
-			z-index: 999;
-			& .title {
-				padding-top: 1rem;
-				& p.header {
-					font-size: 2.5rem;
-				}
-			}
-			& .title, & .action {
-				text-align: center;
-			}
-			& p {
-				font-size: 1.25rem;
-			}
-		}
-		& button {
-			z-index: 1;
-		}
-		&.horizontal {
-			& .ui.image {
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				& img {
-					max-height: 350px;
-					width: 100%;
-				}
-			}
-		}
-		&.vertical {
+#index-news-container {
+	position: relative;
+	padding: 0 0 2rem 0 !important;
+	// height: 80vh;
+	// news 
+	& .news-row {
+		padding: 0 0 2rem 0 !important;
+		& .list-items-container {
 			display: flex;
-			& .ui.image {
-				flex: 3;
-				& img {
-					width: 100%;
-					height: 550px;
+			align-items: center;
+			justify-content: center;
+			position: relative;
+			padding: 0;
+			z-index: 999;
+			& #list-news {
+				display: flex;
+				flex-direction: column;
+				margin: 0;
+				padding: 2rem 0;
+				width: 80%;
+				& .item {
+					background: rgba(255,255,255,.5);
+					color: #fff !important;
+					& .content {
+						padding: 1rem;
+						& * {
+							color: #fff !important;
+						}
+					}
+					&.active {
+						background: green;
+					}
 				}
 			}
+		}
+		& .flipster-news-container {
+			display: flex;
+			align-items: center;
+			margin: 0 0 2rem 0;
+			padding: 3rem 1rem;
+			background: #09095F;
+			overflow: hidden;
+		}
+	}
+
+	& .flipster--flat .flipster__item__content {
+		box-reflect: none !important;
+		-webkit-box-reflect: none !important;
+	}
+
+	& .news-segment {
+		background: rgba(0, 0, 0, .6);
+		color: #eee;
+		& .news-item {
+			text-align: initial;
 			& .content {
-				flex: 2;
+				padding: 1rem 1.5rem;
+				z-index: 999;
+				& .title {
+					padding-top: 1rem;
+					& p.header {
+						font-size: 2.5rem;
+					}
+				}
+				& .title, & .action {
+					text-align: center;
+				}
+				& p {
+					font-size: 1.25rem;
+				}
+			}
+			& button {
+				z-index: 1;
+			}
+			&.horizontal {
+				& .ui.image {
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					& img {
+						max-height: 350px;
+						width: 100%;
+					}
+				}
+			}
+			&.vertical {
+				display: flex;
+				& .ui.image {
+					flex: 3;
+					& img {
+						width: 100%;
+						height: 550px;
+					}
+				}
+				& .content {
+					flex: 2;
+				}
 			}
 		}
 	}
 }
-
-#list-news {
-	& .item {
-		background: #fff;
-		& .content {
-			padding-top: 1.25rem;
-			padding-bottom: 1.25rem;
-		}
-	}
-}
-
 
 // 影音blog
 #movie-blog {
 	& .ui.segment {
 		& h1, & h2, & h3, & h4, & h5, & h6  {
 			color: #444;
-		}
-	}
-	// pagination
-	& .pagination {
-		list-style-type: none;
-		width: 100%;
-		text-align: center;
-		padding: 1.5rem;
-		& li {
-			display: inline-block;
-			font-size: 1.5rem;
-			padding: 0 10px;
-			line-height: 30px;
-			border-radius: 2px;
-			text-align: center;
-			color: #fff;
-			& i {
-				font-size: 2.2rem;
-				vertical-align: middle;
-			}
-			& a {
-				color: #fff;
-			}
-			&.active {
-				background-color: #009688;
-			}
 		}
 	}
 }

@@ -10,7 +10,9 @@ exports = module.exports = function(Category, cate_key_name, section) {
 		// Init locals
 		locals.section = section;
 		locals.movies = [];
-		locals.filters = {category: req.params[cate_key_name]};
+		locals.filters = {
+			category: req.params[cate_key_name]
+		};
 		locals.category = undefined;
 		locals.categories = [];
 
@@ -23,6 +25,7 @@ exports = module.exports = function(Category, cate_key_name, section) {
 				}
 
 				locals.categories = results; 
+				console.log("here");
 				callback();
 			});
 		});
@@ -30,9 +33,11 @@ exports = module.exports = function(Category, cate_key_name, section) {
 		// Load the current root_category filter
 		view.on('init', function (callback) {
 			if (locals.filters.category) {
+
 				Category.model.where({name: locals.filters.category}).findOne(function (err, category) {
-					if(err) callback(err);
-					else if(category) {
+					if(err) {
+						callback(err);
+					}	else if(category) {
 						locals.category = category;
 						var q = Movie.paginate({
 							page: req.query.page || 1,
@@ -42,9 +47,20 @@ exports = module.exports = function(Category, cate_key_name, section) {
 						.where('state', 'published')
 						.sort('-publishedDate')
 						.populate('author region_categories theme_categories classification_categories');
-					}
-				})
-			}
+
+						var cate_query = {};
+						cate_query[cate_key_name] = category._id;
+						q.where(cate_query);
+
+						q.exec(function (err, movies) {
+							locals.movies = movies;
+							callback(err);
+						});
+					} else
+						callback();
+				});
+			} else 
+				callback();
 		});
 
 		// Render the view

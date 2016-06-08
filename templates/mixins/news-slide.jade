@@ -1,12 +1,12 @@
 mixin news_slide(posts)
 	ul
 		each post in posts
-			li
+			li(data-slide="#{post.name}")
 				article.news-segment
 					if post.image.height >= post.image.width
 						.news-item.vertical.special-segment(data-ks-editable=editable(user, { list: 'NewsPost', id: post.id }))
 							.ui.image.news-image-vertical
-								img(src=post._.image.fit(768,1024))
+								img(src=post._.image.fit(540,800))
 							.content
 								.title
 									h3!= post.name
@@ -15,7 +15,7 @@ mixin news_slide(posts)
 								.description
 									p!= post.content.brief
 								.action
-									a(href='/news/post/' + post.key)
+									a(href='/news/posts/' + post.key)
 										button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-color--primary= '查看全部' 
 							span.bg-large
 								span.line-bottom-left
@@ -29,7 +29,7 @@ mixin news_slide(posts)
 					else
 						.news-item.horizontal.special-segment(data-ks-editable=editable(user, { list: 'NewsPost', id: post.id }))
 							.ui.image.news-image-horizontal
-								img(src=post._.image.fit(1024,768))
+								img(src=post._.image.fit(800,540))
 							.content
 								.title
 									h3!= post.name
@@ -38,7 +38,7 @@ mixin news_slide(posts)
 								.description
 									p!= post.content.brief
 								.action
-									a(href='/news/post/' + post.key)
+									a(href='/news/posts/' + post.key)
 										button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-color--primary= '查看全部' 
 							span.bg-large
 								span.line-bottom-left

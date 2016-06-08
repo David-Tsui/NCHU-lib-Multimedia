@@ -6,7 +6,7 @@ $(document).ready(function() {
 	var list_flag = false;
 	$('.scrollbar-inner').scrollbar();
 
-	var $flipster = $(".coverflow")
+	var $flipster = $(".flat-flipster");
 	$flipster.flipster({
 		itemContainer: 'ul',
 		itemSelector: 'li',
@@ -16,10 +16,8 @@ $(document).ready(function() {
 		autoplay: false,
 		pauseOnHover: true,
 
-		style: 'coverflow',
-		spacing: -0.6,
-		// [number]
-		// Space between items relative to each item's width. 0 for no spacing, negative values to overlap
+		style: 'flat',
+		spacing: -0.3,
 
 		click: true,
 		keyboard: true,
@@ -28,18 +26,8 @@ $(document).ready(function() {
 
 		nav: false,
 		buttons: 'custom',
-		// [true|false|'custom']
-		// If true, Flipster will insert Previous / Next buttons with SVG arrows
-		// If 'custom', Flipster will not insert the arrows and will instead use the values of `buttonPrev` and `buttonNext`
-
 		buttonPrev: '<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--accent"><i class="material-icons">navigate_before</i></button>',
-		// [text|html]
-		// Changes the text for the Previous button
-
 		buttonNext: '<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--accent"><i class="material-icons">navigate_next</i></button>',
-		// [text|html]
-		// Changes the text for the Next button
-
 		onItemSwitch: false
 		// [function]
 		// Callback function when items are switched
@@ -57,13 +45,14 @@ $(document).ready(function() {
 		$(this).toggleClass("animated");
 	});
 
+	// semantic dropdown
 	$(".ui.dropdown").dropdown({
 		on: 'hover',
 		duration: 150
 	});
 
 	var carousel_item_width = $("#carousel .item").width() + 20 * 2;
-	console.log("carousel_item_width: ", carousel_item_width);
+	// console.log("carousel_item_width: ", carousel_item_width);
 	var switch_items_num = 3;
 	var adjust = 0;
 	$('#carousel').scrollbox({
@@ -71,17 +60,27 @@ $(document).ready(function() {
 	  switchItems: switch_items_num,
 	  distance: carousel_item_width * switch_items_num + adjust,
 	  // delay: 0.5,
-	  delay: 3,
-	  speed: 65,
+	  delay: 4,
+	  speed: 50,
 	});
 
+	// switch the slide by left list item
+	$(".item.slide-link").click(function(e) {
+		console.log($(e.target));
+		var switch_to = $(e.target).parents(".item").attr("data-slide");
+		console.log("switch_to: ", switch_to);
+		$flipster.flipster('jump', $('li[data-slide="' + switch_to + '"]'));
+	})
 
-	$("#show-list-news").click(function() {
-		list_flag = !list_flag;
-		$(".carousel-items, .list-items").toggle();
-		(list_tag) ? $(this).text("列表式查看") : $(this).text("幻燈片查看");
+	// control buttons of the news slide
+	$("#ctrl-slide-prev").click(function() {
+		$flipster.flipster("prev");
+	});
+	$("#ctrl-slide-next").click(function() {
+		$flipster.flipster("next");
 	});
 
+	// svg button transition effect
 	$(".svg-item").mouseenter(function(e) {
 		// console.log("e.target: ", $(e.target));
 		var prev_siblings = $(e.target).prev();
@@ -98,7 +97,6 @@ $(document).ready(function() {
 			changeSvgFill(id, "mouseleave");
 		}
 	});
-	console.log("ENTER");
 });
 
 function changeSvgFill(id, cond) {
@@ -111,8 +109,7 @@ function changeSvgFill(id, cond) {
 }
 
 function setSectionHighlight(path) {
-	console.log("path: ", path);
-	if (path == "/") {
+	if (path == "/" || !(path.search("/news/posts/") < 0)) {
 		$("svg#index polygon").addClass('selected');
 	} else if (!(path.search("/about/") < 0)) {
 		$("svg#about polygon").addClass('selected');

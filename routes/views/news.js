@@ -14,7 +14,6 @@ exports = module.exports = function (req, res) {
 
 	// Load the current post
 	view.on('init', function (next) {
-
 		var q = NewsPost.model.findOne({
 			state: 'published',
 			key: locals.filters.post,
@@ -24,21 +23,6 @@ exports = module.exports = function (req, res) {
 			locals.post = result;
 			next(err);
 		});
-
 	});
-
-	// Load other posts
-	// view.on('init', function (next) {
-
-	// 	var q = NewsPost.model.find().where('state', 'published').sort('-publishedDate').populate('author').limit('4');
-
-	// 	q.exec(function (err, results) {
-	// 		locals.posts = results;
-	// 		next(err);
-	// 	});
-
-	// });
-
-	// Render the view
 	view.render('news_detail');
 }

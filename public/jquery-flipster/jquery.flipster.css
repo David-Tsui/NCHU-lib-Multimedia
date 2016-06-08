@@ -225,7 +225,7 @@
 }
 .flipster--coverflow .flipster__item {
   perspective: 800px;
-  width: 60%;
+  width: 40%;
 }
 .flipster--coverflow .flipster__container {
   padding-bottom: 5%;
@@ -256,7 +256,13 @@
 .flipster--flat .flipster__item,
 .flipster--flat .flipster__item__content {
   transition: all 400ms ease-in-out;
+  
 }
+
+.flipster--flat .flipster__item {
+  width: 75%;
+}
+
 .flipster--flat .flipster__item--past,
 .flipster--flat .flipster__item--future {
   opacity: 0.5;
