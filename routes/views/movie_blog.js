@@ -112,10 +112,11 @@ exports = module.exports = function (req, res) {
 
 	// Load the movies
 	view.on('init', function (callback) {
+		var per_page = 8, max_page = 10;
 		var q = Movie.paginate({
 			page: req.query.page || 1,
-			perPage: 8,
-			maxPages: 10,
+			perPage: per_page,
+			maxPages: max_page,
 		})
 		.where('state', 'published')
 		.sort('-publishedDate')
@@ -125,10 +126,24 @@ exports = module.exports = function (req, res) {
 			q.where(ModelColumnMapping[locals.root_category.name]).in([locals.category]);
 		}
 
-		q.exec(function (err, results) {
-			// console.log("results: ", results);
-			results.total = locals.movies_count;
-			locals.movies = results;
+		q.exec(function (err, ret) {
+			
+			ret.total = locals.movies_count;
+			if (ret.total > 0) {
+				if ((ret.total % per_page) == 0) {
+					ret.totalPages = ret.total / per_page;
+				}	else if (ret.total > per_page) {
+					ret.totalPages = ret.total / per_page + 1;
+				} else if (ret.total < per_page) {
+					ret.totalPages = 1;
+				}
+			}
+			ret.pages = [];
+			for(var i = 1; i <= ret.totalPages; i++) {
+				ret.pages.push(i);
+			}
+			console.log("ret: ", ret);
+			locals.movies = ret;
 			callback(err);
 		});
 
