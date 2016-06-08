@@ -99,10 +99,7 @@ exports = module.exports = function (req, res) {
 	view.on('init', function (callback) {
 		var q = Movie.model.find().where('state', 'published');
 		if (locals.category) {
-			q = Movie.model.find().where({
-				'state':'published', 
-				'theme_categories': locals.category
-			});
+			q.where(ModelColumnMapping[locals.root_category.name]).in([locals.category]);
 		}
 		q.exec(function (err, results) {
 			locals.movies_count = results.length; 
