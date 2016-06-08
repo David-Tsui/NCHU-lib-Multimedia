@@ -95,6 +95,21 @@ exports = module.exports = function (req, res) {
 		}
 	});
 
+	// Get the total num
+	view.on('init', function (callback) {
+		var q = Movie.model.find().where('state', 'published');
+		if (locals.category) {
+			q = Movie.model.find().where({
+				'state':'published', 
+				'theme_categories': locals.category
+			});
+		}
+		q.exec(function (err, results) {
+			locals.movies_count = results.length; 
+			callback(err);
+		});
+	});
+
 	// Load the movies
 	view.on('init', function (callback) {
 		var q = Movie.paginate({
@@ -111,6 +126,8 @@ exports = module.exports = function (req, res) {
 		}
 
 		q.exec(function (err, results) {
+			// console.log("results: ", results);
+			results.total = locals.movies_count;
 			locals.movies = results;
 			callback(err);
 		});
