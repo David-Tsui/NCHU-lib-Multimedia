@@ -538,6 +538,8 @@ button.mdl-color--primary {
   #index-news-container .flipster--flat .flipster__item__content {
     box-reflect: none !important;
     -webkit-box-reflect: none !important; }
+  #index-news-container .flipster--flat .flipster__item {
+    width: 65% !important; }
   #index-news-container .news-segment {
     background: rgba(0, 0, 0, 0.6);
     color: #eee; }

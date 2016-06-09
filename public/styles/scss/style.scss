@@ -418,6 +418,10 @@ button.mdl-color--primary {
 		-webkit-box-reflect: none !important;
 	}
 
+	& .flipster--flat .flipster__item {
+	  width: 65% !important;
+	}
+
 	& .news-segment {
 		background: rgba(0, 0, 0, .6);
 		color: #eee;
