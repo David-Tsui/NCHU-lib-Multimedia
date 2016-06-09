@@ -1,6 +1,7 @@
 extends ../layouts/default
-
 include ../mixins/movie
+include ../mixins/pagination
+
 block content
 	.ui.stackable.grid.main-container
 		if category
@@ -24,19 +25,7 @@ block content
 						each movie in movies.results
 							.four.wide.column
 								+movie(movie)
-					if movies.totalPages > 1
-						ul.pagination
-							if movies.previous
-								li: a(href='?page=' + movies.previous): i.material-icons chevron_left
-							else
-								li.disabled: i.material-icons chevron_left
-							each p, i in movies.pages
-								li(class=movies.currentPage === p ? 'active' : null)
-									a(href='?page=' + (p === '...' ? (i ? movies.totalPages : 1) : p ))= p
-							if movies.next
-								li: a(href='?page=' + movies.next): i.material-icons chevron_right
-							else
-								li.disabled: i.material-icons chevron_right
+					+pagination(movies, true)
 				else
 					if category
 						//- h3 No movies in the category #{category.name}.

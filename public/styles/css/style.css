@@ -429,7 +429,7 @@ button.mdl-color--primary {
   .pagination.vertical {
     position: absolute;
     top: 4rem;
-    left: 100%;
+    right: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -495,23 +495,36 @@ button.mdl-color--primary {
     padding: 0 0 2rem 0 !important; }
     #index-news-container .news-row .list-items-container {
       display: flex;
+      flex-direction: column;
       align-items: center;
-      justify-content: center;
+      justify-content: space-around;
       position: relative;
       padding: 0;
       z-index: 999; }
+      #index-news-container .news-row .list-items-container h2.header {
+        width: 100%;
+        padding: 2rem 0;
+        text-align: center;
+        margin-top: 0rem;
+        margin-bottom: -2rem;
+        border-bottom: 1px #fff solid; }
+      #index-news-container .news-row .list-items-container .pagination {
+        margin: 0;
+        padding: 0; }
       #index-news-container .news-row .list-items-container #list-news {
         display: flex;
         flex-direction: column;
         margin: 0;
-        padding: 2rem 0;
+        padding: 0 0;
         width: 80%; }
         #index-news-container .news-row .list-items-container #list-news .item {
-          background: rgba(255, 255, 255, 0.5);
+          background: transparent;
           color: #fff !important; }
           #index-news-container .news-row .list-items-container #list-news .item .content {
             padding: 1rem; }
             #index-news-container .news-row .list-items-container #list-news .item .content * {
+              font-weight: 400;
+              font-size: 1.5rem;
               color: #fff !important; }
           #index-news-container .news-row .list-items-container #list-news .item.active {
             background: green; }
@@ -520,7 +533,7 @@ button.mdl-color--primary {
       align-items: center;
       margin: 0 0 2rem 0;
       padding: 3rem 1rem;
-      background: #09095F;
+      background: rgba(2, 2, 70, 0.6);
       overflow: hidden; }
   #index-news-container .flipster--flat .flipster__item__content {
     box-reflect: none !important;

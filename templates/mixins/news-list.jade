@@ -1,8 +1,9 @@
-mixin news_list(posts)
+mixin news_list(news)
 	.ui.link.items#list-news
-		each post in posts
+		each post in news.results
 			.item.slide-link(data-slide="#{post.name}" data-ks-editable=editable(user, { list: 'NewsPost', id: post.id }))
 				.content
-					p.header= post.name
-					.meta
-						span= post._.publishedDate.format('YYYY.M/D')
+					p= post.name
+					//- .meta
+					//- 	span= post._.publishedDate.format('YYYY.M/D')
+	

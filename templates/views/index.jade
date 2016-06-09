@@ -2,28 +2,17 @@ extends ../layouts/default
 include ../mixins/carousel
 include ../mixins/news-slide
 include ../mixins/news-list
+include ../mixins/pagination
 
 block content
 	.ui.grid#carousel-container
 		+carousel(movies)
 	.ui.grid.main-container#index-news-container
 		.row.news-row
-			//- header: h2= '最新消息'
 			.four.wide.column.list-items-container
-				+news_list(news.results)
-				if news.totalPages > 1
-					ul.pagination.vertical
-						if news.previous
-							li: a(href='?page=' + news.previous): i.material-icons arrow_drop_up
-						else
-							li.disabled: i.material-icons arrow_drop_up
-						each p, i in news.pages
-							li(class=news.currentPage === p ? 'active' : null)
-								a(href='?page=' + (p === '...' ? (i ? news.totalPages : 1) : p ))= p
-						if news.next
-							li: a(href='?page=' + news.next): i.material-icons arrow_drop_down
-						else
-							li.disabled: i.material-icons arrow_drop_down
+				h2.header= "最新消息"
+				+news_list(news)
+				+pagination(news, true)
 			.twelve.wide.column.flipster-news-container
 				.flat-flipster
 					+news_slide(news.results)
