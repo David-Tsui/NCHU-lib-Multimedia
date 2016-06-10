@@ -28,7 +28,14 @@ $(document).ready(function() {
 		buttons: 'custom',
 		buttonPrev: '<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--accent"><i class="material-icons">navigate_before</i></button>',
 		buttonNext: '<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--accent"><i class="material-icons">navigate_next</i></button>',
-		onItemSwitch: false
+		onItemSwitch: function(curr, prev) {
+			console.log("curr: ", curr);
+			$(".item.slide-link").removeClass("active");
+			console.log("$(curr): ", $(curr));
+			var switch_to = $(curr).attr("data-slide");
+			console.log("switch_to: ", switch_to);
+			$('.item[data-slide="' + switch_to + '"]').addClass("active");
+		}
 		// [function]
 		// Callback function when items are switched
 		// Arguments received: [currentItem, previousItem]
