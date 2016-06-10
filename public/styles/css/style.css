@@ -657,6 +657,8 @@ table.mdl-data-table {
   color: #444; }
 
 @media only screen and (max-width: 768px) {
+  #index-news-container {
+    height: 50vh; }
   .image-box {
     margin: auto;
     text-align: center; }

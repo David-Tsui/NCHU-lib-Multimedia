@@ -3,6 +3,7 @@
 
 $navbar-height: 90px;
 $prepare-height: 100px;
+$movie-items: 7;
 
 // semantic 調校
 figure {
@@ -306,7 +307,7 @@ button.mdl-color--primary {
 			-webkit-margin-before: 0;
 			-webkit-margin-after: 0;
 			& .item {
-				width: calc(100% / 7 - 18px * 2);
+				width: calc(100% / #{$movie-items} - 18px * 2);
 				height: auto;
 				margin: 0 20px 4px 20px;
 				background: transparent;
@@ -356,7 +357,6 @@ button.mdl-color--primary {
 #index-news-container {
 	position: relative;
 	padding: 0 0 2rem 0 !important;
-	// height: 80vh;
 	// news 
 	& .news-row {
 		padding: 0 0 2rem 0 !important;
@@ -581,6 +581,9 @@ table.mdl-data-table {
 }
 
 @media only screen and (max-width: 768px) {
+	#index-news-container {
+		height: 50vh;
+	}
 	.image-box {
 		margin: auto;
 		text-align: center;

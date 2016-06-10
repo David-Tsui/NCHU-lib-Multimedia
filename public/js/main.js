@@ -57,6 +57,11 @@ $(document).ready(function() {
 	// console.log("carousel_item_width: ", carousel_item_width);
 	var switch_items_num = 3;
 	var adjust = 0;
+	if ($("body").width() < 1024) {
+		$("#carousel .item").css("width", "calc(100% / 3 - 12px * 2");
+		carousel_item_width = $("#carousel .item").width() + 16 * 2;
+		adjust = 24;
+	}
 	$('#carousel').scrollbox({
 		direction: 'h',
 	  switchItems: switch_items_num,
