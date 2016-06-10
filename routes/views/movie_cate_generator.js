@@ -41,7 +41,7 @@ exports = module.exports = function(Category, cate_key_name, section) {
 						locals.category = category;
 						var q = Movie.paginate({
 							page: req.query.page || 1,
-							perPage: 8,
+							perPage: 16,
 							maxPages: 10,
 						})
 						.where('state', 'published')

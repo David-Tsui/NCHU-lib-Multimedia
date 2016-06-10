@@ -109,7 +109,7 @@ exports = module.exports = function (req, res) {
 
 	// Load the movies
 	view.on('init', function (callback) {
-		var per_page = 8, max_page = 10;
+		var per_page = 16, max_page = 10;
 		var q = Movie.paginate({
 			page: req.query.page || 1,
 			perPage: per_page,
