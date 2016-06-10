@@ -26,16 +26,16 @@ services:
         build: .
         ports: []
         volumes:
-         - dev_volume:/service
+         - dev_volume:/usr/src/app
         command: echo true
     rsync:
-        image: uvatbc/rsync
-        user: root
+        image: chgu82837/dev_rsyncer
         volumes_from:
          - dev_volume
         volumes:
          - .:/workspace
-        command: rsync --exclude=node_modules --exclude=.git --exclude=*.swp -urv --delete /workspace/ /service
+        entrypoint: []
+        command: rsync --exclude=node_modules --exclude=.git --exclude=*.swp --exclude=*.swo -urv --delete /workspace/ /usr/src/app
     mongo:
         image: mongo
     backup: &backup_restore

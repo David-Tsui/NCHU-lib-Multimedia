@@ -172,7 +172,7 @@ exports = module.exports = function (app) {
 	app.get('/movies/movie_blog/movie/:movie', routes.views.movie);
 	app.get('/movies/movie_blog/:root_category?/:category?', routes.views.movie_blog);
 
-	app.get('/movies/new/:new_category?', routes.views.movie_cate_generator(keystone.list('MovieNewCategory'), 'new_category', 'new'));
+	app.get('/movies/new/:month?', routes.views.movie_news_monthly);
 	app.get('/movies/topic/:topic_category?', routes.views.movie_cate_generator(keystone.list('MovieTopicCategory'), 'topic_category', 'topic'));
 	app.get('/movies/assignment/:assignment_category?', routes.views.movie_cate_generator(keystone.list('MovieAssignmentCategory'), 'assignment_category', 'assignment'));
 	app.get('/movies/hot/:hot_category?', routes.views.movie_cate_generator(keystone.list('MovieHotCategory'), 'hot_category', 'hot'));
