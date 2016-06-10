@@ -21,7 +21,7 @@ $(document).ready(function() {
 
 		click: true,
 		keyboard: true,
-		scrollwheel: true,
+		scrollwheel: false,
 		touch: true,
 
 		nav: false,
