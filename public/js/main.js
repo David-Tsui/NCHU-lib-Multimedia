@@ -34,15 +34,13 @@ $(document).ready(function() {
 		// Arguments received: [currentItem, previousItem]
 	});
 	$flipster.flipster('jump', 0);
+	$(".item.slide-link:first-child").addClass('active');
+
 
 	$(".movie-item").hover3d({
 		selector: "img",
 		// shine: true,
 		sensitivity: 15,
-	});
-
-	$(".btn-nav").on("click tap", function() {
-		$(this).toggleClass("animated");
 	});
 
 	// semantic dropdown
@@ -66,9 +64,10 @@ $(document).ready(function() {
 
 	// switch the slide by left list item
 	$(".item.slide-link").click(function(e) {
-		console.log($(e.target));
+		$(".item.slide-link").removeClass("active");
 		var switch_to = $(e.target).parents(".item").attr("data-slide");
-		console.log("switch_to: ", switch_to);
+		if (switch_to == undefined) return;
+		$('.item[data-slide="' + switch_to + '"]').addClass("active");
 		$flipster.flipster('jump', $('li[data-slide="' + switch_to + '"]'));
 	})
 
