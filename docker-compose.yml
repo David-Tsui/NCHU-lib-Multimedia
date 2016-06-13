@@ -11,6 +11,9 @@ services:
          - "80:3000"
         environment:
             MONGO_URI: 'mongodb://mongo/nchu-lib'
+    media_cms:
+        <<: *main
+        env_file: .env
         restart: always
     dev:
         <<: *main
