@@ -1,7 +1,8 @@
-$offset: 12px;
+$offset: 8px;
 $bwidth: 1px;
 // $fade-in-color: #FFFD00;
-$fade-in-color: rgb(43, 255, 191);
+// $fade-in-color: rgb(43, 255, 191);
+$fade-in-color: rgb(255, 255, 255);
 $fade-out-color: rgba(255, 255, 255, .5);
 
 .special-segment {
@@ -196,8 +197,8 @@ $fade-out-color: rgba(255, 255, 255, .5);
 	& .bg-large {
 		& .line-bottom-left {
 			&:before {
-				bottom: 0;
-				left: -1px;
+				bottom: -1px;
+				left: 0;
 			}
 			&:after {
 				top: 0;
@@ -206,7 +207,8 @@ $fade-out-color: rgba(255, 255, 255, .5);
 		}
 		& .line-top-right {
 			&:before {
-				top: -($bwidth);
+				// top: -($bwidth);
+				top: 0;
 				left: 0;
 			}
 			&:after {
@@ -218,7 +220,7 @@ $fade-out-color: rgba(255, 255, 255, .5);
 	& .bg-tall {
 		& .line-bottom-left {
 			&:before {
-				bottom: 0;
+				bottom: -1px;
 				left: 0;
 			}
 			&:after {
@@ -228,7 +230,7 @@ $fade-out-color: rgba(255, 255, 255, .5);
 		}
 		& .line-top-right {   
 			&:before {
-				top: -2px;
+				top: 0;
 				left: 0;
 			}
 			&:after {
@@ -241,7 +243,7 @@ $fade-out-color: rgba(255, 255, 255, .5);
 	& .bg-medium {
 		& .line-bottom-left {
 			&:before {
-				bottom: 0;
+				bottom: -1px;
 				left: 0;
 			}
 			&:after {
@@ -251,7 +253,8 @@ $fade-out-color: rgba(255, 255, 255, .5);
 		}
 		& .line-top-right {   
 			&:before {
-				top: (-$bwidth);
+				// top: (-$bwidth);
+				top: 0;
 				left: 0;
 			}
 			&:after {
@@ -267,12 +270,12 @@ $fade-out-color: rgba(255, 255, 255, .5);
 	& .bg-large {
 		& .line-bottom-left {
 			&:before {
-				bottom: 0;
-				left: -1px;
+				bottom: -1px;
+				left: 0;
 			}
 			&:after {
 				top: 0;
-				left: -1px;
+				left: 0;
 			}
 		}
 		& .line-top-right {
@@ -289,17 +292,17 @@ $fade-out-color: rgba(255, 255, 255, .5);
 	& .bg-tall {
 		& .line-bottom-left {
 			&:before {
-				bottom: 0;
+				bottom: -1px;
 				left: 0;
 			}
 			&:after {
 				top: 0;
-				left: -1px;
+				left: 0;
 			}     
 		}
 		& .line-top-right {   
 			&:before {
-				top: -2px;
+				top: -1px;
 				left: 0;
 			}
 			&:after {
@@ -312,17 +315,16 @@ $fade-out-color: rgba(255, 255, 255, .5);
 	& .bg-medium {
 		& .line-bottom-left {
 			&:before {
-				bottom: 0;
+				bottom: -1px;
 				left: 0;
 			}
 			&:after {
 				top: 0;
-				left: -1px;
+				left: 0;
 			}
 		}
 		& .line-top-right {   
 			&:before {
-				// top: (-$bwidth);
 				top: 0;
 				left: 0;
 			}
