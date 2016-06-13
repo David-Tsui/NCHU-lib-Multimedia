@@ -49,7 +49,6 @@ exports = module.exports = function (req, res) {
 					locals.categories.push(new createObj(root_cat, results));
 					callback(err);
 				});
-				// callback();
 			}, function (err) {
 				callback(err);
 			});
@@ -139,7 +138,6 @@ exports = module.exports = function (req, res) {
 			for(var i = 1; i <= ret.totalPages; i++) {
 				ret.pages.push(i);
 			}
-			console.log("ret: ", ret);
 			locals.movies = ret;
 			callback(err);
 		});
