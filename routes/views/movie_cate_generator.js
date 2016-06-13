@@ -32,35 +32,39 @@ exports = module.exports = function(Category, cate_key_name, section) {
 
 		// Load the current root_category filter
 		view.on('init', function (callback) {
+			var query;
 			if (locals.filters.category) {
+				query = Category.model.where({name: locals.filters.category});
+			}
+			else {
+				query = Category.model;
+			}
 
-				Category.model.where({name: locals.filters.category}).findOne(function (err, category) {
-					if(err) {
+			query.findOne(function (err, category) {
+				if(err) {
+					callback(err);
+				}	else if(category) {
+					locals.category = category;
+					var q = Movie.paginate({
+						page: req.query.page || 1,
+						perPage: 16,
+						maxPages: 10,
+					})
+					.where('state', 'published')
+					.sort('-publishedDate')
+					.populate('author region_categories theme_categories classification_categories');
+
+					var cate_query = {};
+					cate_query[cate_key_name] = category._id;
+					q.where(cate_query);
+
+					q.exec(function (err, movies) {
+						locals.movies = movies;
 						callback(err);
-					}	else if(category) {
-						locals.category = category;
-						var q = Movie.paginate({
-							page: req.query.page || 1,
-							perPage: 16,
-							maxPages: 10,
-						})
-						.where('state', 'published')
-						.sort('-publishedDate')
-						.populate('author region_categories theme_categories classification_categories');
-
-						var cate_query = {};
-						cate_query[cate_key_name] = category._id;
-						q.where(cate_query);
-
-						q.exec(function (err, movies) {
-							locals.movies = movies;
-							callback(err);
-						});
-					} else
-						callback();
-				});
-			} else 
-				callback();
+					});
+				} else
+					callback();
+			});
 		});
 
 		// Render the view
