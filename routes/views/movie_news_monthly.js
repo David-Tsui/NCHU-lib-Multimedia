@@ -8,6 +8,7 @@ exports = module.exports = function (req, res) {
 	var locals = res.locals;
 
 	// Init locals
+	locals.title = '新進影音 - 興大多媒體中心';
 	locals.section = 'new';
 	locals.movies = [];
 	locals.filters = {

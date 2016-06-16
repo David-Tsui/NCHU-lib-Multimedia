@@ -2,7 +2,7 @@ var keystone = require('keystone');
 var async = require('async');
 var Movie = keystone.list('Movie');
 
-exports = module.exports = function(Category, cate_key_name, section) { 
+exports = module.exports = function(Category, cate_key_name, section, title) { 
 	return function (req, res) {
 		var view = new keystone.View(req, res);
 		var locals = res.locals;
@@ -15,6 +15,7 @@ exports = module.exports = function(Category, cate_key_name, section) {
 		};
 		locals.category = undefined;
 		locals.categories = [];
+		locals.title = title + ' - 興大多媒體中心';
 
 		// Load categories
 		view.on('init', function (callback) {

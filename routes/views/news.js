@@ -21,6 +21,7 @@ exports = module.exports = function (req, res) {
 
 		q.exec(function (err, result) {
 			locals.post = result;
+			locals.title = result.name + ' - 興大多媒體中心';
 			next(err);
 		});
 	});

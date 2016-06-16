@@ -19,6 +19,7 @@ exports = module.exports = function (req, res) {
 	};
 	locals.news = [];
 	var routes_name = routes_map[locals.filters.category];
+	locals.title = routes_name + ' - 興大多媒體中心';
 
 	// Load the current category filter
 	view.on('init', function (next) {
