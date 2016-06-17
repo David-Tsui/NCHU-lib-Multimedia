@@ -161,6 +161,7 @@ var routes = {
 exports = module.exports = function (app) {
 
 	// Views
+	app.get('/news/list', routes.views.news_list);
 	app.get('/news/posts/:post', routes.views.news);
 	app.get('/about/:category', routes.views.about);
 	app.get('/makers/:type', routes.views.maker);
