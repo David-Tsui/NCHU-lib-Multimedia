@@ -684,3 +684,7 @@ table.mdl-data-table {
     text-align: center; }
     .image-box img {
       width: 50%; } }
+
+.space {
+  height: 50px;
+}

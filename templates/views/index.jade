@@ -12,7 +12,7 @@ block content
 			.four.wide.column.list-items-container
 				h2.header= "最新消息"
 				+news_list(news)
-				+pagination(news, true)
+				a.ui.button(href='/news/list') 顯示全部
 			.twelve.wide.column.flipster-news-container
 				.flat-flipster
 					+news_slide(news.results)
