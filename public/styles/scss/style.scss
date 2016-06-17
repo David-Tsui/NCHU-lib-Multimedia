@@ -442,6 +442,7 @@ button.mdl-color--primary {
 		& .news-item {
 			text-align: initial;
 			& .content {
+				position: relative;
 				padding: 1rem 1.5rem;
 				z-index: 999;
 				& .title {

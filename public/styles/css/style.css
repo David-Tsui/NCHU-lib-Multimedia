@@ -564,6 +564,7 @@ button.mdl-color--primary {
     #index-news-container .news-segment .news-item {
       text-align: initial; }
       #index-news-container .news-segment .news-item .content {
+        position: relative;
         padding: 1rem 1.5rem;
         z-index: 999; }
         #index-news-container .news-segment .news-item .content .title {
@@ -676,7 +677,3 @@ table.mdl-data-table {
     text-align: center; }
     .image-box img {
       width: 50%; } }
-
-.space {
-  height: 50px;
-}
