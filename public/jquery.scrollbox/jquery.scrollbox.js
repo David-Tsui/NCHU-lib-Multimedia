@@ -157,16 +157,16 @@ $.fn.scrollbox = function(config) {
     }
 
     // bind events for container
-    container.bind('resetClock', function(delay) { resetClock(delay); });
-    container.bind('forward', function() { clearTimeout(nextScrollId); forward(); });
-    container.bind('backward', function() { clearTimeout(nextScrollId); backward(); });
-    container.bind('speedUp', function(speed) {
+    container.unbind('resetClock').bind('resetClock', function(delay) { resetClock(delay); });
+    container.unbind('forward').bind('forward', function() { clearTimeout(nextScrollId); forward(); });
+    container.unbind('backward').bind('backward', function() { clearTimeout(nextScrollId); backward(); });
+    container.unbind('speedUp').bind('speedUp', function(speed) {
       if (typeof speed === 'undefined') {
         speed = Math.max(1, parseInt(config.speed / 2, 10));
       }
       config.speed = speed;
     });
-    container.bind('speedDown', function(speed) {
+    container.unbind('speedDown').bind('speedDown', function(speed) {
       if (typeof speed === 'undefined') {
         speed = config.speed * 2;
       }

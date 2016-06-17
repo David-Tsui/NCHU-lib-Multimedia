@@ -53,23 +53,70 @@ $(document).ready(function() {
 		duration: 150
 	});
 
-	var carousel_item_width = $("#carousel .item").width() + 20 * 2;
-	// console.log("carousel_item_width: ", carousel_item_width);
-	var switch_items_num = 3;
-	var adjust = 0;
-	if ($("body").width() < 1024) {
-		$("#carousel .item").css("width", "calc(100% / 3 - 12px * 2");
-		carousel_item_width = $("#carousel .item").width() + 16 * 2;
-		adjust = 24;
-	}
-	$('#carousel').scrollbox({
-		direction: 'h',
-	  switchItems: switch_items_num,
-	  distance: carousel_item_width * switch_items_num + adjust,
-	  // delay: 0.5,
-	  delay: 4,
-	  speed: 50,
-	});
+	// var carousel_item_width = $("#carousel .item").width() + 20 * 2;
+	// // console.log("carousel_item_width: ", carousel_item_width);
+	// var switch_items_num = 3;
+	// var adjust = 0;
+	// if ($("body").width() < 1024) {
+	// 	$("#carousel .item").css("width", "calc(100% / 3 - 12px * 2");
+	// 	carousel_item_width = $("#carousel .item").width() + 16 * 2;
+	// 	adjust = 24;
+	// }
+	// $('#carousel').scrollbox({
+	// 	direction: 'h',
+	//   switchItems: switch_items_num,
+	//   distance: carousel_item_width * switch_items_num + adjust,
+	//   // delay: 0.5,
+	//   delay: 4,
+	//   speed: 50,
+	// });
+
+
+	// $('#carousel').resize(function() {
+	// 	console.log("resize");
+	// 	var carousel_item_width = $("#carousel .item").width() + 20 * 2;
+	// 	// console.log("carousel_item_width: ", carousel_item_width);
+	// 	var switch_items_num = 3;
+	// 	var adjust = 0;
+	// 	if ($("body").width() < 1024) {
+	// 		$("#carousel .item").css("width", "calc(100% / 3 - 12px * 2");
+	// 		carousel_item_width = $("#carousel .item").width() + 16 * 2;
+	// 		adjust = 24;
+	// 	}
+	// 	$('#carousel').scrollbox({
+	// 		direction: 'h',
+	// 	  switchItems: switch_items_num,
+	// 	  distance: carousel_item_width * switch_items_num + adjust,
+	// 	  // delay: 0.5,
+	// 	  delay: 4,
+	// 	  speed: 50,
+	// 	  queue: null
+	// 	});
+	// });
+	
+	$('#carousel').owlCarousel({
+		loop: true,
+		margin: 16,
+		stagePadding: 14,
+		// nav: true,
+		autoplay:true,
+		autoplayTimeout:3000,
+		autoplayHoverPause:true,
+		responsive:{
+			0:{
+				items: 3
+			},
+			768:{
+				items: 5
+			},
+			1024:{
+				items: 7
+			},
+			1600: {
+				items: 9
+			}
+		}
+	})
 
 	// switch the slide by left list item
 	$(".item.slide-link").click(function(e) {

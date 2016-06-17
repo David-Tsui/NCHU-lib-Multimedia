@@ -193,7 +193,7 @@ $fade-out-color: rgba(255, 255, 255, .5);
 }
 
 .horizontal.special-segment {
-	@extend .special-transiton;
+	@extend .special-segment;
 	& .bg-large {
 		& .line-bottom-left {
 			&:before {
@@ -266,7 +266,7 @@ $fade-out-color: rgba(255, 255, 255, .5);
 }
 
 .vertical.special-segment {
-	@extend .special-transiton;
+	@extend .special-segment;
 	& .bg-large {
 		& .line-bottom-left {
 			&:before {
