@@ -2,11 +2,6 @@ $(document).ready(function() {
 	var currentLocation = window.location;
 	setSectionHighlight(currentLocation.pathname);
 
-	var yee = detectIE();
-	console.log("yee: ", yee);
-	if (yee !== false)
-		alert("本網站不提供IE瀏覽器使用，請切換至Google Chrome或FireFox瀏覽器!");
-
 	var list_flag = false;
 	$('.scrollbar-inner').scrollbar();
 
