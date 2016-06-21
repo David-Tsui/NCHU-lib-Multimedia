@@ -3,8 +3,8 @@ extends ../layouts/default
 block content
 	.ui.grid.main-container
 		.row
-			.four.wide.column
-			.eight.wide.column
+			.three.wide.column
+			.six.wide.column
 				each post in posts
 					article.ui.segment
 						h2= post.name
@@ -20,4 +20,4 @@ block content
 							hr
 						.main-content
 							!= post.content.full
-			.four.wide.column
+			.three.wide.column
