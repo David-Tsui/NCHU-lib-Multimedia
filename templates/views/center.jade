@@ -1,18 +1,23 @@
 extends ../layouts/default
 
 block content
-	.ui.container.main-container
-		each a_news in news
-			article.ui.segment
-				h2= a_news.name
-				if a_news.author
-					|  作者:  #{a_news.author.name.full}
-				p 發佈於 
-					if a_news.publishedDate 
-						time(datetime=a_news.publishedDate)=a_news._.publishedDate.format('MM月 DD日, YYYY')
-				hr
-				figure.ui.image
-					img(src=a_news._.image.fit(1024,768))
-				section.content
-					p!= a_news.content.extended
+	.ui.grid.main-container
+		.row
+			.three.wide.column
+			.ten.wide.column
+				each a_news in news
+					article.ui.segment
+						h2= a_news.name
+						if a_news.author
+							|  作者:  #{a_news.author.name.full}
+						p 發佈於 
+							if a_news.publishedDate 
+								time(datetime=a_news.publishedDate)=a_news._.publishedDate.format('MM月 DD日, YYYY')
+						hr
+						figure.ui.image
+							img(src=a_news._.image.fit(1024,768))
+						section.content
+							p!= a_news.content.extended
+			.three.wide.column
+		
 						

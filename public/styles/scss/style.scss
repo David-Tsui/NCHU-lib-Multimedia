@@ -297,15 +297,16 @@ button.mdl-color--primary {
 	background-size: 100% 420px;
 	padding: 1rem 3rem 1rem 3rem;
 	margin-top: -1rem;
-	& #carousel {
+	& .owl-carousel {
 		width: 100%;
+		margin-left: 1rem;
 		overflow: hidden;
 		display: flex;
 		justify-content: center;
 		align-items: center;
 		& .owl-item {
 			// width: calc(100% / #{$movie-items} - 18px * 2);
-			max-width: 188px;
+			max-width: 186px;
 			margin-bottom: 4px;
 			background: transparent;
 			text-align: center;

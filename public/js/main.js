@@ -1,7 +1,11 @@
 $(document).ready(function() {
-
 	var currentLocation = window.location;
 	setSectionHighlight(currentLocation.pathname);
+
+	var yee = detectIE();
+	console.log("yee: ", yee);
+	if (yee !== false)
+		alert("本網站不提供IE瀏覽器使用，請切換至Google Chrome或FireFox瀏覽器!");
 
 	var list_flag = false;
 	$('.scrollbar-inner').scrollbar();
@@ -94,14 +98,14 @@ $(document).ready(function() {
 	// 	});
 	// });
 	
-	$('#carousel').owlCarousel({
+	$('.owl-carousel').owlCarousel({
 		loop: true,
-		margin: 16,
-		stagePadding: 14,
-		// nav: true,
+		margin: 14,
+		stagePadding: 15,
+		nav: true,
 		autoplay:true,
 		autoplayTimeout:3000,
-		autoplayHoverPause:true,
+		// autoplayHoverPause:true,
 		responsive:{
 			0:{
 				items: 3
@@ -164,6 +168,7 @@ function changeSvgFill(id, cond) {
 }
 
 function setSectionHighlight(path) {
+	console.log("path: ", path);
 	if (path == "/" || !(path.search("/news/posts/") < 0)) {
 		$("svg#index polygon").addClass('selected');
 	} else if (!(path.search("/about/") < 0)) {
@@ -177,4 +182,44 @@ function setSectionHighlight(path) {
 	} else if (!(path.search("/ideas/") < 0)) {
 		$("svg#ideas polygon").addClass('selected');
 	}
+}
+
+function detectIE() {
+  var ua = window.navigator.userAgent;
+
+  // Test values; Uncomment to check result …
+
+  // IE 10
+  // ua = 'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Trident/6.0)';
+  
+  // IE 11
+  // ua = 'Mozilla/5.0 (Windows NT 6.3; Trident/7.0; rv:11.0) like Gecko';
+  
+  // Edge 12 (Spartan)
+  // ua = 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.71 Safari/537.36 Edge/12.0';
+  
+  // Edge 13
+  // ua = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2486.0 Safari/537.36 Edge/13.10586';
+
+  var msie = ua.indexOf('MSIE ');
+  if (msie > 0) {
+    // IE 10 or older => return version number
+    return parseInt(ua.substring(msie + 5, ua.indexOf('.', msie)), 10);
+  }
+
+  var trident = ua.indexOf('Trident/');
+  if (trident > 0) {
+    // IE 11 => return version number
+    var rv = ua.indexOf('rv:');
+    return parseInt(ua.substring(rv + 3, ua.indexOf('.', rv)), 10);
+  }
+
+  var edge = ua.indexOf('Edge/');
+  if (edge > 0) {
+    // Edge (IE 12+) => return version number
+    return parseInt(ua.substring(edge + 5, ua.indexOf('.', edge)), 10);
+  }
+
+  // other browser
+  return false;
 }
