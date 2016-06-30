@@ -1,0 +1,15 @@
+extends ../layouts/default
+include ../mixins/carousel
+include ../mixins/news-slide
+include ../mixins/news-list
+
+block content
+	.ui.grid.main-container#index-news-container
+		.row.news-row
+			.four.wide.column.list-items-container
+				h2.header= "中心介紹"
+				+news_list(intro.results)
+			.twelve.wide.column.flipster-news-container
+				.flat-flipster
+					+news_slide(intro.results, "IntroPost")
+			
