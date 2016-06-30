@@ -1,5 +1,7 @@
 var keystone = require('keystone');
 var async = require('async');
+var co = require('co');
+var fix_keystone_pagination = require('../helpers/fix_keystone_pagination');
 var Movie = keystone.list('Movie');
 
 exports = module.exports = function(Category, cate_key_name, section, title) { 
@@ -17,54 +19,47 @@ exports = module.exports = function(Category, cate_key_name, section, title) {
 		locals.categories = [];
 		locals.title = title + ' - 興大多媒體中心';
 
-		// Load categories
 		view.on('init', function (callback) {
-			Category.model.find().sort('name').exec(function (err, results) {
-				if (err || !results.length) {
-					console.log(err);
-					return callback(err);
-				}
+			co(function*() {
+				var results = yield {
+					// Load categories
+					categories: Category.model.find().sort('name').exec(),
 
-				locals.categories = results; 
-				callback();
-			});
-		});
+					// Load the current root_category filter
+					category: (locals.filters.category ? 
+						Category.model.where({name: locals.filters.category}) :
+						Category.model).findOne(),
+				};
 
-		// Load the current root_category filter
-		view.on('init', function (callback) {
-			var query;
-			if (locals.filters.category) {
-				query = Category.model.where({name: locals.filters.category});
-			}
-			else {
-				query = Category.model;
-			}
+				for (var attrname in results) { locals[attrname] = results[attrname]; }
 
-			query.findOne(function (err, category) {
-				if(err) {
-					callback(err);
-				}	else if(category) {
-					locals.category = category;
-					var q = Movie.paginate({
-						page: req.query.page || 1,
-						perPage: 16,
-						maxPages: 10,
-					})
-					.where('state', 'published')
-					.sort('-publishedDate')
-					.populate('author region_categories theme_categories classification_categories');
+				var movie_paginated_query = Movie.paginate({
+					page: req.query.page || 1,
+					perPage: 16,
+					maxPages: 10,
+				})
+				.where('state', 'published')
+				.sort('-publishedDate')
+				.populate('author region_categories theme_categories classification_categories');
+				var movie_counts_query = Movie.model.find().where('state', 'published');
 
-					var cate_query = {};
-					cate_query[cate_key_name] = category._id;
-					q.where(cate_query);
+				var cate_query = {};
+				cate_query[cate_key_name] = results.category._id;
+				movie_paginated_query.where(cate_query);
+				movie_counts_query.where(cate_query);
 
-					q.exec(function (err, movies) {
-						locals.movies = movies;
-						callback(err);
-					});
-				} else
-					callback();
-			});
+				results = yield {
+					// Load movies
+					movies: new Promise(function(resolve, reject){
+						movie_paginated_query.exec(function(e, r) { e ? reject(e) : resolve(r) })
+					}),
+					movies_vanilla_result: movie_counts_query.exec()
+				};
+
+				locals.movies =	fix_keystone_pagination(results.movies,	results.movies_vanilla_result.length, 16);
+					
+			}).then(function(){ callback(); },
+			 function(e){ console.error(e, e.stack); callback(e); });
 		});
 
 		// Render the view

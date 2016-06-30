@@ -1,5 +1,6 @@
 var keystone = require('keystone');
 var async = require('async');
+var fix_keystone_pagination = require('../helpers/fix_keystone_pagination');
 var Movie = keystone.list('Movie');
 var MovieRootCategory = keystone.list('MovieRootCategory');
 var MovieRegionCategory = keystone.list('MovieRegionCategory');
@@ -123,22 +124,7 @@ exports = module.exports = function (req, res) {
 		}
 
 		q.exec(function (err, ret) {
-			
-			ret.total = locals.movies_count;
-			if (ret.total > 0) {
-				if ((ret.total % per_page) == 0) {
-					ret.totalPages = ret.total / per_page;
-				}	else if (ret.total > per_page) {
-					ret.totalPages = ret.total / per_page + 1;
-				} else if (ret.total < per_page) {
-					ret.totalPages = 1;
-				}
-			}
-			ret.pages = [];
-			for(var i = 1; i <= ret.totalPages; i++) {
-				ret.pages.push(i);
-			}
-			locals.movies = ret;
+			locals.movies = fix_keystone_pagination(ret, locals.movies_count, per_page);
 			callback(err);
 		});
 
