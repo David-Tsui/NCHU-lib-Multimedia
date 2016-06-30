@@ -1,4 +1,3 @@
-
 exports = module.exports = function fix_keystone_pagination(keystone_query_result, counts, per_page) {
 	keystone_query_result.total = counts;
 	if (keystone_query_result.total > 0) {

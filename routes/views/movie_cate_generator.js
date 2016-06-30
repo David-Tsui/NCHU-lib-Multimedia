@@ -31,7 +31,9 @@ exports = module.exports = function(Category, cate_key_name, section, title) {
 						Category.model).findOne(),
 				};
 
-				for (var attrname in results) { locals[attrname] = results[attrname]; }
+				for (var attrname in results) { 
+					locals[attrname] = results[attrname]; 
+				}
 
 				var movie_paginated_query = Movie.paginate({
 					page: req.query.page || 1,
@@ -51,15 +53,27 @@ exports = module.exports = function(Category, cate_key_name, section, title) {
 				results = yield {
 					// Load movies
 					movies: new Promise(function(resolve, reject){
-						movie_paginated_query.exec(function(e, r) { e ? reject(e) : resolve(r) })
+						movie_paginated_query.exec(function(err, ret) { 
+							if (err) {
+								reject(err);
+							}	else {
+								resolve(ret);
+							}
+						})
 					}),
 					movies_vanilla_result: movie_counts_query.exec()
 				};
 
 				locals.movies =	fix_keystone_pagination(results.movies,	results.movies_vanilla_result.length, 16);
 					
-			}).then(function(){ callback(); },
-			 function(e){ console.error(e, e.stack); callback(e); });
+			}).then(
+				function(){ 
+					callback(); 
+				},
+				function(e){ 
+					console.error(e, e.stack); callback(e); 
+				}
+			);
 		});
 
 		// Render the view

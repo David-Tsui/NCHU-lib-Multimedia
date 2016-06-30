@@ -54,16 +54,17 @@ exports = module.exports = function (req, res) {
 				}),
 				movie_counts_query = Movie.model.find();
 
-			if(month == 11)
+			if(month == 11) {
 				where_between[DATE_FIELD] = {
 					$gte: new Date(year, month),
 					$lt: new Date(year + 1, 0)
 				};
-			else
+			}	else {
 				where_between[DATE_FIELD] = {
 					$gte: new Date(year, month),
 					$lt: new Date(year, month + 1)
 				};
+			}
 			movie_paginated_query = movie_paginated_query
 				.where(where_between)
 				.where('state', 'published')
@@ -76,16 +77,25 @@ exports = module.exports = function (req, res) {
 			var results = yield {
 				// Load movies
 				movies: new Promise(function(resolve, reject){
-					movie_paginated_query.exec(function(e, r) { e ? reject(e) : resolve(r) });
+					movie_paginated_query.exec(function(err, ret) { 
+						if (err) {
+							reject(err);
+						}	else {
+							resolve(ret);
+						}
+					})
 				}),
 				movies_vanilla_result: movie_counts_query.exec()
 			};
-			locals.movies =
-				fix_keystone_pagination(results.movies,
-																results.movies_vanilla_result.length, 16);
+			locals.movies =	fix_keystone_pagination(results.movies, results.movies_vanilla_result.length, 16);
 
-		}).then(function(){ callback(); },
-			function(e) { console.error(e, e.stack); callback(e); }
+		}).then(
+			function(){
+				callback(); 
+			},
+			function(e) {
+				console.error(e, e.stack); callback(e);
+			}
 		);
 
 	});
