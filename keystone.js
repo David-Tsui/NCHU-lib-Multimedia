@@ -57,6 +57,8 @@ keystone.set('routes', require('./routes'));
 keystone.set('nav', {
 	// '歷史訊息': ['histories', 'history-categories'],
 	'最新消息': ['news-posts'],
+	'中心介紹': ['intro-posts'],
+	'聯盟介紹': ['union-posts'],
 	'關於我們': ['about-posts', 'about-post-categories'],
 	'愛創聯盟': ['maker-posts', 'maker-post-categories'],
 	'網路資源': ['resources-posts', 'resources-post-categories'],

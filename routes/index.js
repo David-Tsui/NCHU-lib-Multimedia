@@ -1,6 +1,7 @@
 const keystone = require('keystone');
 const middleware = require('./middleware');
 const importRoutes = keystone.importer(__dirname);
+var NewsPost = keystone.list('NewsPost');
 
 keystone.pre('routes', function (req, res, next) {
 	res.locals.navLinks = [
@@ -154,7 +155,7 @@ keystone.set('404', function (req, res, next) {
 
 // Load Routes
 var routes = {
-	download: importRoutes('./download'),
+	// download: importRoutes('./download'),
 	views: importRoutes('./views'),
 };
 
@@ -163,13 +164,15 @@ exports = module.exports = function (app) {
 	// Views
 	app.get('/news/list', routes.views.news_list);
 	app.get('/news/posts/:post', routes.views.news);
+	app.get('/about/intro', routes.views.intro);
 	app.get('/about/:category', routes.views.about);
+	app.get('/makers/intro', routes.views.union_intro);
 	app.get('/makers/:type', routes.views.maker);
 	app.get('/resources/:type', routes.views.resources);
 	app.get('/idea/:type', routes.views.idea);
 
-	app.get('/blog/:category?', routes.views.blog);
-	app.all('/blog/post/:post', routes.views.post);
+	// app.get('/blog/:category?', routes.views.blog);
+	// app.all('/blog/post/:post', routes.views.post);
 	app.get('/movies/movie_blog/movie/:movie', routes.views.movie);
 	app.get('/movies/movie_blog/:root_category?/:category?', routes.views.movie_blog);
 

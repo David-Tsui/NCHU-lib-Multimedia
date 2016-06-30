@@ -26,7 +26,6 @@ exports = module.exports = function(Category, cate_key_name, section, title) {
 				}
 
 				locals.categories = results; 
-				console.log("here");
 				callback();
 			});
 		});

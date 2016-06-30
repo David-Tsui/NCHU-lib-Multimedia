@@ -25,9 +25,9 @@ Movie.add({
 	},
 	region_categories: { type: Types.Relationship, ref: 'MovieRegionCategory'},
 	theme_categories: { type: Types.Relationship, ref: 'MovieThemeCategory', many: true },
-	classification_categories: { type: Types.Relationship, ref: 'MovieClassificationCategory'},
-	topic_category: { type: Types.Relationship, ref: 'MovieTopicCategory'},
-	assignment_category: { type: Types.Relationship, ref: 'MovieAssignmentCategory'},
+	classification_categories: { type: Types.Relationship, ref: 'MovieClassificationCategory', many: true},
+	topic_category: { type: Types.Relationship, ref: 'MovieTopicCategory', many: true},
+	assignment_category: { type: Types.Relationship, ref: 'MovieAssignmentCategory', many: true},
 	hot_category: { type: Types.Relationship, ref: 'MovieHotCategory'},
 	new_category: { type: Types.Relationship, ref: 'MovieNewCategory'},
 });

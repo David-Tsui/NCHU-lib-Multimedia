@@ -8,7 +8,6 @@ exports = module.exports = function (req, res) {
 	var view = new keystone.View(req, res);
 	var locals = res.locals;
 	var routes_map = {
-		intro: '中心介紹',
 		rules: '相關規則'
 	};
 

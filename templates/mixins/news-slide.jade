@@ -1,10 +1,10 @@
-mixin news_slide(posts)
+mixin news_slide(posts, listName)
 	ul
 		each post in posts
 			li(data-slide="#{post.name}")
 				article.news-segment
 					if post.image.height >= post.image.width
-						.news-item.vertical.special-segment(data-ks-editable=editable(user, { list: 'NewsPost', id: post.id }))
+						.news-item.vertical.special-segment(data-ks-editable=editable(user, { list: listName, id: post.id }))
 							.ui.image.news-image-vertical
 								img(src=post._.image.fit(540,800))
 							.content
@@ -14,9 +14,10 @@ mixin news_slide(posts)
 								hr
 								.description
 									p!= post.content.brief
-								.action
-									a(href='/news/posts/' + post.key)
-										button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-color--primary= '閱讀全文' 
+								if listName == 'NewsPost'
+									.action
+										a(href='/news/posts/' + post.key)
+											button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-color--primary= '閱讀全文' 
 							span.bg-large
 								span.line-bottom-left
 								span.line-top-right
@@ -27,7 +28,7 @@ mixin news_slide(posts)
 								span.line-bottom-left
 								span.line-top-right
 					else
-						.news-item.horizontal.special-segment(data-ks-editable=editable(user, { list: 'NewsPost', id: post.id }))
+						.news-item.horizontal.special-segment(data-ks-editable=editable(user, { list: listName, id: post.id }))
 							.ui.image.news-image-horizontal
 								img(src=post._.image.fit(800,540))
 							.content
@@ -37,9 +38,10 @@ mixin news_slide(posts)
 								hr
 								.description
 									p!= post.content.brief
-								.action
-									a(href='/news/posts/' + post.key)
-										button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-color--primary= '閱讀全文' 
+								if listName == 'NewsPost'
+									.action
+										a(href='/news/posts/' + post.key)
+											button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-color--primary= '閱讀全文' 
 							span.bg-large
 								span.line-bottom-left
 								span.line-top-right
@@ -49,3 +51,4 @@ mixin news_slide(posts)
 							span.bg-medium
 								span.line-bottom-left
 								span.line-top-right
+					

@@ -33,7 +33,6 @@ exports = module.exports = function (req, res) {
 
 		q2.exec(function (err, results) {
 			locals.news = results;
-			console.log("results: ", results);
 			next(err);
 		});
 	});
