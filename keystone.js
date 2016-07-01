@@ -29,9 +29,19 @@ keystone.init({
 	'wysiwyg override toolbar': false,
 	'wysiwyg menubar': true,
 	'wysiwyg skin': 'lightgray',
-	'wysiwyg additional buttons': 'searchreplace visualchars,'
+	// 'wysiwyg additional options': {
+	// 	style_formats: [
+ //    { title: 'Big text', styles: { 'font-size': '1rem' } },
+ //    { title: 'Massive text', styles: { 'font-size': '1.25rem' } },
+ //    { title: 'Red text', inline: 'span', styles: { color: '#ff0000' } },
+ //    { title: 'Red header', block: 'h1', styles: { color: '#ff0000' } },
+ //    { title: 'Badge', inline: 'span', styles: { display: 'inline-block', border: '1px solid #2276d2', 'border-radius': '5px', padding: '2px 5px', margin: '0 2px', color: '#2276d2' } },
+ //    { title: 'Table row 1', selector: 'tr', classes: 'tablerow1' }
+ //  ]},
+	'wysiwyg additional buttons': 'styleselect undo redo | fontsizeselect | searchreplace visualchars,'
 	 + ' charmap ltr rtl pagebreak paste, forecolor backcolor,'
-	 +' emoticons media, preview print, image imagetools',
+	 +' emoticons media, image imagetools, preview print',
+	'wysiwyg fontsize_formats': '8pt 10pt 12pt 14pt 18pt 24pt 36pt',
 	'wysiwyg additional plugins': 'table, anchor,'
 	 + ' autolink, autosave, charmap, contextmenu, '
 	 + ' directionality, emoticons, fullpage, hr, media, pagebreak,'

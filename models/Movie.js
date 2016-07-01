@@ -16,7 +16,6 @@ Movie.add({
 	director: { type: String },
 	actor: { type: Types.Html, wysiwyg: true, height: 150 },
 	link: { type: String },
-	// classification: { type: Types.Select, options: '普遍級, 保護級, 輔導級, 限制級' },
 	videoTime: { type: String },
 	inDate: { type: Types.Date },
 	content: {
