@@ -3,10 +3,34 @@ mixin news_slide(posts, listName)
 		each post in posts
 			li(data-slide="#{post.name}")
 				article.news-segment
-					if post.image.height >= post.image.width
+					if post.image.height > post.image.width
 						.news-item.vertical.special-segment(data-ks-editable=editable(user, { list: listName, id: post.id }))
 							.ui.image.news-image-vertical
 								img(src=post._.image.fit(540,800))
+							.content
+								.title
+									h3!= post.name
+									time= post._.publishedDate.format('YYYY年 M月 D日')
+								hr
+								.description
+									p!= post.content.brief
+								if listName == 'NewsPost'
+									.action
+										a(href='/news/posts/' + post.key)
+											button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-color--primary= '閱讀全文' 
+							span.bg-large
+								span.line-bottom-left
+								span.line-top-right
+							span.bg-tall
+								span.line-bottom-left
+								span.line-top-right
+							span.bg-medium
+								span.line-bottom-left
+								span.line-top-right
+					else if post.image.height > post.image.width
+						.news-item.vertical.special-segment(data-ks-editable=editable(user, { list: listName, id: post.id }))
+							.ui.image.news-image-vertical
+								img(src=post._.image.fit(540,540))
 							.content
 								.title
 									h3!= post.name
