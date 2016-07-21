@@ -27,7 +27,7 @@ mixin news_slide(posts, listName)
 							span.bg-medium
 								span.line-bottom-left
 								span.line-top-right
-					else if post.image.height > post.image.width
+					else if post.image.height == post.image.width
 						.news-item.vertical.special-segment(data-ks-editable=editable(user, { list: listName, id: post.id }))
 							.ui.image.news-image-vertical
 								img(src=post._.image.fit(540,540))
@@ -51,7 +51,7 @@ mixin news_slide(posts, listName)
 							span.bg-medium
 								span.line-bottom-left
 								span.line-top-right
-					else
+					else if post.image.height < post.image.width
 						.news-item.horizontal.special-segment(data-ks-editable=editable(user, { list: listName, id: post.id }))
 							.ui.image.news-image-horizontal
 								img(src=post._.image.fit(800,540))

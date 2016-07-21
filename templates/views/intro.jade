@@ -8,7 +8,7 @@ block content
 		.row.news-row
 			.four.wide.column.list-items-container
 				h2.header= "中心介紹"
-				+news_list(intro.results)
+				+news_list(intro.results, "IntroPost")
 			.twelve.wide.column.flipster-news-container
 				.flat-flipster
 					+news_slide(intro.results, "IntroPost")
