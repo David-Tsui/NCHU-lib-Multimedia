@@ -1,82 +1,13 @@
 var keystone = require('keystone');
+var config = require('./config');
 
-keystone.init({
-
-	'name': '管理者介面',
-	'brand': 'Admin',
-
-	'favicon': 'public/favicon.ico',
-	'less': 'public',
-	'static': 'public',
-
-	'views': 'templates/views',
-	'view engine': 'jade',
-
-	'auto update': true,
-	'mongo': process.env.MONGO_URI || process.env.MONGOLAB_URI || 'mongodb://localhost/nchu-lib',
-	'cloudinary config': 'cloudinary://723239137287229:-_LsiFvvJIExNQv6FWakiPiLSAA@nchu-lib',
-
-	'session': true,
-	'auth': true,
-	'user model': 'User',
-	'cookie secret': process.env.COOKIE_SECRET || 'demo',
-
-	'ga property': process.env.GA_PROPERTY,
-	'ga domain': process.env.GA_DOMAIN,
-
-	'chartbeat property': process.env.CHARTBEAT_PROPERTY,
-	'chartbeat domain': process.env.CHARTBEAT_DOMAIN,
-	'wysiwyg override toolbar': false,
-	'wysiwyg menubar': true,
-	'wysiwyg skin': 'lightgray',
-	// 'wysiwyg additional options': {
-	// 	style_formats: [
- //    { title: 'Big text', styles: { 'font-size': '1rem' } },
- //    { title: 'Massive text', styles: { 'font-size': '1.25rem' } },
- //    { title: 'Red text', inline: 'span', styles: { color: '#ff0000' } },
- //    { title: 'Red header', block: 'h1', styles: { color: '#ff0000' } },
- //    { title: 'Badge', inline: 'span', styles: { display: 'inline-block', border: '1px solid #2276d2', 'border-radius': '5px', padding: '2px 5px', margin: '0 2px', color: '#2276d2' } },
- //    { title: 'Table row 1', selector: 'tr', classes: 'tablerow1' }
- //  ]},
-	'wysiwyg additional buttons': 'styleselect undo redo | fontsizeselect | searchreplace visualchars,'
-	 + ' charmap ltr rtl pagebreak paste, forecolor backcolor,'
-	 +' emoticons media, image imagetools, preview print',
-	'wysiwyg fontsize_formats': '8pt 10pt 12pt 14pt 18pt 24pt 36pt',
-	'wysiwyg additional plugins': 'table, anchor,'
-	 + ' autolink, autosave, charmap, contextmenu, '
-	 + ' directionality, emoticons, fullpage, hr, media, pagebreak,'
-	 + ' paste, preview, print, searchreplace, textcolor,'
-	 + ' visualblocks, visualchars, image imagetools'
-});
-
+keystone.init(config.options);
 keystone.import('models');
-
-keystone.set('locals', {
-	_: require('lodash'),
-	env: keystone.get('env'),
-	utils: keystone.utils,
-	editable: keystone.content.editable,
-	ga_property: keystone.get('ga property'),
-	ga_domain: keystone.get('ga domain'),
-	chartbeat_property: keystone.get('chartbeat property'),
-	chartbeat_domain: keystone.get('chartbeat domain')
-});
-
+keystone.set('locals', config.locals);
 keystone.set('routes', require('./routes'));
+keystone.set('nav', config.nav);
 
-keystone.set('nav', {
-	// '歷史訊息': ['histories', 'history-categories'],
-	'最新消息': ['news-posts'],
-	'中心介紹': ['intro-posts'],
-	'聯盟介紹': ['union-posts'],
-	'關於我們': ['about-posts', 'about-post-categories'],
-	'愛創聯盟': ['maker-posts', 'maker-post-categories'],
-	'網路資源': ['resources-posts', 'resources-post-categories'],
-	'看電影': ['movie-posts', 'movie-post-categories'],
-	'玩創意': ['idea-posts', 'idea-post-categories'],
-	'影音物件': ['movies', 'movie-root-categories', 'movie-region-categories', 'movie-theme-categories', 'movie-classification-categories', 'movie-new-categories', 'movie-topic-categories', 'movie-assignment-categories', 'movie-hot-categories'],
-	// '所有文章': ['posts', 'post-comments', 'post-categories'],
-	'管理員': 'users'
+keystone.start({
+	onMount () { console.log('Application Mounted'); },
+	onStart () { console.log('Application Started'); },
 });
-
-keystone.start();
