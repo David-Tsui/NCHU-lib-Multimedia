@@ -1,6 +1,6 @@
 extends ../layouts/default
 include ../mixins/carousel
-include ../mixins/news-slide
+include ../mixins/intro-slide
 include ../mixins/news-list
 
 block content
@@ -11,5 +11,5 @@ block content
 				+news_list(intro.results, "IntroPost")
 			.twelve.wide.column.flipster-news-container
 				.flat-flipster
-					+news_slide(intro.results, "IntroPost")
+					+intro_slide(intro.results, "IntroPost")
 			

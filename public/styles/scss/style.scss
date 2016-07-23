@@ -479,7 +479,7 @@ button.mdl-color--primary {
 					flex: 3;
 					& img {
 						width: 100%;
-						height: 550px;
+						max-height: 550px;
 					}
 				}
 				& .content {
