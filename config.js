@@ -3,7 +3,7 @@ var keystone = require('keystone');
 exports.options = {
 
 	'name': '管理者介面',
-	'brand': 'Admin',
+	'brand': '管理者介面',
 
 	'favicon': 'public/favicon.ico',
 	'less': 'public',

@@ -12,11 +12,10 @@ IntroPost.add({
 	author: { type: Types.Relationship, ref: 'User', index: true },
 	publishedDate: { type: Types.Date, index: true },
 	image: { type: Types.CloudinaryImage },
+	url_image: { type: String },
 	content: {
-		brief: { type: Types.Html, wysiwyg: true, height: 150 },
-		extended: { type: Types.Html, wysiwyg: true, height: 400 },
+		extended: { type: Types.Html, wysiwyg: true, height: 600 },
 	},
-	// categories: { type: Types.Relationship, ref: 'IntroPostCategory', many: true },
 });
 
 IntroPost.schema.virtual('content.full').get(function () {

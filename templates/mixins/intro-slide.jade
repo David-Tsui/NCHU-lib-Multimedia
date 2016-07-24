@@ -2,19 +2,15 @@ mixin intro_slide(posts, listName)
 	ul
 		each post in posts
 			li(data-slide="#{post.name}")
-				article.intro-segment
-					if post.image.height > post.image.width
-						.news-item(data-ks-editable=editable(user, { list: listName, id: post.id }))
+				article.ui.segment.intro-segment(data-ks-editable=editable(user, { list: listName, id: post.id }))
+					.content
+						.title
+							h3!= post.name
+						.ui.divider
+						.description
 							.ui.image
-								img(src=post._.image.fit(540,800))
-							.content
-								.title
-									h3!= post.name
-									time= post._.publishedDate.format('YYYY年 M月 D日')
-								hr
-								.description
-									p!= post.content.brief
-								if listName == 'NewsPost'
-									.action
-										a(href='/news/posts/' + post.key)
-											button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-color--primary= '閱讀全文' 
+								if post.url_image
+									img(src=post.url_image)
+								else
+									img(src=post._.image.fit(960,540))
+							p!= post.content.extended

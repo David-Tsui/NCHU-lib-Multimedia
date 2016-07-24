@@ -1,6 +1,7 @@
 var keystone = require('keystone');
 var async = require('async');
 var IntroPost = keystone.list('IntroPost');
+var _ = require('lodash');
 
 exports = module.exports = function (req, res) {
 
@@ -9,22 +10,12 @@ exports = module.exports = function (req, res) {
 
 	// Init locals
 	locals.section = 'intro';
-	locals.movies = [];
 	locals.intro = [];
 	var routes_name = "中心介紹";
 	locals.title = routes_name + ' - 興大多媒體中心';
 
 	view.on('init', function (next) {
-		// var q1 = IntroPost.model.find()
-		// 	.where({'state':'published'})
-		// 	.sort('-publishedDate')
-		// 	.populate('author categories');
-		
-		// q1.exec(function (err, results) {
-		// 	locals.intro = results;
-		// 	next(err);
-		// });
-		var q2 = IntroPost.paginate({
+		var q = IntroPost.paginate({
 			page: req.query.page || 1,
 			perPage: 20,
 		})
@@ -32,8 +23,19 @@ exports = module.exports = function (req, res) {
 		.sort('-publishedDate')
 		.populate('author');
 
-		q2.exec(function (err, results) {
+		q.exec(function (err, results) {
+			var temp_results = results.results;
+			results.results = temp_results.map(function(result) {
+				// console.log("result.image: ", result.image);
+				if (_.isObject(result.image)) {
+					// console.log("EMPTY!!");
+					result.image = {};
+					// console.log("result: ", result);
+					return result;
+				}
+			})
 			locals.intro = results;
+			// console.log("results: ", results);
 			next(err);
 		});
 	});
