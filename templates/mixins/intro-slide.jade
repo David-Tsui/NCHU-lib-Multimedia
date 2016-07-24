@@ -11,6 +11,6 @@ mixin intro_slide(posts, listName)
 							.ui.image
 								if post.url_image
 									img(src=post.url_image)
-								else
+								else if post.image
 									img(src=post._.image.fit(960,540))
 							p!= post.content.extended
