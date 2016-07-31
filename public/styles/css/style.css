@@ -617,8 +617,10 @@ button.mdl-color--primary {
     .intro-row .flipster-news-container .flipster__button {
       display: none; }
   .intro-row .intro-segment .description {
+    min-height: 75vh;
+    max-height: 75vh;
     padding: 3rem;
-    overflow-x: hidden; }
+    overflow-y: scroll; }
 
 #movie-blog .ui.segment h1, #movie-blog .ui.segment h2, #movie-blog .ui.segment h3, #movie-blog .ui.segment h4, #movie-blog .ui.segment h5, #movie-blog .ui.segment h6 {
   color: #444; }
