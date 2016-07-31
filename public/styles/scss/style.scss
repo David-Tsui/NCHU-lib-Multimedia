@@ -457,7 +457,7 @@ button.mdl-color--primary {
 	padding: 0 2rem !important;
 	& .flipster-news-container {
 		margin-top: 5rem !important;
-		overflow-x: hidden;
+		overflow: hidden;
 
 		& .flipster--flat .flipster__item {
 			width: 90%;
@@ -470,7 +470,10 @@ button.mdl-color--primary {
 	}
 	& .intro-segment {
 		& .description {
+			min-height: : 75vh;
+			max-height: 75vh;
 			padding: 3rem;
+			overflow-y: scroll;
 		}
 	}
 }
