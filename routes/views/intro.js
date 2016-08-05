@@ -26,16 +26,12 @@ exports = module.exports = function (req, res) {
 		q.exec(function (err, results) {
 			var temp_results = results.results;
 			results.results = temp_results.map(function(result) {
-				// console.log("result.image: ", result.image);
 				if (_.isObject(result.image)) {
-					// console.log("EMPTY!!");
 					result.image = {};
-					// console.log("result: ", result);
 					return result;
 				}
 			})
 			locals.intro = results;
-			// console.log("results: ", results);
 			next(err);
 		});
 	});
