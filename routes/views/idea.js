@@ -25,7 +25,7 @@ exports = module.exports = function (req, res) {
 		if (req.params.type) {
 			IdeaPostCategory.model.findOne({ name: routes_name }).exec(function (err, result) {
 				locals.category = result;
-				console.log(result);
+				// console.log(result);
 				next(err);
 			});
 		} else {
