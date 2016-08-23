@@ -1,56 +1,56 @@
 version: '2'
 volumes:
-	dev_volume:
-		driver: local
+    dev_volume:
+        driver: local
 services:
-	main: &main
-		build: .
-		depends_on:
-		 - mongo
-		ports:
-		 - "80:3000"
-		environment:
-			MONGO_URI: 'mongodb://mongo/nchu-lib'
-	media_cms:
-		<<: *main
-		env_file: .env
-		restart: always
-	dev:
-		<<: *main
-		entrypoint: []
-		ports:
-		 - "80:3000"
-		command: bash
-		volumes_from:
-		 - dev_volume
-		volumes:
-		 - .:/workspace
-	dev_volume:
-		build: .
-		ports: []
-		volumes:
-		 - dev_volume:/usr/src/app
-		command: echo true
-	rsync:
-		image: chgu82837/dev_rsyncer
-		volumes_from:
-		 - dev_volume
-		volumes:
-		 - .:/workspace
-		entrypoint: []
-		command: rsync --exclude=node_modules --exclude=.git --exclude=*.swp --exclude=*.swo -urv --delete /workspace/ /usr/src/app
-	mongo:
-		image: mongo
-	backup: &backup_restore
-		image: mongo
-		depends_on:
-		 - mongo
-		volumes:
-		 - .:/workspace
-		working_dir: /workspace
-		command: bash -c "mongodump -h mongo --out backup/$$(date +%Y%m%d%H%M%S)"
-	restore: 
-		<<: *backup_restore
-		entrypoint: ["mongorestore", "-h", "mongo"]
-		command: []
+    main: &main
+        build: .
+        depends_on:
+         - mongo
+        ports:
+         - "80:3000"
+        environment:
+            MONGO_URI: 'mongodb://mongo/nchu-lib'
+    media_cms:
+        <<: *main
+        env_file: .env
+        restart: always
+    dev:
+        <<: *main
+        entrypoint: []
+        ports:
+         - "80:3000"
+        command: bash
+        volumes_from:
+         - dev_volume
+        volumes:
+         - .:/workspace
+    dev_volume:
+        build: .
+        ports: []
+        volumes:
+         - dev_volume:/usr/src/app
+        command: echo true
+    rsync:
+        image: chgu82837/dev_rsyncer
+        volumes_from:
+         - dev_volume
+        volumes:
+         - .:/workspace
+        entrypoint: []
+        command: rsync --exclude=node_modules --exclude=.git --exclude=*.swp --exclude=*.swo -urv --delete /workspace/ /usr/src/app
+    mongo:
+        image: mongo
+    backup: &backup_restore
+        image: mongo
+        depends_on:
+         - mongo
+        volumes:
+         - .:/workspace
+        working_dir: /workspace
+        command: bash -c "mongodump -h mongo --out backup/$$(date +%Y%m%d%H%M%S)"
+    restore: 
+        <<: *backup_restore
+        entrypoint: ["mongorestore", "-h", "mongo"]
+        command: []
 
