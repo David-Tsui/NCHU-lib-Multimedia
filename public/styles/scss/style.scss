@@ -2,6 +2,8 @@
 @import "special_transition";
 @import "search-bar";
 
+@include font-face("cwTeXHei", "//fonts.gstatic.com/ea/cwtexhei/v3/cwTeXHei-zhonly", normal, 400);
+
 $navbar-height: 90px;
 $prepare-height: 100px;
 $movie-items: 7;
@@ -21,12 +23,16 @@ figure {
 	color: #fff;
 }
 
+html, body, h1, h2, h3, h4, h5, h6, .ui.menu, .ui.button {
+	font-family: Arial, 'cwTeXHei', "文泉驛正黑", "WenQuanYi Zen Hei", "微軟正黑體", "Microsoft JhengHei", "標楷體", sans-serif;
+}
+
 body {
 	// display: flex;
 	// flex-direction: column;
 	background: url(/images/bg.png) center center / cover no-repeat;
 	background-attachment: fixed;
-	font-family: Arial, "文泉驛正黑", "WenQuanYi Zen Hei", "微軟正黑體", "Microsoft JhengHei", "標楷體", sans-serif;
+	
 }
 
 // grid layout
@@ -80,30 +86,34 @@ body {
 		font-size: 1.5rem;
 		
 		& .item {
-			color: #444;
+			color: #333;
+	    font-size: 24px;
+	    letter-spacing: 1px;
+	    text-shadow: 0 0 1px #222;
 			&.svg-item {
-				padding: 2rem 3.75rem;
+				padding: 2em 1.75em;
 			}
 			&.visible, &:hover, &:active {
 				background: transparent;
 				color: #fff;
 			}
 			& #root-span-1 {
-				margin: 0 0 0 -5px;
+				margin: 0 0 0 -7px;
 			}
 			& #root-span-2 {
-				margin: -2px 0 0 0;
+				margin: -3px 0 0 12px;
 			}
 			& #root-span-3 {
+				margin: 3px 0 0 14px;
 			}
 			& #root-span-4 {
-				margin: 4px 0 0 -6px;
+				margin: 4px 0 0 4px;
 			}
 			& #root-span-5 {
-				padding: 7px 0rem 0 2rem;
+				margin: 10px 0 0 48px;
 			}
 			& #root-span-6 {
-				margin: -3px 0 0 -10px;
+				margin: -3px 0 0 -22px;
 			}
 			& > i.dropdown.icon {
 				margin: 0 0 0 5px;
@@ -149,6 +159,7 @@ body {
 .svg-btn-container {
 	display: flex;
 	justify-content: center;
+	align-items: center;
 	position: relative;
 	flex: 1;
 	// width: calc(100% / 6);
@@ -157,7 +168,7 @@ body {
 	
 	& .svg-bg {
 		position: absolute;
-		width: 85%;
+		width: 220px;
 		height: 72px;
 	}
 	& polygon {
