@@ -328,8 +328,7 @@ body {
   .nav-grid .ui.secondary.menu.main-navbar .item {
     color: #333;
     font-size: 24px;
-    letter-spacing: 1px;
-    text-shadow: 0 0 1px #222; }
+    letter-spacing: 1px; }
     .nav-grid .ui.secondary.menu.main-navbar .item.svg-item {
       padding: 2em 1.75em; }
     .nav-grid .ui.secondary.menu.main-navbar .item.visible, .nav-grid .ui.secondary.menu.main-navbar .item:hover, .nav-grid .ui.secondary.menu.main-navbar .item:active {
