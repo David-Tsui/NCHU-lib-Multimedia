@@ -98,6 +98,7 @@ $(document).ready(function() {
 		margin: 14,
 		stagePadding: 15,
 		nav: true,
+		lazyLoad : true,
 		autoplay:true,
 		autoplayTimeout:3000,
 		// autoplayHoverPause:true,
