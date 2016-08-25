@@ -460,10 +460,21 @@ button.mdl-color--primary {
       padding: 0 10px;
       line-height: 30px; }
 
+.owl-theme .owl-controls .owl-page span {
+  width: 12px;
+  height: 14px;
+  margin: 3px 6px;
+  background: #2cfff2;
+  border-radius: 0;
+  transform: scale(1) skew(30deg);
+  transition: transform .085s ease-out; }
+  .owl-theme .owl-controls .owl-page span:hover {
+    transform: scale(1.5) skew(0deg); }
+
 #carousel-container {
   background-image: url(/images/carousel_bg.png);
   background-size: 100% 420px;
-  padding: 1rem 3rem 1rem 3rem;
+  padding: 1rem 3rem;
   margin-top: -1rem; }
   #carousel-container .owl-carousel {
     width: 100%;
@@ -472,34 +483,40 @@ button.mdl-color--primary {
     display: flex;
     justify-content: center;
     align-items: center; }
-    #carousel-container .owl-carousel .owl-item {
-      max-width: 186px;
-      margin-bottom: 4px;
+    #carousel-container .owl-carousel .item {
+      display: flex;
+      justify-content: space-around;
       background: transparent;
+      margin: 0 0 4px;
       text-align: center; }
-      #carousel-container .owl-carousel .owl-item .meta {
-        margin-bottom: 5px;
-        font-size: 14px; }
-      #carousel-container .owl-carousel .owl-item .ui.image {
-        position: relative; }
-        #carousel-container .owl-carousel .owl-item .ui.image:hover:before {
-          box-shadow: 0px 0px 15px 1px aliceblue; }
-        #carousel-container .owl-carousel .owl-item .ui.image:before {
-          content: "";
-          position: absolute;
-          width: 100%;
-          height: 100%;
-          top: 0;
-          left: 0;
-          -webkit-transition: all 0.15s ease-in;
-          -moz-transition: all 0.15s ease-in;
-          transition: all 0.15s ease-in; }
-        #carousel-container .owl-carousel .owl-item .ui.image img {
-          width: 100%;
-          height: 240px;
-          z-index: 1000; }
-      #carousel-container .owl-carousel .owl-item time {
-        color: #fff; }
+      #carousel-container .owl-carousel .item .movie-item {
+        width: 100%;
+        margin: 0 6px; }
+        #carousel-container .owl-carousel .item .movie-item .meta {
+          margin-bottom: 5px;
+          font-size: 14px; }
+        #carousel-container .owl-carousel .item .movie-item .ui.image {
+          position: relative; }
+          #carousel-container .owl-carousel .item .movie-item .ui.image:before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            box-shadow: 0 0 15px 1px aliceblue;
+            opacity: 0;
+            -webkit-transition: all 0.25s ease-in;
+            -moz-transition: all 0.25s ease-in;
+            transition: all 0.25s ease-in; }
+          #carousel-container .owl-carousel .item .movie-item .ui.image:hover:before {
+            opacity: 1; }
+          #carousel-container .owl-carousel .item .movie-item .ui.image img {
+            width: 100%;
+            height: 230px;
+            z-index: 1000; }
+        #carousel-container .owl-carousel .item .movie-item time {
+          color: #fff; }
 
 #index-news-container {
   position: relative;

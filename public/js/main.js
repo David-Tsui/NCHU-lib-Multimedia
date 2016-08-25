@@ -94,28 +94,15 @@ $(document).ready(function() {
 	// });
 	
 	$('.owl-carousel').owlCarousel({
-		loop: true,
-		margin: 14,
-		stagePadding: 15,
-		nav: true,
-		lazyLoad : true,
-		autoplay:true,
-		autoplayTimeout:3000,
-		// autoplayHoverPause:true,
-		responsive:{
-			0:{
-				items: 3
-			},
-			768:{
-				items: 5
-			},
-			1024:{
-				items: 7
-			},
-			1600: {
-				items: 9
-			}
-		}
+		items            : 2, 
+		itemsDesktop     : [1000,2], 
+		itemsDesktopSmall: [900,1], 
+		itemsTablet      : [600,1],
+		// lazyLoad         : true,
+		autoplay         : 3000,
+		navigation       : true,
+		navigationText   : ["後退", "前進"],
+		// paginationNumbers: true
 	})
 
 	// switch the slide by left list item

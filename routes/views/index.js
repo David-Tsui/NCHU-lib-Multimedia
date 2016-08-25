@@ -1,17 +1,18 @@
 var keystone = require('keystone');
-var async = require('async');
+var async    = require('async');
+var _        = require('lodash');
 var NewsPost = keystone.list('NewsPost');
-var Movie = keystone.list('Movie');
+var Movie    = keystone.list('Movie');
 
 exports = module.exports = function (req, res) {
 
-	var view = new keystone.View(req, res);
+	var view   = new keystone.View(req, res);
 	var locals = res.locals;
 
 	// Init locals
 	locals.section = 'index';
-	locals.movies = [];
-	locals.news = [];
+	locals.movies  = [];
+	locals.news    = [];
 
 	// Load the news and movies
 	view.on('init', function (next) {
@@ -21,7 +22,7 @@ exports = module.exports = function (req, res) {
 			.populate('author categories');
 
 		q1.exec(function (err, results) {
-			locals.movies = results;
+			locals.movies = _.chunk(results, 3);
 			next(err);
 		});
 	});
@@ -37,8 +38,8 @@ exports = module.exports = function (req, res) {
 		// 	next(err);
 		// });
 		var q2 = NewsPost.paginate({
-			page: req.query.page || 1,
-			perPage: 6,
+			page    : req.query.page || 1,
+			perPage : 6,
 			maxPages: 10,
 		})
 		.where('state', 'published')

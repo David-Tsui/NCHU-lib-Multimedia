@@ -87,9 +87,9 @@ body {
 		
 		& .item {
 			color: #222;
-	    font-size: 22px;
-	    letter-spacing: 2px;
-	    // text-shadow: 0 0 1px #222;
+			font-size: 22px;
+			letter-spacing: 2px;
+			// text-shadow: 0 0 1px #222;
 			&.svg-item {
 				padding: 2em 1.75em;
 			}
@@ -261,10 +261,24 @@ button.mdl-color--primary {
 }
 
 // 首頁carousel
+
+.owl-theme .owl-controls .owl-page span {
+	width: 12px;
+	height: 14px;
+	margin: 3px 6px;
+	background: #2cfff2;
+	border-radius: 0;
+	transform: scale(1) skew(30deg);
+	transition: transform .085s ease-out;
+	&:hover {
+		transform: scale(1.5) skew(0deg);
+	}
+}
+
 #carousel-container {
 	background-image: url(/images/carousel_bg.png);
 	background-size: 100% 420px;
-	padding: 1rem 3rem 1rem 3rem;
+	padding: 1rem 3rem;
 	margin-top: -1rem;
 	& .owl-carousel {
 		width: 100%;
@@ -273,43 +287,48 @@ button.mdl-color--primary {
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		& .owl-item {
-			// width: calc(100% / #{$movie-items} - 18px * 2);
-			max-width: 186px;
-			margin-bottom: 4px;
+		& .item {
+			display: flex;
+			justify-content: space-around;
 			background: transparent;
+			margin: 0 0 4px;
 			text-align: center;
-			& .meta {
-				margin-bottom: 5px;
-				font-size: 14px;
+			.movie-item {
+				width: 100%;
+				margin: 0 6px;
+				
+				.meta {
+					margin-bottom: 5px;
+					font-size: 14px;
+				}
+				.ui.image {
+					position: relative;
+					&:before {
+						content: "";
+						position: absolute;
+						width: 100%;
+						height: 100%;
+						top: 0;
+						left: 0;
+						box-shadow: 0 0 15px 1px aliceblue;
+						opacity: 0;
+						@include transition(all .25s ease-in);
+					}
+					&:hover {
+						&:before {
+							opacity: 1;
+						}
+					}
+					img {
+						width: 100%;
+						height: 230px;
+						z-index: 1000;
+					}  
+				}
+				time {
+					color: #fff;
+				}
 			}
-			& .ui.image {
-				position: relative;
-				&:hover:before {
-					box-shadow: 0px 0px 15px 1px aliceblue;
-				}
-				&:before {
-					content: "";
-					position: absolute;
-					width: 100%;
-					height: 100%;
-					top: 0;
-					left: 0;
-					@include transition(all .15s ease-in);
-				}
-				& img {
-					width: 100%;
-					height: 240px;
-					z-index: 1000;
-				}
-			}  
-			& time {
-				color: #fff;
-			}
-
-			// &:first-child {
-			// 	margin-left: 0;
-			// }
 		}
 	}
 }

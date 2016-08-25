@@ -1,11 +1,12 @@
-var keystone = require('keystone');
-var async = require('async');
-var fix_keystone_pagination = require('../helpers/fix_keystone_pagination');
-var Movie = keystone.list('Movie');
-var MovieRootCategory = keystone.list('MovieRootCategory');
-var MovieRegionCategory = keystone.list('MovieRegionCategory');
-var MovieThemeCategory = keystone.list('MovieThemeCategory');
+var keystone                    = require('keystone');
+var async                       = require('async');
+var fix_keystone_pagination     = require('../helpers/fix_keystone_pagination');
+var Movie                       = keystone.list('Movie');
+var MovieRootCategory           = keystone.list('MovieRootCategory');
+var MovieRegionCategory         = keystone.list('MovieRegionCategory');
+var MovieThemeCategory          = keystone.list('MovieThemeCategory');
 var MovieClassificationCategory = keystone.list('MovieClassificationCategory');
+
 var MovieSubCategories = {
 	以地區分類: MovieRegionCategory, 
 	以主題分類: MovieThemeCategory,
@@ -30,7 +31,7 @@ exports = module.exports = function (req, res) {
 	locals.section = 'movie_blog';
 	locals.filters = {
 		root_category: req.params.root_category,
-		category: req.params.category
+		category     : req.params.category
 	};
 	locals.movies = [];
 	locals.root_categories = [];
@@ -111,8 +112,8 @@ exports = module.exports = function (req, res) {
 	view.on('init', function (callback) {
 		var per_page = 16, max_page = 10;
 		var q = Movie.paginate({
-			page: req.query.page || 1,
-			perPage: per_page,
+			page    : req.query.page || 1,
+			perPage : per_page,
 			maxPages: max_page,
 		})
 		.where('state', 'published')
