@@ -461,8 +461,8 @@ button.mdl-color--primary {
       line-height: 30px; }
 
 .owl-theme .owl-controls .owl-page span {
-  width: 12px;
-  height: 14px;
+  width: 14px;
+  height: 16px;
   margin: 3px 6px;
   background: #2cfff2;
   border-radius: 0;
@@ -470,6 +470,10 @@ button.mdl-color--primary {
   transition: transform .085s ease-out; }
   .owl-theme .owl-controls .owl-page span:hover {
     transform: scale(1.5) skew(0deg); }
+
+.owl-theme .owl-controls .owl-buttons .owl-prev, .owl-theme .owl-controls .owl-buttons .owl-next {
+  margin: 3px 8px;
+  padding: 3px 20px; }
 
 #carousel-container {
   background-image: url(/images/carousel_bg.png);
@@ -706,26 +710,30 @@ table.mdl-data-table {
 .ui.segment h1, .ui.segment h2, .ui.segment h3, .ui.segment h4, .ui.segment h5, .ui.segment h6 {
   color: #444; }
 
+@media only screen and (max-width: 1600px) {
+  .owl-theme .owl-controls .owl-page span {
+    width: 10px;
+    height: 12px;
+    margin: 3px 5px; } }
+
 @media only screen and (max-width: 1024px) {
   .nav-grid .ui.secondary.menu.main-navbar {
     margin-top: 20px; }
-    .nav-grid .ui.secondary.menu.main-navbar .svg-btn-container {
-      width: calc(100% / 10); }
-      .nav-grid .ui.secondary.menu.main-navbar .svg-btn-container .svg-item {
-        font-size: 1.15rem;
-        padding: 0; }
-        .nav-grid .ui.secondary.menu.main-navbar .svg-btn-container .svg-item #root-span-1 {
-          margin: 0 14px 32px; }
-        .nav-grid .ui.secondary.menu.main-navbar .svg-btn-container .svg-item #root-span-2 {
-          margin: 0px -11px 33px 18px; }
-        .nav-grid .ui.secondary.menu.main-navbar .svg-btn-container .svg-item #root-span-3 {
-          margin: 0 -20px 30px 20px; }
-        .nav-grid .ui.secondary.menu.main-navbar .svg-btn-container .svg-item #root-span-4 {
-          margin: -1px -12px 27px 16px; }
-        .nav-grid .ui.secondary.menu.main-navbar .svg-btn-container .svg-item #root-span-5 {
-          margin: 0px -2px 33px 9px; }
-        .nav-grid .ui.secondary.menu.main-navbar .svg-btn-container .svg-item #root-span-6 {
-          margin: 0px 13px 33px 15px; }
+    .nav-grid .ui.secondary.menu.main-navbar .svg-btn-container .svg-item {
+      font-size: 1.15rem;
+      padding: 0; }
+      .nav-grid .ui.secondary.menu.main-navbar .svg-btn-container .svg-item #root-span-1 {
+        margin: 0 14px 32px; }
+      .nav-grid .ui.secondary.menu.main-navbar .svg-btn-container .svg-item #root-span-2 {
+        margin: 0px -11px 33px 18px; }
+      .nav-grid .ui.secondary.menu.main-navbar .svg-btn-container .svg-item #root-span-3 {
+        margin: 0 -20px 30px 20px; }
+      .nav-grid .ui.secondary.menu.main-navbar .svg-btn-container .svg-item #root-span-4 {
+        margin: -1px -12px 27px 16px; }
+      .nav-grid .ui.secondary.menu.main-navbar .svg-btn-container .svg-item #root-span-5 {
+        margin: 0px -2px 33px 9px; }
+      .nav-grid .ui.secondary.menu.main-navbar .svg-btn-container .svg-item #root-span-6 {
+        margin: 0px 13px 33px 15px; }
     .nav-grid .ui.secondary.menu.main-navbar #index-news-container {
       height: 50vh; } }
 

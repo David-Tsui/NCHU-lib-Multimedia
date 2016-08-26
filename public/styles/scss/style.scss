@@ -39,25 +39,25 @@ body {
 .main-container {
 	min-height: 100vh;
 	padding: 2rem 4rem !important;
-	& h1, & h2, & h3, & h4, & h5, & h6 {
+	h1, h2, h3, h4, h5, h6 {
 		color: #fff;
 	} 
-	& aside {
+	aside {
 		margin-bottom: 2rem;
 	}
-	& .row {
+	.row {
 		padding: 4rem auto;
-		& header {
+		header {
 			position: absolute;
 			top: 2rem;
 			left: 2rem;
 			color: #ddd;
 		}
 	}
-	& article {
-		& .main-content {
+	article {
+		.main-content {
 			padding: 1rem 2rem;
-			& p {
+			p {
 				font-size: 1.25rem;
 			}
 		}
@@ -67,13 +67,13 @@ body {
 // 導覽列
 .nav-grid {
 	// min-height: $prepare-height;
-	& #nav-banner {
+	#nav-banner {
 		width: 100%;
-		& img {
+		img {
 			width: 100%;
 		}
 	}
-	& .ui.secondary.menu.main-navbar {
+	.ui.secondary.menu.main-navbar {
 		display: flex;
 		// justify-content: center;
 		align-items: center;
@@ -97,22 +97,22 @@ body {
 				background: transparent;
 				color: #fff;
 			}
-			& #root-span-1 {
+			#root-span-1 {
 				margin: 0 0 0 -7px;
 			}
-			& #root-span-2 {
+			#root-span-2 {
 				margin: -3px 0 0 12px;
 			}
-			& #root-span-3 {
+			#root-span-3 {
 				margin: 3px 0 0 14px;
 			}
-			& #root-span-4 {
+			#root-span-4 {
 				margin: 4px 0 0 4px;
 			}
-			& #root-span-5 {
+			#root-span-5 {
 				margin: 10px 0 0 48px;
 			}
-			& #root-span-6 {
+			#root-span-6 {
 				margin: -3px 0 0 -22px;
 			}
 			& > i.dropdown.icon {
@@ -120,7 +120,7 @@ body {
 			}
 		}
 	}
-	& .extra-menu {
+	.extra-menu {
 		display: flex;
 		justify-content: flex-end;
 
@@ -128,14 +128,14 @@ body {
 		top: 4rem;
 		right: 0;
 		width: 14%;
-		& a {
+		a {
 			flex: 1;
 			color: #fff;
 			font-weight: 700;
 			font-size: 1.2rem;
 		}
 	}
-	& .hit-counter {
+	.hit-counter {
 		position: relative;
 		&:before {
 			content: "訪客人數：";
@@ -150,7 +150,7 @@ body {
 		position: absolute;
 		top: 7rem;
 		right: 3rem;
-		& small {
+		small {
 			display: none;
 		}
 	}
@@ -166,12 +166,12 @@ body {
 	height: 70px;
 	padding: 0 2rem;
 	
-	& .svg-bg {
+	.svg-bg {
 		position: absolute;
 		width: 220px;
 		height: 72px;
 	}
-	& polygon {
+	polygon {
 		&.outer {
 			fill: #8cebff;
 			@include transition(all .35s);
@@ -202,7 +202,7 @@ body {
 	background: rgba(4, 15, 79, 0.8);
 	color: #eee;
 	text-align: center;
-	& p {
+	p {
 		font-size: 1.25rem;
 	}
 }
@@ -222,7 +222,7 @@ button.mdl-color--primary {
 	width: 100%;
 	text-align: center;
 	padding: 1.5rem;
-	& li {
+	li {
 		display: inline-block;
 		font-size: 1.5rem;
 		padding: 0 10px;
@@ -230,11 +230,11 @@ button.mdl-color--primary {
 		border-radius: 0;
 		text-align: center;
 		color: #fff;
-		& i {
+		i {
 			font-size: 2.2rem;
 			vertical-align: middle;
 		}
-		& a {
+		a {
 			color: #fff;
 		}
 		&.active {
@@ -253,7 +253,7 @@ button.mdl-color--primary {
 		width: auto;
 		padding: 0;
 		margin: 0;
-		& li {
+		li {
 			padding: 0 10px;
 			line-height: 30px;
 		}
@@ -262,16 +262,22 @@ button.mdl-color--primary {
 
 // 首頁carousel
 
-.owl-theme .owl-controls .owl-page span {
-	width: 12px;
-	height: 14px;
-	margin: 3px 6px;
-	background: #2cfff2;
-	border-radius: 0;
-	transform: scale(1) skew(30deg);
-	transition: transform .085s ease-out;
-	&:hover {
-		transform: scale(1.5) skew(0deg);
+.owl-theme .owl-controls {
+	.owl-page span {
+		width: 14px;
+		height: 16px;
+		margin: 3px 6px;
+		background: #2cfff2;
+		border-radius: 0;
+		transform: scale(1) skew(30deg);
+		transition: transform .085s ease-out;
+		&:hover {
+			transform: scale(1.5) skew(0deg);
+		}
+	}
+	.owl-buttons .owl-prev, .owl-buttons .owl-next {
+		margin: 3px 8px;
+		padding: 3px 20px;
 	}
 }
 
@@ -280,14 +286,14 @@ button.mdl-color--primary {
 	background-size: 100% 420px;
 	padding: 1rem 3rem;
 	margin-top: -1rem;
-	& .owl-carousel {
+	.owl-carousel {
 		width: 100%;
 		margin-left: 1rem;
 		overflow: hidden;
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		& .item {
+		.item {
 			display: flex;
 			justify-content: space-around;
 			background: transparent;
@@ -337,11 +343,11 @@ button.mdl-color--primary {
 	position: relative;
 	padding: 0 0 2rem 0 !important;
 	// news 
-	& .news-row, & .intro-row {
+	.news-row, .intro-row {
 		padding: 0 0 2rem 0;
 		min-height: 90vh;
 		max-height: 100vh;
-		& .list-items-container {
+		.list-items-container {
 			display: flex;
 			flex-direction: column;
 			align-items: center;
@@ -349,7 +355,7 @@ button.mdl-color--primary {
 			position: relative;
 			padding: 0;
 			z-index: 999;
-			& h2.header {
+			h2.header {
 				width: 100%;
 				padding: 2rem 0;
 				text-align: center;
@@ -357,23 +363,23 @@ button.mdl-color--primary {
 				margin-bottom: -2rem;
 				border-bottom: 1px rgba(240, 240, 240, .5) solid;
 			}
-			& .pagination {
+			.pagination {
 				margin: 0;
 				padding: 0;
 			}
-			& #list-news {
+			#list-news {
 				display: flex;
 				flex-direction: column;
 				margin: 0;
 				padding: 0 0;
 				width: 80%;
-				& .item {
+				.item {
 					background: transparent;
 					border: 1px transparent solid;
 					border-radius: 50px;
 					box-sizing: border-box;
 					@include transition(all .4s ease-in-out);
-					& .content {
+					.content {
 						padding: 1rem 1rem 1rem 1.5rem;
 						text-align: justify;
 						& * {
@@ -400,8 +406,8 @@ button.mdl-color--primary {
 			}
 		}
 	}
-	& .news-row {
-		& .flipster-news-container {
+	.news-row {
+		.flipster-news-container {
 			display: flex;
 			align-items: center;
 			margin: 0 0 2rem 0;
@@ -416,40 +422,40 @@ button.mdl-color--primary {
 				background: #fff;
 				z-index: -1;
 			}
-			& .flipster--flat .flipster__item__content {
+			.flipster--flat .flipster__item__content {
 				box-reflect: none !important;
 				-webkit-box-reflect: none !important;
 			}
 
-			& .flipster--flat .flipster__item {
+			.flipster--flat .flipster__item {
 				width: 65%;
 			}
 		}
 	}
 
-	& .news-segment {
+	.news-segment {
 		background: rgba(0, 0, 0, .75);
 		color: #eee;
-		& .news-item {
+		.news-item {
 			text-align: initial;
-			& .content {
+			.content {
 				position: relative;
 				padding: 1rem 1.5rem;
 				z-index: 999;
-				& .title {
+				.title {
 					padding-top: 1rem;
-					& p.header {
+					p.header {
 						font-size: 2.5rem;
 					}
 				}
-				& .title, & .action {
+				.title, .action {
 					text-align: center;
 				}
-				& p {
+				p {
 					font-size: 1.25rem;
 				}
 			}
-			& button {
+			button {
 				z-index: 1;
 			}
 			&.horizontal {
@@ -465,14 +471,14 @@ button.mdl-color--primary {
 			}
 			&.vertical {
 				display: flex;
-				& .ui.image {
+				.ui.image {
 					flex: 3;
 					& img {
 						width: 100%;
 						max-height: 550px;
 					}
 				}
-				& .content {
+				.content {
 					flex: 2;
 				}
 			}
@@ -485,21 +491,21 @@ button.mdl-color--primary {
 	min-height: 100vh;
 	margin-bottom: -2rem;
 	padding: 0 2rem !important;
-	& .flipster-news-container {
+	.flipster-news-container {
 		margin-top: 5rem !important;
 		overflow: hidden;
 
-		& .flipster--flat .flipster__item {
+		.flipster--flat .flipster__item {
 			width: 90%;
 			vertical-align: top;
 		}
 
-		& .flipster__button {
+		.flipster__button {
 			display: none;
 		}
 	}
-	& .intro-segment {
-		& .description {
+	.intro-segment {
+		.description {
 			min-height: 75vh;
 			max-height: 75vh;
 			padding: 3rem;
@@ -510,8 +516,8 @@ button.mdl-color--primary {
 
 // 影音blog
 #movie-blog {
-	& .ui.segment {
-		& h1, & h2, & h3, & h4, & h5, & h6  {
+	.ui.segment {
+		h1, h2, h3, h4, h5, h6 {
 			color: #444;
 		}
 	}
@@ -523,37 +529,37 @@ button.mdl-color--primary {
 .mdl-card {
 	width: 100%;
 	height: 660px;
-	& .mdl-card__title {
+	.mdl-card__title {
 		color: #fff;
 	}
-	& .mdl-card__title.mdl-card--expand {
+	.mdl-card__title.mdl-card--expand {
 		padding: 0;
 		margin: 0;
-		& img {
+		img {
 			width: 100%;
 			height: 360px;
 		}
 	}
-	& .mdl-card__supporting-text {
+	.mdl-card__supporting-text {
 		width: 100%;
 		min-height: 250px;
 		max-height: 250px;
-		& h4 {
+		h4 {
 			color: #555;
 		}
 		// overflow-y: auto;
-		& .scrollable-text.scrollbar-inner {
+		.scrollable-text.scrollbar-inner {
 			min-height: 170px;
 			max-height: 170px;
 			overflow-y: auto;
 			padding-right: 1rem;
 		} 
 	}
-	& .mdl-card__actions.mdl-card--border {
+	.mdl-card__actions.mdl-card--border {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		& time {
+		time {
 			padding: 0 16px;
 		}
 	}
@@ -567,7 +573,7 @@ table.mdl-data-table {
 	}
 	& td {
 		position: relative;
-		& a.td-a {
+		a.td-a {
 			display: flex;
 			align-items: center;
 			justify-content: space-between;
@@ -583,10 +589,21 @@ table.mdl-data-table {
 .ui.segment {
 	&.movie-intro {
 		border-radius: 0;
-		box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
+		box-shadow: 
+			0 2px 2px 0 rgba(0,0,0,.14),
+			0 3px 1px -2px rgba(0,0,0,.2),
+			0 1px 5px 0 rgba(0,0,0,.12);
 	}
-	& h1, & h2, & h3, & h4, & h5, & h6 {
+	h1, h2, h3, h4, h5, h6 {
 		color: #444;
+	}
+}
+
+@media only screen and (max-width: 1600px) {
+	.owl-theme .owl-controls .owl-page span {
+		width: 10px;
+		height: 12px;
+		margin: 3px 5px;
 	}
 }
 
@@ -594,7 +611,7 @@ table.mdl-data-table {
 	.nav-grid .ui.secondary.menu.main-navbar {
 		margin-top: 20px;
 		& .svg-btn-container {
-			width: calc(100% / 10);
+			// width: calc(100% / 10);
 			& .svg-item {
 				font-size: 1.15rem;
 				padding: 0;
@@ -621,13 +638,10 @@ table.mdl-data-table {
 		& #index-news-container {
 			height: 50vh;
 		}
-
 	}
-
 }
 
 @media only screen and (max-width: 768px) {
-	
 	.image-box {
 		margin: auto;
 		text-align: center;

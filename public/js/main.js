@@ -8,22 +8,20 @@ $(document).ready(function() {
 	var $flipster = $(".flat-flipster");
 	$flipster.flipster({
 		itemContainer: 'ul',
-		itemSelector: 'li',
-		start: '0',
-		loop: false,
+		itemSelector : 'li',
+		start        : '0',
+		loop         : false,
+		// autoplay    : false,
+		// pauseOnHover: true,
+		style        : 'flat',
+		spacing      : -0.3,
 
-		autoplay: false,
-		pauseOnHover: true,
+		click        : true,
+		keyboard     : true,
+		scrollwheel  : false,
+		touch        : true,
 
-		style: 'flat',
-		spacing: -0.3,
-
-		click: true,
-		keyboard: true,
-		scrollwheel: false,
-		touch: true,
-
-		nav: false,
+		nav    : false,
 		buttons: 'custom',
 		buttonPrev: '<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--accent"><i class="material-icons">navigate_before</i></button>',
 		buttonNext: '<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--accent"><i class="material-icons">navigate_next</i></button>',
@@ -94,14 +92,15 @@ $(document).ready(function() {
 	// });
 	
 	$('.owl-carousel').owlCarousel({
-		items            : 2, 
-		itemsDesktop     : [1000,2], 
-		itemsDesktopSmall: [900,1], 
+		items            : 3, 
+		itemsDesktop     : [1600,2], 
+		itemsDesktopSmall: [980,1], 
 		itemsTablet      : [600,1],
 		// lazyLoad         : true,
-		autoplay         : 3000,
+		slideSpeed			 : 800,
+		autoPlay         : 6000,
 		navigation       : true,
-		navigationText   : ["後退", "前進"],
+		navigationText   : ['<i class="chevron left icon"></i>', '<i class="chevron right icon"></i>'],
 		// paginationNumbers: true
 	})
 
@@ -109,7 +108,7 @@ $(document).ready(function() {
 	$(".item.slide-link").click(function(e) {
 		$(".item.slide-link").removeClass("active");
 		var switch_to = $(e.target).parents(".item").attr("data-slide");
-		if (switch_to == undefined) return;
+		if (switch_to === undefined) return;
 		$('.item[data-slide="' + switch_to + '"]').addClass("active");
 		$flipster.flipster('jump', $('li[data-slide="' + switch_to + '"]'));
 	})
@@ -128,14 +127,14 @@ $(document).ready(function() {
 		var prev_siblings = $(e.target).prev();
 		if (prev_siblings.hasClass('svg-bg')) {
 			var svg = prev_siblings.find("svg");
-			var id = svg.attr('id');
+			var id  = svg.attr('id');
 			changeSvgFill(id, "mouseenter");
 		}
 	}).mouseleave(function(e) {
 		var prev_siblings = $(e.target).prev();
 		if (prev_siblings.hasClass('svg-bg')) {
 			var svg = prev_siblings.find("svg");
-			var id = svg.attr('id');
+			var id  = svg.attr('id');
 			changeSvgFill(id, "mouseleave");
 		}
 	});
@@ -168,41 +167,41 @@ function setSectionHighlight(path) {
 }
 
 function detectIE() {
-  var ua = window.navigator.userAgent;
+	var ua = window.navigator.userAgent;
 
-  // Test values; Uncomment to check result …
+	// Test values; Uncomment to check result …
 
-  // IE 10
-  // ua = 'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Trident/6.0)';
-  
-  // IE 11
-  // ua = 'Mozilla/5.0 (Windows NT 6.3; Trident/7.0; rv:11.0) like Gecko';
-  
-  // Edge 12 (Spartan)
-  // ua = 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.71 Safari/537.36 Edge/12.0';
-  
-  // Edge 13
-  // ua = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2486.0 Safari/537.36 Edge/13.10586';
+	// IE 10
+	// ua = 'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Trident/6.0)';
+	
+	// IE 11
+	// ua = 'Mozilla/5.0 (Windows NT 6.3; Trident/7.0; rv:11.0) like Gecko';
+	
+	// Edge 12 (Spartan)
+	// ua = 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.71 Safari/537.36 Edge/12.0';
+	
+	// Edge 13
+	// ua = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2486.0 Safari/537.36 Edge/13.10586';
 
-  var msie = ua.indexOf('MSIE ');
-  if (msie > 0) {
-    // IE 10 or older => return version number
-    return parseInt(ua.substring(msie + 5, ua.indexOf('.', msie)), 10);
-  }
+	var msie = ua.indexOf('MSIE ');
+	if (msie > 0) {
+		// IE 10 or older => return version number
+		return parseInt(ua.substring(msie + 5, ua.indexOf('.', msie)), 10);
+	}
 
-  var trident = ua.indexOf('Trident/');
-  if (trident > 0) {
-    // IE 11 => return version number
-    var rv = ua.indexOf('rv:');
-    return parseInt(ua.substring(rv + 3, ua.indexOf('.', rv)), 10);
-  }
+	var trident = ua.indexOf('Trident/');
+	if (trident > 0) {
+		// IE 11 => return version number
+		var rv = ua.indexOf('rv:');
+		return parseInt(ua.substring(rv + 3, ua.indexOf('.', rv)), 10);
+	}
 
-  var edge = ua.indexOf('Edge/');
-  if (edge > 0) {
-    // Edge (IE 12+) => return version number
-    return parseInt(ua.substring(edge + 5, ua.indexOf('.', edge)), 10);
-  }
+	var edge = ua.indexOf('Edge/');
+	if (edge > 0) {
+		// Edge (IE 12+) => return version number
+		return parseInt(ua.substring(edge + 5, ua.indexOf('.', edge)), 10);
+	}
 
-  // other browser
-  return false;
+	// other browser
+	return false;
 }
