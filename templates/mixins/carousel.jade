@@ -9,8 +9,8 @@ mixin carousel(movies)
 							h6.meta
 								time(datetime=movie._.inDate.format('MM D, YYYY'))= movie._.inDate.format('YYYY年M月D日')
 							a.ui.medium.image.movie-item(href="/movies/movie_blog/movie/" + movie.key target="_blank")
-								img(src=movie._.image.fit(320,320))
-								//- img(class="lazyOwl" data-src=movie._.image.fit(320,320))
+								//- img(src=movie._.image.fit(320,320))
+								img(class="lazyOwl" data-src=movie._.image.fit(320,320))
 		//- ul
 		//- 	each movie in movies
 		//- 		li.item(data-ks-editable=editable(user, { list: 'Movie', id: movie.id }))

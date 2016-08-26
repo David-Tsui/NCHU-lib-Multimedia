@@ -96,7 +96,7 @@ $(document).ready(function() {
 		itemsDesktop     : [1600,2], 
 		itemsDesktopSmall: [980,1], 
 		itemsTablet      : [600,1],
-		// lazyLoad         : true,
+		lazyLoad         : true,
 		slideSpeed			 : 800,
 		autoPlay         : 6000,
 		navigation       : true,
