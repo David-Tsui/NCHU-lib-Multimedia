@@ -1,9 +1,9 @@
-var gulp = require('gulp'),             
-		gulpSass = require('gulp-sass'),
-		gulpUglify = require('gulp-uglify'),
-		gulpPlumber = require('gulp-plumber'),
-		gulpJade = require('gulp-jade'),
-    gulpLivereload = require('gulp-livereload');
+var gulp           = require('gulp');             
+var	gulpSass       = require('gulp-sass');
+var	gulpUglify     = require('gulp-uglify');
+var	gulpPlumber    = require('gulp-plumber');
+var	gulpJade       = require('gulp-jade');
+var gulpLivereload = require('gulp-livereload');
 
 gulp.task('default', ['watch', 'jade', 'styles', 'scripts']);
 
@@ -46,7 +46,7 @@ gulp.task('styles', function () {
 // );
 
 gulp.task('scripts', function() {
-  gulp.src('public/js/main.js')
+  gulp.src(['public/js/main.js','public/owl-carousel/owl.carousel.js'])
   	.pipe(gulpPlumber())      
     .pipe(gulpUglify())                     
     .pipe(gulp.dest('public/js/min'))

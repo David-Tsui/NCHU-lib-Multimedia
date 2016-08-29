@@ -29,10 +29,10 @@ exports.theme = function (req, res, next) {
 
 exports.flashMessages = function (req, res, next) {
 	var flashMessages = {
-		info: req.flash('info'),
+		info   : req.flash('info'),
 		success: req.flash('success'),
 		warning: req.flash('warning'),
-		error: req.flash('error')
+		error  : req.flash('error')
 	};
 	res.locals.messages = _.some(flashMessages, function (msgs) { return msgs.length }) ? flashMessages : false;
 	next();

@@ -478,7 +478,7 @@ button.mdl-color--primary {
 #carousel-container {
   background-image: url(/images/carousel_bg.png);
   background-size: 100% 420px;
-  padding: 1rem 3rem;
+  padding: 0 3rem;
   margin-top: -1rem; }
   #carousel-container .owl-carousel {
     width: 100%;

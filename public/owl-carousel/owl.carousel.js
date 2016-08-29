@@ -1151,13 +1151,13 @@ if (typeof Object.create !== "function") {
 				/*** sub items ***/
 				var is_continue = false;
 				$lazyImg = $item.find(".lazyOwl");
-				if (typeof ($lazyImg[0]).data("src") !== "string") {
+				if (typeof $($lazyImg[0]).data("src") !== "string") {
 					$item.data("owl-loaded", "loaded");
 					continue;
 				}
 				if ($item.data("owl-loaded") === undefined) {
 					$lazyImg.each(function(i, ele) {
-						ele.hide();
+						$(ele).hide();
 					});
 					$item.addClass("loading").data("owl-loaded", "checked");
 				}
@@ -1198,21 +1198,41 @@ if (typeof Object.create !== "function") {
 				iterations = 0,
 				isBackgroundImg;
 
-			if ($lazyImg.prop("tagName") === "DIV") {
-				$lazyImg.css("background-image", "url(" + $lazyImg.data("src") + ")");
-				isBackgroundImg = true;
-			} else {
-				$lazyImg[0].src = $lazyImg.data("src");
-			}
+			$lazyImg.each(function(i, ele) {
+				if ($(ele).prop("tagName") === "DIV") {
+					$(ele).css("background-image", "url(" + $(ele).data("src") + ")");
+					isBackgroundImg = true;
+				} else {
+					$(ele)[0].src = $(ele).data("src");
+				}
+			})
+			
+			// if ($lazyImg.prop("tagName") === "DIV") {
+			// 	$lazyImg.css("background-image", "url(" + $lazyImg.data("src") + ")");
+			// 	isBackgroundImg = true;
+			// } else {
+			// 	$lazyImg[0].src = $lazyImg.data("src");
+			// }
 
 			function showImage() {
 				$item.data("owl-loaded", "loaded").removeClass("loading");
-				$lazyImg.removeAttr("data-src");
-				if (base.options.lazyEffect === "fade") {
-					$lazyImg.fadeIn(400);
-				} else {
-					$lazyImg.show();
-				}
+				// $lazyImg.removeAttr("data-src");
+				// if (base.options.lazyEffect === "fade") {
+				// 	$lazyImg.fadeIn(400);
+				// } else {
+				// 	$lazyImg.show();
+				// }
+				// if (typeof base.options.afterLazyLoad === "function") {
+				// 	base.options.afterLazyLoad.apply(this, [base.$elem]);
+				// }
+				$lazyImg.each(function(i, ele) {
+					$(ele).removeAttr("data-src");
+					if (base.options.lazyEffect === "fade") {
+						$(ele).fadeIn(400);
+					} else {
+						$(ele).show();
+					}
+				});
 				if (typeof base.options.afterLazyLoad === "function") {
 					base.options.afterLazyLoad.apply(this, [base.$elem]);
 				}
@@ -1220,7 +1240,8 @@ if (typeof Object.create !== "function") {
 
 			function checkLazyImage() {
 				iterations += 1;
-				if (base.completeImg($lazyImg.get(0)) || isBackgroundImg === true) {
+				if (base.completeImg
+					($lazyImg.get(0)) || isBackgroundImg === true) {
 					showImage();
 				} else if (iterations <= 100) {//if image loads in less than 10 seconds 
 					window.setTimeout(checkLazyImage, 100);
@@ -1249,7 +1270,8 @@ if (typeof Object.create !== "function") {
 
 			function checkImage() {
 				iterations += 1;
-				if (base.completeImg($currentimg.get(0))) {
+				if (base.completeImg
+					($currentimg.get(0))) {
 					addHeight();
 				} else if (iterations <= 100) { //if image loads in less than 10 seconds 
 					window.setTimeout(checkImage, 100);

@@ -1,7 +1,7 @@
-const keystone = require('keystone');
-const middleware = require('./middleware');
+const keystone     = require('keystone');
+const middleware   = require('./middleware');
 const importRoutes = keystone.importer(__dirname);
-var NewsPost = keystone.list('NewsPost');
+var NewsPost       = keystone.list('NewsPost');
 
 keystone.pre('routes', function (req, res, next) {
 	res.locals.navLinks = [
@@ -146,8 +146,8 @@ keystone.pre('routes', function (req, res, next) {
 	next();
 });
 
-keystone.pre('render', middleware.theme);
-keystone.pre('render', middleware.flashMessages);
+// keystone.pre('render', middleware.theme);
+// keystone.pre('render', middleware.flashMessages);
 
 keystone.set('404', function (req, res, next) {
 	res.status(404).render('errors/404');
@@ -171,8 +171,6 @@ exports = module.exports = function (app) {
 	app.get('/resources/:type', routes.views.resources);
 	app.get('/idea/:type', routes.views.idea);
 
-	// app.get('/blog/:category?', routes.views.blog);
-	// app.all('/blog/post/:post', routes.views.post);
 	app.get('/movies/movie_blog/movie/:movie', routes.views.movie);
 	app.get('/movies/movie_blog/:root_category?/:category?', routes.views.movie_blog);
 
@@ -182,5 +180,5 @@ exports = module.exports = function (app) {
 	app.get('/movies/hot/:hot_category?', routes.views.movie_cate_generator(keystone.list('MovieHotCategory'), 'hot_category', 'hot', '熱門影音排行榜'));
 	
 	app.get('/', routes.views.index);
-	app.get('/:haha?', routes.views.index);
+	app.get('/:other', routes.views.index);
 }
