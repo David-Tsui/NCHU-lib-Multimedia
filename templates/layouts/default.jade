@@ -117,16 +117,14 @@ html
 		block search
 			script.
 				(function() {var cx = '013187537332726840230:16izhnxrtcc';var gcse = document.createElement('script');gcse.type = 'text/javascript';gcse.async = true;gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(gcse, s);})();
-			#google-search-box
+			.google-search-box
 				p.search
-					span 搜尋：
 					gcse:search
 		block content
 
 		//- footer
 		footer.main-footer
 			p Copyright &copy; 2016 中興大學圖書館
-			span= variable
 		
 		script.
 			!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
