@@ -2,17 +2,19 @@ extends ../layouts/default
 include ../mixins/carousel
 include ../mixins/news-slide
 include ../mixins/news-list
+include ../mixins/pagination
 
 block content
-	.ui.grid#carousel-container
-		+carousel(movies)
 	.ui.grid.main-container#index-news-container
 		.row.news-row
-			.four.wide.column.list-items-container
+			.three.wide.column.list-items-container
 				h2.header= "最新消息"
 				+news_list(news.results)
+				+pagination(news.results)
 				a.ui.button(href='/news/list') 顯示全部
-			.twelve.wide.column.flipster-news-container
+			.thirteen.wide.column.flipster-news-container
 				.flat-flipster
 					+news_slide(news.results, "NewsPost")
+	.ui.grid.main-container#carousel-container
+		+carousel(movies)
 			
