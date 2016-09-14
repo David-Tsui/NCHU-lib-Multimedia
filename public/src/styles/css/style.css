@@ -298,7 +298,7 @@ html, body, h1, h2, h3, h4, h5, h6, .ui.menu, .ui.button, .mdl-button {
   font-family: Arial, 'cwTeXHei', "文泉驛正黑", "WenQuanYi Zen Hei", "微軟正黑體", "Microsoft JhengHei", "標楷體", sans-serif; }
 
 body {
-  background: url(/images/bg.png) center center/cover no-repeat;
+  background: url("../assets/images/bg.png") center center/cover no-repeat;
   background-attachment: fixed;
   padding-bottom: 3rem; }
 
@@ -495,7 +495,7 @@ button.mdl-color--primary {
     border-radius: 0; }
 
 #carousel-container {
-  background-image: url(/images/carousel_bg.png);
+  background-image: url("../assets/images/carousel_bg.png");
   background-size: 100% 420px;
   padding: 0 3em;
   margin-top: -1em; }

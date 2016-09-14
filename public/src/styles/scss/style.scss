@@ -1,12 +1,13 @@
-@import "bourbon/bourbon";
+@import "bourbon";
 @import "special_transition";
 @import "search-bar";
 
 @include font-face("cwTeXHei", "//fonts.gstatic.com/ea/cwtexhei/v3/cwTeXHei-zhonly", normal, 400);
 
-$navbar-height: 90px;
+$navbar-height : 90px;
 $prepare-height: 100px;
-$movie-items: 7;
+$movie-items   : 7;
+$img-path			 : '../assets/images/';
 
 // semantic 調校
 figure {
@@ -34,7 +35,7 @@ html, body, h1, h2, h3, h4, h5, h6, .ui.menu, .ui.button, .mdl-button {
 body {
 	// display: flex;
 	// flex-direction: column;
-	background: url(/images/bg.png) center center / cover no-repeat;
+	background: url($img-path + 'bg.png') center center / cover no-repeat;
 	background-attachment: fixed;
 	padding-bottom: 3rem;
 	
@@ -303,7 +304,7 @@ button.mdl-color--primary {
 }
 
 #carousel-container {
-	background-image: url(/images/carousel_bg.png);
+	background-image: url($img-path + 'carousel_bg.png');
 	background-size: 100% 420px;
 	padding: 0 3em;
 	margin-top: -1em;
