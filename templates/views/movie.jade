@@ -8,9 +8,6 @@ block content
 	else
 		.ui.container.main-container
 			.ui.centered.grid(style="position: relative")
-				aside
-					a(href="/movies/movie_blog") 
-						button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-color--primary.button-back 回影片總覽
 				.two.column.row
 					.column
 						article(data-ks-editable=editable(user, { list: 'Movie', id: movie.id }))
@@ -54,6 +51,9 @@ block content
 												.ui.label= movie.region_categories.name
 					.column
 						section.ui.segment.movie-intro.mdl-shadow--2dp
+							aside
+								a(href="/movies/movie_blog") 
+									button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-color--primary.btn-back 回影片總覽
 							h3!= movie.name
 							h4!= movie.english_name
 							h5!= '影片簡介'

@@ -98,11 +98,13 @@ $(document).ready(function() {
 		itemsTablet      : [600,1],
 		lazyLoad         : true,
 		slideSpeed			 : 800,
-		autoPlay         : 6000,
+		// autoPlay         : 6000,
 		navigation       : true,
-		navigationText   : ['<i class="chevron left icon"></i>', '<i class="chevron right icon"></i>'],
+		navigationText   : ['<i class="material-icons">chevron_left</i>', '<i class="material-icons">chevron_right</i>'],
 		// paginationNumbers: true
-	})
+	});
+
+	$(".owl-buttons > *").addClass('mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--accent');
 
 	// switch the slide by left list item
 	$(".item.slide-link").click(function(e) {

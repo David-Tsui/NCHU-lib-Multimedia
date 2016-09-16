@@ -1,8 +1,10 @@
 extends ../layouts/default
 include ../mixins/movie
 include ../mixins/pagination
+include ../mixins/google-search
 
 block content
+	+google_search()
 	.ui.stackable.grid.main-container#movie-blog
 		.ui.fourteen.wide.column
 			aside

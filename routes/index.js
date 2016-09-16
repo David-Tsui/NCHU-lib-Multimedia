@@ -31,29 +31,19 @@ keystone.pre('routes', function (req, res, next) {
 		},
 		{ 
 			label: "愛創聯盟",
-			key: "maker", 
-			href: "/makers",
+			key: "creator", 
+			href: "/creators",
 			nested: true,
 			subnav: [
 				{
 					label: "聯盟介紹",
 					key: "news",
-					href: "/makers/intro"
+					href: "/creators/intro"
 				},
 				{
-					label: "聯盟成員",
-					key: "intro",
-					href: "/makers/organization"
-				},
-				{
-					label: "課程一覽",
+					label: "聯盟活動",
 					key: "rules",
-					href: "/makers/curriculums"
-				},
-				{
-					label: "活動一覽",
-					key: "rules",
-					href: "/makers/activities"
+					href: "/creators/activities"
 				}
 			]
 		},
@@ -93,33 +83,28 @@ keystone.pre('routes', function (req, res, next) {
 			subnav: [
 				{
 					label: "新進影音",
-					key: "mv_new",
+					key: "movie_new",
 					href: "/movies/new"
 				},
 				{
 					label: "主題影展",
-					key: "mv_topic",
+					key: "movie_topic",
 					href: "/movies/topic"
 				},
 				{
 					label: "教師指定教材",
-					key: "mv_assignment",
+					key: "movie_assignment",
 					href: "/movies/assignment"
 				},
 				{
 					label: "熱門影音排行榜",
-					key: "mv_hot",
+					key: "movie_hot",
 					href: "/movies/hot"
 				},
 				{
 					label: "影片分類",
-					key: "mv_category",
+					key: "movie_category",
 					href: "/movies/movie_blog/"
-				},
-				{
-					label: "舊視聽館藏搶先報",
-					key: "mv_old",
-					href: "http://www.lib.nchu.edu.tw/News/blog.lib.nchu.edu.tw/media_old/"
 				}
 			]
 		},
@@ -131,13 +116,13 @@ keystone.pre('routes', function (req, res, next) {
 			subnav: [
 				{
 					label: "玩桌遊",
-					key: "test1",
+					key: "table_game",
 					href: "/idea/table_game"
 				},
 				{
-					label: "Line貼圖徵選活動",
-					key: "test2",
-					href: "/idea/Line_stickers"
+					label: "Line貼圖",
+					key: "line_stickers",
+					href: "/idea/line_stickers"
 				}
 			]
 		}
@@ -166,8 +151,7 @@ exports = module.exports = function (app) {
 	app.get('/news/posts/:post', routes.views.news);
 	app.get('/about/intro', routes.views.intro);
 	app.get('/about/:category', routes.views.about);
-	app.get('/makers/intro', routes.views.union_intro);
-	app.get('/makers/:type', routes.views.maker);
+	app.get('/creators/:type', routes.views.creators);
 	app.get('/resources/:type', routes.views.resources);
 	app.get('/idea/:type', routes.views.idea);
 

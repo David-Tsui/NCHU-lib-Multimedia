@@ -1,20 +1,18 @@
 var keystone = require('keystone');
-var Maker = keystone.list('MakerPost');
-var MakerPostCategory = keystone.list('MakerPostCategory');
+var CreatorsPost = keystone.list('CreatorsPost');
+var CreatorsPostCategory = keystone.list('CreatorsPostCategory');
 
 exports = module.exports = function (req, res) {
 
 	var view = new keystone.View(req, res);
 	var locals = res.locals;
 	var routes_map = {
-		intro: '聯盟介紹',
-		organization: '聯盟成員',
-		curriculums: '課程一覽',
-		activities: '活動一覽'
+		intro       : '聯盟介紹',
+		activities  : '聯盟活動'
 	};
 
 	// Init locals
-	locals.section = 'maker';
+	locals.section = 'creators';
 	locals.filters = {
 		category: req.params.type,
 	};
@@ -25,9 +23,9 @@ exports = module.exports = function (req, res) {
 	// Load all categories
 	view.on('init', function (next) {
 		if (req.params.type) {
-			MakerPostCategory.model.findOne({ name: routes_name }).exec(function (err, result) {
+			CreatorsPostCategory.model.findOne({ name: routes_name }).exec(function (err, result) {
 				locals.category = result;
-				console.log(result);
+				// console.log(result);
 				next(err);
 			});
 		} else {
@@ -36,7 +34,7 @@ exports = module.exports = function (req, res) {
 	});
 
 	view.on('init', function (next) {
-		var q = Maker.model.find()
+		var q = CreatorsPost.model.find()
 			.where({'state':'published'})
 			.sort('-publishedDate')
 			.populate('author categories');
@@ -47,12 +45,13 @@ exports = module.exports = function (req, res) {
 
 		q.exec(function (err, results) {
 			locals.posts = results;
-			// console.log("results: ", results);
+			locals.posts.title = routes_name;
+			// console.log("posts: ", locals.posts);
 			next(err);
 		});
 
 	});
 
 	// Render the view
-	view.render('maker');
+	view.render('Creators');
 }
