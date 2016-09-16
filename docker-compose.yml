@@ -15,8 +15,6 @@ services:
         <<: *main
         env_file: .env
         restart: always
-        environment:
-            NODE_ENV: 'production'
     dev:
         <<: *main
         entrypoint: []
