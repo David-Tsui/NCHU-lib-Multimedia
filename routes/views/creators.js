@@ -46,7 +46,6 @@ exports = module.exports = function (req, res) {
 		q.exec(function (err, results) {
 			locals.posts = results;
 			locals.posts.title = routes_name;
-			// console.log("posts: ", locals.posts);
 			next(err);
 		});
 

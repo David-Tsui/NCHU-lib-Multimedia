@@ -41,9 +41,12 @@ exports.options = {
 exports.locals = {
 	_       : require('lodash'),
 	env     : process.NODE_ENV,
+	// env     : process.NODE_ENV,
 	utils   : keystone.utils,
 	editable: keystone.content.editable,
 };
+
+console.log(process.env);
 
 exports.nav = {
 	'最新消息'  : ['news-posts'],
