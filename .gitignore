@@ -7,8 +7,6 @@ lib-cov
 *.pid
 *.gz
 
-*.min.css
-
 pids
 logs
 results
@@ -18,6 +16,5 @@ npm-debug.log
 
 node_modules
 ACCOUNTS
-public/dist
 
 .env
