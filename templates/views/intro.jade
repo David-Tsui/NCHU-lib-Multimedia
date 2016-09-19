@@ -6,7 +6,12 @@ block content
 	.ui.grid.main-container
 		.row.intro-row
 			.four.wide.column.list-items-container
-				h2.header= "中心介紹"
+				aside
+					if user
+						a(href='/keystone/intro-posts') 
+							button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.md.admin-ui-color= '修改介紹'
+				header
+					h2.header= "中心介紹"
 				+news_list(intro.results, "IntroPost")
 			.twelve.wide.column.flipster-news-container
 				.flat-flipster

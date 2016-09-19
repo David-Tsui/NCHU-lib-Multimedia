@@ -7,7 +7,8 @@ block content
 	.ui.grid.main-container#index-news-container
 		.row.news-row
 			.three.wide.column.list-items-container
-				h2.header= posts.title
+				header
+					h2.header= posts.title
 				+news_list(posts, "IdeaPost")
 				+pagination(posts)
 				a.ui.button(href='/idea/list') 顯示全部

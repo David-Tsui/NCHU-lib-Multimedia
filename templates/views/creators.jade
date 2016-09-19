@@ -5,12 +5,12 @@ include ../mixins/pagination
 
 block content
 	.ui.grid.main-container#index-news-container
-		.row.news-row
-			.three.wide.column.list-items-container
+		.three.wide.column.list-items-container
+			header
 				h2.header= posts.title
-				+news_list(posts, "CreatorsPost")
-				+pagination(posts)
-				a.ui.button(href='/creators/list') 顯示全部
-			.thirteen.wide.column.flipster-news-container
-				.flat-flipster
-					+news_slide(posts, "CreatorsPost")
+			+news_list(posts, "CreatorsPost")
+			+pagination(posts)
+			a.ui.button(href='/creators/list') 顯示全部
+		.thirteen.wide.column.flipster-news-container
+			.flat-flipster
+				+news_slide(posts, "CreatorsPost")

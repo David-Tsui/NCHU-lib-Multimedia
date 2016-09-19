@@ -1,0 +1,26 @@
+@charset "UTF-8";
+.nav-grid #nav-banner,.nav-grid #nav-banner img{width:100%}
+.nav-grid .ui.secondary.menu.main-navbar{display:flex;align-items:center;width:100%;height:63px;margin-top:-20px;padding:1em 4em;box-sizing:content-box;background:0 0;font-size:1.5em}
+.nav-grid .ui.secondary.menu.main-navbar .item.svg-item{color:#222;font-size:22px;letter-spacing:2px}
+.nav-grid .ui.secondary.menu.main-navbar .item.svg-item.svg-item{padding:2em 1.75em}
+.nav-grid .ui.secondary.menu.main-navbar .item.svg-item.visible,.nav-grid .ui.secondary.menu.main-navbar .item.svg-item:active,.nav-grid .ui.secondary.menu.main-navbar .item.svg-item:hover{background:0 0;color:#fff}
+.nav-grid .ui.secondary.menu.main-navbar .item.svg-item #root-span-1{margin:0 0 0 -7px}
+.nav-grid .ui.secondary.menu.main-navbar .item.svg-item #root-span-2{margin:-3px 0 0 12px}
+.nav-grid .ui.secondary.menu.main-navbar .item.svg-item #root-span-3{margin:3px 0 0 14px}
+.nav-grid .ui.secondary.menu.main-navbar .item.svg-item #root-span-4{margin:4px 0 0 4px}
+.nav-grid .ui.secondary.menu.main-navbar .item.svg-item #root-span-5{margin:10px 0 0 48px}
+.nav-grid .ui.secondary.menu.main-navbar .item.svg-item #root-span-6{margin:-3px 0 0 -22px}
+.nav-grid .ui.secondary.menu.main-navbar .item.svg-item>i.dropdown.icon{margin:0 0 0 5px}
+.nav-grid .extra-menu{display:flex;justify-content:flex-end;position:absolute;top:4em;right:0;width:14%}
+.nav-grid .extra-menu a{flex:1;color:#fff;font-weight:700;font-size:1.2em}
+.nav-grid .hit-counter{position:relative;position:absolute;top:7em;right:3em}
+.nav-grid .hit-counter:before{content:"訪客人數：";position:absolute;width:85%;top:1px;right:100%;color:#eee;font-weight:700;font-size:1em}
+.nav-grid .hit-counter small{display:none}
+.svg-btn-container{flex:1;display:flex;justify-content:center;align-items:center;position:relative;height:70px;padding:0 2em}
+.svg-btn-container .svg-bg{position:absolute;width:220px;height:72px}
+.svg-btn-container polygon.outer{fill:#8cebff;-webkit-transition:all .35s;-moz-transition:all .35s;transition:all .35s}
+.svg-btn-container polygon.outer.active{fill:#AFCBFF}
+.svg-btn-container polygon.outer.selected{fill:#B7FFB7}
+.svg-btn-container polygon.inner{fill:#00d9ff;-webkit-transition:all .35s;-moz-transition:all .35s;transition:all .35s}
+.svg-btn-container polygon.inner.active{fill:#6F6EFF}
+.svg-btn-container polygon.inner.selected{fill:#74FF92}

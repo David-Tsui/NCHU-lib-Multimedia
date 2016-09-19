@@ -1,9 +1,12 @@
 .google-search-box {
+	position  : absolute;
+	width     : 20vw;
+	right     : 0;
+	background: #fff;
+	z-index   : 2;
 	.search {
 		display: flex;
 		align-items: center;
-		float: right;
-		width: 20%;
 		font-weight: 400;
 		color: #fff;
 		.gsc-control-cse.gsc-control-cse-zh_TW {

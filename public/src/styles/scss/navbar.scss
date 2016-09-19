@@ -1,0 +1,129 @@
+@import "bourbon";
+
+.nav-grid {
+	#nav-banner {
+		width: 100%;
+		img {
+			width: 100%;
+		}
+	}
+	.ui.secondary.menu.main-navbar {
+		display    : flex;
+		align-items: center;
+		width      : 100%;
+		height     : 63px;
+		margin-top : -20px;
+		padding    : 1em 4em;
+		box-sizing : content-box;
+		background : transparent;
+		font-size  : 1.5em;
+		
+		& .item.svg-item {
+			color: #222;
+			font-size: 22px;
+			letter-spacing: 2px;
+			// text-shadow: 0 0 1px #222;
+			&.svg-item {
+				padding: 2em 1.75em;
+			}
+			&.visible, &:hover, &:active {
+				background: transparent;
+				color: #fff;
+			}
+			#root-span-1 {
+				margin: 0 0 0 -7px;
+			}
+			#root-span-2 {
+				margin: -3px 0 0 12px;
+			}
+			#root-span-3 {
+				margin: 3px 0 0 14px;
+			}
+			#root-span-4 {
+				margin: 4px 0 0 4px;
+			}
+			#root-span-5 {
+				margin: 10px 0 0 48px;
+			}
+			#root-span-6 {
+				margin: -3px 0 0 -22px;
+			}
+			& > i.dropdown.icon {
+				margin: 0 0 0 5px;
+			}
+		}
+	}
+	.extra-menu {
+		display: flex;
+		justify-content: flex-end;
+
+		position: absolute;
+		top: 4em;
+		right: 0;
+		width: 14%;
+		a {
+			flex: 1;
+			color: #fff;
+			font-weight: 700;
+			font-size: 1.2em;
+		}
+	}
+	.hit-counter {
+		position: relative;
+		&:before {
+			content: "訪客人數：";
+			position: absolute;
+			width: 85%;
+			top: 1px;
+			right: 100%;
+			color: #eee;
+			font-weight: 700;
+			font-size: 1em;
+		}
+		position: absolute;
+		top: 7em;
+		right: 3em;
+		small {
+			display: none;
+		}
+	}
+}
+
+.svg-btn-container {
+	flex           : 1;
+	display        : flex;
+	justify-content: center;
+	align-items    : center;
+	position       : relative;
+	// width       : calc(100% / 6);
+	height         : 70px;
+	padding        : 0 2em;
+	
+	.svg-bg {
+		position: absolute;
+		width: 220px;
+		height: 72px;
+	}
+	polygon {
+		&.outer {
+			fill: #8cebff;
+			@include transition(all .35s);
+			&.active {
+				fill: #AFCBFF;
+			}
+			&.selected {
+				fill: #B7FFB7;
+			}
+		}
+		&.inner {
+			fill: #00d9ff;
+			@include transition(all .35s);
+			&.active {
+				fill: #6F6EFF;
+			}
+			&.selected {
+				fill: #74FF92;
+			}
+		}
+	}
+}
