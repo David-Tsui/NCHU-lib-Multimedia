@@ -40,21 +40,24 @@ exports.options = {
 
 exports.locals = {
 	_       : require('lodash'),
-	env     : process.NODE_ENV,
-	// env  : keystone.get('env'),
+	env     : process.env.NODE_ENV,
 	utils   : keystone.utils,
 	editable: keystone.content.editable,
 };
 
 exports.nav = {
-	'最新消息': ['news-posts'],
-	'中心介紹': ['intro-posts'],
-	'聯盟介紹': ['union-posts'],
-	'關於我們': ['about-posts', 'about-post-categories'],
-	'愛創聯盟': ['maker-posts', 'maker-post-categories'],
-	'網路資源': ['resources-posts', 'resources-post-categories'],
-	'看電影'  : ['movie-posts', 'movie-post-categories'],
-	'玩創意'  : ['idea-posts', 'idea-post-categories'],
-	'影音物件': ['movies', 'movie-root-categories', 'movie-region-categories', 'movie-theme-categories', 'movie-classification-categories', 'movie-new-categories', 'movie-topic-categories', 'movie-assignment-categories', 'movie-hot-categories'],
+	'最新消息'  : ['news-posts'],
+	'中心介紹'  : ['intro-posts'],
+	'關於我們'  : ['about-posts', 'about-post-categories'],
+	'愛創聯盟'  : ['creators-posts', 'creators-post-categories'],
+	// '暫存'    	 : ['maker-posts', 'maker-post-categories'],
+	'網路資源'  : ['resources-posts', 'resources-post-categories'],
+	// '看電影': ['movie-posts', 'movie-post-categories'],
+	'玩創意'   : ['idea-posts', 'idea-post-categories'],
+	'影音物件' : [
+		'movies', 'movie-root-categories',
+		'movie-region-categories', 'movie-theme-categories', 'movie-classification-categories',
+		'movie-new-categories', 'movie-topic-categories', 'movie-assignment-categories', 'movie-hot-categories'
+	],
 	'管理員'  : 'users'
 };

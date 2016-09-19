@@ -11,10 +11,10 @@ IntroPost.add({
 	state: { type: Types.Select, options: 'draft, published, archived', default: 'draft', index: true },
 	author: { type: Types.Relationship, ref: 'User', index: true },
 	publishedDate: { type: Types.Date, index: true },
-	image: { type: Types.CloudinaryImage },
-	url_image: { type: String },
+	// image: { type: Types.CloudinaryImage },
+	// url_image: { type: String },
 	content: {
-		extended: { type: Types.Html, wysiwyg: true, height: 600 },
+		extended: { type: Types.Html, wysiwyg: true, height: 800 },
 	},
 });
 

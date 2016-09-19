@@ -24,13 +24,14 @@ var paths = {
 	}
 };
 
-gulp.task('default', ['watch', 'styles', 'scripts', 'assets']);
+gulp.task('default', ['watch', 'styles', 'scripts']);
+gulp.task('assets', ['assets']);
 
 gulp.task('watch', function () {
 	$plugins.livereload.listen();
 	gulp.watch(paths.src.styles.scss, ['styles']);
-	gulp.watch(paths.src.scripts.js, ['scripts']);
-	// gulp.watch('./templates/**/*.jade', ['jade']);
+	gulp.watch(paths.src.scripts, ['scripts']);
+	gulp.watch('./templates/**/*.jade', ['jade']);
 	// gulp.watch('assets/app.js', ['es6']);
 });
 
@@ -54,23 +55,25 @@ gulp.task('scss', function() {
 		// .pipe($plugins.notify("scss to css completed"))
 });
 
-gulp.task('minify-css', function() {
-	gulp.src([
-		path.join(paths.src.styles.css, '/*.css'),
-		path.join('!' + paths.src.styles.css, '/*.min.css'),
-		path.join(paths.src.styles.css, '/vendor/*.css'),
-		path.join('!' + paths.src.styles.css, '/vendor/*.min.css')
+gulp.task('minify-css', ['scss'], function() {
+	setTimeout(function() {
+		gulp.src([
+			path.join(paths.src.styles.css, '/*.css'),
+			path.join('!' + paths.src.styles.css, '/*.min.css'),
+			path.join(paths.src.styles.css, '/vendor/*.css'),
+			path.join('!' + paths.src.styles.css, '/vendor/*.min.css')
 		])
-		.pipe($plugins.plumber())
-		.pipe($plugins.cleanCss({
-			keepBreaks: true,
-		}))
-		.pipe($plugins.rename(function(path) {
-			path.basename += ".min";
-			path.extname  = ".css";
-		}))
-		.pipe(gulp.dest(paths.src.styles.css))
-		// .pipe($plugins.notify("css minify completed"))
+			.pipe($plugins.plumber())
+			.pipe($plugins.cleanCss({
+				keepBreaks: true,
+			}))
+			.pipe($plugins.rename(function(path) {
+				path.basename += ".min";
+				path.extname  = ".css";
+			}))
+			.pipe(gulp.dest(paths.src.styles.css))
+			// .pipe($plugins.notify("css minify completed"))
+	}, 500);
 });
 
 gulp.task('styles-assets', function() {
@@ -81,13 +84,15 @@ gulp.task('styles-assets', function() {
 	.pipe(gulp.dest(paths.dist.styles))
 });
 
-gulp.task('styles', ['styles-assets', 'scss', 'minify-css'], function() {
-	gulp.src(path.join(paths.src.styles.css, '/*.min.css'))
-	.pipe($plugins.plumber())
-	.pipe($plugins.concat({path: 'bundle.min.css', cwd: ''}))
-	.pipe(gulp.dest(paths.dist.styles))
-	.pipe($plugins.notify("CSS is ready..."))
-	.pipe($plugins.livereload());
+gulp.task('styles', ['styles-assets', 'minify-css'], function() {
+	setTimeout(function() {
+		gulp.src(path.join(paths.src.styles.css, '/*.min.css'))
+			.pipe($plugins.plumber())
+			.pipe($plugins.concat({path: 'bundle.min.css', cwd: ''}))
+			.pipe(gulp.dest(paths.dist.styles))
+			.pipe($plugins.notify("CSS is ready..."))
+			.pipe($plugins.livereload());
+	}, 650);
 });
 
 // gulp.task('es6', () =>

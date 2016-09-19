@@ -11,8 +11,7 @@ exports = module.exports = function (req, res) {
 	// Init locals
 	locals.section = 'intro';
 	locals.intro = [];
-	var routes_name = "中心介紹";
-	locals.title = routes_name + ' - 興大多媒體中心';
+	locals.title = '中心介紹 - 興大多媒體中心';
 
 	view.on('init', function (next) {
 		var q = IntroPost.paginate({
@@ -24,13 +23,6 @@ exports = module.exports = function (req, res) {
 		.populate('author');
 
 		q.exec(function (err, results) {
-			var temp_results = results.results;
-			results.results = temp_results.map(function(result) {
-				if (_.isObject(result.image)) {
-					result.image = {};
-					return result;
-				}
-			})
 			locals.intro = results;
 			next(err);
 		});

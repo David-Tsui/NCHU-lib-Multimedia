@@ -8,7 +8,12 @@ block content
 	.ui.grid.main-container#index-news-container
 		.row.news-row
 			.sixteen.wide.column.list-items-container
-				h2.header= "最新消息"
+				aside
+					if user
+						a(href='/keystone/news-posts?new') 
+							button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.md.admin-ui-color= '新最新消息'
+				header
+					h2= "最新消息"
 				.space
 				.ui.link.items#list-news
 					each post in news.results

@@ -1,18 +1,18 @@
 var keystone = require('keystone');
-var IdeaPost = keystone.list('IdeaPost');
-var IdeaPostCategory = keystone.list('IdeaPostCategory');
+var CreatorsPost = keystone.list('CreatorsPost');
+var CreatorsPostCategory = keystone.list('CreatorsPostCategory');
 
 exports = module.exports = function (req, res) {
 
 	var view = new keystone.View(req, res);
 	var locals = res.locals;
 	var routes_map = {
-		table_game   : '玩桌遊',
-		line_stickers: 'line貼圖',
+		intro       : '聯盟介紹',
+		activities  : '聯盟活動'
 	};
 
 	// Init locals
-	locals.section = 'idea';
+	locals.section = 'creators';
 	locals.filters = {
 		category: req.params.type,
 	};
@@ -23,7 +23,7 @@ exports = module.exports = function (req, res) {
 	// Load all categories
 	view.on('init', function (next) {
 		if (req.params.type) {
-			IdeaPostCategory.model.findOne({ name: routes_name }).exec(function (err, result) {
+			CreatorsPostCategory.model.findOne({ name: routes_name }).exec(function (err, result) {
 				locals.category = result;
 				// console.log(result);
 				next(err);
@@ -34,7 +34,7 @@ exports = module.exports = function (req, res) {
 	});
 
 	view.on('init', function (next) {
-		var q = IdeaPost.model.find()
+		var q = CreatorsPost.model.find()
 			.where({'state':'published'})
 			.sort('-publishedDate')
 			.populate('author categories');
@@ -46,12 +46,11 @@ exports = module.exports = function (req, res) {
 		q.exec(function (err, results) {
 			locals.posts = results;
 			locals.posts.title = routes_name;
-			// console.log("results: ", results);
 			next(err);
 		});
 
 	});
 
 	// Render the view
-	view.render('idea');
+	view.render('creators');
 }
