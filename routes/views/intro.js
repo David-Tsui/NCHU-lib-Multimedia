@@ -23,13 +23,6 @@ exports = module.exports = function (req, res) {
 		.populate('author');
 
 		q.exec(function (err, results) {
-			var temp_results = results.results;
-			results.results = temp_results.map(function(result) {
-				if (_.isObject(result.image)) {
-					result.image = {};
-					return result;
-				}
-			})
 			locals.intro = results;
 			next(err);
 		});
