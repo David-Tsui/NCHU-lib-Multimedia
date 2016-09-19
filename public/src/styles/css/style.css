@@ -474,7 +474,6 @@ button.mdl-color--primary {
 #carousel-container {
   background-image: url("../assets/images/carousel_bg.png");
   background-size: 100% 420px;
-  padding: 2em 3em 0;
   margin-top: -1em; }
   #carousel-container .owl-carousel {
     width: 100%;
@@ -545,16 +544,13 @@ button.mdl-color--primary {
 
 #index-news-container {
   position: relative;
-  max-height: 700px;
-  padding: 2em 0; }
-  #index-news-container .news-row, #index-news-container .intro-row {
-    padding: 0 3em; }
-  #index-news-container .news-row .flipster-news-container {
+  max-height: 700px; }
+  #index-news-container .flipster-news-container {
     display: flex;
     align-items: center;
     padding: 3em 1em;
     overflow: hidden; }
-    #index-news-container .news-row .flipster-news-container:after {
+    #index-news-container .flipster-news-container:after {
       position: absolute;
       top: 0;
       left: 0;
@@ -562,10 +558,10 @@ button.mdl-color--primary {
       width: 50px;
       background: #fff;
       z-index: -1; }
-    #index-news-container .news-row .flipster-news-container .flipster--flat .flipster__item__content {
+    #index-news-container .flipster-news-container .flipster--flat .flipster__item__content {
       box-reflect: initial;
       -webkit-box-reflect: initial; }
-    #index-news-container .news-row .flipster-news-container .flipster--flat .flipster__item {
+    #index-news-container .flipster-news-container .flipster--flat .flipster__item {
       width: 40%; }
   #index-news-container .news-segment {
     background: rgba(0, 0, 0, 0.75);
@@ -608,9 +604,12 @@ button.mdl-color--primary {
   position: relative;
   padding: 0;
   z-index: 999; }
-  .list-items-container header > h2 {
-    width: 100%;
-    padding: 0 0 .3em; }
+  .list-items-container header {
+    margin-bottom: 6px; }
+    .list-items-container header h2 {
+      width: 100%;
+      padding: 0 0 .3em;
+      border-bottom: 1px #ddd solid; }
   .list-items-container .pagination {
     margin: 0;
     padding: 0; }
@@ -684,7 +683,8 @@ button.mdl-color--primary {
   .mdl-card .mdl-card__supporting-text {
     width: 100%;
     min-height: 250px;
-    max-height: 250px; }
+    max-height: 250px;
+    color: rgba(0, 0, 0, 0.75); }
     .mdl-card .mdl-card__supporting-text h4 {
       color: #555 !important; }
     .mdl-card .mdl-card__supporting-text .scrollable-text.scrollbar-inner {
@@ -698,6 +698,9 @@ button.mdl-color--primary {
     justify-content: space-between; }
     .mdl-card .mdl-card__actions.mdl-card--border time {
       padding: 0 16px; }
+  .mdl-card .mdl-button.btn-seeMovie {
+    background: #cdcdcd;
+    margin-left: 8px; }
 
 table.mdl-data-table {
   width: 100%; }
