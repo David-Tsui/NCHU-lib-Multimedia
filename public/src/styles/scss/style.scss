@@ -178,12 +178,8 @@ button.mdl-color--primary {
 					opacity: .8;
 				}
 				.owl-prev, .owl-next {
-<<<<<<< HEAD
 					margin: -.8em 1em 0;
 					background-color: rgb(83,109,254);
-=======
-	    		background-color: rgb(83,109,254);
->>>>>>> dea3c6c76db358489a0e241be7451a8755daaa77
 					color: #fff;
 				}
 				.owl-prev {
@@ -222,21 +218,12 @@ button.mdl-color--primary {
 							box-shadow: 0 0 15px 1px aliceblue;
 							opacity: 0;
 							@include transition(all .25s ease-in);
-<<<<<<< HEAD
 						}
 						&:hover {
 							&:before {
 								opacity: 1;
 							}
 						}
-=======
-						}
-						&:hover {
-							&:before {
-								opacity: 1;
-							}
-						}
->>>>>>> dea3c6c76db358489a0e241be7451a8755daaa77
 						img {
 							width: 100%;
 							height: 230px;
@@ -256,13 +243,6 @@ button.mdl-color--primary {
 	position  : relative;
 	max-height: 700px;
 	padding   : 2em 0;
-<<<<<<< HEAD
-
-	.header {
-		color: #fff;
-	}
-=======
->>>>>>> dea3c6c76db358489a0e241be7451a8755daaa77
 	// news 
 	.news-row, .intro-row {
 		padding: 0 3em;
@@ -271,11 +251,6 @@ button.mdl-color--primary {
 		.flipster-news-container {
 			display    : flex;
 			align-items: center;
-<<<<<<< HEAD
-			// margin     : 0 0 2em 0;
-=======
-			margin     : 0 0 2em 0;
->>>>>>> dea3c6c76db358489a0e241be7451a8755daaa77
 			padding    : 3em 1em;
 			overflow   : hidden;
 			&:after {
