@@ -1,6 +1,9 @@
 .google-search-box {
   position: absolute;
   width: 20vw;
+  margin-right: 4em;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
   right: 0;
   background: #fff;
   z-index: 2; }
@@ -11,6 +14,7 @@
     color: #fff; }
     .google-search-box .search .gsc-control-cse.gsc-control-cse-zh_TW {
       background: transparent;
+      padding: 0;
       border: none; }
     .google-search-box .search .gsc-search-box-tools .gsc-search-box {
       display: flex;
@@ -34,8 +38,8 @@
         color: #fff;
         border: none;
         border-radius: 0;
-        margin: 6px 0 0;
-        height: 100%; }
+        margin: 10px 0 0;
+        height: 119%; }
         .google-search-box .search .gsc-search-box-tools .gsc-search-box input.gsc-search-button-v2:hover {
           background-color: #00beac; }
     .google-search-box .search #___gcse_0 {

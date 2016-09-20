@@ -328,9 +328,49 @@
     .svg-btn-container polygon.inner.selected {
       fill: #74FF92; }
 
+ul.pagination {
+  width: 100%;
+  text-align: center;
+  padding: 1.5em;
+  list-style-type: none; }
+  ul.pagination li {
+    display: inline-block;
+    font-size: 1.5em;
+    padding: 6px 16px;
+    line-height: 30px;
+    border-radius: 0;
+    text-align: center;
+    color: #fff; }
+    ul.pagination li.first, ul.pagination li.prev, ul.pagination li.next, ul.pagination li.last {
+      padding: 2px 4px; }
+    ul.pagination li i {
+      vertical-align: middle;
+      padding: 0;
+      font-size: 1.8em; }
+    ul.pagination li a {
+      color: #fff; }
+    ul.pagination li.active {
+      background-color: #009688; }
+  ul.pagination.vertical {
+    position: absolute;
+    top: 4em;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: auto;
+    padding: 0;
+    margin: 0; }
+    ul.pagination.vertical li {
+      padding: 0 10px;
+      line-height: 30px; }
+
 .google-search-box {
   position: absolute;
   width: 20vw;
+  margin-right: 4em;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
   right: 0;
   background: #fff;
   z-index: 2; }
@@ -341,6 +381,7 @@
     color: #fff; }
     .google-search-box .search .gsc-control-cse.gsc-control-cse-zh_TW {
       background: transparent;
+      padding: 0;
       border: none; }
     .google-search-box .search .gsc-search-box-tools .gsc-search-box {
       display: flex;
@@ -364,8 +405,8 @@
         color: #fff;
         border: none;
         border-radius: 0;
-        margin: 6px 0 0;
-        height: 100%; }
+        margin: 10px 0 0;
+        height: 119%; }
         .google-search-box .search .gsc-search-box-tools .gsc-search-box input.gsc-search-button-v2:hover {
           background-color: #00beac; }
     .google-search-box .search #___gcse_0 {
@@ -406,7 +447,8 @@ body {
 
 .ui.grid.main-container {
   padding: 2em 4em; }
-  .ui.grid.main-container > h1, .ui.grid.main-container > h2, .ui.grid.main-container > h3, .ui.grid.main-container > h4, .ui.grid.main-container > h5, .ui.grid.main-container > h6, .ui.grid.main-container header {
+  .ui.grid.main-container > h1, .ui.grid.main-container > h2, .ui.grid.main-container > h3, .ui.grid.main-container > h4, .ui.grid.main-container > h5, .ui.grid.main-container > h6,
+  .ui.grid.main-container header, .ui.grid.main-container h4.prompt, .ui.grid.main-container h5.prompt {
     color: #fff; }
   .ui.grid.main-container aside {
     margin-bottom: 2em; }
@@ -436,40 +478,6 @@ button.mdl-color--primary {
 
 .scrollbar-inner > .scroll-element .scroll-bar {
   background-color: #222; }
-
-.pagination {
-  list-style-type: none;
-  width: 100%;
-  text-align: center;
-  padding: 1.5em; }
-  .pagination li {
-    display: inline-block;
-    font-size: 1.5em;
-    padding: 0 10px;
-    line-height: 30px;
-    border-radius: 0;
-    text-align: center;
-    color: #fff; }
-    .pagination li i {
-      font-size: 2.2em;
-      vertical-align: middle; }
-    .pagination li a {
-      color: #fff; }
-    .pagination li.active {
-      background-color: #009688; }
-  .pagination.vertical {
-    position: absolute;
-    top: 4em;
-    right: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: auto;
-    padding: 0;
-    margin: 0; }
-    .pagination.vertical li {
-      padding: 0 10px;
-      line-height: 30px; }
 
 #carousel-container {
   background-image: url("../assets/images/carousel_bg.png");
@@ -570,6 +578,7 @@ button.mdl-color--primary {
       text-align: initial; }
       #index-news-container .news-segment .news-item .content {
         position: relative;
+        padding-bottom: 1em;
         z-index: 999; }
         #index-news-container .news-segment .news-item .content .title {
           padding-top: 1em; }
@@ -663,7 +672,7 @@ button.mdl-color--primary {
     .intro-row .flipster-news-container .flipster__button {
       display: none; }
   .intro-row .intro-segment .description {
-    padding: 3em;
+    padding: 2em;
     overflow-y: scroll; }
 
 #movie-blog .ui.segment h1, #movie-blog .ui.segment h2, #movie-blog .ui.segment h3, #movie-blog .ui.segment h4, #movie-blog .ui.segment h5, #movie-blog .ui.segment h6 {
@@ -699,11 +708,12 @@ button.mdl-color--primary {
     .mdl-card .mdl-card__actions.mdl-card--border time {
       padding: 0 16px; }
   .mdl-card .mdl-button.btn-seeMovie {
-    background: #cdcdcd;
+    background: rgba(205, 205, 205, 0.5);
     margin-left: 8px; }
 
 table.mdl-data-table {
-  width: 100%; }
+  width: 100%;
+  margin-top: 5em; }
   table.mdl-data-table caption {
     margin-bottom: 1em; }
   table.mdl-data-table th, table.mdl-data-table td {
