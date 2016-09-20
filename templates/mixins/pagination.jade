@@ -1,16 +1,12 @@
-mixin pagination(source)
-	ul.pagination
-		each p, i in source.pages
-			li(class=source.currentPage === p ? 'active' : null)
-				a(href='?page=' + (p === '...' ? (i ? source.totalPages : 1) : p ))= p
-	script.
-		var source = !{JSON.stringify(source).replace(/<\//g, "<\\/")};
-		$('ul.pagination').twbsPagination({
-			totalPages  : source.totalPages,
-			visiblePages: 7,
-			href        : '?page={{number}}',
-			first       : '<i class="material-icons">first_page</i>',
-			prev        : '<i class="material-icons">chevron_left</i>',
-			next        : '<i class="material-icons">chevron_right</i>',
-			last        : '<i class="material-icons">last_page</i>'
-		});
+mixin pagination(source, is_small)
+	- is_small = is_small || false
+	if is_small
+		ul.pagination.small(data-pages="#{source.totalPages}")
+			each p, i in source.pages
+				li(class=source.currentPage === p ? 'active' : null)
+					a(href='?page=' + (p === '...' ? (i ? source.totalPages : 1) : p ))= p
+	else
+		ul.pagination(data-pages="#{source.totalPages}")
+			each p, i in source.pages
+				li(class=source.currentPage === p ? 'active' : null)
+					a(href='?page=' + (p === '...' ? (i ? source.totalPages : 1) : p ))= p

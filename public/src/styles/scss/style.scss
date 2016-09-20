@@ -338,11 +338,18 @@ button.mdl-color--primary {
 	}
 }
 
-// 中心介紹
+// 中心介紹、愛創聯盟
 .intro-row {
 	// min-height: 100vh;
 	margin-bottom: -2em;
 	padding: 0 2em !important;
+
+	.sticky-list {
+		header {
+			padding-top: 3em;
+		}
+	}
+
 	.flipster-news-container {
 		margin-top: 5em !important;
 		overflow: hidden;
@@ -375,12 +382,17 @@ button.mdl-color--primary {
 	}
 }
 
+#four-movies-grid {
+	padding: 0 2em;
+}
 
 
 // 影音card
 .mdl-card {
 	width: 100%;
+	max-width: 320px;
 	height: 660px;
+	margin: 0 auto;
 	.mdl-card__title {
 		color: #fff;
 	}
@@ -425,7 +437,7 @@ button.mdl-color--primary {
 // 單一影音
 table.mdl-data-table {
 	width: 100%;
-	margin-top: 5em;
+	// margin-top: 5em;
 	& caption {
 		margin-bottom: 1em;
 	}
@@ -446,6 +458,10 @@ table.mdl-data-table {
 			display: flex;
 			align-items: center;
 			justify-content: space-between;
+		}
+		.ui.label {
+			background: #fff581;
+			box-shadow: 0 0 2px 1px #444;
 		}
 	}
 }
@@ -472,6 +488,9 @@ table.mdl-data-table {
 
 
 @media only screen and (max-width: 1600px) {
+	#four-movies-grid {
+		padding: 0 6em;
+	}
 	.owl-theme .owl-controls .owl-page span {
 		width: 10px;
 		height: 12px;

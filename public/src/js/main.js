@@ -50,46 +50,6 @@ $(document).ready(function() {
 		duration: 150
 	});
 
-	// var carousel_item_width = $("#carousel .item").width() + 20 * 2;
-	// // console.log("carousel_item_width: ", carousel_item_width);
-	// var switch_items_num = 3;
-	// var adjust = 0;
-	// if ($("body").width() < 1024) {
-	// 	$("#carousel .item").css("width", "calc(100% / 3 - 12px * 2");
-	// 	carousel_item_width = $("#carousel .item").width() + 16 * 2;
-	// 	adjust = 24;
-	// }
-	// $('#carousel').scrollbox({
-	// 	direction: 'h',
-	//   switchItems: switch_items_num,
-	//   distance: carousel_item_width * switch_items_num + adjust,
-	//   // delay: 0.5,
-	//   delay: 4,
-	//   speed: 50,
-	// });
-
-
-	// $('#carousel').resize(function() {
-	// 	console.log("resize");
-	// 	var carousel_item_width = $("#carousel .item").width() + 20 * 2;
-	// 	// console.log("carousel_item_width: ", carousel_item_width);
-	// 	var switch_items_num = 3;
-	// 	var adjust = 0;
-	// 	if ($("body").width() < 1024) {
-	// 		$("#carousel .item").css("width", "calc(100% / 3 - 12px * 2");
-	// 		carousel_item_width = $("#carousel .item").width() + 16 * 2;
-	// 		adjust = 24;
-	// 	}
-	// 	$('#carousel').scrollbox({
-	// 		direction: 'h',
-	// 	  switchItems: switch_items_num,
-	// 	  distance: carousel_item_width * switch_items_num + adjust,
-	// 	  // delay: 0.5,
-	// 	  delay: 4,
-	// 	  speed: 50,
-	// 	  queue: null
-	// 	});
-	// });
 	
 	$('.owl-carousel').owlCarousel({
 		items            : 3, 
@@ -140,6 +100,23 @@ $(document).ready(function() {
 			changeSvgFill(id, "mouseleave");
 		}
 	});
+
+	// Initialized pagination
+	var $paginations = $('ul.pagination');
+	$paginations.each(function() {
+		// console.log("this: ", this);
+		var totalPages = $(this).data("pages");
+		$(this).twbsPagination({
+			totalPages  : totalPages,
+			visiblePages: 7,
+			href        : '?page={{number}}',
+			first       : '<i class="material-icons">first_page</i>',
+			prev        : '<i class="material-icons">chevron_left</i>',
+			next        : '<i class="material-icons">chevron_right</i>',
+			last        : '<i class="material-icons">last_page</i>'
+		});
+	});
+	
 });
 
 function changeSvgFill(id, cond) {
@@ -152,7 +129,7 @@ function changeSvgFill(id, cond) {
 }
 
 function setSectionHighlight(path) {
-	console.log("path: ", path);
+	// console.log("path: ", path);
 	if (path == "/" || !(path.search("/news/posts/") < 0)) {
 		$("svg#index polygon").addClass('selected');
 	} else if (!(path.search("/about/") < 0)) {

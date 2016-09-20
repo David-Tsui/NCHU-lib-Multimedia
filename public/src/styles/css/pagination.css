@@ -21,6 +21,12 @@ ul.pagination {
       color: #fff; }
     ul.pagination li.active {
       background-color: #009688; }
+  ul.pagination.small {
+    font-size: 10px; }
+    ul.pagination.small li.page {
+      padding: 0px 12px;
+      line-height: 30px;
+      border-radius: 50%; }
   ul.pagination.vertical {
     position: absolute;
     top: 4em;

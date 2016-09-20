@@ -1,6 +1,7 @@
-var keystone = require('keystone');
-var CreatorsPost = keystone.list('CreatorsPost');
-var CreatorsPostCategory = keystone.list('CreatorsPostCategory');
+var keystone                = require('keystone');
+var fix_keystone_pagination = require('../helpers/fix_keystone_pagination');
+var CreatorsPost            = keystone.list('CreatorsPost');
+var CreatorsPostCategory    = keystone.list('CreatorsPostCategory');
 
 exports = module.exports = function (req, res) {
 
@@ -33,22 +34,40 @@ exports = module.exports = function (req, res) {
 		}
 	});
 
+	// Get the total num
 	view.on('init', function (next) {
-		var q = CreatorsPost.model.find()
-			.where({'state':'published'})
-			.sort('-publishedDate')
-			.populate('author categories');
+		var q = CreatorsPost.model.find().where('state', 'published');
+		if (locals.category) {
+			q.where('categories').in([locals.category]);
+		}
+		q.exec(function (err, results) {
+			console.log("total_num: ", results);
+			locals.posts_count = results.length; 
+			next(err);
+		});
+	});
+
+	view.on('init', function (next) {
+		var per_page = 6, max_page = 3;
+		var q = CreatorsPost.paginate({
+			page    : req.query.page || 1,
+			perPage : per_page,
+			maxPages: max_page,
+		})
+		.where('state', 'published')
+		.sort('-publishedDate')
+		.populate('author categories');
 
 		if (locals.category) {
 			q.where('categories').in([locals.category]);
 		}
 
 		q.exec(function (err, results) {
-			locals.posts = results;
+			locals.posts = fix_keystone_pagination(results, locals.posts_count, per_page);
 			locals.posts.title = routes_name;
+			console.log("locals.posts: ", locals.posts);
 			next(err);
 		});
-
 	});
 
 	// Render the view

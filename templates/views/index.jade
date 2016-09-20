@@ -12,8 +12,8 @@ block content
 			header
 				h2.header= "最新消息"
 			+news_list(news.results, "NewsPost")
-			+pagination(news.results)
-			a.ui.button(href='/news/list') 顯示全部
+			+pagination(news, true)
+			//- a.ui.button(href='/news/list') 顯示全部
 		.thirteen.wide.column.flipster-news-container
 			.flat-flipster
 				+news_slide(news.results, "NewsPost")

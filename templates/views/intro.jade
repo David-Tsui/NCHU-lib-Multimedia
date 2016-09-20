@@ -9,11 +9,17 @@ block content
 				aside
 					if user
 						a(href='/keystone/intro-posts') 
-							button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.md.admin-ui-color= '修改介紹'
-				header
-					h2.header= "中心介紹"
-				+news_list(intro.results, "IntroPost")
+							button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.md.admin-ui-color= '修改中心介紹'
+				.ui.sticky.sticky-list
+					header
+						h2.header= "中心介紹"
+					+news_list(intro.results, "IntroPost")
 			.twelve.wide.column.flipster-news-container
 				.flat-flipster
 					+intro_slide(intro.results, "IntroPost")
+	script.
+		$('.ui.sticky').sticky({
+			context: '.flipster-news-container',
+			pushing: true
+		});
 			
