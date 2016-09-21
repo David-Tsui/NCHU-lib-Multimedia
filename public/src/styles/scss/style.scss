@@ -1,6 +1,7 @@
 @import "bourbon";
 @import "special_transition";
 @import "navbar";
+@import "pagination";
 @import "search-bar";
 
 @include font-face("cwTeXHei", "//fonts.gstatic.com/ea/cwtexhei/v3/cwTeXHei-zhonly", normal, 400);
@@ -46,7 +47,8 @@ body {
 .ui.grid.main-container {
 	// min-height: 100vh;
 	padding: 2em 4em;
-	& > h1, & > h2, & > h3, & > h4, & > h5, & > h6, header{
+	& > h1, & > h2, & > h3, & > h4, & > h5, & > h6,
+	header, h4.prompt, h5.prompt {
 		color: #fff;
 	} 
 	aside {
@@ -92,50 +94,6 @@ button.mdl-color--primary {
 // specific scrollbar 
 .scrollbar-inner > .scroll-element .scroll-bar {
 	background-color: #222;
-}
-
-// pagination
-.pagination {
-	list-style-type: none;
-	width: 100%;
-	text-align: center;
-	padding: 1.5em;
-	li {
-		display: inline-block;
-		font-size: 1.5em;
-		padding: 0 10px;
-		line-height: 30px;
-		border-radius: 0;
-		text-align: center;
-		color: #fff;
-		i {
-			font-size: 2.2em;
-			vertical-align: middle;
-		}
-		a {
-			color: #fff;
-		}
-		&.active {
-			background-color: #009688;
-		}
-	}
-
-	&.vertical {
-		position: absolute;
-		top: 4em;
-		// left: 100%;
-		right: 0;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		width: auto;
-		padding: 0;
-		margin: 0;
-		li {
-			padding: 0 10px;
-			line-height: 30px;
-		}
-	}
 }
 
 // 首頁carousel
@@ -241,7 +199,6 @@ button.mdl-color--primary {
 #index-news-container {
 	position  : relative;
 	max-height: 700px;
-	// padding   : 2em 0;
 	// news 
 	.flipster-news-container {
 		display    : flex;
@@ -274,6 +231,7 @@ button.mdl-color--primary {
 			text-align: initial;
 			.content {
 				position: relative;
+				padding-bottom: 1em;
 				z-index: 999;
 				.title {
 					padding-top: 1em;
@@ -315,6 +273,16 @@ button.mdl-color--primary {
 					flex: 2;
 				}
 			}
+		}
+	}
+}
+
+#other-article-container {
+	@extend #index-news-container;
+	max-height: 900px;
+	.flipster-news-container {
+		.flipster--flat .flipster__item {
+			width: 60%;
 		}
 	}
 }
@@ -379,11 +347,21 @@ button.mdl-color--primary {
 	}
 }
 
-// 中心介紹
-.intro-row {
-	// min-height: 100vh;
+// 中心介紹、愛創聯盟、玩創意
+
+.slide-row {
 	margin-bottom: -2em;
 	padding: 0 2em !important;
+}
+
+.intro-slide-row {
+	@extend .slide-row;
+	.sticky-list {
+		header {
+			padding-top: 3em;
+		}
+	}
+
 	.flipster-news-container {
 		margin-top: 5em !important;
 		overflow: hidden;
@@ -401,11 +379,14 @@ button.mdl-color--primary {
 		.description {
 			// min-height: 75vh;
 			// max-height: 75vh;
-			padding: 3em;
+			padding: 2em;
 			overflow-y: scroll;
 		}
 	}
 }
+
+
+
 
 // 影音blog
 #movie-blog {
@@ -416,12 +397,17 @@ button.mdl-color--primary {
 	}
 }
 
+#four-movies-grid {
+	padding: 0 2em;
+}
 
 
 // 影音card
 .mdl-card {
 	width: 100%;
+	max-width: 320px;
 	height: 660px;
+	margin: 0 auto;
 	.mdl-card__title {
 		color: #fff;
 	}
@@ -458,7 +444,7 @@ button.mdl-color--primary {
 		}
 	}
 	.mdl-button.btn-seeMovie {
-		background: #cdcdcd;
+		background : rgba(205, 205, 205, 0.5);
 		margin-left: 8px;
 	}
 }
@@ -466,6 +452,7 @@ button.mdl-color--primary {
 // 單一影音
 table.mdl-data-table {
 	width: 100%;
+	// margin-top: 5em;
 	& caption {
 		margin-bottom: 1em;
 	}
@@ -486,6 +473,10 @@ table.mdl-data-table {
 			display: flex;
 			align-items: center;
 			justify-content: space-between;
+		}
+		.ui.label {
+			background: #fff581;
+			box-shadow: 0 0 2px 1px #444;
 		}
 	}
 }
@@ -510,6 +501,17 @@ table.mdl-data-table {
 	}
 }
 
+@media only screen and (min-width: 1599px) {
+	#four-movies-grid {
+		padding: 0 6em;
+	}
+}
+
+@media only screen and (mix-width: 1919px) {
+	#four-movies-grid {
+		padding: 0 8em;
+	}
+}
 
 @media only screen and (max-width: 1600px) {
 	.owl-theme .owl-controls .owl-page span {

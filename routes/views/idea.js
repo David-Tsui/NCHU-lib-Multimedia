@@ -1,6 +1,7 @@
-var keystone = require('keystone');
-var IdeaPost = keystone.list('IdeaPost');
-var IdeaPostCategory = keystone.list('IdeaPostCategory');
+var keystone                = require('keystone');
+var fix_keystone_pagination = require('../helpers/fix_keystone_pagination');
+var IdeaPost                = keystone.list('IdeaPost');
+var IdeaPostCategory        = keystone.list('IdeaPostCategory');
 
 exports = module.exports = function (req, res) {
 
@@ -44,9 +45,9 @@ exports = module.exports = function (req, res) {
 		}
 
 		q.exec(function (err, results) {
-			locals.posts = results;
+			locals.posts = {results: results};
 			locals.posts.title = routes_name;
-			// console.log("results: ", results);
+			console.log("posts: ", locals.posts);
 			next(err);
 		});
 

@@ -17,7 +17,7 @@
 .nav-grid .hit-counter:before{content:"訪客人數：";position:absolute;width:85%;top:1px;right:100%;color:#eee;font-weight:700;font-size:1em}
 .nav-grid .hit-counter small{display:none}
 .svg-btn-container{flex:1;display:flex;justify-content:center;align-items:center;position:relative;height:70px;padding:0 2em}
-.svg-btn-container .svg-bg{position:absolute;width:220px;height:72px}
+.svg-btn-container .svg-bg{position:absolute;width:220px;height:72px;top:-3px}
 .svg-btn-container polygon.outer{fill:#8cebff;-webkit-transition:all .35s;-moz-transition:all .35s;transition:all .35s}
 .svg-btn-container polygon.outer.active{fill:#AFCBFF}
 .svg-btn-container polygon.outer.selected{fill:#B7FFB7}

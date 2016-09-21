@@ -6,55 +6,57 @@ block content
 			h2 電影不存在!
 			p.lead 請檢查網址並再次嘗試...
 	else
-		.ui.container.main-container
-			.ui.centered.grid
-				.two.column.row
-					.column
-						article(data-ks-editable=editable(user, { list: 'Movie', id: movie.id }))
-							table.mdl-data-table.mdl-js-data-table.mdl-shadow--2dp
-								caption
-									.ui.fluid.image
-										img(src=movie.image.url)
-								tbody
-									tr
-										td.mdl-data-table__cell--non-numeric 導演
-										td= movie.director
-									tr
-										td.mdl-data-table__cell--non-numeric 演員
-										td!= movie.actor
-									tr
-										td.mdl-data-table__cell--non-numeric 館藏連結
-										td
-											a(href='http://aleph.lib.nchu.edu.tw/F/?func=item-global&doc_library=TOP02&doc_number=' + movie.link + '&year=&volume=&sub_library=') 連結
-									tr
-										td.mdl-data-table__cell--non-numeric 分級
-										if movie.classification_categories
-											td= movie.classification_categories.name
-										else 
-											td
-									tr
-										td.mdl-data-table__cell--non-numeric 片長
-										td= movie.videoTime
-									tr
-										td.mdl-data-table__cell--non-numeric 進館日
-										td= movie._.inDate.format('YYYY年M月D日')
-									tr
-										td.mdl-data-table__cell--non-numeric 主題分類
-										td
-											if movie.theme_categories
-												each category in movie.theme_categories
-													.ui.label= category.name
-									tr
-										td.mdl-data-table__cell--non-numeric 國別分類
-										td
-											if movie.region_categories
-												.ui.label= movie.region_categories.name
-					.column
-						section.ui.segment.movie-intro.mdl-shadow--2dp
-							aside
-								a(href="/movies/movie_blog") 
-									button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-color--primary.btn-back 回影片總覽
-							h3!= movie.name
-							h4!= movie.english_name
-							h5!= '影片簡介'
-							p!= movie.content.extended
+		.ui.grid.main-container
+			.three.wide.column
+			.five.wide.column
+				div(data-ks-editable=editable(user, { list: 'Movie', id: movie.id }))
+					table.mdl-data-table.mdl-js-data-table.mdl-shadow--2dp
+						caption
+							.ui.fluid.image
+								img(src=movie.image.url)
+						tbody
+							tr
+								td.mdl-data-table__cell--non-numeric 導演
+								td= movie.director
+							tr
+								td.mdl-data-table__cell--non-numeric 演員
+								td!= movie.actor
+							tr
+								td.mdl-data-table__cell--non-numeric 館藏連結
+								td
+									a(href='http://aleph.lib.nchu.edu.tw/F/?func=item-global&doc_library=TOP02&doc_number=' + movie.link + '&year=&volume=&sub_library=') 連結
+							tr
+								td.mdl-data-table__cell--non-numeric 分級
+								if movie.classification_categories
+									td= movie.classification_categories.name
+								else 
+									td
+							tr
+								td.mdl-data-table__cell--non-numeric 片長
+								td= movie.videoTime
+							tr
+								td.mdl-data-table__cell--non-numeric 進館日
+								td= movie._.inDate.format('YYYY年M月D日')
+							tr
+								td.mdl-data-table__cell--non-numeric 主題分類
+								td
+									if movie.theme_categories
+										each category in movie.theme_categories
+											.ui.label= category.name
+							tr
+								td.mdl-data-table__cell--non-numeric 國別分類
+								td
+									if movie.region_categories
+										.ui.label= movie.region_categories.name
+			.five.wide.column
+				section.ui.segment.movie-intro.mdl-shadow--2dp
+					aside
+						a(href="/movies/movie_blog") 
+							button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-color--primary.btn-back 回影片總覽
+					h3!= movie.name
+					h4!= movie.english_name
+					h5!= '影片簡介'
+					p!= movie.content.extended
+			.three.wide.column
+						
+						
