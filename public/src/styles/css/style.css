@@ -471,17 +471,17 @@ body {
 .main-footer {
   position: absolute;
   width: 100%;
-  box-sizing: content-box;
+  background: rgba(4, 15, 79, 0.8);
+  text-align: center;
   margin-top: 3em;
   padding: 2em 1em;
-  background: rgba(4, 15, 79, 0.8);
-  color: #eee;
-  text-align: center; }
+  box-sizing: content-box;
+  color: #eee; }
   .main-footer p {
     font-size: 1.25em; }
 
 button.mdl-color--primary {
-  color: white; }
+  color: #fff; }
 
 .scrollbar-inner > .scroll-element .scroll-bar {
   background-color: #222; }
@@ -692,8 +692,29 @@ button.mdl-color--primary {
   padding: 2em;
   overflow-y: scroll; }
 
+table.mdl-data-table {
+  width: 100%; }
+  table.mdl-data-table caption {
+    margin-bottom: 1em; }
+  table.mdl-data-table th, table.mdl-data-table td {
+    color: #444;
+    font-size: 16px; }
+  table.mdl-data-table th {
+    font-weight: 700; }
+  table.mdl-data-table td.category-header {
+    text-align: left;
+    font-size: 1.5em;
+    color: #444; }
+  table.mdl-data-table td a.td-a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; }
+
 #movie-blog .ui.segment h1, #movie-blog .ui.segment h2, #movie-blog .ui.segment h3, #movie-blog .ui.segment h4, #movie-blog .ui.segment h5, #movie-blog .ui.segment h6 {
   color: #444; }
+
+#movie-blog table.mdl-data-table.category-table {
+  margin-top: 5em; }
 
 #four-movies-grid {
   padding: 0 2em; }
@@ -733,26 +754,9 @@ button.mdl-color--primary {
     background: rgba(205, 205, 205, 0.5);
     margin-left: 8px; }
 
-table.mdl-data-table {
-  width: 100%; }
-  table.mdl-data-table caption {
-    margin-bottom: 1em; }
-  table.mdl-data-table th, table.mdl-data-table td {
-    color: #444;
-    font-size: 16px; }
-  table.mdl-data-table th {
-    font-weight: 700; }
-  table.mdl-data-table td.category-header {
-    text-align: center;
-    font-size: 1.25em;
-    color: #444; }
-  table.mdl-data-table td a.td-a {
-    display: flex;
-    align-items: center;
-    justify-content: space-between; }
-  table.mdl-data-table td .ui.label {
-    background: #fff581;
-    box-shadow: 0 0 2px 1px #444; }
+table.mdl-data-table.detail-table td .ui.label {
+  background: #fff581;
+  box-shadow: 0 0 2px 1px #444; }
 
 .ui.segment.movie-intro {
   border-radius: 0;

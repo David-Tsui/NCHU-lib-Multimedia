@@ -74,21 +74,21 @@ body {
 }
 
 .main-footer {
-	position: absolute;
-	width: 100%;
-	box-sizing: content-box;
-	margin-top: 3em;
-	padding: 2em 1em;
+	position  : absolute;
+	width     : 100%;
 	background: rgba(4, 15, 79, 0.8);
-	color: #eee;
 	text-align: center;
+	margin-top: 3em;
+	padding   : 2em 1em;
+	box-sizing: content-box;
+	color     : #eee;
 	p {
 		font-size: 1.25em;
 	}
 }
 
 button.mdl-color--primary {
-	color: white;
+	color: #fff;
 }
 
 // specific scrollbar 
@@ -386,14 +386,41 @@ button.mdl-color--primary {
 }
 
 
-
-
 // 影音blog
+table.mdl-data-table {
+	width: 100%;
+	& caption {
+		margin-bottom: 1em;
+	}
+	th, td {
+		color: #444;
+		font-size: 16px;
+	}
+	th {
+		font-weight: 700;
+	}
+	td {
+		&.category-header {
+			text-align: left;
+			font-size : 1.5em;
+			color     : #444;
+		}
+		a.td-a {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+		}
+	}
+}
+
 #movie-blog {
 	.ui.segment {
 		h1, h2, h3, h4, h5, h6 {
 			color: #444;
 		}
+	}
+	table.mdl-data-table.category-table {
+		margin-top: 5em;
 	}
 }
 
@@ -450,30 +477,8 @@ button.mdl-color--primary {
 }
 
 // 單一影音
-table.mdl-data-table {
-	width: 100%;
-	// margin-top: 5em;
-	& caption {
-		margin-bottom: 1em;
-	}
-	th, td {
-		color: #444;
-		font-size: 16px;
-	}
-	th {
-		font-weight: 700;
-	}
+table.mdl-data-table.detail-table {
 	td {
-		&.category-header {
-			text-align: center;
-			font-size : 1.25em;
-			color     : #444;
-		}
-		a.td-a {
-			display: flex;
-			align-items: center;
-			justify-content: space-between;
-		}
 		.ui.label {
 			background: #fff581;
 			box-shadow: 0 0 2px 1px #444;
