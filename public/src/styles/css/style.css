@@ -445,7 +445,7 @@ html, body {
   height: 100%; }
 
 html, body, h1, h2, h3, h4, h5, h6, .ui.menu, .ui.button, .mdl-button {
-  font-family: Arial, 'cwTeXHei', "��Ȫ�A����", "WenQuanYi Zen Hei", "΢ܛ�����w", "Microsoft JhengHei", "�˿��w", sans-serif; }
+  font-family: Arial, 'cwTeXHei', "文泉驛正黑", "WenQuanYi Zen Hei", "微軟正黑體", "Microsoft JhengHei", "標楷體", sans-serif; }
 
 body {
   position: relative;
