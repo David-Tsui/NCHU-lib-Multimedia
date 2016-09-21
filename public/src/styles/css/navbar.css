@@ -79,7 +79,8 @@
   .svg-btn-container .svg-bg {
     position: absolute;
     width: 220px;
-    height: 72px; }
+    height: 72px;
+    top: -3px; }
   .svg-btn-container polygon.outer {
     fill: #8cebff;
     -webkit-transition: all 0.35s;

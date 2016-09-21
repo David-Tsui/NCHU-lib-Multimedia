@@ -41,7 +41,6 @@ exports = module.exports = function (req, res) {
 			q.where('categories').in([locals.category]);
 		}
 		q.exec(function (err, results) {
-			console.log("total_num: ", results);
 			locals.posts_count = results.length; 
 			next(err);
 		});

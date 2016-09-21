@@ -39,10 +39,12 @@ exports.options = {
 };
 
 exports.locals = {
-	_       : require('lodash'),
-	env     : process.env.NODE_ENV,
-	utils   : keystone.utils,
-	editable: keystone.content.editable,
+	_          : require('lodash'),
+	env        : process.env.NODE_ENV,
+	ga_property: process.env.GA_PROPERTY,
+	ga_domain  : process.env.GA_DOMAIN,
+	utils      : keystone.utils,
+	editable   : keystone.content.editable,
 };
 
 exports.nav = {

@@ -4,17 +4,17 @@ include ../mixins/news-list
 include ../mixins/pagination
 
 block content
-	.ui.grid.main-container
-		.row.intro-row
+	.ui.grid.main-container#other-article-container
+		.row.slide-row
 			.four.wide.column.list-items-container
-				aside
+				aside.admin-ui
 					if user
-						a(href='/keystone/intro-posts') 
-							button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.md.admin-ui-color= '修改聯盟文章'
+						a(href='/keystone/creators-posts') 
+							button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.md.admin-ui-color= '修改文章'
 				header
 					h2.header= posts.title
 				+news_list(posts.results, "CreatorsPost")
 				//- +pagination(posts)
 			.twelve.wide.column.flipster-news-container
 				.flat-flipster
-					+news_slide(posts.results, "CreatorsPost")
+					+news_slide(posts.results, "CreatorsPost", 2.5)

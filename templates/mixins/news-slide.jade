@@ -1,4 +1,5 @@
-mixin news_slide(posts, listName)
+mixin news_slide(posts, listName, scale)
+	- scale = scale || 1
 	ul
 		each post in posts
 			li(data-slide="#{post.name}")
@@ -7,7 +8,7 @@ mixin news_slide(posts, listName)
 						if post.image.height >= post.image.width
 							.news-item.vertical.special-segment(data-ks-editable=editable(user, { list: listName, id: post.id }))
 								.ui.image.news-image-vertical
-									img(src=post._.image.fit(378,560))
+									img(src=post._.image.fit(378 * scale,560 * scale))
 								.content
 									.title
 										h4!= post.name
@@ -31,7 +32,7 @@ mixin news_slide(posts, listName)
 						else if post.image.height < post.image.width
 							.news-item.horizontal.special-segment(data-ks-editable=editable(user, { list: listName, id: post.id }))
 								.ui.image.news-image-horizontal
-									img(src=post._.image.fit(560,378))
+									img(src=post._.image.fit(560 * scale,378 * scale))
 								.content
 									.title
 										h4!= post.name

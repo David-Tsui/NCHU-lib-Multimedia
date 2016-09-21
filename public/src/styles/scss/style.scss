@@ -199,7 +199,6 @@ button.mdl-color--primary {
 #index-news-container {
 	position  : relative;
 	max-height: 700px;
-	// padding   : 2em 0;
 	// news 
 	.flipster-news-container {
 		display    : flex;
@@ -278,6 +277,16 @@ button.mdl-color--primary {
 	}
 }
 
+#other-article-container {
+	@extend #index-news-container;
+	max-height: 900px;
+	.flipster-news-container {
+		.flipster--flat .flipster__item {
+			width: 60%;
+		}
+	}
+}
+
 .list-items-container {
 	display: flex;
 	flex-direction: column;
@@ -338,12 +347,15 @@ button.mdl-color--primary {
 	}
 }
 
-// 中心介紹、愛創聯盟
-.intro-row {
-	// min-height: 100vh;
+// 中心介紹、愛創聯盟、玩創意
+
+.slide-row {
 	margin-bottom: -2em;
 	padding: 0 2em !important;
+}
 
+.intro-slide-row {
+	@extend .slide-row;
 	.sticky-list {
 		header {
 			padding-top: 3em;
@@ -372,6 +384,9 @@ button.mdl-color--primary {
 		}
 	}
 }
+
+
+
 
 // 影音blog
 #movie-blog {
@@ -486,11 +501,19 @@ table.mdl-data-table {
 	}
 }
 
-
-@media only screen and (max-width: 1600px) {
+@media only screen and (min-width: 1599px) {
 	#four-movies-grid {
 		padding: 0 6em;
 	}
+}
+
+@media only screen and (mix-width: 1919px) {
+	#four-movies-grid {
+		padding: 0 8em;
+	}
+}
+
+@media only screen and (max-width: 1600px) {
 	.owl-theme .owl-controls .owl-page span {
 		width: 10px;
 		height: 12px;

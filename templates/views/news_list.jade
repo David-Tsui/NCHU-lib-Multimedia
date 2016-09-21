@@ -20,6 +20,6 @@ block content
 						a.item.slide-link(data-slide="#{post.name}" data-ks-editable=editable(user, { list: 'NewsPost', id: post.id }) href=`/news/posts/${post.key}`)
 							.content
 								p= post.name
-								p= post._.publishedDate.format('YYYY年 M月 D日')
+								p= post._.publishedDate.format('YYYY-MM-DD')
 			+pagination(news)
 			
