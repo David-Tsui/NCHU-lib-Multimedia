@@ -482,8 +482,8 @@ figure{margin:0}
 .ks-editable-btn{z-index:999}
 .admin-ui-color{background:#ff4081;color:#fff}
 body,html{height:100%}
-.mdl-button,.ui.button,.ui.menu,body,h1,h2,h3,h4,h5,h6,html{font-family:Arial,cwTeXHei,"文泉驛正黑","WenQuanYi Zen Hei","微軟正黑體","Microsoft JhengHei","標楷體",sans-serif}
-body{background:url(../assets/images/bg.png) center center/cover no-repeat fixed;padding-bottom:3em}
+.mdl-button,.ui.button,.ui.menu,body,h1,h2,h3,h4,h5,h6,html{font-family:Arial,cwTeXHei,"��Ȫ�A����","WenQuanYi Zen Hei","΢ܛ�����w","Microsoft JhengHei","�˿��w",sans-serif}
+body{position:relative;min-width:1450px;background:url(../assets/images/bg.png) center center/cover no-repeat fixed;padding-bottom:3em}
 .ui.grid.main-container{padding:2em 4em}
 .ui.grid.main-container h4.prompt,.ui.grid.main-container h5.prompt,.ui.grid.main-container header,.ui.grid.main-container>h1,.ui.grid.main-container>h2,.ui.grid.main-container>h3,.ui.grid.main-container>h4,.ui.grid.main-container>h5,.ui.grid.main-container>h6{color:#fff}
 .ui.grid.main-container aside{margin-bottom:2em}
@@ -587,4 +587,5 @@ table.mdl-data-table.detail-table td .ui.label{background:#fff581;box-shadow:0 0
 }
 @media only screen and (max-width:768px){.image-box{margin:auto;text-align:center}
 .image-box img{width:50%}
+.owl-carousel .owl-pagination{display:none}
 }

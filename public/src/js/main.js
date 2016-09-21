@@ -54,8 +54,8 @@ $(document).ready(function() {
 	$('.owl-carousel').owlCarousel({
 		items            : 3, 
 		itemsDesktop     : [1600,2], 
-		itemsDesktopSmall: [980,1], 
-		itemsTablet      : [600,1],
+		itemsDesktopSmall: [980,2], 
+		itemsTablet      : [600,2],
 		lazyLoad         : true,
 		slideSpeed			 : 800,
 		// autoPlay         : 6000,

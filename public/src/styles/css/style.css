@@ -445,9 +445,11 @@ html, body {
   height: 100%; }
 
 html, body, h1, h2, h3, h4, h5, h6, .ui.menu, .ui.button, .mdl-button {
-  font-family: Arial, 'cwTeXHei', "文泉驛正黑", "WenQuanYi Zen Hei", "微軟正黑體", "Microsoft JhengHei", "標楷體", sans-serif; }
+  font-family: Arial, 'cwTeXHei', "��Ȫ�A����", "WenQuanYi Zen Hei", "΢ܛ�����w", "Microsoft JhengHei", "�˿��w", sans-serif; }
 
 body {
+  position: relative;
+  min-width: 1450px;
   background: url("../assets/images/bg.png") center center/cover no-repeat;
   background-attachment: fixed;
   padding-bottom: 3em; }
@@ -810,4 +812,6 @@ table.mdl-data-table.detail-table td .ui.label {
     margin: auto;
     text-align: center; }
     .image-box img {
-      width: 50%; } }
+      width: 50%; }
+  .owl-carousel .owl-pagination {
+    display: none; } }

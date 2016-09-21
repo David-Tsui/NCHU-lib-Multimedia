@@ -11,12 +11,12 @@ $prepare-height: 100px;
 $movie-items   : 7;
 $img-path			 : '../assets/images/';
 
-// semantic èª¿æ ¡
+// semantic Õ{Ğ£
 figure {
 	margin: 0;
 }
 
-// keystone èª¿æ ¡
+// keystone Õ{Ğ£
 .ks-editable-btn {
 	z-index: 999;
 }
@@ -31,15 +31,15 @@ html, body {
 }
 
 html, body, h1, h2, h3, h4, h5, h6, .ui.menu, .ui.button, .mdl-button {
-	font-family: Arial, 'cwTeXHei', "æ–‡æ³‰é©›æ­£é»‘", "WenQuanYi Zen Hei", "å¾®è»Ÿæ­£é»‘é«”", "Microsoft JhengHei", "æ¨™æ¥·é«”", sans-serif;
+	font-family: Arial, 'cwTeXHei', "ÎÄÈªóAÕıºÚ", "WenQuanYi Zen Hei", "Î¢Ü›ÕıºÚów", "Microsoft JhengHei", "˜Ë¿¬ów", sans-serif;
 }
 
 body {
-	// display: flex;
-	// flex-direction: column;
-	background: url($img-path + 'bg.png') center center / cover no-repeat;
+	position: relative;
+	min-width            : 1450px;
+	background           : url($img-path + 'bg.png') center center / cover no-repeat;
 	background-attachment: fixed;
-	padding-bottom: 3em;
+	padding-bottom       : 3em;
 	
 }
 
@@ -96,7 +96,7 @@ button.mdl-color--primary {
 	background-color: #222;
 }
 
-// é¦–é carousel
+// Ê×í“carousel
 
 #carousel-container {
 	background-image: url($img-path + 'carousel_bg.png');
@@ -347,7 +347,7 @@ button.mdl-color--primary {
 	}
 }
 
-// ä¸­å¿ƒä»‹ç´¹ã€æ„›å‰µè¯ç›Ÿã€ç©å‰µæ„
+// ÖĞĞÄ½é½B¡¢Û„“Â“ÃË¡¢Íæ„“Òâ
 
 .slide-row {
 	margin-bottom: -2em;
@@ -386,7 +386,7 @@ button.mdl-color--primary {
 }
 
 
-// å½±éŸ³blog
+// Ó°Òôblog
 table.mdl-data-table {
 	width: 100%;
 	& caption {
@@ -429,7 +429,7 @@ table.mdl-data-table {
 }
 
 
-// å½±éŸ³card
+// Ó°Òôcard
 .mdl-card {
 	width: 100%;
 	max-width: 320px;
@@ -476,7 +476,7 @@ table.mdl-data-table {
 	}
 }
 
-// å–®ä¸€å½±éŸ³
+// †ÎÒ»Ó°Òô
 table.mdl-data-table.detail-table {
 	td {
 		.ui.label {
@@ -567,5 +567,8 @@ table.mdl-data-table.detail-table {
 		& img  {
 			width: 50%;
 		}
+	}
+	.owl-carousel .owl-pagination {
+		display: none;
 	}
 }
