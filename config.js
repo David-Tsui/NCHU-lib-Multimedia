@@ -30,7 +30,7 @@ exports.options = {
 	 +' emoticons media, image imagetools, preview print',
 	'wysiwyg fontsize_formats'  : '8pt 10pt 12pt 14pt 18pt 24pt 36pt',
 	'wysiwyg additional plugins': 'table, anchor,'
-	 + ' autolink, autosave, charmap, contextmenu, '
+	 + ' autosave, charmap, contextmenu, '
 	 + ' directionality, emoticons, fullpage, hr, media, pagebreak,'
 	 + ' paste, preview, print, searchreplace, textcolor,'
 	 + ' visualblocks, visualchars, image imagetools'
