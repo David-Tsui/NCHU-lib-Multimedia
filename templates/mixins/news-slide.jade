@@ -1,4 +1,4 @@
-mixin news_slide(posts, listName, scale)
+mixin news_slide(posts, listName, routesName, categoryName, scale)
 	- scale = scale || 1
 	ul
 		each post in posts
@@ -8,7 +8,7 @@ mixin news_slide(posts, listName, scale)
 						if post.image.height >= post.image.width
 							.news-item.vertical.special-segment(data-ks-editable=editable(user, { list: listName, id: post.id }))
 								.ui.image.news-image-vertical
-									img(src=post._.image.fit(378 * scale,560 * scale))
+									img(src=post._.image.fit(378 * scale, 560 * scale))
 								.content
 									.title
 										h4!= post.name
@@ -16,9 +16,12 @@ mixin news_slide(posts, listName, scale)
 									hr
 									.description
 										p!= post.content.brief
-									if listName == 'NewsPost'
-										.action
-											a(href='/news/posts/' + post.key)
+									.action
+										if categoryName
+											a(href='/' + routesName + '/' + categoryName + '/posts/' + post.key)
+												button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-color--primary= '閱讀全文' 
+										else							
+											a(href='/' + routesName + '/posts/' + post.key)
 												button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-color--primary= '閱讀全文' 
 								span.bg-large
 									span.line-bottom-left
@@ -26,9 +29,9 @@ mixin news_slide(posts, listName, scale)
 								span.bg-tall
 									span.line-bottom-left
 									span.line-top-right
-								//- span.bg-medium
-								//- 	span.line-bottom-left
-								//- 	span.line-top-right
+								span.bg-medium
+									span.line-bottom-left
+									span.line-top-right
 						else if post.image.height < post.image.width
 							.news-item.horizontal.special-segment(data-ks-editable=editable(user, { list: listName, id: post.id }))
 								.ui.image.news-image-horizontal
@@ -40,9 +43,12 @@ mixin news_slide(posts, listName, scale)
 									hr
 									.description
 										p!= post.content.brief
-									if listName == 'NewsPost'
-										.action
-											a(href='/news/posts/' + post.key)
+									.action
+										if categoryName
+											a(href='/' + routesName + '/' + categoryName + '/posts/' + post.key)
+												button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-color--primary= '閱讀全文' 
+										else							
+											a(href='/' + routesName + '/posts/' + post.key)
 												button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-color--primary= '閱讀全文' 
 								span.bg-large
 									span.line-bottom-left
@@ -50,9 +56,9 @@ mixin news_slide(posts, listName, scale)
 								span.bg-tall
 									span.line-bottom-left
 									span.line-top-right
-								//- span.bg-medium
-								//- 	span.line-bottom-left
-								//- 	span.line-top-right
+								span.bg-medium
+									span.line-bottom-left
+									span.line-top-right
 					else
 						.news-item.horizontal.special-segment(data-ks-editable=editable(user, { list: listName, id: post.id }))
 							.ui.image.news-image-horizontal
@@ -64,9 +70,12 @@ mixin news_slide(posts, listName, scale)
 								hr
 								.description
 									p!= post.content.brief
-								if listName == 'NewsPost'
-									.action
-										a(href='/news/posts/' + post.key)
+								.action
+									if categoryName
+										a(href='/' + routesName + '/' + categoryName + '/posts/' + post.key)
+											button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-color--primary= '閱讀全文' 
+									else							
+										a(href='/' + routesName + '/posts/' + post.key)
 											button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-color--primary= '閱讀全文' 
 							span.bg-large
 								span.line-bottom-left
@@ -74,7 +83,7 @@ mixin news_slide(posts, listName, scale)
 							span.bg-tall
 								span.line-bottom-left
 								span.line-top-right
-								//- span.bg-medium
-								//- 	span.line-bottom-left
-								//- 	span.line-top-right
+							span.bg-medium
+								span.line-bottom-left
+								span.line-top-right
 					

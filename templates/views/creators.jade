@@ -13,8 +13,8 @@ block content
 							button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.md.admin-ui-color= '修改文章'
 				header
 					h2.header= posts.title
-				+news_list(posts.results, "CreatorsPost")
+				+news_list(posts.results, "Creators")
 				//- +pagination(posts)
 			.twelve.wide.column.flipster-news-container
 				.flat-flipster
-					+news_slide(posts.results, "CreatorsPost", 2.5)
+					+news_slide(posts.results, "Creators", "creators", category, 2.5)
