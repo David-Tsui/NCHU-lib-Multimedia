@@ -55,7 +55,7 @@
 .nav-grid .extra-menu{display:flex;justify-content:flex-end;position:absolute;top:4em;right:0;width:14%}
 .nav-grid .extra-menu a{flex:1;color:#fff;font-weight:700;font-size:1.2em}
 .nav-grid .hit-counter{position:relative;position:absolute;top:7em;right:3em}
-.nav-grid .hit-counter:before{content:"訪客人數：";position:absolute;width:85%;top:1px;right:100%;color:#eee;font-weight:700;font-size:1em}
+.nav-grid .hit-counter:before{content:"訪客人數：";position:absolute;width:85%;top:4px;right:105px;color:#eee;font-weight:700;font-size:1.2em}
 .nav-grid .hit-counter small{display:none}
 .svg-btn-container{flex:1;display:flex;justify-content:center;align-items:center;position:relative;height:70px;padding:0 2em}
 .svg-btn-container .svg-bg{position:absolute;width:220px;height:72px;top:-3px}
@@ -125,7 +125,7 @@ body{position:relative;min-width:1450px;background:url(../assets/images/bg.png) 
 #index-news-container .flipster-news-container,#other-article-container .flipster-news-container{display:flex;align-items:center;padding:3em 1em;overflow:hidden}
 #index-news-container .flipster-news-container:after,#other-article-container .flipster-news-container:after{position:absolute;top:0;left:0;height:100%;width:50px;background:#fff;z-index:-1}
 #index-news-container .flipster-news-container .flipster--flat .flipster__item__content,#other-article-container .flipster-news-container .flipster--flat .flipster__item__content{box-reflect:initial;-webkit-box-reflect:initial}
-#index-news-container .flipster-news-container .flipster--flat .flipster__item,#other-article-container .flipster-news-container .flipster--flat .flipster__item{width:40%}
+#index-news-container .flipster-news-container .flipster--flat .flipster__item,#other-article-container .flipster-news-container .flipster--flat .flipster__item{width:50%}
 #index-news-container .news-segment .news-item.horizontal .ui.image img,#index-news-container .news-segment .news-item.vertical .ui.image img,#other-article-container .news-segment .news-item.horizontal .ui.image img,#other-article-container .news-segment .news-item.vertical .ui.image img{width:100%}
 #index-news-container .news-segment,#other-article-container .news-segment{background:rgba(0,0,0,.75);color:#eee}
 #index-news-container .news-segment .news-item,#other-article-container .news-segment .news-item{text-align:initial}

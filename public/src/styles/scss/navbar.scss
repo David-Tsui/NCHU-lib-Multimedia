@@ -61,23 +61,23 @@
 		right: 0;
 		width: 14%;
 		a {
-			flex: 1;
-			color: #fff;
+			flex       : 1;
+			color      : #fff;
 			font-weight: 700;
-			font-size: 1.2em;
+			font-size  : 1.2em;
 		}
 	}
 	.hit-counter {
 		position: relative;
 		&:before {
-			content: "訪客人數：";
-			position: absolute;
-			width: 85%;
-			top: 1px;
-			right: 100%;
-			color: #eee;
+			content    : "訪客人數：";
+			position   : absolute;
+			width      : 85%;
+			top        : 4px;
+			right      : 105px;
+			color      : #eee;
 			font-weight: 700;
-			font-size: 1em;
+			font-size  : 1.2em;
 		}
 		position: absolute;
 		top: 7em;

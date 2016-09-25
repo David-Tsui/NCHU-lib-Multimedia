@@ -87,6 +87,11 @@ keystone.pre('routes', function (req, res, next) {
 					href: "/movies/new"
 				},
 				{
+					label: "影片總覽",
+					key: "movie_category",
+					href: "/movies/movie_blog/"
+				},
+				{
 					label: "主題影展",
 					key: "movie_topic",
 					href: "/movies/topic"
@@ -100,11 +105,6 @@ keystone.pre('routes', function (req, res, next) {
 					label: "熱門影音排行榜",
 					key: "movie_hot",
 					href: "/movies/hot"
-				},
-				{
-					label: "影片分類",
-					key: "movie_category",
-					href: "/movies/movie_blog/"
 				}
 			]
 		},
@@ -120,7 +120,7 @@ keystone.pre('routes', function (req, res, next) {
 					href: "/idea/table_game"
 				},
 				{
-					label: "Line貼圖",
+					label: "LINE貼圖",
 					key: "line_stickers",
 					href: "/idea/line_stickers"
 				}
