@@ -15,7 +15,7 @@ exports = module.exports = function (req, res) {
 	// Init locals
 	locals.section = 'idea';
 	locals.filters = {
-		category: req.params.type,
+		category: req.params.category,
 	};
 	locals.posts = [];
 	var routes_name = routes_map[locals.filters.category];
@@ -23,7 +23,7 @@ exports = module.exports = function (req, res) {
 
 	// Load all categories
 	view.on('init', function (next) {
-		if (req.params.type) {
+		if (locals.filters.category) {
 			IdeaPostCategory.model.findOne({ name: routes_name }).exec(function (err, result) {
 				locals.category = result;
 				// console.log(result);
@@ -45,9 +45,9 @@ exports = module.exports = function (req, res) {
 		}
 
 		q.exec(function (err, results) {
-			locals.posts = {results: results};
+			locals.posts       = {results: results};
 			locals.posts.title = routes_name;
-			console.log("posts: ", locals.posts);
+			locals.category    = locals.filters.category;
 			next(err);
 		});
 

@@ -7,7 +7,7 @@ block content
 	.ui.grid.main-container#other-article-container
 		.row.slide-row
 			.four.wide.column.list-items-container
-				aside
+				aside.admin-ui
 					if user
 						a(href='/keystone/idea-posts') 
 							button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.md.admin-ui-color= '修改文章'
@@ -16,5 +16,5 @@ block content
 				+news_list(posts.results, "IdeaPost")
 			.twelve.wide.column.flipster-news-container
 				.flat-flipster
-					+news_slide(posts.results, "IdeaPost", 2.5)
+					+news_slide(posts.results, "IdeaPost", "idea", category, 2.5)
 	

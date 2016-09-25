@@ -15,7 +15,7 @@ exports = module.exports = function (req, res) {
 	// Init locals
 	locals.section = 'creators';
 	locals.filters = {
-		category: req.params.type,
+		category: req.params.category,
 	};
 	locals.posts = [];
 	var routes_name = routes_map[locals.filters.category];
@@ -23,7 +23,7 @@ exports = module.exports = function (req, res) {
 
 	// Load all categories
 	view.on('init', function (next) {
-		if (req.params.type) {
+		if (locals.filters.category) {
 			CreatorsPostCategory.model.findOne({ name: routes_name }).exec(function (err, result) {
 				locals.category = result;
 				// console.log(result);
@@ -62,9 +62,9 @@ exports = module.exports = function (req, res) {
 		}
 
 		q.exec(function (err, results) {
-			locals.posts = fix_keystone_pagination(results, locals.posts_count, per_page);
+			locals.posts       = fix_keystone_pagination(results, locals.posts_count, per_page);
 			locals.posts.title = routes_name;
-			console.log("locals.posts: ", locals.posts);
+			locals.category    = locals.filters.category;
 			next(err);
 		});
 	});

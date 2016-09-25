@@ -147,13 +147,15 @@ var routes = {
 exports = module.exports = function (app) {
 
 	// Views
-	app.get('/news/list', routes.views.news_list);
-	app.get('/news/posts/:post', routes.views.news);
+	// app.get('/news/list', routes.views.news_list);
+	app.get('/news/posts/:post', routes.views.news_detail);
 	app.get('/about/intro', routes.views.intro);
 	app.get('/about/:category', routes.views.about);
-	app.get('/creators/:type', routes.views.creators);
+	app.get('/creators/:category', routes.views.creators);
+	app.get('/creators/:category/posts/:post', routes.views.creators_detail);
 	app.get('/resources/:type', routes.views.resources);
-	app.get('/idea/:type', routes.views.idea);
+	app.get('/idea/:category', routes.views.idea);
+	app.get('/idea/:category/posts/:post', routes.views.idea_detail);
 
 	app.get('/movies/movie_blog/movie/:movie', routes.views.movie);
 	app.get('/movies/movie_blog/:root_category?/:category?', routes.views.movie_blog);
