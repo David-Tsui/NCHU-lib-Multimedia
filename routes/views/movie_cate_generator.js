@@ -28,7 +28,7 @@ exports = module.exports = function(Category, cate_key_name, section, title) {
 					// Load the current root_category filter
 					category: (locals.filters.category ? 
 						Category.model.where({name: locals.filters.category}) :
-						Category.model).findOne(),
+						Category.model).findOne().sort('-startDate').exec(),
 				};
 
 				for (var attrname in results) { 
