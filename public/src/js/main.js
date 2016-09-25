@@ -76,12 +76,8 @@ $(document).ready(function() {
 	})
 
 	// control buttons of the news slide
-	$("#ctrl-slide-prev").click(function() {
-		$flipster.flipster("prev");
-	});
-	$("#ctrl-slide-next").click(function() {
-		$flipster.flipster("next");
-	});
+	$("#ctrl-slide-prev").click(function() { $flipster.flipster("prev"); });
+	$("#ctrl-slide-next").click(function() { $flipster.flipster("next"); });
 
 	// svg button transition effect
 	$(".svg-item").mouseenter(function(e) {
@@ -104,7 +100,6 @@ $(document).ready(function() {
 	// Initialized pagination
 	var $paginations = $('ul.pagination');
 	$paginations.each(function() {
-		// console.log("this: ", this);
 		var totalPages = $(this).data("pages");
 		$(this).twbsPagination({
 			totalPages  : totalPages,

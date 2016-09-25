@@ -7,11 +7,12 @@ var MovieNewCategory = new keystone.List('MovieNewCategory', {
 });
 
 MovieNewCategory.add({
-	name: { type: String, required: true },
-	categories: { type: Types.Relationship, ref: 'MovieRootCategory'},
+	name      : { type: String, required: true },
+	startDate : { type: Types.Date, index: true }
 });
 
 MovieNewCategory.relationship({ ref: 'Movie', refPath: 'new_category' });
 
 MovieNewCategory.track = true;
+MovieNewCategory.defaultColumns = 'name, startDate|20%';
 MovieNewCategory.register();

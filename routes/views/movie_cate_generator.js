@@ -1,8 +1,8 @@
-var keystone = require('keystone');
-var async = require('async');
-var co = require('co');
+var keystone                = require('keystone');
+var async                   = require('async');
+var co                      = require('co');
 var fix_keystone_pagination = require('../helpers/fix_keystone_pagination');
-var Movie = keystone.list('Movie');
+var Movie                   = keystone.list('Movie');
 
 exports = module.exports = function(Category, cate_key_name, section, title) { 
 	return function (req, res) {
@@ -23,7 +23,7 @@ exports = module.exports = function(Category, cate_key_name, section, title) {
 			co(function*() {
 				var results = yield {
 					// Load categories
-					categories: Category.model.find().sort('name').exec(),
+					categories: Category.model.find().sort('-startDate').exec(),
 
 					// Load the current root_category filter
 					category: (locals.filters.category ? 
@@ -36,8 +36,8 @@ exports = module.exports = function(Category, cate_key_name, section, title) {
 				}
 
 				var movie_paginated_query = Movie.paginate({
-					page: req.query.page || 1,
-					perPage: 16,
+					page    : req.query.page || 1,
+					perPage : 16,
 					maxPages: 10,
 				})
 				.where('state', 'published')

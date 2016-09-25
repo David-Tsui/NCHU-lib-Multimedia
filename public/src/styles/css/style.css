@@ -579,7 +579,7 @@ button.mdl-color--primary {
       box-reflect: initial;
       -webkit-box-reflect: initial; }
     #index-news-container .flipster-news-container .flipster--flat .flipster__item, #other-article-container .flipster-news-container .flipster--flat .flipster__item {
-      width: 40%; }
+      width: 50%; }
   #index-news-container .news-segment, #other-article-container .news-segment {
     background: rgba(0, 0, 0, 0.75);
     color: #eee; }

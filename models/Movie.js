@@ -7,28 +7,61 @@ var Movie = new keystone.List('Movie', {
 });
 
 Movie.add({
-	name: { type: String, required: true },
-	english_name: { type: String },
-	state: { type: Types.Select, options: 'draft, published, archived', default: 'draft', index: true },
-	author: { type: Types.Relationship, ref: 'User', index: true },
+	name         : { type: String, required: true },
+	english_name : { type: String },
+	state        : { type: Types.Select, options: 'draft, published, archived', default: 'draft', index: true },
+	author       : { type: Types.Relationship, ref: 'User', index: true },
 	publishedDate: { type: Types.Date, index: true },
-	image: { type: Types.CloudinaryImage },
-	director: { type: String },
-	actor: { type: Types.Html, wysiwyg: true, height: 150 },
-	link: { type: String },
-	videoTime: { type: String },
-	inDate: { type: Types.Date },
-	content: {
-		brief: { type: Types.Html, wysiwyg: true, height: 150 },
+	image        : { type: Types.CloudinaryImage },
+	director     : { type: String },
+	actor        : { type: Types.Html, wysiwyg: true, height: 150 },
+	link         : { type: String },
+	videoTime    : { type: String },
+	inDate       : { type: Types.Date },
+	content      : {
+		brief   : { type: Types.Html, wysiwyg: true, height: 150 },
 		extended: { type: Types.Html, wysiwyg: true, height: 500 },
 	},
-	region_categories: { type: Types.Relationship, ref: 'MovieRegionCategory'},
-	theme_categories: { type: Types.Relationship, ref: 'MovieThemeCategory', many: true },
-	classification_categories: { type: Types.Relationship, ref: 'MovieClassificationCategory', many: true},
-	topic_category: { type: Types.Relationship, ref: 'MovieTopicCategory', many: true},
-	assignment_category: { type: Types.Relationship, ref: 'MovieAssignmentCategory', many: true},
-	hot_category: { type: Types.Relationship, ref: 'MovieHotCategory'},
-	new_category: { type: Types.Relationship, ref: 'MovieNewCategory'},
+	// 地區
+	region_categories        : { 
+		type: Types.Relationship,
+		ref : 'MovieRegionCategory'
+	},
+	// 主題分類
+	theme_categories         : {
+		type: Types.Relationship,
+		ref : 'MovieThemeCategory',
+		many: true
+	},
+	// 觀賞級別
+	classification_categories: {
+		type: Types.Relationship,
+		ref : 'MovieClassificationCategory',
+		many: true
+	},
+	// 主題影展
+	topic_category           : {
+		type: Types.Relationship,
+		ref : 'MovieTopicCategory',
+		many: true
+	},
+	// 教師指定
+	assignment_category      : {
+		type: Types.Relationship,
+		ref : 'MovieAssignmentCategory',
+		many: true
+	},
+	// 熱門影展
+	hot_category             : {
+		type: Types.Relationship,
+		ref : 'MovieHotCategory',
+		many: true
+	},
+	// 新進影音
+	new_category             : {
+		type: Types.Relationship,
+		ref : 'MovieNewCategory'
+	}
 });
 
 Movie.schema.virtual('content.full').get(function () {

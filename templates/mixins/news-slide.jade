@@ -26,9 +26,9 @@ mixin news_slide(posts, listName, scale)
 								span.bg-tall
 									span.line-bottom-left
 									span.line-top-right
-								//- span.bg-medium
-								//- 	span.line-bottom-left
-								//- 	span.line-top-right
+								span.bg-medium
+									span.line-bottom-left
+									span.line-top-right
 						else if post.image.height < post.image.width
 							.news-item.horizontal.special-segment(data-ks-editable=editable(user, { list: listName, id: post.id }))
 								.ui.image.news-image-horizontal
@@ -50,9 +50,9 @@ mixin news_slide(posts, listName, scale)
 								span.bg-tall
 									span.line-bottom-left
 									span.line-top-right
-								//- span.bg-medium
-								//- 	span.line-bottom-left
-								//- 	span.line-top-right
+								span.bg-medium
+									span.line-bottom-left
+									span.line-top-right
 					else
 						.news-item.horizontal.special-segment(data-ks-editable=editable(user, { list: listName, id: post.id }))
 							.ui.image.news-image-horizontal
@@ -74,7 +74,7 @@ mixin news_slide(posts, listName, scale)
 							span.bg-tall
 								span.line-bottom-left
 								span.line-top-right
-								//- span.bg-medium
-								//- 	span.line-bottom-left
-								//- 	span.line-top-right
+							span.bg-medium
+								span.line-bottom-left
+								span.line-top-right
 					

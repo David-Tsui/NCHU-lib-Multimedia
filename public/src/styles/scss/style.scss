@@ -220,7 +220,7 @@ button.mdl-color--primary {
 		}
 
 		.flipster--flat .flipster__item {
-			width: 40%;
+			width: 50%;
 		}
 	}
 
@@ -230,9 +230,9 @@ button.mdl-color--primary {
 		.news-item {
 			text-align: initial;
 			.content {
-				position: relative;
+				position      : relative;
 				padding-bottom: 1em;
-				z-index: 999;
+				z-index       : 999;
 				.title {
 					padding-top: 1em;
 					p.header {

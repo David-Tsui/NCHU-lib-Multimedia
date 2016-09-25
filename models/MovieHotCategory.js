@@ -7,11 +7,13 @@ var MovieHotCategory = new keystone.List('MovieHotCategory', {
 });
 
 MovieHotCategory.add({
-	name: { type: String, required: true },
-	categories: { type: Types.Relationship, ref: 'MovieRootCategory'},
+	name     : { type: String, required: true },
+	state    : { type: Types.Select, options: '發布中, 未發布', default: '發布中', index: true},
+	startDate: { type: Types.Date, index: true }
 });
 
 MovieHotCategory.relationship({ ref: 'Movie', refPath: 'hot_category' });
 
 MovieHotCategory.track = true;
+MovieHotCategory.defaultColumns = 'name, state, startDate|20%';
 MovieHotCategory.register();
