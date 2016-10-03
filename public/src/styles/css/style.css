@@ -425,6 +425,24 @@ ul.pagination {
     height: 32px;
     font-size: 16px; }
 
+@-webkit-keyframes selfRotate {
+  from {
+    transform: scale(1.25) skew(30deg) rotateY(0deg); }
+  to {
+    transform: scale(1.25) skew(30deg) rotateY(360deg); } }
+
+@-moz-keyframes selfRotate {
+  from {
+    transform: scale(1.25) skew(30deg) rotateY(0deg); }
+  to {
+    transform: scale(1.25) skew(30deg) rotateY(360deg); } }
+
+@keyframes selfRotate {
+  from {
+    transform: scale(1.25) skew(30deg) rotateY(0deg); }
+  to {
+    transform: scale(1.25) skew(30deg) rotateY(360deg); } }
+
 @font-face {
   font-family: "cwTeXHei";
   font-style: 400;
@@ -500,6 +518,8 @@ button.mdl-color--primary {
     align-items: center; }
     #carousel-container .owl-carousel .owl-wrapper-outer {
       min-height: 260px; }
+    #carousel-container .owl-carousel .owl-controls .owl-page.active span {
+      animation: selfRotate 4s linear infinite; }
     #carousel-container .owl-carousel .owl-controls .owl-page span {
       width: 14px;
       height: 16px;
@@ -509,7 +529,7 @@ button.mdl-color--primary {
       transform: scale(1) skew(30deg);
       transition: transform .085s ease-out; }
       #carousel-container .owl-carousel .owl-controls .owl-page span:hover {
-        transform: scale(1.5) skew(0deg); }
+        transform: scaleX(1.1) scaleY(1.4) skew(0); }
     #carousel-container .owl-carousel .owl-controls .owl-buttons {
       position: absolute;
       top: -12px;
@@ -758,15 +778,15 @@ table.mdl-data-table {
 
 table.mdl-data-table.detail-table td .ui.label {
   background: #fff581;
-  box-shadow: 0 0 2px 1px #444; }
+  box-shadow: 0 2px 1px -1px #333; }
 
 .ui.segment.movie-intro {
   border-radius: 0;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }
   .ui.segment.movie-intro button.btn-back {
     position: absolute;
-    right: 3px;
-    top: 8px; }
+    top: 12px;
+    right: 16px; }
 
 .ui.segment h1, .ui.segment h2, .ui.segment h3, .ui.segment h4, .ui.segment h5, .ui.segment h6 {
   margin-top: 0;

@@ -73,7 +73,7 @@ gulp.task('minify-css', ['scss'], function() {
 			}))
 			.pipe(gulp.dest(paths.src.styles.css))
 			// .pipe($plugins.notify("css minify completed"))
-	}, 500);
+	}, 1000);
 });
 
 gulp.task('styles-assets', function() {
@@ -92,7 +92,7 @@ gulp.task('styles', ['styles-assets', 'minify-css'], function() {
 			.pipe(gulp.dest(paths.dist.styles))
 			.pipe($plugins.notify("CSS is ready..."))
 			.pipe($plugins.livereload());
-	}, 650);
+	}, 1200);
 });
 
 // gulp.task('es6', () =>

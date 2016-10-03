@@ -200,6 +200,15 @@
 .scrollbar-chrome>.scroll-element.scroll-y .scroll-element_track{top:-3px;width:14px}
 .scrollbar-chrome>.scroll-element.scroll-y .scroll-element_size{top:-4px;width:14px}
 .scrollbar-chrome>.scroll-element.scroll-y.scroll-scrollx_visible .scroll-element_size,.scrollbar-chrome>.scroll-element.scroll-y.scroll-scrollx_visible .scroll-element_track{top:-19px}
+@-webkit-keyframes selfRotate{from{transform:scale(1.25) skew(30deg) rotateY(0)}
+to{transform:scale(1.25) skew(30deg) rotateY(360deg)}
+}
+@-moz-keyframes selfRotate{from{transform:scale(1.25) skew(30deg) rotateY(0)}
+to{transform:scale(1.25) skew(30deg) rotateY(360deg)}
+}
+@keyframes selfRotate{from{transform:scale(1.25) skew(30deg) rotateY(0)}
+to{transform:scale(1.25) skew(30deg) rotateY(360deg)}
+}
 @charset "UTF-8";
 .nav-grid #nav-banner,.nav-grid #nav-banner img{width:100%}
 .nav-grid .ui.secondary.menu.main-navbar{display:flex;align-items:center;width:100%;height:63px;margin-top:-20px;padding:1em 4em;box-sizing:content-box;background:0 0;font-size:1.5em}
@@ -477,6 +486,15 @@ ul.pagination.vertical li{padding:0 10px;line-height:30px}
 .google-search-box+div{clear:both}
 .google-search-box .gsc-results-wrapper-nooverlay .gsc-tabsArea>.gsc-tabHeader{width:50%;height:32px;font-size:16px}
 .main-footer p,.ui.grid.main-container article .main-content p{font-size:1.25em}
+@-webkit-keyframes selfRotate{from{transform:scale(1.25) skew(30deg) rotateY(0)}
+to{transform:scale(1.25) skew(30deg) rotateY(360deg)}
+}
+@-moz-keyframes selfRotate{from{transform:scale(1.25) skew(30deg) rotateY(0)}
+to{transform:scale(1.25) skew(30deg) rotateY(360deg)}
+}
+@keyframes selfRotate{from{transform:scale(1.25) skew(30deg) rotateY(0)}
+to{transform:scale(1.25) skew(30deg) rotateY(360deg)}
+}
 @font-face{font-family:cwTeXHei;font-style:400;font-weight:400;src:url(//fonts.gstatic.com/ea/cwtexhei/v3/cwTeXHei-zhonly.eot?#iefix) format("embedded-opentype"),url(//fonts.gstatic.com/ea/cwtexhei/v3/cwTeXHei-zhonly.woff2) format("woff2"),url(//fonts.gstatic.com/ea/cwtexhei/v3/cwTeXHei-zhonly.woff) format("woff"),url(//fonts.gstatic.com/ea/cwtexhei/v3/cwTeXHei-zhonly.ttf) format("truetype"),url(//fonts.gstatic.com/ea/cwtexhei/v3/cwTeXHei-zhonly.svg#cwTeXHei) format("svg")}
 figure{margin:0}
 .ks-editable-btn{z-index:999}
@@ -496,8 +514,9 @@ body{position:relative;min-width:1450px;background:url(../assets/images/bg.png) 
 #carousel-container{background-image:url(../assets/images/carousel_bg.png);background-size:100% 420px;margin-top:-1em}
 #carousel-container .owl-carousel{width:100%;margin-left:1em;display:flex;justify-content:center;align-items:center}
 #carousel-container .owl-carousel .owl-wrapper-outer{min-height:260px}
+#carousel-container .owl-carousel .owl-controls .owl-page.active span{animation:selfRotate 4s linear infinite}
 #carousel-container .owl-carousel .owl-controls .owl-page span{width:14px;height:16px;margin:3px 6px;background:#2cfff2;border-radius:0;transform:scale(1) skew(30deg);transition:transform 85ms ease-out}
-#carousel-container .owl-carousel .owl-controls .owl-page span:hover{transform:scale(1.5) skew(0)}
+#carousel-container .owl-carousel .owl-controls .owl-page span:hover{transform:scaleX(1.1) scaleY(1.4) skew(0)}
 #carousel-container .owl-carousel .owl-controls .owl-buttons{position:absolute;top:-12px;left:0;width:100%;z-index:1}
 #carousel-container .owl-carousel .owl-controls .owl-buttons div{opacity:.8}
 #carousel-container .owl-carousel .owl-controls .owl-buttons .owl-next,#carousel-container .owl-carousel .owl-controls .owl-buttons .owl-prev{margin:-.8em 1em 0;background-color:#536dfe;color:#fff}
@@ -565,9 +584,9 @@ table.mdl-data-table td a.td-a{display:flex;align-items:center;justify-content:s
 .mdl-card .mdl-card__actions.mdl-card--border{display:flex;align-items:center;justify-content:space-between}
 .mdl-card .mdl-card__actions.mdl-card--border time{padding:0 16px}
 .mdl-card .mdl-button.btn-seeMovie{background:rgba(205,205,205,.5);margin-left:8px}
-table.mdl-data-table.detail-table td .ui.label{background:#fff581;box-shadow:0 0 2px 1px #444}
+table.mdl-data-table.detail-table td .ui.label{background:#fff581;box-shadow:0 2px 1px -1px #333}
 .ui.segment.movie-intro{border-radius:0;box-shadow:0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12)}
-.ui.segment.movie-intro button.btn-back{position:absolute;right:3px;top:8px}
+.ui.segment.movie-intro button.btn-back{position:absolute;top:12px;right:16px}
 .ui.segment h1,.ui.segment h2,.ui.segment h3,.ui.segment h4,.ui.segment h5,.ui.segment h6{margin-top:0;color:#444}
 @media only screen and (min-width:1599px){#four-movies-grid{padding:0 6em}
 }

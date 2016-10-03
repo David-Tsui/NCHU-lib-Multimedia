@@ -22,9 +22,9 @@ block content
 								td.mdl-data-table__cell--non-numeric 演員
 								td!= movie.actor
 							tr
-								td.mdl-data-table__cell--non-numeric 館藏連結
+								td.mdl-data-table__cell--non-numeric 館藏情形
 								td
-									a(href='http://aleph.lib.nchu.edu.tw/F/?func=item-global&doc_library=TOP02&doc_number=' + movie.link + '&year=&volume=&sub_library=') 連結
+									a(href='http://aleph.lib.nchu.edu.tw/F/?func=item-global&doc_library=TOP02&doc_number=' + movie.link + '&year=&volume=&sub_library=') 前往查看
 							tr
 								td.mdl-data-table__cell--non-numeric 分級
 								if movie.classification_categories
@@ -50,9 +50,8 @@ block content
 										.ui.label= movie.region_categories.name
 			.five.wide.column
 				section.ui.segment.movie-intro.mdl-shadow--2dp
-					aside
-						a(href="/movies/movie_blog") 
-							button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-color--primary.btn-back 回影片總覽
+					a(href="/movies/movie_blog") 
+						button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-color--primary.btn-back 回影片總覽
 					h3!= movie.name
 					h4!= movie.english_name
 					h5!= '影片簡介'
