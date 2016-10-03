@@ -58,7 +58,7 @@ $(document).ready(function() {
 		itemsTablet      : [600,2],
 		lazyLoad         : true,
 		slideSpeed			 : 800,
-		// autoPlay         : 6000,
+		autoPlay         : 6000,
 		navigation       : true,
 		navigationText   : ['<i class="material-icons">chevron_left</i>', '<i class="material-icons">chevron_right</i>'],
 		// paginationNumbers: true
