@@ -339,7 +339,7 @@ ul.pagination {
     margin: 0 4px;
     padding: 0;
     font-size: 24px;
-    line-height: 45px;
+    line-height: 35px;
     border-radius: 0;
     text-align: center;
     color: #fff; }
@@ -348,7 +348,7 @@ ul.pagination {
     ul.pagination li i {
       vertical-align: middle;
       padding: 0;
-      font-size: 1.8em; }
+      font-size: 45px; }
     ul.pagination li a {
       display: inline-block;
       width: 45px;
@@ -363,9 +363,14 @@ ul.pagination {
   ul.pagination.small {
     font-size: 10px; }
     ul.pagination.small li.page {
-      padding: 0px 12px;
-      line-height: 30px;
+      padding: 0;
+      line-height: 35px;
       border-radius: 50%; }
+    ul.pagination.small li a {
+      width: 35px;
+      height: 35px; }
+    ul.pagination.small li i {
+      font-size: 35px; }
   ul.pagination.vertical {
     position: absolute;
     top: 4em;
