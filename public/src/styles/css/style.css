@@ -336,9 +336,10 @@ ul.pagination {
   list-style-type: none; }
   ul.pagination li {
     display: inline-block;
-    font-size: 1.5em;
-    padding: 6px 16px;
-    line-height: 30px;
+    margin: 0 4px;
+    padding: 0;
+    font-size: 24px;
+    line-height: 45px;
     border-radius: 0;
     text-align: center;
     color: #fff; }
@@ -349,7 +350,14 @@ ul.pagination {
       padding: 0;
       font-size: 1.8em; }
     ul.pagination li a {
+      display: inline-block;
+      width: 45px;
+      height: 45px;
+      padding: 0;
       color: #fff; }
+    ul.pagination li:not(.active):hover {
+      background-color: rgba(16, 172, 157, 0.25);
+      border-radius: 50%; }
     ul.pagination li.active {
       background-color: #009688; }
   ul.pagination.small {
@@ -599,7 +607,7 @@ button.mdl-color--primary {
       box-reflect: initial;
       -webkit-box-reflect: initial; }
     #index-news-container .flipster-news-container .flipster--flat .flipster__item, #other-article-container .flipster-news-container .flipster--flat .flipster__item {
-      width: 50%; }
+      width: 48%; }
   #index-news-container .news-segment, #other-article-container .news-segment {
     background: rgba(0, 0, 0, 0.75);
     color: #eee; }
