@@ -353,7 +353,7 @@ ul.pagination {
       display: inline-block;
       width: 45px;
       height: 45px;
-      padding: 0;
+      padding: 3px 0 0;
       color: #fff; }
     ul.pagination li:not(.active):hover {
       background-color: rgba(16, 172, 157, 0.25);
