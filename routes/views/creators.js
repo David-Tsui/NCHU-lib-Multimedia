@@ -10,7 +10,7 @@ exports = module.exports = function (req, res) {
 	var routes_map = {
 		intro     : '聯盟介紹',
 		activities: '聯盟活動',
-		lectures  : '聯盟演講'
+		lectures  : '主題演講'
 	};
 
 	// Init locals

@@ -46,7 +46,7 @@ keystone.pre('routes', function (req, res, next) {
 					href: "/creators/activities"
 				},
 				{
-					label: "聯盟演講",
+					label: "主題演講",
 					key: "creators_lecture",
 					href: "/creators/lectures"
 				}
