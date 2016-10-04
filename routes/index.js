@@ -37,13 +37,18 @@ keystone.pre('routes', function (req, res, next) {
 			subnav: [
 				{
 					label: "聯盟介紹",
-					key: "news",
+					key: "creators_intro",
 					href: "/creators/intro"
 				},
 				{
 					label: "聯盟活動",
-					key: "rules",
+					key: "creators_activity",
 					href: "/creators/activities"
+				},
+				{
+					label: "聯盟演講",
+					key: "creators_lecture",
+					href: "/creators/lectures"
 				}
 			]
 		},
