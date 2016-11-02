@@ -128,6 +128,11 @@ keystone.pre('routes', function (req, res, next) {
 					label: "LINE貼圖",
 					key: "line_stickers",
 					href: "/idea/line_stickers"
+				},
+				{
+					label: "加入圖書館line@",
+					key: "join_line",
+					href: "/idea/join_line"
 				}
 			]
 		}
