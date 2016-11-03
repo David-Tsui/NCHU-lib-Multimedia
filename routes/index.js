@@ -37,13 +37,18 @@ keystone.pre('routes', function (req, res, next) {
 			subnav: [
 				{
 					label: "聯盟介紹",
-					key: "news",
+					key: "creators_intro",
 					href: "/creators/intro"
 				},
 				{
 					label: "聯盟活動",
-					key: "rules",
+					key: "creators_activity",
 					href: "/creators/activities"
+				},
+				{
+					label: "主題演講",
+					key: "creators_lecture",
+					href: "/creators/lectures"
 				}
 			]
 		},
@@ -123,6 +128,11 @@ keystone.pre('routes', function (req, res, next) {
 					label: "LINE貼圖",
 					key: "line_stickers",
 					href: "/idea/line_stickers"
+				},
+				{
+					label: "加入圖書館line@",
+					key: "join_line",
+					href: "/idea/join_line"
 				}
 			]
 		}

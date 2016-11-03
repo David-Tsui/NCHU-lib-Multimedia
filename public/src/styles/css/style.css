@@ -336,9 +336,10 @@ ul.pagination {
   list-style-type: none; }
   ul.pagination li {
     display: inline-block;
-    font-size: 1.5em;
-    padding: 6px 16px;
-    line-height: 30px;
+    margin: 0 4px;
+    padding: 0;
+    font-size: 24px;
+    line-height: 35px;
     border-radius: 0;
     text-align: center;
     color: #fff; }
@@ -347,17 +348,29 @@ ul.pagination {
     ul.pagination li i {
       vertical-align: middle;
       padding: 0;
-      font-size: 1.8em; }
+      font-size: 45px; }
     ul.pagination li a {
+      display: inline-block;
+      width: 45px;
+      height: 45px;
+      padding: 3px 0 0;
       color: #fff; }
+    ul.pagination li:not(.active):hover {
+      background-color: rgba(16, 172, 157, 0.25);
+      border-radius: 50%; }
     ul.pagination li.active {
       background-color: #009688; }
   ul.pagination.small {
     font-size: 10px; }
     ul.pagination.small li.page {
-      padding: 0px 12px;
-      line-height: 30px;
+      padding: 0;
+      line-height: 35px;
       border-radius: 50%; }
+    ul.pagination.small li a {
+      width: 35px;
+      height: 35px; }
+    ul.pagination.small li i {
+      font-size: 35px; }
   ul.pagination.vertical {
     position: absolute;
     top: 4em;
@@ -424,6 +437,24 @@ ul.pagination {
     width: 50%;
     height: 32px;
     font-size: 16px; }
+
+@-webkit-keyframes selfRotate {
+  from {
+    transform: scale(1.25) skew(30deg) rotateY(0deg); }
+  to {
+    transform: scale(1.25) skew(30deg) rotateY(360deg); } }
+
+@-moz-keyframes selfRotate {
+  from {
+    transform: scale(1.25) skew(30deg) rotateY(0deg); }
+  to {
+    transform: scale(1.25) skew(30deg) rotateY(360deg); } }
+
+@keyframes selfRotate {
+  from {
+    transform: scale(1.25) skew(30deg) rotateY(0deg); }
+  to {
+    transform: scale(1.25) skew(30deg) rotateY(360deg); } }
 
 @font-face {
   font-family: "cwTeXHei";
@@ -500,6 +531,8 @@ button.mdl-color--primary {
     align-items: center; }
     #carousel-container .owl-carousel .owl-wrapper-outer {
       min-height: 260px; }
+    #carousel-container .owl-carousel .owl-controls .owl-page.active span {
+      animation: selfRotate 4s linear infinite; }
     #carousel-container .owl-carousel .owl-controls .owl-page span {
       width: 14px;
       height: 16px;
@@ -509,7 +542,7 @@ button.mdl-color--primary {
       transform: scale(1) skew(30deg);
       transition: transform .085s ease-out; }
       #carousel-container .owl-carousel .owl-controls .owl-page span:hover {
-        transform: scale(1.5) skew(0deg); }
+        transform: scaleX(1.1) scaleY(1.4) skew(0); }
     #carousel-container .owl-carousel .owl-controls .owl-buttons {
       position: absolute;
       top: -12px;
@@ -579,7 +612,7 @@ button.mdl-color--primary {
       box-reflect: initial;
       -webkit-box-reflect: initial; }
     #index-news-container .flipster-news-container .flipster--flat .flipster__item, #other-article-container .flipster-news-container .flipster--flat .flipster__item {
-      width: 50%; }
+      width: 48%; }
   #index-news-container .news-segment, #other-article-container .news-segment {
     background: rgba(0, 0, 0, 0.75);
     color: #eee; }
@@ -758,15 +791,15 @@ table.mdl-data-table {
 
 table.mdl-data-table.detail-table td .ui.label {
   background: #fff581;
-  box-shadow: 0 0 2px 1px #444; }
+  box-shadow: 0 2px 1px -1px #333; }
 
 .ui.segment.movie-intro {
   border-radius: 0;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }
   .ui.segment.movie-intro button.btn-back {
     position: absolute;
-    right: 3px;
-    top: 8px; }
+    top: 12px;
+    right: 16px; }
 
 .ui.segment h1, .ui.segment h2, .ui.segment h3, .ui.segment h4, .ui.segment h5, .ui.segment h6 {
   margin-top: 0;

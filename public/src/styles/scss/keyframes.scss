@@ -1,0 +1,10 @@
+@import "bourbon";
+
+@include keyframes(selfRotate) {
+	from {
+		transform: scale(1.25) skew(30deg) rotateY(0deg);
+	}
+	to {
+		transform: scale(1.25) skew(30deg) rotateY(360deg);
+	}
+}

@@ -10,6 +10,7 @@ exports = module.exports = function (req, res) {
 	var routes_map = {
 		table_game   : '玩桌遊',
 		line_stickers: 'line貼圖',
+		join_line    : '加入圖書館line@'
 	};
 
 	// Init locals
