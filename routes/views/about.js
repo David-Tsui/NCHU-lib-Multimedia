@@ -53,5 +53,5 @@ exports = module.exports = function (req, res) {
 		});
 	});
 
-	view.render('center');
+	view.render('about');
 }
