@@ -15,11 +15,11 @@ exports = module.exports = function (req, res) {
 	};
 
 	// Init locals
-	locals.section = 'news';
+	locals.section = 'about';
 	locals.filters = {
 		category: req.params.category,
 	};
-	locals.news = [];
+	locals.posts = [];
 	var routes_name = routes_map[locals.filters.category];
 	locals.title = routes_name + ' - 興大多媒體中心';
 
@@ -35,7 +35,7 @@ exports = module.exports = function (req, res) {
 		}
 	});
 
-	// Load the news
+	// Load the posts
 	view.on('init', function (next) {
 		var q = AboutPost.model.find()
 			.where({'state':'published'})
@@ -47,11 +47,11 @@ exports = module.exports = function (req, res) {
 		}
 
 		q.exec(function (err, results) {
-			locals.news = results;
-			// console.log("results: ", results);
+			locals.posts = results;
+			console.log("results: ", results);
 			next(err);
 		});
 	});
 
-	view.render('center');
+	view.render('about');
 }
