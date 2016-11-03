@@ -23,7 +23,7 @@ exports = module.exports = function(Category, cate_key_name, section, title) {
 			co(function*() {
 				var results = yield {
 					// Load categories
-					categories: Category.model.find().sort('-startDate').exec(),
+					categories: Category.model.find().sort('-startDate').exec().where('state', '進行中'),
 
 					// Load the current root_category filter
 					category: (locals.filters.category ? 
@@ -40,10 +40,10 @@ exports = module.exports = function(Category, cate_key_name, section, title) {
 					perPage : 16,
 					maxPages: 10,
 				})
-				.where('state', '進行中')
+				.where('state', 'published')
 				.sort('-publishedDate')
 				.populate('author region_categories theme_categories classification_categories');
-				var movie_counts_query = Movie.model.find().where('state', '進行中');
+				var movie_counts_query = Movie.model.find().where('state', 'published');
 
 				var cate_query = {};
 				cate_query[cate_key_name] = results.category._id;
