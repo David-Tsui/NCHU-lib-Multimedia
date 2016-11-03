@@ -200,15 +200,7 @@
 .scrollbar-chrome>.scroll-element.scroll-y .scroll-element_track{top:-3px;width:14px}
 .scrollbar-chrome>.scroll-element.scroll-y .scroll-element_size{top:-4px;width:14px}
 .scrollbar-chrome>.scroll-element.scroll-y.scroll-scrollx_visible .scroll-element_size,.scrollbar-chrome>.scroll-element.scroll-y.scroll-scrollx_visible .scroll-element_track{top:-19px}
-@-webkit-keyframes selfRotate{from{transform:scale(1.25) skew(30deg) rotateY(0)}
-to{transform:scale(1.25) skew(30deg) rotateY(360deg)}
-}
-@-moz-keyframes selfRotate{from{transform:scale(1.25) skew(30deg) rotateY(0)}
-to{transform:scale(1.25) skew(30deg) rotateY(360deg)}
-}
-@keyframes selfRotate{from{transform:scale(1.25) skew(30deg) rotateY(0)}
-to{transform:scale(1.25) skew(30deg) rotateY(360deg)}
-}
+
 @charset "UTF-8";
 .nav-grid #nav-banner,.nav-grid #nav-banner img{width:100%}
 .nav-grid .ui.secondary.menu.main-navbar{display:flex;align-items:center;width:100%;height:63px;margin-top:-20px;padding:1em 4em;box-sizing:content-box;background:0 0;font-size:1.5em}
