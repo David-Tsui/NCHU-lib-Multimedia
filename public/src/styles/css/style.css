@@ -620,7 +620,8 @@ button.mdl-color--primary {
       text-align: initial; }
       #index-news-container .news-segment .news-item .content, #other-article-container .news-segment .news-item .content {
         position: relative;
-        padding-bottom: 1em; }
+        padding-bottom: 1em;
+        z-index: 999; }
         #index-news-container .news-segment .news-item .content .title, #other-article-container .news-segment .news-item .content .title {
           padding-top: 1em; }
           #index-news-container .news-segment .news-item .content .title p.header, #other-article-container .news-segment .news-item .content .title p.header {
@@ -657,8 +658,7 @@ button.mdl-color--primary {
   align-items: center;
   justify-content: space-around;
   position: relative;
-  padding: 0;
-  z-index: 999; }
+  padding: 0; }
   .list-items-container header {
     margin-bottom: 6px; }
     .list-items-container header h2 {

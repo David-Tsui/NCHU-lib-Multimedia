@@ -240,7 +240,7 @@ button.mdl-color--primary {
 			.content {
 				position      : relative;
 				padding-bottom: 1em;
-				// z-index       : 999;
+				z-index       : 999;
 				.title {
 					padding-top: 1em;
 					p.header {
@@ -302,7 +302,7 @@ button.mdl-color--primary {
 	justify-content: space-around;
 	position: relative;
 	padding: 0;
-	z-index: 999;
+	// z-index: 999;
 	header {
 		margin-bottom: 6px;
 		h2 {

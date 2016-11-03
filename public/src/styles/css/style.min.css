@@ -142,7 +142,7 @@ body{position:relative;min-width:1450px;background:url(../assets/images/bg.png) 
 #index-news-container .news-segment .news-item.horizontal .ui.image img,#index-news-container .news-segment .news-item.vertical .ui.image img,#other-article-container .news-segment .news-item.horizontal .ui.image img,#other-article-container .news-segment .news-item.vertical .ui.image img{width:100%}
 #index-news-container .news-segment,#other-article-container .news-segment{background:rgba(0,0,0,.75);color:#eee}
 #index-news-container .news-segment .news-item,#other-article-container .news-segment .news-item{text-align:initial}
-#index-news-container .news-segment .news-item .content,#other-article-container .news-segment .news-item .content{position:relative;padding-bottom:1em}
+#index-news-container .news-segment .news-item .content,#other-article-container .news-segment .news-item .content{position:relative;padding-bottom:1em;z-index:999}
 #index-news-container .news-segment .news-item .content .title,#other-article-container .news-segment .news-item .content .title{padding-top:1em}
 #index-news-container .news-segment .news-item .content .title p.header,#other-article-container .news-segment .news-item .content .title p.header{font-size:2em}
 #index-news-container .news-segment .news-item .content .action,#index-news-container .news-segment .news-item .content .title,#other-article-container .news-segment .news-item .content .action,#other-article-container .news-segment .news-item .content .title{text-align:center}
@@ -154,7 +154,7 @@ body{position:relative;min-width:1450px;background:url(../assets/images/bg.png) 
 #index-news-container .news-segment .news-item.vertical .content,#other-article-container .news-segment .news-item.vertical .content{flex:2}
 #other-article-container{max-height:900px}
 #other-article-container .flipster-news-container .flipster--flat .flipster__item{width:60%}
-.list-items-container{display:flex;flex-direction:column;align-items:center;justify-content:space-around;position:relative;padding:0;z-index:999}
+.list-items-container{display:flex;flex-direction:column;align-items:center;justify-content:space-around;position:relative;padding:0}
 .list-items-container header{margin-bottom:6px}
 .list-items-container header h2{width:100%;padding:0 0 .3em;border-bottom:1px #ddd solid}
 .list-items-container .pagination{margin:0;padding:0}
