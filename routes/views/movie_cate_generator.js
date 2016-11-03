@@ -40,10 +40,10 @@ exports = module.exports = function(Category, cate_key_name, section, title) {
 					perPage : 16,
 					maxPages: 10,
 				})
-				.where('state', 'published')
+				.where('state', '進行中')
 				.sort('-publishedDate')
 				.populate('author region_categories theme_categories classification_categories');
-				var movie_counts_query = Movie.model.find().where('state', 'published');
+				var movie_counts_query = Movie.model.find().where('state', '進行中');
 
 				var cate_query = {};
 				cate_query[cate_key_name] = results.category._id;

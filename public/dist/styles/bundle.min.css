@@ -571,10 +571,11 @@ body{position:relative;min-width:1450px;background:url(../assets/images/bg.png) 
 .intro-slide-row .flipster-news-container .flipster--flat .flipster__item{width:65%;vertical-align:top}
 .intro-slide-row .flipster-news-container .flipster__button{display:none}
 .intro-slide-row .intro-segment .description{padding:2em;overflow-y:scroll}
-table.mdl-data-table{width:100%}
+table.mdl-data-table{width:100%;white-space:normal}
 table.mdl-data-table caption{margin-bottom:1em}
 table.mdl-data-table td,table.mdl-data-table th{color:#444;font-size:16px}
 table.mdl-data-table th{font-weight:700}
+table.mdl-data-table td{text-align:left}
 table.mdl-data-table td.category-header{text-align:left;font-size:1.5em;color:#444}
 table.mdl-data-table td a.td-a{display:flex;align-items:center;justify-content:space-between}
 #movie-blog .ui.segment h1,#movie-blog .ui.segment h2,#movie-blog .ui.segment h3,#movie-blog .ui.segment h4,#movie-blog .ui.segment h5,#movie-blog .ui.segment h6{color:#444}

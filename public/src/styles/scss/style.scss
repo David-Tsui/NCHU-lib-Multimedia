@@ -397,6 +397,7 @@ button.mdl-color--primary {
 // 影音blog
 table.mdl-data-table {
 	width: 100%;
+	white-space: normal;
 	& caption {
 		margin-bottom: 1em;
 	}
@@ -408,6 +409,7 @@ table.mdl-data-table {
 		font-weight: 700;
 	}
 	td {
+		text-align: left;
 		&.category-header {
 			text-align: left;
 			font-size : 1.5em;
