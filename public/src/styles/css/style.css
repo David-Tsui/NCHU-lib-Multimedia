@@ -620,8 +620,7 @@ button.mdl-color--primary {
       text-align: initial; }
       #index-news-container .news-segment .news-item .content, #other-article-container .news-segment .news-item .content {
         position: relative;
-        padding-bottom: 1em;
-        z-index: 999; }
+        padding-bottom: 1em; }
         #index-news-container .news-segment .news-item .content .title, #other-article-container .news-segment .news-item .content .title {
           padding-top: 1em; }
           #index-news-container .news-segment .news-item .content .title p.header, #other-article-container .news-segment .news-item .content .title p.header {

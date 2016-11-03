@@ -200,7 +200,15 @@
 .scrollbar-chrome>.scroll-element.scroll-y .scroll-element_track{top:-3px;width:14px}
 .scrollbar-chrome>.scroll-element.scroll-y .scroll-element_size{top:-4px;width:14px}
 .scrollbar-chrome>.scroll-element.scroll-y.scroll-scrollx_visible .scroll-element_size,.scrollbar-chrome>.scroll-element.scroll-y.scroll-scrollx_visible .scroll-element_track{top:-19px}
-
+@-webkit-keyframes selfRotate{from{transform:scale(1.25) skew(30deg) rotateY(0)}
+to{transform:scale(1.25) skew(30deg) rotateY(360deg)}
+}
+@-moz-keyframes selfRotate{from{transform:scale(1.25) skew(30deg) rotateY(0)}
+to{transform:scale(1.25) skew(30deg) rotateY(360deg)}
+}
+@keyframes selfRotate{from{transform:scale(1.25) skew(30deg) rotateY(0)}
+to{transform:scale(1.25) skew(30deg) rotateY(360deg)}
+}
 @charset "UTF-8";
 .nav-grid #nav-banner,.nav-grid #nav-banner img{width:100%}
 .nav-grid .ui.secondary.menu.main-navbar{display:flex;align-items:center;width:100%;height:63px;margin-top:-20px;padding:1em 4em;box-sizing:content-box;background:0 0;font-size:1.5em}
@@ -534,7 +542,7 @@ body{position:relative;min-width:1450px;background:url(../assets/images/bg.png) 
 #index-news-container .news-segment .news-item.horizontal .ui.image img,#index-news-container .news-segment .news-item.vertical .ui.image img,#other-article-container .news-segment .news-item.horizontal .ui.image img,#other-article-container .news-segment .news-item.vertical .ui.image img{width:100%}
 #index-news-container .news-segment,#other-article-container .news-segment{background:rgba(0,0,0,.75);color:#eee}
 #index-news-container .news-segment .news-item,#other-article-container .news-segment .news-item{text-align:initial}
-#index-news-container .news-segment .news-item .content,#other-article-container .news-segment .news-item .content{position:relative;padding-bottom:1em;z-index:999}
+#index-news-container .news-segment .news-item .content,#other-article-container .news-segment .news-item .content{position:relative;padding-bottom:1em}
 #index-news-container .news-segment .news-item .content .title,#other-article-container .news-segment .news-item .content .title{padding-top:1em}
 #index-news-container .news-segment .news-item .content .title p.header,#other-article-container .news-segment .news-item .content .title p.header{font-size:2em}
 #index-news-container .news-segment .news-item .content .action,#index-news-container .news-segment .news-item .content .title,#other-article-container .news-segment .news-item .content .action,#other-article-container .news-segment .news-item .content .title{text-align:center}
