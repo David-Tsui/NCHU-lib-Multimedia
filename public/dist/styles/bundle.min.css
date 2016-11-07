@@ -331,7 +331,19 @@ to{transform:scale(1.25) skew(30deg) rotateY(360deg)}
 }
 @keyframes scaleUpTo{to{opacity:0;transform:scale(1.5)}
 }
-
+ul.pagination{width:100%;text-align:center;padding:1.5em;list-style-type:none}
+ul.pagination li{display:inline-block;margin:0 4px;padding:0;font-size:24px;line-height:35px;border-radius:0;text-align:center;color:#fff}
+ul.pagination li.first,ul.pagination li.last,ul.pagination li.next,ul.pagination li.prev{padding:2px 4px}
+ul.pagination li i{vertical-align:middle;padding:0;font-size:45px}
+ul.pagination li a{display:inline-block;width:45px;height:45px;padding:3px 0 0;color:#fff}
+ul.pagination li:not(.active):hover{background-color:rgba(16,172,157,.25);border-radius:50%}
+ul.pagination li.active{background-color:#009688}
+ul.pagination.small{font-size:10px}
+ul.pagination.small li.page{padding:0;line-height:35px;border-radius:50%}
+ul.pagination.small li a{width:35px;height:35px}
+ul.pagination.small li i{font-size:35px}
+ul.pagination.vertical{position:absolute;top:4em;right:0;display:flex;flex-direction:column;align-items:center;width:auto;padding:0;margin:0}
+ul.pagination.vertical li{padding:0 10px;line-height:30px}
 .google-search-box{position:absolute;width:20vw;margin-right:4em;padding-left:0!important;padding-right:0!important;right:0;background:#fff;z-index:2}
 .google-search-box .search{display:flex;align-items:center;font-weight:400;color:#fff}
 .google-search-box .search .gsc-control-cse.gsc-control-cse-zh_TW{background:0 0;padding:0;border:none}
