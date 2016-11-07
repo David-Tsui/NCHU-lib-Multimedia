@@ -14,6 +14,7 @@ block content
 				header
 					h2.header= posts.title
 				+news_list(posts.results, "IdeaPost")
+				+pagination(posts, true)
 			.twelve.wide.column.flipster-news-container
 				.flat-flipster
 					+news_slide(posts.results, "IdeaPost", "idea", category, 2.5)

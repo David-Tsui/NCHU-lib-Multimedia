@@ -26,7 +26,7 @@ block content
 							| 項
 					else
 						//- .lead.text-muted Showing #{utils.plural(movies.results.length, '* movie')}
-						h4 共有 #{movies.results.length} 部電影
+						h4.prompt 共有 #{movies.results.length} 部電影
 					+pagination(movies)
 					.ui.stackable.grid#four-movies-grid
 						each movie in movies.results
