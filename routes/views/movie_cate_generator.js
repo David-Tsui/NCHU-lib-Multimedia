@@ -23,7 +23,7 @@ exports = module.exports = function(Category, cate_key_name, section, title) {
 			co(function*() {
 				var results = yield {
 					// Load categories
-					categories: Category.model.find().where('state', '進行中').sort('-startDate').exec(),
+					categories: Category.model.find().sort('-startDate').exec(),
 
 					// Load the current root_category filter
 					category: (locals.filters.category ? 

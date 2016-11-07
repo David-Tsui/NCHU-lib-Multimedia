@@ -302,7 +302,7 @@ button.mdl-color--primary {
 	justify-content: space-around;
 	position: relative;
 	padding: 0;
-	// z-index: 999;
+	z-index: 999;
 	header {
 		margin-bottom: 6px;
 		h2 {
@@ -397,7 +397,6 @@ button.mdl-color--primary {
 // 影音blog
 table.mdl-data-table {
 	width: 100%;
-	white-space: normal;
 	& caption {
 		margin-bottom: 1em;
 	}
@@ -409,7 +408,6 @@ table.mdl-data-table {
 		font-weight: 700;
 	}
 	td {
-		text-align: left;
 		&.category-header {
 			text-align: left;
 			font-size : 1.5em;

@@ -658,7 +658,8 @@ button.mdl-color--primary {
   align-items: center;
   justify-content: space-around;
   position: relative;
-  padding: 0; }
+  padding: 0;
+  z-index: 999; }
   .list-items-container header {
     margin-bottom: 6px; }
     .list-items-container header h2 {
@@ -727,8 +728,7 @@ button.mdl-color--primary {
   overflow-y: scroll; }
 
 table.mdl-data-table {
-  width: 100%;
-  white-space: normal; }
+  width: 100%; }
   table.mdl-data-table caption {
     margin-bottom: 1em; }
   table.mdl-data-table th, table.mdl-data-table td {
@@ -736,16 +736,14 @@ table.mdl-data-table {
     font-size: 16px; }
   table.mdl-data-table th {
     font-weight: 700; }
-  table.mdl-data-table td {
-    text-align: left; }
-    table.mdl-data-table td.category-header {
-      text-align: left;
-      font-size: 1.5em;
-      color: #444; }
-    table.mdl-data-table td a.td-a {
-      display: flex;
-      align-items: center;
-      justify-content: space-between; }
+  table.mdl-data-table td.category-header {
+    text-align: left;
+    font-size: 1.5em;
+    color: #444; }
+  table.mdl-data-table td a.td-a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; }
 
 #movie-blog .ui.segment h1, #movie-blog .ui.segment h2, #movie-blog .ui.segment h3, #movie-blog .ui.segment h4, #movie-blog .ui.segment h5, #movie-blog .ui.segment h6 {
   color: #444; }

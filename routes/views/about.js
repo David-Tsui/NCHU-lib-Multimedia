@@ -8,21 +8,17 @@ exports = module.exports = function (req, res) {
 	var view = new keystone.View(req, res);
 	var locals = res.locals;
 	var routes_map = {
-		intro  : '中心介紹',
-		rules  : '相關規則',
-		spaces : '空間規劃',
-		opening: '開放時間'
+		rules: '相關規則'
 	};
 
 	// Init locals
-	locals.section = 'about';
+	locals.section = 'news';
 	locals.filters = {
 		category: req.params.category,
 	};
-	locals.posts = [];
+	locals.news = [];
 	var routes_name = routes_map[locals.filters.category];
 	locals.title = routes_name + ' - 興大多媒體中心';
-	locals.category_name = routes_name;
 
 	// Load the current category filter
 	view.on('init', function (next) {
@@ -36,7 +32,7 @@ exports = module.exports = function (req, res) {
 		}
 	});
 
-	// Load the posts
+	// Load the news
 	view.on('init', function (next) {
 		var q = AboutPost.model.find()
 			.where({'state':'published'})
@@ -48,11 +44,11 @@ exports = module.exports = function (req, res) {
 		}
 
 		q.exec(function (err, results) {
-			locals.posts = results;
-			console.log("results: ", results);
+			locals.news = results;
+			// console.log("results: ", results);
 			next(err);
 		});
 	});
 
-	view.render('about');
+	view.render('center');
 }

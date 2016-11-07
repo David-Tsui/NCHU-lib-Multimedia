@@ -88,7 +88,6 @@ exports = module.exports = function (req, res) {
 				movies_vanilla_result: movie_counts_query.exec()
 			};
 			locals.movies =	fix_keystone_pagination(results.movies, results.movies_vanilla_result.length, 16);
-
 		}).then(
 			function(){
 				callback(); 

@@ -26,16 +26,6 @@ keystone.pre('routes', function (req, res, next) {
 					label: "相關規則",
 					key: "rules",
 					href: "/about/rules"
-				},
-				{
-					label: "空間規劃",
-					key: "rules",
-					href: "/about/spaces"
-				},
-				{
-					label: "開放時間",
-					key: "rules",
-					href: "/about/opening"
 				}
 			]
 		},
@@ -169,6 +159,7 @@ exports = module.exports = function (app) {
 	// Views
 	// app.get('/news/list', routes.views.news_list);
 	app.get('/news/posts/:post', routes.views.news_detail);
+	app.get('/about/intro', routes.views.intro);
 	app.get('/about/:category', routes.views.about);
 	app.get('/creators/:category', routes.views.creators);
 	app.get('/creators/:category/posts/:post', routes.views.creators_detail);

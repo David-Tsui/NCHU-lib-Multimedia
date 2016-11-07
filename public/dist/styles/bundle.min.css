@@ -331,19 +331,7 @@ to{transform:scale(1.25) skew(30deg) rotateY(360deg)}
 }
 @keyframes scaleUpTo{to{opacity:0;transform:scale(1.5)}
 }
-ul.pagination{width:100%;text-align:center;padding:1.5em;list-style-type:none}
-ul.pagination li{display:inline-block;margin:0 4px;padding:0;font-size:24px;line-height:35px;border-radius:0;text-align:center;color:#fff}
-ul.pagination li.first,ul.pagination li.last,ul.pagination li.next,ul.pagination li.prev{padding:2px 4px}
-ul.pagination li i{vertical-align:middle;padding:0;font-size:45px}
-ul.pagination li a{display:inline-block;width:45px;height:45px;padding:3px 0 0;color:#fff}
-ul.pagination li:not(.active):hover{background-color:rgba(16,172,157,.25);border-radius:50%}
-ul.pagination li.active{background-color:#009688}
-ul.pagination.small{font-size:10px}
-ul.pagination.small li.page{padding:0;line-height:35px;border-radius:50%}
-ul.pagination.small li a{width:35px;height:35px}
-ul.pagination.small li i{font-size:35px}
-ul.pagination.vertical{position:absolute;top:4em;right:0;display:flex;flex-direction:column;align-items:center;width:auto;padding:0;margin:0}
-ul.pagination.vertical li{padding:0 10px;line-height:30px}
+
 .google-search-box{position:absolute;width:20vw;margin-right:4em;padding-left:0!important;padding-right:0!important;right:0;background:#fff;z-index:2}
 .google-search-box .search{display:flex;align-items:center;font-weight:400;color:#fff}
 .google-search-box .search .gsc-control-cse.gsc-control-cse-zh_TW{background:0 0;padding:0;border:none}
@@ -554,7 +542,7 @@ body{position:relative;min-width:1450px;background:url(../assets/images/bg.png) 
 #index-news-container .news-segment .news-item.vertical .content,#other-article-container .news-segment .news-item.vertical .content{flex:2}
 #other-article-container{max-height:900px}
 #other-article-container .flipster-news-container .flipster--flat .flipster__item{width:60%}
-.list-items-container{display:flex;flex-direction:column;align-items:center;justify-content:space-around;position:relative;padding:0}
+.list-items-container{display:flex;flex-direction:column;align-items:center;justify-content:space-around;position:relative;padding:0;z-index:999}
 .list-items-container header{margin-bottom:6px}
 .list-items-container header h2{width:100%;padding:0 0 .3em;border-bottom:1px #ddd solid}
 .list-items-container .pagination{margin:0;padding:0}
@@ -571,11 +559,10 @@ body{position:relative;min-width:1450px;background:url(../assets/images/bg.png) 
 .intro-slide-row .flipster-news-container .flipster--flat .flipster__item{width:65%;vertical-align:top}
 .intro-slide-row .flipster-news-container .flipster__button{display:none}
 .intro-slide-row .intro-segment .description{padding:2em;overflow-y:scroll}
-table.mdl-data-table{width:100%;white-space:normal}
+table.mdl-data-table{width:100%}
 table.mdl-data-table caption{margin-bottom:1em}
 table.mdl-data-table td,table.mdl-data-table th{color:#444;font-size:16px}
 table.mdl-data-table th{font-weight:700}
-table.mdl-data-table td{text-align:left}
 table.mdl-data-table td.category-header{text-align:left;font-size:1.5em;color:#444}
 table.mdl-data-table td a.td-a{display:flex;align-items:center;justify-content:space-between}
 #movie-blog .ui.segment h1,#movie-blog .ui.segment h2,#movie-blog .ui.segment h3,#movie-blog .ui.segment h4,#movie-blog .ui.segment h5,#movie-blog .ui.segment h6{color:#444}
