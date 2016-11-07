@@ -1,0 +1,26 @@
+mixin testPagination(source)
+	ul.pagination
+		//- if source.previous
+		//- 	li: a(href='?page=' + source.previous): i.material-icons chevron_left
+		//- else
+		//- 	li.disabled: i.material-icons chevron_left
+		each p, i in source.pages
+			li(class=source.currentPage === p ? 'active' : null)
+				a(href='?page=' + (p === '...' ? (i ? source.totalPages : 1) : p ))= p
+		//- if source.next
+		//- 	li: a(href='?page=' + source.next): i.material-icons chevron_right
+		//- else
+		//- 	li.disabled: i.material-icons chevron_right
+
+	script.
+		var source = !{JSON.stringify(source).replace(/<\//g, "<\\/")};
+		console.log("source: ", source);
+		$('ul.pagination').twbsPagination({
+			totalPages  : source.totalPages,
+			visiblePages: 7,
+			href        : '?page={{number}}',
+			first       : '<i class="material-icons">first_page</i>',
+			prev        : '<i class="material-icons">chevron_left</i>',
+			next        : '<i class="material-icons">chevron_right</i>',
+			last        : '<i class="material-icons">last_page</i>'
+		});
