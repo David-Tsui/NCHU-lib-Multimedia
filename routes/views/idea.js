@@ -36,17 +36,21 @@ exports = module.exports = function (req, res) {
 	});
 
 	view.on('init', function (next) {
-		var q = IdeaPost.model.find()
-			.where({'state':'published'})
-			.sort('-publishedDate')
-			.populate('author categories');
+		var q = IdeaPost.paginate({
+			page    : req.query.page || 1,
+			perPage : 6,
+			maxPages: 10,
+		})
+		.where({'state':'published'})
+		.sort('-publishedDate')
+		.populate('author categories');
 
 		if (locals.category) {
 			q.where('categories').in([locals.category]);
 		}
 
 		q.exec(function (err, results) {
-			locals.posts       = {results: results};
+			locals.posts       = results;
 			locals.posts.title = routes_name;
 			locals.category    = locals.filters.category;
 			next(err);
