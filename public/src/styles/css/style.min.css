@@ -114,6 +114,7 @@ body{position:relative;min-width:1450px;background:url(../assets/images/bg.png) 
 .ui.grid.main-container .row{padding:4em 1em}
 .ui.grid.main-container .row header h2{color:#ddd}
 .ui.grid.main-container article .main-content{padding:1em 2em}
+.ui.menu .dropdown.item .menu.visible{z-index:801}
 .main-footer{position:absolute;width:100%;background:rgba(4,15,79,.8);text-align:center;margin-top:3em;padding:2em 1em;box-sizing:content-box;color:#eee}
 #carousel-container .owl-carousel .owl-item .item .movie-item time,button.mdl-color--primary{color:#fff}
 .scrollbar-inner>.scroll-element .scroll-bar{background-color:#222}
@@ -154,7 +155,7 @@ body{position:relative;min-width:1450px;background:url(../assets/images/bg.png) 
 #index-news-container .news-segment .news-item.vertical .content,#other-article-container .news-segment .news-item.vertical .content{flex:2}
 #other-article-container{max-height:900px}
 #other-article-container .flipster-news-container .flipster--flat .flipster__item{width:60%}
-.list-items-container{display:flex;flex-direction:column;align-items:center;justify-content:space-around;position:relative;padding:0;z-index:999}
+.list-items-container{display:flex;flex-direction:column;align-items:center;justify-content:space-around;position:relative;padding:0;z-index:500}
 .list-items-container header{margin-bottom:6px}
 .list-items-container header h2{width:100%;padding:0 0 .3em;border-bottom:1px #ddd solid}
 .list-items-container .pagination{margin:0;padding:0}

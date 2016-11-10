@@ -74,6 +74,10 @@ body {
 	}
 }
 
+.ui.menu .dropdown.item .menu.visible {
+	z-index: 801;
+}
+
 .main-footer {
 	position  : absolute;
 	width     : 100%;
@@ -296,13 +300,13 @@ button.mdl-color--primary {
 }
 
 .list-items-container {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
+	display        : flex;
+	flex-direction : column;
+	align-items    : center;
 	justify-content: space-around;
-	position: relative;
-	padding: 0;
-	z-index: 999;
+	position       : relative;
+	padding        : 0;
+	z-index        : 500;
 	header {
 		margin-bottom: 6px;
 		h2 {
