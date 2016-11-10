@@ -8,6 +8,9 @@ exports = module.exports = function (req, res) {
 	var view = new keystone.View(req, res);
 	var locals = res.locals;
 	var routes_map = {
+		intro: '中心介紹',
+		open : '開放時間',
+		space: '空間說明',
 		rules: '相關規則'
 	};
 
@@ -32,23 +35,36 @@ exports = module.exports = function (req, res) {
 		}
 	});
 
-	// Load the news
 	view.on('init', function (next) {
-		var q = AboutPost.model.find()
+		var q;
+		if (routes_name != '空間說明') {
+			q = AboutPost.model.find()
 			.where({'state':'published'})
 			.sort('-publishedDate')
 			.populate('author categories');
 
+		} else {
+			var q = AboutPost.paginate({
+				page: req.query.page || 1,
+				perPage: 20,
+			})
+			.where('state', 'published')
+			.sort('-publishedDate')
+			.populate('author');
+		}
+
 		if (locals.category) {
 			q.where('categories').in([locals.category]);
 		}
-
+		
 		q.exec(function (err, results) {
-			locals.news = results;
-			// console.log("results: ", results);
+			locals.posts = results;
 			next(err);
 		});
 	});
-
-	view.render('center');
+	if (routes_name == '空間說明') {
+		view.render('intro');
+	} else {
+		view.render('center');
+	}
 }

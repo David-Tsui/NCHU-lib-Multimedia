@@ -49,7 +49,7 @@ exports.locals = {
 
 exports.nav = {
 	'最新消息'  : ['news-posts'],
-	'中心介紹'  : ['intro-posts'],
+	// '中心介紹'  : ['intro-posts'],
 	'關於我們'  : ['about-posts', 'about-post-categories'],
 	'愛創聯盟'  : ['creators-posts', 'creators-post-categories'],
 	// '暫存'    	 : ['maker-posts', 'maker-post-categories'],
