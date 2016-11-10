@@ -114,6 +114,7 @@ body{position:relative;min-width:1450px;background:url(../assets/images/bg.png) 
 .ui.grid.main-container .row{padding:4em 1em}
 .ui.grid.main-container .row header h2{color:#ddd}
 .ui.grid.main-container article .main-content{padding:1em 2em}
+.ui.menu .dropdown.item .menu.visible{z-index:801}
 .main-footer{position:absolute;width:100%;background:rgba(4,15,79,.8);text-align:center;margin-top:3em;padding:2em 1em;box-sizing:content-box;color:#eee}
 #carousel-container .owl-carousel .owl-item .item .movie-item time,button.mdl-color--primary{color:#fff}
 .scrollbar-inner>.scroll-element .scroll-bar{background-color:#222}

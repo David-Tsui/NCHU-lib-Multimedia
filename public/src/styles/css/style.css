@@ -501,6 +501,9 @@ body {
     .ui.grid.main-container article .main-content p {
       font-size: 1.25em; }
 
+.ui.menu .dropdown.item .menu.visible {
+  z-index: 801; }
+
 .main-footer {
   position: absolute;
   width: 100%;

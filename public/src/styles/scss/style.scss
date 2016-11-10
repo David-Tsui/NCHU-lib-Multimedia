@@ -74,6 +74,10 @@ body {
 	}
 }
 
+.ui.menu .dropdown.item .menu.visible {
+	z-index: 801;
+}
+
 .main-footer {
 	position  : absolute;
 	width     : 100%;
