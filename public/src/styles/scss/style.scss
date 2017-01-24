@@ -462,9 +462,13 @@ table.mdl-data-table {
 		width: 100%;
 		min-height: 250px;
 		max-height: 250px;
-		color: rgba(0, 0, 0, .75);
+		color: rgba(0, 0, 0, .9);
 		h4 {
 			color: #555 !important;
+		}
+		p {
+			font-size: 16px;
+			line-height: 2rem;
 		}
 		// overflow-y: auto;
 		.scrollable-text.scrollbar-inner {
