@@ -25,12 +25,13 @@ Or zip/tar.gz of this project.
 
 #### Use docker
 
-You may need to install docker first: https://www.docker.com/community-edition
+You may need to install [docker](https://www.docker.com/community-edition) and [docker-compose](https://docs.docker.com/compose/install/) first: 
 
 to build the env in docker, just
 
 ```
 cd path/to/this/project
+cp .env.example .env
 cp docker-compose.example.yml docker-compose.yml
 docker-compose build
 ```
@@ -80,6 +81,3 @@ the backup file will be stored at `./backup/2017...`
 cd path/to/this/project
 docker-compose run restore ./backup/...
 ```
-
-
-
