@@ -1,4 +1,4 @@
-version: '2'
+version: '2.1'
 volumes:
     dev_volume:
         driver: local
@@ -6,7 +6,8 @@ services:
     main: &main
         build: .
         depends_on:
-         - mongo
+            mongo:
+                condition: service_healthy
         ports:
          - "80:3000"
         environment:
@@ -41,6 +42,8 @@ services:
         command: rsync --exclude=node_modules --exclude=.git --exclude=*.swp --exclude=*.swo -urv --delete /workspace/ /usr/src/app
     mongo:
         image: mongo
+        healthcheck:
+            test: bash -c "echo 'db.stats().ok' | mongo 192.168.5.51:30000/test --quiet"
     backup: &backup_restore
         image: mongo
         depends_on:
