@@ -25,7 +25,7 @@ Or zip/tar.gz of this project.
 
 #### Use docker
 
-You may need to install [docker](https://www.docker.com/community-edition) and [docker-compose](https://docs.docker.com/compose/install/) first: 
+You may need to install [docker](https://www.docker.com/community-edition) and [docker-compose](https://docs.docker.com/compose/install/) first
 
 to build the env in docker, just
 
