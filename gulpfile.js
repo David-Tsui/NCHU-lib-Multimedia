@@ -1,4 +1,4 @@
-var gulp     = require('gulp');          
+var gulp     = require('gulp');
 var $plugins = require('gulp-load-plugins')();
 var path     = require('path');
 var bourbon  = require("bourbon").includePaths;
@@ -50,7 +50,7 @@ gulp.task('scss', function() {
 		.pipe($plugins.plumber())
 		.pipe($plugins.sass({
 			includePaths: ["scss"].concat(bourbon)
-		}))   
+		}))
 		.pipe(gulp.dest(paths.src.styles.css))
 		// .pipe($plugins.notify("scss to css completed"))
 });
@@ -122,7 +122,7 @@ gulp.task('assets', ['fonts', 'images'], function() {
 
 gulp.task('uglify-scripts', function() {
 	gulp.src(paths.src.scripts)
-		.pipe($plugins.plumber())      
+		.pipe($plugins.plumber())
 		.pipe($plugins.uglify())
 		.pipe(gulp.dest('public/src/js/min'));
 });
@@ -132,7 +132,7 @@ gulp.task('scripts', ['uglify-scripts'], function() {
 		'public/src/js/vendor/*.min.js',
 		'public/src/js/min/*.js',
 	])
-	.pipe($plugins.plumber())                       
+	.pipe($plugins.plumber())
 	.pipe($plugins.concat({path: 'bundle.min.js', cwd: ''}))
 	.pipe(gulp.dest(paths.dist.scripts))
 	.pipe($plugins.notify("JS is ready..."))

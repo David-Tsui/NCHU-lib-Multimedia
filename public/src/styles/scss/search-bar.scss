@@ -33,19 +33,21 @@
 			}
 			input {
 				&#gsc-i-id1 {
-					height: 2rem !important;
+					height: 2.5rem !important;
 					line-height: 2rem !important;
 					border: none;
+					margin-top: -8px !important;
 					padding: 0;
 					color: #222;
-				} 
+					font-size: 1.5rem;
+				}
 				&.gsc-search-button-v2 {
 					background: url(https://www.google.com/uds/css/v2/search_box_icon.png) center no-repeat, #009688;
 			    color: #fff;
 			    border: none;
 			    border-radius: 0;
-			    margin: 10px 0 0;
-			    height: 119%;
+			    margin: 0;
+			    height: 3.5em;
 			    &:hover {
 			    	background-color: #00beac;
 			    }

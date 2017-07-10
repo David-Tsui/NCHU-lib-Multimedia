@@ -41,7 +41,6 @@ body {
 	background           : url($img-path + 'bg.png') center center / cover no-repeat;
 	background-attachment: fixed;
 	padding-bottom       : 3em;
-	
 }
 
 // grid layout
@@ -51,7 +50,7 @@ body {
 	& > h1, & > h2, & > h3, & > h4, & > h5, & > h6,
 	header, h4.prompt, h5.prompt {
 		color: #fff;
-	} 
+	}
 	aside {
 		margin-bottom: 2em;
 	}
@@ -170,7 +169,6 @@ button.mdl-color--primary {
 				.movie-item {
 					width: 100%;
 					margin: 0 6px;
-					
 					.meta {
 						margin-bottom: 5px;
 						font-size: 14px;
@@ -197,7 +195,7 @@ button.mdl-color--primary {
 							width: 100%;
 							height: 230px;
 							z-index: 1000;
-						}  
+						} 
 					}
 					time {
 						color: #fff;
@@ -211,7 +209,7 @@ button.mdl-color--primary {
 #index-news-container {
 	position  : relative;
 	max-height: 700px;
-	// news 
+	// news
 	.flipster-news-container {
 		display    : flex;
 		align-items: center;

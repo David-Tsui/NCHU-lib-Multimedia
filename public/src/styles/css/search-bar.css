@@ -28,18 +28,20 @@
         .google-search-box .search .gsc-search-box-tools .gsc-search-box .gsc-input-box span.gscb_a, .google-search-box .search .gsc-search-box-tools .gsc-search-box .gsc-input-box-hover span.gscb_a, .google-search-box .search .gsc-search-box-tools .gsc-search-box .gsc-input-box-focus span.gscb_a {
           margin-top: 10px; }
       .google-search-box .search .gsc-search-box-tools .gsc-search-box input#gsc-i-id1 {
-        height: 2rem !important;
+        height: 2.5rem !important;
         line-height: 2rem !important;
         border: none;
+        margin-top: -8px !important;
         padding: 0;
-        color: #222; }
+        color: #222;
+        font-size: 1.5rem; }
       .google-search-box .search .gsc-search-box-tools .gsc-search-box input.gsc-search-button-v2 {
         background: url(https://www.google.com/uds/css/v2/search_box_icon.png) center no-repeat, #009688;
         color: #fff;
         border: none;
         border-radius: 0;
-        margin: 10px 0 0;
-        height: 119%; }
+        margin: 0;
+        height: 3.5em; }
         .google-search-box .search .gsc-search-box-tools .gsc-search-box input.gsc-search-button-v2:hover {
           background-color: #00beac; }
     .google-search-box .search #___gcse_0 {
