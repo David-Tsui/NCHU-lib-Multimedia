@@ -52,6 +52,7 @@ $(document).ready(function() {
 
 	
 	$('.owl-carousel').owlCarousel({
+		dots: false,
 		items            : 3, 
 		itemsDesktop     : [1600,2], 
 		itemsDesktopSmall: [980,2], 
