@@ -501,6 +501,9 @@ body {
     .ui.grid.main-container article .main-content p {
       font-size: 1.25em; }
 
+.ui.menu .dropdown.item .menu.visible {
+  z-index: 801; }
+
 .main-footer {
   position: absolute;
   width: 100%;
@@ -659,7 +662,7 @@ button.mdl-color--primary {
   justify-content: space-around;
   position: relative;
   padding: 0;
-  z-index: 999; }
+  z-index: 500; }
   .list-items-container header {
     margin-bottom: 6px; }
     .list-items-container header h2 {
@@ -771,9 +774,12 @@ table.mdl-data-table {
     width: 100%;
     min-height: 250px;
     max-height: 250px;
-    color: rgba(0, 0, 0, 0.75); }
+    color: rgba(0, 0, 0, 0.9); }
     .mdl-card .mdl-card__supporting-text h4 {
       color: #555 !important; }
+    .mdl-card .mdl-card__supporting-text p {
+      font-size: 16px;
+      line-height: 2rem; }
     .mdl-card .mdl-card__supporting-text .scrollable-text.scrollbar-inner {
       min-height: 170px;
       max-height: 170px;

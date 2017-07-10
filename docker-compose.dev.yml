@@ -1,0 +1,38 @@
+version: '2.1'
+services:
+    main:
+        build: .
+        depends_on:
+            mongo:
+                condition: service_healthy
+        ports:
+         - "3000:3000"
+        environment:
+            MONGO_URI: 'mongodb://mongo/nchu-lib'
+        volumes:
+         - .:/workspace
+         - ./client:/usr/src/app/client
+         - ./models:/usr/src/app/models
+         - ./public:/usr/src/app/public
+         - ./routes:/usr/src/app/routes
+         - ./templates:/usr/src/app/templates
+         - ./updates:/usr/src/app/updates
+        entrypoint: []
+        command: bash
+    mongo:
+        image: mongo
+        healthcheck:
+            test: bash -c "echo 'db.stats().ok' | mongo 192.168.5.51:30000/test --quiet"
+    backup: &backup_restore
+        image: mongo
+        depends_on:
+         - mongo
+        volumes:
+         - .:/workspace
+        working_dir: /workspace
+        command: bash -c "mongodump -h mongo --out backup/$$(date +%Y%m%d%H%M%S)"
+    restore: 
+        <<: *backup_restore
+        entrypoint: ["mongorestore", "-h", "mongo"]
+        command: []
+

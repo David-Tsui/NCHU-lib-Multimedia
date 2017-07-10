@@ -17,7 +17,7 @@
     "express": "^4.13.4",
     "iron-node": "^3.0.5",
     "jade": "^1.11.0",
-    "keystone": "https://github.com/keystonejs/keystone.git",
+    "keystone": "https://github.com/keystonejs/keystone.git#a396bda13f3ae8a941bee6b77d741d66e6175f2b",
     "lodash": "^4.15.0",
     "lorem-ipsum": "^1.0.3",
     "model-transform": "^2.0.0",

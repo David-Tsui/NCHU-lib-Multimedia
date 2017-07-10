@@ -23,6 +23,16 @@ keystone.pre('routes', function (req, res, next) {
 					href: "/about/intro"
 				},
 				{
+					label: "開放時間",
+					key: "open",
+					href: "/about/open"
+				},
+				{
+					label: "空間說明",
+					key: "space",
+					href: "/about/space"
+				},
+				{
 					label: "相關規則",
 					key: "rules",
 					href: "/about/rules"
@@ -159,7 +169,6 @@ exports = module.exports = function (app) {
 	// Views
 	// app.get('/news/list', routes.views.news_list);
 	app.get('/news/posts/:post', routes.views.news_detail);
-	app.get('/about/intro', routes.views.intro);
 	app.get('/about/:category', routes.views.about);
 	app.get('/creators/:category', routes.views.creators);
 	app.get('/creators/:category/posts/:post', routes.views.creators_detail);
