@@ -117,7 +117,10 @@ docker-compose run --rm --service-ports main
 inside the dev env,
 
 ```
-# to run server:
+# to run server (Ctrl-c to close server):
 npm run dev
+
+# to compile assets (js, css):
+npm run assets:compile
 ```
 
