@@ -1,4 +1,4 @@
-# Nchu Media CMS
+# Nchu Media CMS 興大多媒體中心網站
 
 This is a CMS system built on [Keystone.js](http://keystonejs.com/) for Nchu library multi-media website
 
@@ -81,3 +81,46 @@ the backup file will be stored at `./backup/2017...`
 cd path/to/this/project
 docker-compose run restore ./backup/...
 ```
+
+## Update / Rebuild the service
+
+```
+cd path/to/this/project
+git pull # or any means to get the latest code
+docker-compose build
+docker-compose kill
+docker-compose up -d main
+```
+
+## Development
+
+Get the code first
+
+```
+git clone https://github.com/David-Tsui/NCHU-lib-Multimedia.git
+cd ./NCHU-lib-Multimedia
+```
+
+Copy config from example
+
+```
+cp .env.example .env
+cp docker-compose.dev.yml docker-compose.yml
+```
+
+run the dev env, the code is shared between the container and the host
+
+```
+docker-compose run --rm --service-ports main
+```
+
+inside the dev env,
+
+```
+# to run server (Ctrl-c to close server):
+npm run dev
+
+# to compile assets (js, css):
+npm run assets:compile
+```
+
