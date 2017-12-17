@@ -1,8 +1,0 @@
-mixin news_list(news, listName)
-	.ui.link.items#list-news
-		each post in news
-			.item.slide-link(data-slide="#{post.name}" data-ks-editable=editable(user, { list: listName, id: post.id }))
-				.content
-					p= post.name
-
-	

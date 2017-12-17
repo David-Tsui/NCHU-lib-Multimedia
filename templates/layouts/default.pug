@@ -13,7 +13,6 @@ html
 
 				ga('create', '#{ga_property}', '#{ga_domain}');
 				ga('send', 'pageview');
-		
 		meta(charset="utf-8")
 		meta(name="google-site-verification" content="5Il0nqcrw3IyFxcxtXYcODMkJWCtahOkCf4SQG3mh08")
 
@@ -24,14 +23,15 @@ html
 		link(href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,600,700', rel='stylesheet')
 		link(href='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/semantic.min.css', rel='stylesheet')
 		link(href='https://code.getmdl.io/1.1.3/material.teal-indigo.min.css', rel='stylesheet')
-		link(href='/dist/styles/bundle.min.css', rel='stylesheet')
+		//- inject:css
+		link(rel="stylesheet", href="/dist/styles/main-aa4abb505a.min.css")
+		//- endinject
 
 		if user && user.canAccessKeystone
 			link(href="/keystone/styles/content/editor.min.css", rel="stylesheet")
 
 		block css
 		block head
-		
 	body
 		.ui.grid.nav-grid
 			.ui.image#nav-banner
@@ -43,8 +43,6 @@ html
 					else
 						a(href='/keystone/signin') 管理
 				.hit-counter
-					//- a(href='http://www.free-website-hit-counter.com')
-					//- 	img(src='http://www.free-website-hit-counter.com/c.php?d=7&id=89656&s=28', border='0', title='free website hit counter')
 					a(href="http://www.freecounterstat.com" title="free counters")
 						img(src="http://counter5.01counter.com/private/freecounterstat.php?c=b8440437b259b4841f78287552040483" border="0" title="free counters" alt="free counters")
 					br
@@ -53,22 +51,22 @@ html
 			.computer.tablet.only.row
 				.ui.secondary.menu.main-navbar
 					each link, index in navLinks
-						if link.nested 
+						if link.nested
 							.svg-btn-container
 								.svg-bg
 									+SvgBgBtn(index + 1)
 								.ui.dropdown.item.svg-item
-									span(id='root-span-#{index + 1}')!= link.label
+									span(id='svg-text' + (index + 1))!= link.label
 									i.dropdown.icon
 									.menu
 										each subLink in link.subnav
 											a.item(href=subLink.href)= subLink.label
-						else 
+						else
 							.svg-btn-container
 								.svg-bg
 									+SvgBgBtn(index + 1)
 								a.item.svg-item(href=link.href)
-									span(id='root-span-#{index + 1}')!= link.label
+									span(id='svg-text' + (index + 1))!= link.label
 		//- intro
 		block content
 
@@ -76,7 +74,6 @@ html
 		footer.main-footer
 			p Copyright &copy; 2016 中興大學圖書館
 			p Created By 中興大學資訊科學研習社
-		
 		script.
 			!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
 
@@ -85,11 +82,13 @@ html
 		script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js')
 
 		script(src='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/semantic.min.js')
-		script(src='https://code.getmdl.io/1.1.3/material.min.js')  
-		script(src='/dist/scripts/bundle.min.js')
+		script(src='https://code.getmdl.io/1.1.3/material.min.js')
+		//- inject:js
+		script(src="/dist/scripts/main-21a7f22227.min.js")
+		//- endinject
 
 		if user && user.canAccessKeystone
 			script(src='/keystone/js/content/editor.js')
-			
+
 		block page-js
 

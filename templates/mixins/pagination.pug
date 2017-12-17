@@ -1,12 +1,13 @@
-mixin pagination(source, is_small)
+mixin pagination(source, is_small, visiblePage)
 	- is_small = is_small || false
+	- visiblePage = visiblePage || 7
 	if is_small
-		ul.pagination.small(data-pages="#{source.totalPages}")
+		ul.pagination.small(data-pages=source.totalPages visible-pages=visiblePage)
 			each p, i in source.pages
 				li(class=source.currentPage === p ? 'active' : null)
 					a(href='?page=' + (p === '...' ? (i ? source.totalPages : 1) : p ))= p
 	else
-		ul.pagination(data-pages="#{source.totalPages}")
+		ul.pagination(data-pages=source.totalPages visible-pages=visiblePage)
 			each p, i in source.pages
 				li(class=source.currentPage === p ? 'active' : null)
 					a(href='?page=' + (p === '...' ? (i ? source.totalPages : 1) : p ))= p

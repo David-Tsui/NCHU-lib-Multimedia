@@ -9,11 +9,11 @@ exports.options = {
 	'static' : 'public',
 
 	'views'      : 'templates/views',
-	'view engine': 'jade',
+	'view engine': 'pug',
 
 
 	'mongo': process.env.MONGO_URI || process.env.MONGOLAB_URI || 'mongodb://localhost/nchu-lib',
-	
+
 	'cloudinary config': 'cloudinary://723239137287229:-_LsiFvvJIExNQv6FWakiPiLSAA@nchu-lib',
 
 	'auto update': true,
