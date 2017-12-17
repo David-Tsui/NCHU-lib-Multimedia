@@ -109,7 +109,6 @@ button.mdl-color--primary {
 	background-image: url($img-path + 'carousel_bg.png');
 	background-size: 100% 420px;
 	margin-top: -1em;
-
 	.owl-carousel {
 		width: 100%;
 		margin-left: 1em;
@@ -117,7 +116,6 @@ button.mdl-color--primary {
 		display: flex;
 		justify-content: center;
 		align-items: center;
-
 		.owl-wrapper-outer { min-height: 260px; }
 		.owl-controls {
 			.owl-page {
@@ -142,8 +140,8 @@ button.mdl-color--primary {
 			.owl-buttons {
 				position: absolute;
 				top: -12px;
-				left: 0;
-				width: 100%;
+				left: 50%;
+				transform: translateX(-50%);
 				z-index: 1;
 				div {
 					opacity: .8;
@@ -167,14 +165,13 @@ button.mdl-color--primary {
 				display: flex;
 				justify-content: space-around;
 				background: transparent;
-				margin: 0 0 4px;
+				margin-bottom: 4px;
 				text-align: center;
 				.movie-item {
 					width: 100%;
-					margin: 0 6px;
-					.meta {
-						margin-bottom: 5px;
-						font-size: 14px;
+					margin: 1rem 4px 0;
+					time {
+						display: none;
 					}
 					.ui.image {
 						position: relative;

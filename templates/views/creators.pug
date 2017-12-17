@@ -9,12 +9,12 @@ block content
 			.four.wide.column.list-items-container
 				aside.admin-ui
 					if user
-						a(href='/keystone/creators-posts') 
+						a(href='/keystone/creators-posts')
 							button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.md.admin-ui-color= '修改文章'
 				header
 					h2.header= posts.title
 				+news_list(posts.results, "CreatorsPost")
-				+pagination(posts)
+				+pagination(posts, true)
 			.twelve.wide.column.flipster-news-container
 				.flat-flipster
 					+news_slide(posts.results, "CreatorsPost", "creators", category, 2.5)

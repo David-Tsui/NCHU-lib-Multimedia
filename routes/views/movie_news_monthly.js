@@ -29,23 +29,25 @@ exports = module.exports = function (req, res) {
 			var date = new Date(latest_movie[DATE_FIELD]);
 			for(var i = 0; i < 10; i++){
 				locals.categories.push({
-					name: `${date.getFullYear()}-${date.getMonth() + 1}`
+					name: `${date.getFullYear()}年 ${date.getMonth() + 1}月`
 				});
-				if(date.getMonth() == 0)
+				if(date.getMonth() == 0) {
 					date.setFullYear(date.getFullYear() - 1, 11);
-				else
+				}	else {
 					date.setMonth(date.getMonth() - 1);
+				}
 			}
-			if (locals.filters.date)
+			if (locals.filters.date) {
 				date = new Date(locals.filters.date);
-			else
+			}	else {
 				date = new Date(latest_movie[DATE_FIELD]);
+			}
 			var year = date.getFullYear();
 			var month = date.getMonth();
 			locals.category = {
-				name: `${year}-${month + 1}`
+				name: `${year}年${month + 1}月`
 			};
-			
+
 			var where_between = {},
 				movie_paginated_query = Movie.paginate({
 					page: req.query.page || 1,
@@ -77,7 +79,7 @@ exports = module.exports = function (req, res) {
 			var results = yield {
 				// Load movies
 				movies: new Promise(function(resolve, reject){
-					movie_paginated_query.exec(function(err, ret) { 
+					movie_paginated_query.exec(function(err, ret) {
 						if (err) {
 							reject(err);
 						}	else {
@@ -90,7 +92,7 @@ exports = module.exports = function (req, res) {
 			locals.movies =	fix_keystone_pagination(results.movies, results.movies_vanilla_result.length, 16);
 		}).then(
 			function(){
-				callback(); 
+				callback();
 			},
 			function(e) {
 				console.error(e, e.stack); callback(e);

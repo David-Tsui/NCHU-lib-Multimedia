@@ -19,6 +19,7 @@ exports = module.exports = function (req, res) {
 		var q1 = Movie.model.find()
 			.where('state', 'published')
 			.sort('-inDate')
+			.limit(450)
 			.populate('author categories');
 
 		q1.exec(function (err, results) {

@@ -18,7 +18,7 @@ exports = module.exports = function (req, res) {
 		// 	.where({'state':'published'})
 		// 	.sort('-publishedDate')
 		// 	.populate('author categories');
-		
+
 		// q1.exec(function (err, results) {
 		// 	locals.news = results;
 		// 	next(err);

@@ -23,7 +23,7 @@ Movie.add({
 		extended: { type: Types.Html, wysiwyg: true, height: 500 },
 	},
 	// 地區
-	region_categories        : { 
+	region_categories        : {
 		type: Types.Relationship,
 		ref : 'MovieRegionCategory'
 	},
@@ -56,11 +56,6 @@ Movie.add({
 		type: Types.Relationship,
 		ref : 'MovieHotCategory',
 		many: true
-	},
-	// 新進影音
-	new_category             : {
-		type: Types.Relationship,
-		ref : 'MovieNewCategory'
 	}
 });
 

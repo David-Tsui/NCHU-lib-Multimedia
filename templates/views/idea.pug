@@ -9,7 +9,7 @@ block content
 			.four.wide.column.list-items-container
 				aside.admin-ui
 					if user
-						a(href='/keystone/idea-posts') 
+						a(href='/keystone/idea-posts')
 							button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.md.admin-ui-color= '修改文章'
 				header
 					h2.header= posts.title
@@ -18,4 +18,3 @@ block content
 			.twelve.wide.column.flipster-news-container
 				.flat-flipster
 					+news_slide(posts.results, "IdeaPost", "idea", category, 2.5)
-	
