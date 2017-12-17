@@ -1205,8 +1205,7 @@ if (typeof Object.create !== "function") {
 				} else {
 					$(ele)[0].src = $(ele).data("src");
 				}
-			})
-			
+			});
 			// if ($lazyImg.prop("tagName") === "DIV") {
 			// 	$lazyImg.css("background-image", "url(" + $lazyImg.data("src") + ")");
 			// 	isBackgroundImg = true;

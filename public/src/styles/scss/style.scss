@@ -1,11 +1,14 @@
-@import "bourbon";
 @import "special_transition";
 @import "navbar";
 @import "pagination";
 @import "search-bar";
 @import "keyframes";
 
-@include font-face("cwTeXHei", "//fonts.gstatic.com/ea/cwtexhei/v3/cwTeXHei-zhonly", normal, 400);
+@font-face {
+	font-family: "cwTeXHei";
+  src: url(https://fonts.gstatic.com/ea/cwtexhei/v3/cwTeXHei-zhonly);
+	font-weight: normal;
+}
 
 $navbar-height : 90px;
 $prepare-height: 100px;
@@ -184,7 +187,7 @@ button.mdl-color--primary {
 							left: 0;
 							box-shadow: 0 0 15px 1px aliceblue;
 							opacity: 0;
-							@include transition(all .25s ease-in);
+							transition: all .25s ease-in;
 						}
 						&:hover {
 							&:before {
@@ -195,7 +198,7 @@ button.mdl-color--primary {
 							width: 100%;
 							height: 230px;
 							z-index: 1000;
-						} 
+						}
 					}
 					time {
 						color: #fff;
@@ -329,7 +332,7 @@ button.mdl-color--primary {
 			border: 1px transparent solid;
 			border-radius: 50px;
 			box-sizing: border-box;
-			@include transition(all .4s ease-in-out);
+			transition: all .4s ease-in-out;
 			.content {
 				padding: 1em 1em 1em 1.5em;
 				text-align: justify;
@@ -343,13 +346,13 @@ button.mdl-color--primary {
 				background: rgb(230, 230, 230);
 				border: 1px transparent solid;
 				box-shadow: 0 0 35px 4px #fff, inset 0 0 5px 0 #eee;
-				@include transition(all .25s ease-in);
+				transition: all .25s ease-in;
 				& * {
 					color: #444;
 				}
 			}
 			&:not(.active):hover {
-				@include transition(all .2s ease-in);
+				transition: all .2s ease-in;
 				border: 1px rgba(255,255,255,.3) solid;
 				box-shadow: inset 0 0 5px 0 #eee;
 			}
@@ -474,7 +477,7 @@ table.mdl-data-table {
 			max-height: 170px;
 			overflow-y: auto;
 			padding-right: 1em;
-		} 
+		}
 	}
 	.mdl-card__actions.mdl-card--border {
 		display: flex;
@@ -503,12 +506,10 @@ table.mdl-data-table.detail-table {
 .ui.segment {
 	&.movie-intro {
 		border-radius: 0;
-		box-shadow: 
+		box-shadow:
 			0 2px 2px 0 rgba(0,0,0,.14),
 			0 3px 1px -2px rgba(0,0,0,.2),
 			0 1px 5px 0 rgba(0,0,0,.12);
-		
-		
 		button.btn-back {
 			position: absolute;
 			top     : 12px;

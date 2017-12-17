@@ -15,12 +15,10 @@ $(document).ready(function() {
 		// pauseOnHover: true,
 		style        : 'flat',
 		spacing      : -0.3,
-
 		click        : true,
 		keyboard     : true,
 		scrollwheel  : false,
 		touch        : true,
-
 		nav    : false,
 		buttons: 'custom',
 		buttonPrev: '<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--accent"><i class="material-icons">navigate_before</i></button>',
@@ -50,11 +48,11 @@ $(document).ready(function() {
 		duration: 150
 	});
 
-	
+
 	$('.owl-carousel').owlCarousel({
-		items            : 3, 
-		itemsDesktop     : [1600,2], 
-		itemsDesktopSmall: [980,2], 
+		items            : 3,
+		itemsDesktop     : [1600,2],
+		itemsDesktopSmall: [980,2],
 		itemsTablet      : [600,2],
 		lazyLoad         : true,
 		slideSpeed			 : 800,
@@ -73,7 +71,7 @@ $(document).ready(function() {
 		if (switch_to === undefined) return;
 		$('.item[data-slide="' + switch_to + '"]').addClass("active");
 		$flipster.flipster('jump', $('li[data-slide="' + switch_to + '"]'));
-	})
+	});
 
 	// control buttons of the news slide
 	$("#ctrl-slide-prev").click(function() { $flipster.flipster("prev"); });
@@ -81,7 +79,6 @@ $(document).ready(function() {
 
 	// svg button transition effect
 	$(".svg-item").mouseenter(function(e) {
-		// console.log("e.target: ", $(e.target));
 		var prev_siblings = $(e.target).prev();
 		if (prev_siblings.hasClass('svg-bg')) {
 			var svg = prev_siblings.find("svg");
@@ -101,9 +98,10 @@ $(document).ready(function() {
 	var $paginations = $('ul.pagination');
 	$paginations.each(function() {
 		var totalPages = $(this).data("pages");
+		var visiblePages = $(this).attr('visible-pages');
 		$(this).twbsPagination({
 			totalPages  : totalPages,
-			visiblePages: 7,
+			visiblePages: visiblePages,
 			href        : '?page={{number}}',
 			first       : '<i class="material-icons">first_page</i>',
 			prev        : '<i class="material-icons">chevron_left</i>',
@@ -111,7 +109,6 @@ $(document).ready(function() {
 			last        : '<i class="material-icons">last_page</i>'
 		});
 	});
-	
 });
 
 function changeSvgFill(id, cond) {
@@ -120,7 +117,7 @@ function changeSvgFill(id, cond) {
 		polygon.addClass("active");
 	}	else if (cond == "mouseleave") {
 		$("#" + id).find("polygon").removeClass("active");
-	} 
+	}
 }
 
 function setSectionHighlight(path) {
@@ -147,13 +144,13 @@ function detectIE() {
 
 	// IE 10
 	// ua = 'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Trident/6.0)';
-	
+
 	// IE 11
 	// ua = 'Mozilla/5.0 (Windows NT 6.3; Trident/7.0; rv:11.0) like Gecko';
-	
+
 	// Edge 12 (Spartan)
 	// ua = 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.71 Safari/537.36 Edge/12.0';
-	
+
 	// Edge 13
 	// ua = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2486.0 Safari/537.36 Edge/13.10586';
 

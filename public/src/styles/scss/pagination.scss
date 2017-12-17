@@ -1,9 +1,9 @@
 // pagination
 ul.pagination {
 	width          : 100%;
-	text-align     : center;
 	padding        : 1.5em;
 	list-style-type: none;
+	text-align     : center;
 	li {
 		display      : inline-block;
 		margin       : 0 4px;
@@ -38,19 +38,19 @@ ul.pagination {
 	}
 
 	&.small {
-		font-size: 10px;
 		li {
+			font-size: 18px;
 			&.page {
 				padding      : 0;
-				line-height  : 35px;
+				line-height  : 32px;
 				border-radius: 50%;
 			}
 			a {
-				width : 35px;
-				height: 35px;
+				width : 32px;
+				height: 32px;
 			}
 			i {
-				font-size: 35px;
+				font-size: 32px;
 			}
 		}
 	}

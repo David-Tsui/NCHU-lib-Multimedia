@@ -11,9 +11,9 @@ keystone.pre('routes', function (req, res, next) {
 			href: "/",
 			nested: false
 		},
-		{ 
+		{
 			label: "關於我們",
-			key: "about", 
+			key: "about",
 			href: "/about",
 			nested: true,
 			subnav: [
@@ -39,9 +39,9 @@ keystone.pre('routes', function (req, res, next) {
 				}
 			]
 		},
-		{ 
+		{
 			label: "愛創聯盟",
-			key: "creator", 
+			key: "creator",
 			href: "/creators",
 			nested: true,
 			subnav: [
@@ -62,9 +62,9 @@ keystone.pre('routes', function (req, res, next) {
 				}
 			]
 		},
-		{ 
+		{
 			label: "網路資源",
-			key: "resources", 
+			key: "resources",
 			href: "/resources",
 			nested: true,
 			subnav: [
@@ -90,9 +90,9 @@ keystone.pre('routes', function (req, res, next) {
 				}
 			]
 		},
-		{ 
+		{
 			label: "看電影",
-			key: "movies", 
+			key: "movies",
 			href: "/movies",
 			nested: true,
 			subnav: [
@@ -123,7 +123,7 @@ keystone.pre('routes', function (req, res, next) {
 				}
 			]
 		},
-		{ 
+		{
 			label: "玩創意",
 			key: "ideas",
 			href: "/ideas",
@@ -183,7 +183,7 @@ exports = module.exports = function (app) {
 	app.get('/movies/topic/:topic_category?', routes.views.movie_cate_generator(keystone.list('MovieTopicCategory'), 'topic_category', 'topic', '主題影展'));
 	app.get('/movies/assignment/:assignment_category?', routes.views.movie_cate_generator(keystone.list('MovieAssignmentCategory'), 'assignment_category', 'assignment', '教師指定教材'));
 	app.get('/movies/hot/:hot_category?', routes.views.movie_cate_generator(keystone.list('MovieHotCategory'), 'hot_category', 'hot', '熱門影音排行榜'));
-	
+
 	app.get('/', routes.views.index);
 	app.get('/:other', routes.views.index);
 }
