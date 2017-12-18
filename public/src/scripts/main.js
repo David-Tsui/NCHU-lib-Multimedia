@@ -11,7 +11,7 @@ $(document).ready(function() {
 		itemSelector : 'li',
 		start        : '0',
 		loop         : false,
-		// autoplay    : false,
+		autoplay     : 6000,
 		// pauseOnHover: true,
 		style        : 'flat',
 		spacing      : -0.3,
