@@ -1,4 +1,5 @@
 extends ../layouts/default
+include ../mixins/backButton
 
 block content
 	if !post
@@ -7,18 +8,16 @@ block content
 			p.lead 請檢查網址並再次嘗試...
 	else
 		.ui.grid.main-container
-			aside
-				a(href="../") 
-					button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-color--primary.button-back 回上頁
 			.row
 				.four.wide.column
 				.eight.wide.column
 					article.ui.segment
+						+backButton()
 						h2= post.name
-						if post.author
-							|  作者:  #{post.author.name.full}
-						p 發佈於 
-							if post.publishedDate 
+						//- if post.author
+						//- 	|  作者:  #{post.author.name.full}
+						p 發佈於
+							if post.publishedDate
 								time(datetime=post.publishedDate)=post._.publishedDate.format('YYYY年 M月D日')
 						hr
 						if post.image.exists

@@ -1,7 +1,13 @@
 extends ../../layouts/default
+include ../../mixins/backButton
 
 block content
-	.jumbotron.text-center
-		h1 404
-		p.lead Sorry, the page you requested can't be found.
-		a(href='/').btn.btn-default Back to home
+	.ui.grid.main-container
+		.row
+			.four.wide.column
+			.eight.wide.column
+				article.ui.segment.text-center
+					+backButton()
+					h2 查無此頁
+					h4 您要求的內容不存在
+			.four.wide.column

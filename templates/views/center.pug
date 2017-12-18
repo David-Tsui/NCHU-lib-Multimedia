@@ -1,4 +1,5 @@
 extends ../layouts/default
+include ../mixins/backButton
 
 block content
 	.ui.grid.main-container
@@ -7,17 +8,16 @@ block content
 			.ten.wide.column
 				each post in posts
 					article.ui.segment
+						+backButton()
 						h2= post.name
-						if post.author
-							|  作者:  #{post.author.name.full}
-						p 發佈於 
-							if post.publishedDate 
-								time(datetime=post.publishedDate)=post._.publishedDate.format('MM月 DD日, YYYY')
+						//- if post.author
+						//- 	|  作者:  #{post.author.name.full}
+						p 發佈於
+							if post.publishedDate
+								time(datetime=post.publishedDate)=post._.publishedDate.format('YYYY年 M月D日')
 						hr
 						figure.ui.image
 							img(src=post._.image.fit(1024,768))
 						section.content
 							p!= post.content.extended
 			.three.wide.column
-		
-						

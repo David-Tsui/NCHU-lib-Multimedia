@@ -1,0 +1,6 @@
+mixin backButton(link, text)
+	- link = link || '/'
+	- text = text || '回首頁'
+	aside.btn-back-container
+		a(href=link)
+			button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-color--primary.btn-back=text

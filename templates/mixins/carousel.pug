@@ -7,6 +7,7 @@ mixin carousel(movies)
 				each movie in movie_chunk
 					.movie-item(data-ks-editable=editable(user, { list: 'Movie', id: movie.id }))
 						if (movie.inDate)
+							//- .meta(datetime=movie._.inDate.format('MM D, YYYY'))= movie._.inDate.format('YYYY年M月D日')
 							a.ui.medium.image.movie-item(href="/movies/movie_blog/movie/" + movie.key target="_blank")
 								time(datetime=movie._.inDate.format('MM D, YYYY'))= movie._.inDate.format('YYYY年M月D日')
 								img(class="lazyOwl" data-src=movie._.image.fit(320,320))

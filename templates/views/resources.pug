@@ -8,10 +8,10 @@ block content
 				each post in posts
 					article.ui.segment
 						h2= post.name
-						if post.author
-							|  作者:  #{post.author.name.full}
-						p 發佈於 
-							if post.publishedDate 
+						//- if post.author
+						//- 	|  作者:  #{post.author.name.full}
+						p 發佈於
+							if post.publishedDate
 								time(datetime=post.publishedDate)=post._.publishedDate.format('YYYY-MM-DD')
 						hr
 						if post.image.exists

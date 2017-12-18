@@ -1,7 +1,7 @@
 mixin intro_slide(posts, listName)
 	ul
 		each post in posts
-			li(data-slide="#{post.name}")
+			li(data-slide=post.name)
 				article.ui.segment.intro-segment(data-ks-editable=editable(user, { list: listName, id: post.id }))
 					.content
 						.title

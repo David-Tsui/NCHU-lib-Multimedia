@@ -1,4 +1,5 @@
 extends ../layouts/default
+include ../mixins/backButton
 
 block content
 	if !movie
@@ -50,8 +51,7 @@ block content
 										.ui.label= movie.region_categories.name
 			.five.wide.column
 				section.ui.segment.movie-intro.mdl-shadow--2dp
-					a(href="/movies/movie_blog") 
-						button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-color--primary.btn-back 回影片總覽
+					+backButton('/movies/movie_blog', '回影片總覽')
 					h3!= movie.name
 					h4!= movie.english_name
 					h5!= '影片簡介'
