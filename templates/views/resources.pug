@@ -1,4 +1,5 @@
 extends ../layouts/default
+include ../mixins/backButton
 
 block content
 	.ui.grid.main-container
@@ -7,6 +8,7 @@ block content
 			.ten.wide.column
 				each post in posts
 					article.ui.segment
+						//- +backButton()
 						h2= post.name
 						//- if post.author
 						//- 	|  作者:  #{post.author.name.full}

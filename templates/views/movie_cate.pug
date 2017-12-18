@@ -10,7 +10,7 @@ block content
 			.ui.fourteen.wide.column
 				aside
 					if user
-						a(href='/keystone/movies?new') 
+						a(href='/keystone/movies?new')
 							button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.md.admin-ui-color= '新電影'
 				header
 					h2= category.name
@@ -36,9 +36,9 @@ block content
 				else
 					if category
 						//- h3 No movies in the category #{category.name}.
-						h5.prompt 此分類目前沒有影片
-						a(href='/movies/' + section) 
-							button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-color--primary= '回全部影片'
+						h5.prompt 此月份目前沒有新進影片，請點選其他分類。
+						//- a(href='/movies/' + section)
+						//- 	button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-color--primary= '回全部影片'
 					else
 						h5 There are no movies yet.
 		.ui.two.wide.column
@@ -47,7 +47,7 @@ block content
 					each category in categories
 						tr
 							td
-								a.td-a(href='/movies/' + section + '/' + category.name)
+								a.td-a(href='/movies/' + section + '/' + category.key)
 									span!= category.name
 				else
 					tr

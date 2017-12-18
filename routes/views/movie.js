@@ -31,16 +31,16 @@ exports = module.exports = function (req, res) {
 	});
 
 	// Load other movies
-	view.on('init', function (next) {
+	// view.on('init', function (next) {
 
-		var q = Movie.model.find().where('state', 'published').sort('-inDate').populate('author').limit('4');
+	// 	var q = Movie.model.find().where('state', 'published').sort('-inDate').populate('author').limit('4');
 
-		q.exec(function (err, results) {
-			locals.movies = results;
-			next(err);
-		});
+	// 	q.exec(function (err, results) {
+	// 		locals.movies = results;
+	// 		next(err);
+	// 	});
 
-	});
+	// });
 
 	// Render the view
 	view.render('movie');

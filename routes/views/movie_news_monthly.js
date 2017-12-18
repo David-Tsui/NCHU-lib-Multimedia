@@ -29,6 +29,7 @@ exports = module.exports = function (req, res) {
 			var date = new Date(latest_movie[DATE_FIELD]);
 			for(var i = 0; i < 10; i++){
 				locals.categories.push({
+					key: `${date.getFullYear()}-${date.getMonth() + 1}`,
 					name: `${date.getFullYear()}年 ${date.getMonth() + 1}月`
 				});
 				if(date.getMonth() == 0) {
