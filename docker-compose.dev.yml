@@ -33,6 +33,6 @@ services:
         command: bash -c "mongodump -h mongo --out backup/$$(date +%Y%m%d%H%M%S)"
     restore: 
         <<: *backup_restore
-        entrypoint: ["mongorestore", "-h", "mongo"]
+        entrypoint: ["mongorestore", "-h", "mongo", "--db", "nchu-lib"]
         command: []
 

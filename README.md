@@ -73,13 +73,13 @@ cd path/to/this/project
 docker-compose run backup
 ```
 
-the backup file will be stored at `./backup/2017...`
+the backup directory will be stored at `./backup/YYYYMMDDhhmmss/nchu-lib`
 
 ## Restore DB data
 
 ```
 cd path/to/this/project
-docker-compose run restore ./backup/...
+docker-compose run restore ./backup/YYYYMMDDhhmmss/nchu-lib
 ```
 
 ## Update / Rebuild the service
