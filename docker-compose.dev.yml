@@ -6,7 +6,7 @@ services:
             mongo:
                 condition: service_healthy
         ports:
-         - "3000:3000"
+         - "80:3000"
         environment:
             MONGO_URI: 'mongodb://mongo/nchu-lib'
         volumes:
@@ -20,11 +20,11 @@ services:
         entrypoint: []
         command: bash
     mongo:
-        image: mongo
+        image: mongo:3.2
         healthcheck:
             test: bash -c "echo 'db.stats().ok' | mongo localhost:27017/test --quiet"
     backup: &backup_restore
-        image: mongo
+        image: mongo:3.2
         depends_on:
          - mongo
         volumes:
